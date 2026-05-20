@@ -1,0 +1,38 @@
+[
+  {
+    "id": "enquiry-001",
+    "buyer": {
+      "fullName": "Marcus Tang",
+      "email": "marcus.t@example.com",
+      "phone": "+44 7000 000001",
+      "countryOfResidence": "United Kingdom"
+    },
+    "budgetRange": "USD 400k - 700k",
+    "targetCity": "Ho Chi Minh City",
+    "investmentGoal": "Rental income",
+    "timelineToBuy": "0 - 3 months",
+    "fundingSource": "Cash savings",
+    "needsRentalManagement": true,
+    "message": "Looking for a completed apartment with strong rental demand.",
+    "status": "Advisor assigned",
+    "propertyId": "thu-thiem-river-residence"
+  },
+  {
+    "id": "enquiry-002",
+    "buyer": {
+      "fullName": "Elaine Chan",
+      "email": "elaine.c@example.com",
+      "phone": "+852 9000 0002",
+      "countryOfResidence": "Hong Kong"
+    },
+    "budgetRange": "USD 200k - 400k",
+    "targetCity": "Hanoi",
+    "investmentGoal": "Lifestyle",
+    "timelineToBuy": "3 - 6 months",
+    "fundingSource": "Investment portfolio liquidation",
+    "needsRentalManagement": true,
+    "message": "Interested in West Lake lifestyle and stable expat tenants.",
+    "status": "Qualified",
+    "propertyId": "west-lake-diplomatic-suite"
+  }
+]

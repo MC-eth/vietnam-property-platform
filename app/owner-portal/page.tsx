@@ -1,18 +1,20 @@
 import { DashboardCard } from "@/components/dashboard-card";
+import { DealProgressTracker } from "@/components/deal-progress-tracker";
+import { DealSummaryCard } from "@/components/deal-summary-card";
+import { DocumentChecklist } from "@/components/document-checklist";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { InvestmentInsightPanel } from "@/components/investment-insight-panel";
+import { OwnerRentalDashboard } from "@/components/owner-rental-dashboard";
 import { PageHeading } from "@/components/page-heading";
+import { activeBuyerDeal, buyerDeals } from "@/data/deals";
+import { mockInvestmentInsights, rentalSummaries } from "@/data/rentals";
 
 const ownerMetrics = [
-  { title: "My properties", value: "2", detail: "Ho Chi Minh City and Hanoi assets" },
-  { title: "Monthly rent collected", value: "USD 3,420", detail: "Mock current month collection" },
-  { title: "Occupancy status", value: "96%", detail: "Portfolio occupancy placeholder" },
-  { title: "Maintenance requests", value: "3", detail: "Two open, one awaiting quote" },
-];
-
-const rentalRows = [
-  ["Thu Thiem River Residence", "USD 2,050", "Occupied", "Renewal in 42 days"],
-  ["West Lake Diplomatic Suite", "USD 1,370", "Occupied", "Routine inspection due"],
+  { title: "Active deals", value: "3", detail: "Across Ho Chi Minh City and Hanoi" },
+  { title: "Current stage", value: "Reservation", detail: "Active Thu Thiem deal" },
+  { title: "Documents pending", value: "4", detail: "SPA, transfer, legal, rental docs" },
+  { title: "Managed assets", value: "2", detail: "Rental reporting mockup after handover" },
 ];
 
 export default function OwnerPortalPage() {
@@ -22,9 +24,9 @@ export default function OwnerPortalPage() {
       <main>
         <section className="stone-surface px-5 py-14 sm:px-8 lg:py-20">
           <PageHeading
-            eyebrow="Rental management dashboard"
-            title="Owner reporting mockup for managed Vietnam assets."
-            description="No authentication or backend is connected yet. This shows the rental management layer the platform can grow into after purchase."
+            eyebrow="Buyer and owner operating dashboard"
+            title="Transparent cross-border deal progress from enquiry to rental setup."
+            description="Mock dashboard only. This shows how the platform can later connect buyer accounts, CRM stages, legal documents, agent updates, and rental management reporting."
           />
         </section>
         <section className="px-5 py-12 sm:px-8 lg:py-16">
@@ -35,38 +37,34 @@ export default function OwnerPortalPage() {
               ))}
             </div>
 
-            <div className="mt-8 grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
-              <article className="rounded-sm border border-[#e1dbd0] bg-white p-6 shadow-sm">
-                <h2 className="text-xl font-semibold text-[#16231d]">Performance summary</h2>
-                <div className="mt-6 grid gap-4 sm:grid-cols-3">
-                  {["Gross yield 5.2%", "Net income USD 2,860", "HKD equivalent 26,676"].map((item) => (
-                    <div className="rounded-sm bg-[#f3efe8] p-4 text-sm font-semibold text-[#16231d]" key={item}>
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </article>
-              <article className="rounded-sm border border-[#e1dbd0] bg-white p-6 shadow-sm">
-                <h2 className="text-xl font-semibold text-[#16231d]">Documents</h2>
-                <ul className="mt-5 grid gap-3 text-sm text-[#5b645f]">
-                  <li>Lease agreement placeholder</li>
-                  <li>Monthly owner statement placeholder</li>
-                  <li>Maintenance invoice placeholder</li>
-                </ul>
-              </article>
+            <div className="mt-8">
+              <DealSummaryCard deal={activeBuyerDeal} />
+            </div>
+
+            <div className="mt-8 grid gap-5 xl:grid-cols-[1.2fr_0.8fr]">
+              <DealProgressTracker deal={activeBuyerDeal} />
+              <DocumentChecklist documents={activeBuyerDeal.documents} />
+            </div>
+
+            <div className="mt-8 grid gap-5 xl:grid-cols-[1.1fr_0.9fr]">
+              <OwnerRentalDashboard rentals={rentalSummaries} />
+              <InvestmentInsightPanel insights={mockInvestmentInsights} />
             </div>
 
             <div className="mt-8 overflow-hidden rounded-sm border border-[#e1dbd0] bg-white shadow-sm">
               <div className="border-b border-[#e1dbd0] p-5">
                 <h2 className="text-xl font-semibold text-[#16231d]">
-                  Managed rental portfolio
+                  Buyer deal pipeline
                 </h2>
+                <p className="mt-2 text-sm text-[#6d746f]">
+                  Mock internal view of different buyer transaction statuses.
+                </p>
               </div>
               <div className="overflow-x-auto">
-                <table className="w-full min-w-[720px] border-collapse text-left text-sm">
+                <table className="w-full min-w-[840px] border-collapse text-left text-sm">
                   <thead className="bg-[#f3efe8] text-[#4f5a54]">
                     <tr>
-                      {["Property", "Monthly rent", "Occupancy", "Next action"].map((heading) => (
+                      {["Buyer", "Property", "Current stage", "Advisor", "Local agent", "Next action"].map((heading) => (
                         <th className="px-5 py-4 font-semibold" key={heading}>
                           {heading}
                         </th>
@@ -74,13 +72,16 @@ export default function OwnerPortalPage() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-[#eee8de]">
-                    {rentalRows.map((row) => (
-                      <tr key={row[0]}>
-                        {row.map((cell) => (
-                          <td className="px-5 py-4 text-[#5b645f]" key={cell}>
-                            {cell}
-                          </td>
-                        ))}
+                    {buyerDeals.map((deal) => (
+                      <tr key={deal.id}>
+                        <td className="px-5 py-4 font-semibold text-[#16231d]">
+                          {deal.buyerName}
+                        </td>
+                        <td className="px-5 py-4 text-[#5b645f]">{deal.propertyName}</td>
+                        <td className="px-5 py-4 text-[#123c2b]">{deal.currentStage}</td>
+                        <td className="px-5 py-4 text-[#5b645f]">{deal.assignedAdvisor}</td>
+                        <td className="px-5 py-4 text-[#5b645f]">{deal.assignedLocalAgent}</td>
+                        <td className="px-5 py-4 text-[#5b645f]">{deal.nextAction}</td>
                       </tr>
                     ))}
                   </tbody>

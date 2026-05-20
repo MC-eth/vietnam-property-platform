@@ -1,0 +1,29 @@
+[
+  {
+    "id": "agent-minh-tran",
+    "name": "Minh Tran",
+    "email": "minh.tran@example.vn",
+    "phone": "+84 900 000 101",
+    "markets": ["Ho Chi Minh City"],
+    "languages": ["Vietnamese", "English"],
+    "active": true
+  },
+  {
+    "id": "agent-linh-pham",
+    "name": "Linh Pham",
+    "email": "linh.pham@example.vn",
+    "phone": "+84 900 000 202",
+    "markets": ["Hanoi"],
+    "languages": ["Vietnamese", "English"],
+    "active": true
+  },
+  {
+    "id": "agent-quang-nguyen",
+    "name": "Quang Nguyen",
+    "email": "quang.nguyen@example.vn",
+    "phone": "+84 900 000 303",
+    "markets": ["Ho Chi Minh City"],
+    "languages": ["Vietnamese", "English", "Cantonese"],
+    "active": true
+  }
+]

@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { CURRENCIES } from "@/constants";
 
 const navItems = [
   { href: "/properties", label: "Properties" },
+  { href: "/how-it-works", label: "How It Works" },
   { href: "/services", label: "Services" },
   { href: "/learn", label: "Learn" },
   { href: "/enquiry", label: "Enquiry" },
@@ -34,12 +36,13 @@ export function Header() {
           <Toggle label="EN" active />
           <Toggle label="繁" />
           <span className="mx-1 h-6 w-px bg-[#e1dbd0]" />
-          <Toggle label="USD" active />
-          <Toggle label="HKD" />
+          {CURRENCIES.map((currency) => (
+            <Toggle active={currency === "USD"} key={currency} label={currency} />
+          ))}
         </div>
 
         <Link
-          className="inline-flex min-h-11 items-center rounded-sm bg-[#123c2b] px-4 text-sm font-semibold text-white transition hover:bg-[#0d2d20]"
+          className="inline-flex min-h-11 items-center rounded-sm bg-[#ffdb4d] px-4 text-sm font-semibold text-[#17231d] transition hover:bg-[#f1c936]"
           href="/enquiry"
         >
           Advisor

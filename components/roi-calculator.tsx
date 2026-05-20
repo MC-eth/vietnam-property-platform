@@ -1,30 +1,16 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { HKD_PER_USD } from "@/constants";
+import { useRoiCalculator } from "@/hooks/use-roi-calculator";
+import { formatHkd, formatPercent, formatUsd } from "@/lib/formatters";
 import type { Property } from "@/types/property";
 
 type RoiCalculatorProps = {
   property: Property;
 };
 
-const hkdRate = 7.8;
-
 export function RoiCalculator({ property }: RoiCalculatorProps) {
-  const [purchasePrice, setPurchasePrice] = useState(property.priceUsd);
-  const [monthlyRent, setMonthlyRent] = useState(property.roiDefaults.rentMonthlyUsd);
-  const [monthlyCosts, setMonthlyCosts] = useState(property.roiDefaults.serviceChargeMonthlyUsd);
-  const [furnishing, setFurnishing] = useState(property.roiDefaults.furnishingUsd);
-
-  const result = useMemo(() => {
-    const annualRent = monthlyRent * 12;
-    const annualCosts = monthlyCosts * 12;
-    const netIncome = annualRent - annualCosts;
-    const totalCapital = purchasePrice + furnishing;
-    const grossYield = purchasePrice > 0 ? (annualRent / purchasePrice) * 100 : 0;
-    const netYield = totalCapital > 0 ? (netIncome / totalCapital) * 100 : 0;
-
-    return { annualRent, netIncome, totalCapital, grossYield, netYield };
-  }, [purchasePrice, monthlyRent, monthlyCosts, furnishing]);
+  const { fields, setters, result } = useRoiCalculator(property);
 
   return (
     <section className="rounded-sm border border-[#e1dbd0] bg-white p-6 shadow-sm">
@@ -42,22 +28,38 @@ export function RoiCalculator({ property }: RoiCalculatorProps) {
           </p>
         </div>
         <div className="rounded-sm bg-[#123c2b] px-4 py-3 text-sm font-semibold text-white">
-          HKD equivalent: {formatHkd(result.totalCapital * hkdRate)}
+          HKD equivalent: {formatHkd(result.totalCapitalUsd * HKD_PER_USD)}
         </div>
       </div>
 
       <div className="mt-6 grid gap-4 md:grid-cols-2">
-        <NumberField label="Purchase price (USD)" value={purchasePrice} onChange={setPurchasePrice} />
-        <NumberField label="Expected monthly rent (USD)" value={monthlyRent} onChange={setMonthlyRent} />
-        <NumberField label="Monthly costs (USD)" value={monthlyCosts} onChange={setMonthlyCosts} />
-        <NumberField label="Furnishing budget (USD)" value={furnishing} onChange={setFurnishing} />
+        <NumberField
+          label="Purchase price (USD)"
+          value={fields.purchasePrice}
+          onChange={setters.setPurchasePrice}
+        />
+        <NumberField
+          label="Expected monthly rent (USD)"
+          value={fields.monthlyRent}
+          onChange={setters.setMonthlyRent}
+        />
+        <NumberField
+          label="Monthly costs (USD)"
+          value={fields.monthlyCosts}
+          onChange={setters.setMonthlyCosts}
+        />
+        <NumberField
+          label="Furnishing budget (USD)"
+          value={fields.furnishing}
+          onChange={setters.setFurnishing}
+        />
       </div>
 
       <div className="mt-6 grid gap-4 md:grid-cols-4">
-        <Result label="Gross yield" value={`${result.grossYield.toFixed(2)}%`} />
-        <Result label="Net yield" value={`${result.netYield.toFixed(2)}%`} />
-        <Result label="Annual rent" value={formatUsd(result.annualRent)} />
-        <Result label="Net income" value={formatUsd(result.netIncome)} />
+        <Result label="Gross yield" value={formatPercent(result.grossYieldPercent)} />
+        <Result label="Net yield" value={formatPercent(result.netYieldPercent)} />
+        <Result label="Annual rent" value={formatUsd(result.annualRentUsd)} />
+        <Result label="Net income" value={formatUsd(result.netIncomeUsd)} />
       </div>
     </section>
   );
@@ -95,20 +97,4 @@ function Result({ label, value }: { label: string; value: string }) {
       <p className="mt-2 text-xl font-semibold text-[#16231d]">{value}</p>
     </div>
   );
-}
-
-function formatUsd(value: number) {
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 0,
-  }).format(value);
-}
-
-function formatHkd(value: number) {
-  return new Intl.NumberFormat("en-HK", {
-    style: "currency",
-    currency: "HKD",
-    maximumFractionDigits: 0,
-  }).format(value);
 }

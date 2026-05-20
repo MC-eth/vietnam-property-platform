@@ -1,0 +1,48 @@
+[
+  {
+    "id": "user-marcus-t",
+    "role": "buyer",
+    "fullName": "Marcus Tang",
+    "email": "marcus.t@example.com",
+    "phone": "+44 7000 000001",
+    "countryOfResidence": "United Kingdom",
+    "preferredLanguage": "English",
+    "preferredCurrency": "USD",
+    "buyerProfile": {
+      "buyerType": "Yield-focused investor",
+      "targetCity": "Ho Chi Minh City",
+      "investmentGoal": "Rental income",
+      "budgetRange": "USD 400k - 700k"
+    },
+    "savedPropertyIds": ["thu-thiem-river-residence", "district-seven-family-residence"]
+  },
+  {
+    "id": "user-elaine-c",
+    "role": "buyer",
+    "fullName": "Elaine Chan",
+    "email": "elaine.c@example.com",
+    "phone": "+852 9000 0002",
+    "countryOfResidence": "Hong Kong",
+    "preferredLanguage": "Traditional Chinese",
+    "preferredCurrency": "HKD",
+    "buyerProfile": {
+      "buyerType": "Lifestyle buyer",
+      "targetCity": "Hanoi",
+      "investmentGoal": "Lifestyle",
+      "budgetRange": "USD 200k - 400k"
+    },
+    "savedPropertyIds": ["west-lake-diplomatic-suite"]
+  },
+  {
+    "id": "user-annie-leung",
+    "role": "advisor",
+    "fullName": "Annie Leung",
+    "email": "annie.leung@example.com",
+    "phone": "+852 9000 0101",
+    "countryOfResidence": "Hong Kong",
+    "preferredLanguage": "English",
+    "preferredCurrency": "USD",
+    "buyerProfile": null,
+    "savedPropertyIds": []
+  }
+]

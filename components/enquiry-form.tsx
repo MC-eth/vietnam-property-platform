@@ -1,3 +1,12 @@
+import {
+  BUDGET_RANGES,
+  BUYER_TIMELINES,
+  CITIES,
+  FUNDING_SOURCES,
+  INVESTMENT_GOALS,
+  RENTAL_MANAGEMENT_OPTIONS,
+} from "@/constants";
+
 export function EnquiryForm() {
   return (
     <form className="grid gap-5 rounded-sm border border-[#e1dbd0] bg-white p-5 shadow-sm sm:p-8">
@@ -10,24 +19,33 @@ export function EnquiryForm() {
         <Select
           label="Budget range"
           name="budget"
-          options={["Under USD 200k", "USD 200k - 400k", "USD 400k - 700k", "USD 700k+"]}
+          options={BUDGET_RANGES}
         />
         <Select
           label="Target city"
           name="city"
-          options={["Ho Chi Minh City", "Hanoi", "Both cities"]}
+          options={[...CITIES, "Both cities"]}
         />
         <Select
           label="Investment goal"
           name="goal"
-          options={["Rental income", "Capital growth", "Future relocation", "Lifestyle"]}
+          options={INVESTMENT_GOALS}
         />
         <Select
           label="Timeline to buy"
           name="timeline"
-          options={["0 - 3 months", "3 - 6 months", "6 - 12 months", "Exploring only"]}
+          options={BUYER_TIMELINES}
         />
-        <Select label="Need rental management?" name="rentalManagement" options={["Yes", "No", "Not sure"]} />
+        <Select
+          label="Funding source"
+          name="fundingSource"
+          options={FUNDING_SOURCES}
+        />
+        <Select
+          label="Need rental management?"
+          name="rentalManagement"
+          options={RENTAL_MANAGEMENT_OPTIONS}
+        />
       </div>
       <label className="grid gap-2 text-sm font-semibold text-[#4f5a54]">
         Message
@@ -75,7 +93,7 @@ function Select({
 }: {
   label: string;
   name: string;
-  options: string[];
+  options: readonly string[];
 }) {
   return (
     <label className="grid gap-2 text-sm font-semibold text-[#4f5a54]">

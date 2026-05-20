@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { WhatsAppButton } from "@/components/whatsapp-button";
-import "./globals.css";
+import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "VietInvest Property | Vietnam Property Investment",

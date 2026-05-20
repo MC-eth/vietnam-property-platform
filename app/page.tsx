@@ -1,23 +1,18 @@
 import Link from "next/link";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { InvestorJourney } from "@/components/investor-journey";
 import { LearnCard } from "@/components/learn-card";
 import { PropertyCard } from "@/components/property-card";
 import { ServiceCard } from "@/components/service-card";
+import { buyerGoals } from "@/data/buyer-goals";
 import { learnArticles } from "@/data/learn";
-import { featuredProperties } from "@/data/properties";
+import { getFeaturedProperties } from "@/services/propertyService";
 
 const whyVietnam = [
-  "Young demographics and expanding middle-class housing demand",
-  "Deep international tenant pools in Ho Chi Minh City and Hanoi",
-  "Infrastructure-led growth across major urban districts",
-];
-
-const howItWorks = [
-  "Tell us your budget, city preference, and investment goal",
-  "Review curated properties with foreign buyer notes",
-  "Connect with a matched local agent and legal coordinator",
-  "Prepare for rental setup and owner reporting after purchase",
+  "Urban income growth",
+  "Deep tenant pools",
+  "Infrastructure upside",
 ];
 
 const services = [
@@ -55,91 +50,135 @@ const faqs = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const featuredProperties = await getFeaturedProperties();
+
   return (
     <>
       <Header />
       <main>
-        <section className="stone-surface px-5 py-16 sm:px-8 lg:py-24">
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <section
+          className="relative overflow-hidden bg-cover bg-center px-5 py-20 sm:px-8 lg:py-28"
+          style={{ backgroundImage: "url('/images/generated/vietnam-investment-hero.jpg')" }}
+        >
+          <div className="absolute inset-0 bg-[#0f1f18]/72" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0f1f18] via-[#0f1f18]/78 to-[#0f1f18]/24" />
+          <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#a47d32]">
-                International Vietnam property investment
+              <p className="inline-flex rounded-sm bg-[#ffdb4d] px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#17231d]">
+                Vietnam property investment
               </p>
-              <h1 className="mt-5 max-w-4xl text-5xl font-semibold leading-tight text-[#16231d] sm:text-6xl">
-                Invest in Vietnam Property with Confidence
+              <h1 className="mt-6 max-w-4xl text-5xl font-semibold leading-tight text-white sm:text-6xl">
+                Invest in Vietnam with clarity.
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#5b645f]">
-                Curated, yield-led property opportunities in Ho Chi Minh City
-                and Hanoi for Hong Kong and international investors
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-white/82">
+                Curated HCMC and Hanoi opportunities for international buyers.
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link
-                  className="inline-flex min-h-12 items-center justify-center rounded-sm bg-[#123c2b] px-6 text-sm font-semibold text-white transition hover:bg-[#0d2d20]"
-                  href="/properties"
-                >
-                  Browse Properties
-                </Link>
-                <Link
-                  className="inline-flex min-h-12 items-center justify-center rounded-sm border border-[#123c2b] px-6 text-sm font-semibold text-[#123c2b] transition hover:bg-[#123c2b] hover:text-white"
-                  href="/enquiry"
-                >
-                  Speak to Advisor
-                </Link>
-              </div>
-            </div>
-            <div className="rounded-sm border border-[#e1dbd0] bg-white p-5 shadow-xl">
-              <div className="min-h-80 rounded-sm bg-[linear-gradient(135deg,#d9d1c3,#f8f4ed_45%,#123c2b)] p-6">
-                <div className="flex h-full min-h-72 flex-col justify-between border border-white/60 p-5">
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#123c2b]">
-                    HCMC · Hanoi
-                  </p>
-                  <div>
-                    <p className="text-4xl font-semibold text-[#16231d]">6</p>
-                    <p className="mt-2 text-sm text-[#4f5a54]">
-                      Verified project profiles with yield, risk, and ownership notes
+              <div className="mt-8 rounded-sm border border-white/18 bg-white p-3 shadow-2xl">
+                <div className="grid gap-3 md:grid-cols-[1fr_1fr_auto]">
+                  <div className="rounded-sm border border-[#e1dbd0] px-4 py-3">
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6d746f]">
+                      City
+                    </p>
+                    <p className="mt-1 text-sm font-semibold text-[#16231d]">
+                      HCMC or Hanoi
                     </p>
                   </div>
+                  <div className="rounded-sm border border-[#e1dbd0] px-4 py-3">
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6d746f]">
+                      Strategy
+                    </p>
+                    <p className="mt-1 text-sm font-semibold text-[#16231d]">
+                      Yield, growth, or remote ownership
+                    </p>
+                  </div>
+                  <Link
+                    className="inline-flex min-h-14 items-center justify-center rounded-sm bg-[#123c2b] px-6 text-sm font-semibold text-white transition hover:bg-[#0d2d20]"
+                    href="/properties"
+                  >
+                    Browse Properties
+                  </Link>
                 </div>
+              </div>
+              <Link
+                className="mt-5 inline-flex text-sm font-semibold text-[#ffdb4d] transition hover:text-white"
+                href="/enquiry"
+              >
+                Speak to Advisor
+              </Link>
+            </div>
+            <div className="rounded-sm border border-white/20 bg-white/92 p-6 shadow-2xl backdrop-blur">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#6b4e18]">
+                HCMC · Hanoi
+              </p>
+              <p className="mt-6 text-5xl font-semibold text-[#16231d]">6</p>
+              <p className="mt-3 text-sm leading-7 text-[#4f5a54]">
+                Investment-screened projects with yield, risk, ownership, and
+                rental management context.
+              </p>
+              <div className="mt-6 h-2 overflow-hidden rounded-full bg-[#efe7d8]">
+                <div className="h-full w-3/4 rounded-full bg-[#ffdb4d]" />
               </div>
             </div>
           </div>
         </section>
 
-        <section className="px-5 py-16 sm:px-8 lg:py-24">
+        <section className="px-5 py-20 sm:px-8 lg:py-28">
           <div className="mx-auto max-w-7xl">
             <SectionTitle
               eyebrow="Why Vietnam"
-              title="Urban growth, rental demand, and relative value in one market."
+              title="A focused market thesis."
             />
             <div className="mt-10 grid gap-4 md:grid-cols-3">
               {whyVietnam.map((item) => (
-                <article className="rounded-sm border border-[#e1dbd0] bg-white p-6 shadow-sm" key={item}>
-                  <p className="text-base leading-7 text-[#4f5a54]">{item}</p>
+                <article className="rounded-sm border border-[#e1dbd0] bg-white p-8 shadow-sm" key={item}>
+                  <p className="text-xl font-semibold leading-7 text-[#16231d]">{item}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="bg-[#f3efe8] px-5 py-16 sm:px-8 lg:py-24">
-          <div className="mx-auto max-w-7xl">
-            <SectionTitle eyebrow="How It Works" title="A simple buyer path built for overseas investors." />
-            <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-              {howItWorks.map((step, index) => (
-                <article className="rounded-sm border border-[#e1dbd0] bg-white p-6 shadow-sm" key={step}>
-                  <p className="font-mono text-sm text-[#a47d32]">0{index + 1}</p>
-                  <p className="mt-6 text-sm leading-7 text-[#4f5a54]">{step}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="px-5 py-16 sm:px-8 lg:py-24">
+        <section className="bg-[#f3efe8] px-5 py-20 sm:px-8 lg:py-28">
           <div className="mx-auto max-w-7xl">
             <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-            <SectionTitle eyebrow="Featured Properties" title="Investment-led opportunities, not generic listings." />
+              <SectionTitle
+                eyebrow="Start with your investment goal"
+                title="Choose your buyer path."
+              />
+              <p className="max-w-md text-sm leading-7 text-[#5b645f]">
+                Open a pre-filtered view with matched districts and assets.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+              {buyerGoals.map((goal) => (
+                <Link
+                  className="group rounded-sm border border-[#e1dbd0] bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-[#123c2b] hover:shadow-xl"
+                  href={`/properties?goal=${goal.slug}`}
+                  key={goal.slug}
+                >
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#a47d32]">
+                    Buyer path
+                  </p>
+                  <h2 className="mt-3 text-xl font-semibold leading-tight text-[#16231d]">
+                    {goal.title}
+                  </h2>
+                  <p className="mt-4 text-sm leading-6 text-[#5b645f]">{goal.summary}</p>
+                  <span className="mt-5 inline-flex text-sm font-semibold text-[#123c2b]">
+                    View recommendations
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <InvestorJourney />
+
+        <section className="bg-[#f3efe8] px-5 py-20 sm:px-8 lg:py-28">
+          <div className="mx-auto max-w-7xl">
+            <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+              <SectionTitle eyebrow="Featured properties" title="Selected investment cases." />
               <Link
                 className="inline-flex min-h-11 w-fit items-center rounded-sm border border-[#123c2b] px-5 text-sm font-semibold text-[#123c2b] transition hover:bg-[#123c2b] hover:text-white"
                 href="/properties"
@@ -155,9 +194,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-[#f3efe8] px-5 py-16 sm:px-8 lg:py-24">
+        <section className="px-5 py-20 sm:px-8 lg:py-28">
           <div className="mx-auto max-w-7xl">
-            <SectionTitle eyebrow="Services" title="Front-end structure for the core advisory workflow." />
+            <SectionTitle eyebrow="Services" title="Advisory support across the transaction." />
             <div className="mt-10 grid gap-5 md:grid-cols-3">
               {services.map((service) => (
                 <ServiceCard {...service} key={service.title} />
@@ -166,12 +205,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="px-5 py-16 sm:px-8 lg:py-24">
+        <section className="bg-[#f3efe8] px-5 py-20 sm:px-8 lg:py-28">
           <div className="mx-auto max-w-7xl">
             <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
               <SectionTitle
                 eyebrow="Learn"
-                title="Education for foreign investors entering Vietnam."
+                title="Investor education."
               />
               <Link
                 className="inline-flex min-h-11 w-fit items-center rounded-sm border border-[#123c2b] px-5 text-sm font-semibold text-[#123c2b] transition hover:bg-[#123c2b] hover:text-white"
@@ -188,9 +227,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-[#f3efe8] px-5 py-16 sm:px-8 lg:py-24">
+        <section className="px-5 py-20 sm:px-8 lg:py-28">
           <div className="mx-auto max-w-4xl">
-            <SectionTitle eyebrow="FAQ" title="Common first questions for international buyers." />
+            <SectionTitle eyebrow="FAQ" title="Common questions." />
             <div className="mt-10 divide-y divide-[#e1dbd0] rounded-sm border border-[#e1dbd0] bg-white">
               {faqs.map((faq) => (
                 <article className="p-6" key={faq.question}>

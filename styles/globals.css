@@ -32,12 +32,12 @@ select {
 }
 
 ::selection {
-  background: #143b2c;
-  color: #fffaf1;
+  background: #ffdb4d;
+  color: #17231d;
 }
 
 .stone-surface {
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(244, 239, 230, 0.78)),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 219, 77, 0.12)),
     repeating-linear-gradient(90deg, rgba(68, 58, 47, 0.035) 0, rgba(68, 58, 47, 0.035) 1px, transparent 1px, transparent 8px);
 }

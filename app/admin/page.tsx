@@ -2,22 +2,33 @@ import { DashboardCard } from "@/components/dashboard-card";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { PageHeading } from "@/components/page-heading";
+import { getAvailableAgents } from "@/services/agentService";
+import { getEnquiries } from "@/services/enquiryService";
+import { getProperties } from "@/services/propertyService";
+import { getUsers } from "@/services/userService";
+import type { Agent } from "@/types/agent";
+import type { City } from "@/types/property";
 
-const adminMetrics = [
-  { title: "New enquiries", value: "18", detail: "Mock buyer leads this week" },
-  { title: "Buyer status", value: "7 active", detail: "Qualified buyers in advisory flow" },
-  { title: "Property listings", value: "6", detail: "Local mock listings available" },
-  { title: "Agent assigned", value: "83%", detail: "Enquiries with matched agent" },
-];
+export default async function AdminPage() {
+  const [agents, enquiries, properties, users] = await Promise.all([
+    getAvailableAgents(),
+    getEnquiries(),
+    getProperties(),
+    getUsers(),
+  ]);
 
-const deals = [
-  ["Sarah L.", "Hong Kong", "Ho Chi Minh City", "Minh Tran", "Shortlisting"],
-  ["David C.", "Singapore", "Hanoi", "Lan Nguyen", "Legal review"],
-  ["Amelia W.", "Australia", "Ho Chi Minh City", "Quang Le", "Reservation"],
-  ["Marcus T.", "United Kingdom", "Hanoi", "TBD", "New enquiry"],
-];
+  const buyerUsers = users.filter((user) => user.role === "buyer");
+  const assignedEnquiries = enquiries.filter((enquiry) => enquiry.status === "Advisor assigned");
+  const assignmentRate =
+    enquiries.length > 0 ? Math.round((assignedEnquiries.length / enquiries.length) * 100) : 0;
 
-export default function AdminPage() {
+  const adminMetrics = [
+    { title: "New enquiries", value: String(enquiries.length), detail: "JSON mock buyer leads" },
+    { title: "Buyer profiles", value: String(buyerUsers.length), detail: "Mock user profiles" },
+    { title: "Property listings", value: String(properties.length), detail: "JSON mock listings" },
+    { title: "Agent assigned", value: `${assignmentRate}%`, detail: `${agents.length} active local agents` },
+  ];
+
   return (
     <>
       <Header />
@@ -53,13 +64,23 @@ export default function AdminPage() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-[#eee8de]">
-                    {deals.map((deal) => (
-                      <tr key={deal.join("-")}>
-                        {deal.map((cell) => (
-                          <td className="px-5 py-4 text-[#5b645f]" key={cell}>
-                            {cell}
-                          </td>
-                        ))}
+                    {enquiries.map((enquiry) => (
+                      <tr key={enquiry.id}>
+                        <td className="px-5 py-4 text-[#5b645f]">
+                          {enquiry.buyer.fullName}
+                        </td>
+                        <td className="px-5 py-4 text-[#5b645f]">
+                          {enquiry.buyer.countryOfResidence}
+                        </td>
+                        <td className="px-5 py-4 text-[#5b645f]">
+                          {enquiry.targetCity}
+                        </td>
+                        <td className="px-5 py-4 text-[#5b645f]">
+                          {getAssignedAgentName(enquiry.targetCity, agents)}
+                        </td>
+                        <td className="px-5 py-4 text-[#5b645f]">
+                          {enquiry.status}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -72,4 +93,12 @@ export default function AdminPage() {
       <Footer />
     </>
   );
+}
+
+function getAssignedAgentName(targetCity: City | "Both cities", agents: Agent[]) {
+  if (targetCity === "Both cities") {
+    return "Advisor review";
+  }
+
+  return agents.find((agent) => agent.markets.includes(targetCity))?.name ?? "TBD";
 }

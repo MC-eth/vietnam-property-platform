@@ -51,28 +51,62 @@ app/
   learn/                   Education section for investors
 
 components/
-  Header.tsx               Site navigation and toggles
-  Footer.tsx               Responsive footer
-  PropertyCard.tsx         Reusable property card
-  PropertyFilter.tsx       Listing filter UI
-  EnquiryForm.tsx          Buyer enquiry form
-  ServiceCard.tsx          Reusable service card
-  DashboardCard.tsx        Reusable dashboard metric card
-  RoiCalculator.tsx        Front-end ROI calculator
-  DealProgressTracker.tsx  Buyer journey progress mockup
-  VerifiedProjectBadge.tsx Project verification badge
-  WhatsAppButton.tsx       Floating WhatsApp CTA
+  header.tsx               Site navigation and toggles
+  footer.tsx               Responsive footer
+  property-card.tsx        Reusable property card
+  property-filter.tsx      Listing filter UI
+  enquiry-form.tsx         Buyer enquiry form
+  service-card.tsx         Reusable service card
+  dashboard-card.tsx       Reusable dashboard metric card
+  roi-calculator.tsx       Front-end ROI calculator UI
+  deal-progress-tracker.tsx Buyer journey progress mockup
+  verified-project-badge.tsx Project verification badge
+  whatsapp-button.tsx      Floating WhatsApp CTA
 
 data/
-  properties.ts            Local mock property data
+  properties.ts            JSON-backed property export with computed score
+  mock/                    JSON mock collections for MVP database simulation
   home.ts                  Homepage mock content
   learn.ts                 Education article mock content
 
 types/
   property.ts              Property data types
-```
+  buyer.ts                 Buyer profile types
+  user.ts                  User profile and role types
+  enquiry.ts               Buyer enquiry types
+  agent.ts                 Local agent types
+  rental.ts                Rental management summary types
+  currency.ts              Currency code types
 
-Note: File names in the current codebase may use kebab-case, for example `property-card.tsx`, while the structure above describes each component's responsibility.
+constants/
+  cities.ts                City and district options
+  buyers.ts                Buyer types, goals, timelines, and budgets
+  currencies.ts            Currency options and MVP FX assumptions
+  property.ts              Risk ratings, statuses, and verification levels
+
+lib/
+  db/mongodb.ts            Commented MongoDB connection placeholder
+  repositories/            JSON-backed mock repository layer
+  investment-score.ts      Property investment scoring model
+  property-metrics.ts      Listing sorting and filtering metrics
+  roi.ts                   ROI and yield calculations
+  formatters.ts            Currency and percent formatting helpers
+
+services/
+  propertyService.ts       Server-side property data access layer
+  enquiryService.ts        Server-side enquiry data access layer
+  agentService.ts          Server-side agent matching data access layer
+  userService.ts           Server-side user profile data access layer
+
+hooks/
+  use-roi-calculator.ts    Reusable ROI calculator state and derived values
+
+utils/
+  collections.ts           Small shared utility helpers
+
+styles/
+  globals.css              Tailwind import and global styling
+```
 
 ## Run Locally
 
@@ -120,6 +154,7 @@ Included in the current scope:
 
 - Public marketing and discovery pages
 - Mock property inventory
+- JSON-backed user profile, agent, enquiry, and property mock collections
 - Mock investment metrics
 - Mock buyer progress tracker
 - Mock owner portal dashboard
@@ -132,6 +167,7 @@ Included in the current scope:
 Not included yet:
 
 - Real backend or API
+- Active MongoDB connection
 - User authentication
 - CRM integration
 - Live property database
@@ -159,4 +195,3 @@ Not included yet:
 ## Disclaimer
 
 This project is currently an MVP using mock property data for demonstration and product development purposes. Property prices, rental yields, risk ratings, ownership eligibility, payment plans, and project verification labels are sample data only and should not be treated as investment advice or verified market information.
-
