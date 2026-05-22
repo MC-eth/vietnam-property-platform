@@ -1,5 +1,6 @@
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { T, TD } from "@/components/localized-text";
 import { PageHeading } from "@/components/page-heading";
 import { ServiceCard } from "@/components/service-card";
 
@@ -49,9 +50,9 @@ export default function ServicesPage() {
       <main>
         <section className="stone-surface px-5 py-14 sm:px-8 lg:py-20">
           <PageHeading
-            eyebrow="Services"
-            title="A premium advisory framework for foreign buyers."
-            description="The MVP separates the major service lines so they can later connect to agents, legal partners, FX providers, and rental managers."
+            eyebrow={<T k="navigationServices" />}
+            title={<TD value="A premium advisory framework for foreign buyers." />}
+            description={<TD value="The MVP separates the major service lines so they can later connect to agents, legal partners, FX providers, and rental managers." />}
           />
         </section>
         <section className="px-5 py-12 sm:px-8 lg:py-16">

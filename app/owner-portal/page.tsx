@@ -5,6 +5,7 @@ import { DocumentChecklist } from "@/components/document-checklist";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { InvestmentInsightPanel } from "@/components/investment-insight-panel";
+import { TD } from "@/components/localized-text";
 import { OwnerRentalDashboard } from "@/components/owner-rental-dashboard";
 import { PageHeading } from "@/components/page-heading";
 import { activeBuyerDeal, buyerDeals } from "@/data/deals";
@@ -24,9 +25,9 @@ export default function OwnerPortalPage() {
       <main>
         <section className="stone-surface px-5 py-14 sm:px-8 lg:py-20">
           <PageHeading
-            eyebrow="Buyer and owner operating dashboard"
-            title="Transparent cross-border deal progress from enquiry to rental setup."
-            description="Mock dashboard only. This shows how the platform can later connect buyer accounts, CRM stages, legal documents, agent updates, and rental management reporting."
+            eyebrow={<TD value="Buyer and owner operating dashboard" />}
+            title={<TD value="Transparent cross-border deal progress from enquiry to rental setup." />}
+            description={<TD value="Mock dashboard only. This shows how the platform can later connect buyer accounts, CRM stages, legal documents, agent updates, and rental management reporting." />}
           />
         </section>
         <section className="px-5 py-12 sm:px-8 lg:py-16">
@@ -51,37 +52,37 @@ export default function OwnerPortalPage() {
               <InvestmentInsightPanel insights={mockInvestmentInsights} />
             </div>
 
-            <div className="mt-8 overflow-hidden rounded-sm border border-[#e1dbd0] bg-white shadow-sm">
-              <div className="border-b border-[#e1dbd0] p-5">
-                <h2 className="text-xl font-semibold text-[#16231d]">
-                  Buyer deal pipeline
+            <div className="mt-8 overflow-hidden rounded-sm border border-[#ECE7DA] bg-white shadow-sm">
+              <div className="border-b border-[#ECE7DA] p-5">
+                <h2 className="text-xl font-semibold text-[#1F2937]">
+                  <TD value="Buyer deal pipeline" />
                 </h2>
-                <p className="mt-2 text-sm text-[#6d746f]">
-                  Mock internal view of different buyer transaction statuses.
+                <p className="mt-2 text-sm text-[#6B7280]">
+                  <TD value="Mock internal view of different buyer transaction statuses." />
                 </p>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[840px] border-collapse text-left text-sm">
-                  <thead className="bg-[#f3efe8] text-[#4f5a54]">
+                  <thead className="bg-[#FFFDF8] text-[#6B7280]">
                     <tr>
                       {["Buyer", "Property", "Current stage", "Advisor", "Local agent", "Next action"].map((heading) => (
                         <th className="px-5 py-4 font-semibold" key={heading}>
-                          {heading}
+                          <TD value={heading} />
                         </th>
                       ))}
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#eee8de]">
+                  <tbody className="divide-y divide-[#ECE7DA]">
                     {buyerDeals.map((deal) => (
                       <tr key={deal.id}>
-                        <td className="px-5 py-4 font-semibold text-[#16231d]">
+                        <td className="px-5 py-4 font-semibold text-[#1F2937]">
                           {deal.buyerName}
                         </td>
-                        <td className="px-5 py-4 text-[#5b645f]">{deal.propertyName}</td>
-                        <td className="px-5 py-4 text-[#123c2b]">{deal.currentStage}</td>
-                        <td className="px-5 py-4 text-[#5b645f]">{deal.assignedAdvisor}</td>
-                        <td className="px-5 py-4 text-[#5b645f]">{deal.assignedLocalAgent}</td>
-                        <td className="px-5 py-4 text-[#5b645f]">{deal.nextAction}</td>
+                        <td className="px-5 py-4 text-[#6B7280]">{deal.propertyName}</td>
+                        <td className="px-5 py-4 text-[#1F2937]"><TD value={deal.currentStage} /></td>
+                        <td className="px-5 py-4 text-[#6B7280]">{deal.assignedAdvisor}</td>
+                        <td className="px-5 py-4 text-[#6B7280]">{deal.assignedLocalAgent}</td>
+                        <td className="px-5 py-4 text-[#6B7280]"><TD value={deal.nextAction} /></td>
                       </tr>
                     ))}
                   </tbody>

@@ -1,65 +1,76 @@
+"use client";
+
 import {
-  BUDGET_RANGES,
   BUYER_TIMELINES,
   CITIES,
   FUNDING_SOURCES,
   INVESTMENT_GOALS,
   RENTAL_MANAGEMENT_OPTIONS,
 } from "@/constants";
+import { useAppPreferences } from "@/context/app-preferences-context";
+import { formatCurrencyFromUsd } from "@/lib/formatters";
 
 export function EnquiryForm() {
+  const { currency, t, td } = useAppPreferences();
+  const budgetRanges = [
+    `${t("under")} ${formatCurrencyFromUsd(200000, currency)}`,
+    `${formatCurrencyFromUsd(200000, currency)} - ${formatCurrencyFromUsd(400000, currency)}`,
+    `${formatCurrencyFromUsd(400000, currency)} - ${formatCurrencyFromUsd(700000, currency)}`,
+    `${formatCurrencyFromUsd(700000, currency)}+`,
+  ];
+
   return (
-    <form className="grid gap-5 rounded-sm border border-[#e1dbd0] bg-white p-5 shadow-sm sm:p-8">
+    <form className="grid gap-5 rounded-sm border border-[#ECE7DA] bg-white p-5 shadow-sm sm:p-8">
       {/* Connect this form to a CRM, email workflow, or API route when the backend is ready. */}
       <div className="grid gap-5 md:grid-cols-2">
-        <Field label="Full name" name="fullName" />
-        <Field label="Email" name="email" type="email" />
-        <Field label="WhatsApp / phone" name="phone" type="tel" />
-        <Field label="Country of residence" name="country" />
+        <Field label={t("fullName")} name="fullName" />
+        <Field label={t("email")} name="email" type="email" />
+        <Field label={t("phone")} name="phone" type="tel" />
+        <Field label={t("countryOfResidence")} name="country" />
         <Select
-          label="Budget range"
+          label={t("budget")}
           name="budget"
-          options={BUDGET_RANGES}
+          options={budgetRanges}
         />
         <Select
-          label="Target city"
+          label={t("targetCity")}
           name="city"
-          options={[...CITIES, "Both cities"]}
+          options={[...CITIES, "Both cities"].map(td)}
         />
         <Select
-          label="Investment goal"
+          label={t("investmentGoal")}
           name="goal"
-          options={INVESTMENT_GOALS}
+          options={INVESTMENT_GOALS.map(td)}
         />
         <Select
-          label="Timeline to buy"
+          label={t("timelineToBuy")}
           name="timeline"
-          options={BUYER_TIMELINES}
+          options={BUYER_TIMELINES.map(td)}
         />
         <Select
-          label="Funding source"
+          label={t("fundingSource")}
           name="fundingSource"
-          options={FUNDING_SOURCES}
+          options={FUNDING_SOURCES.map(td)}
         />
         <Select
-          label="Need rental management?"
+          label={t("needRentalManagement")}
           name="rentalManagement"
-          options={RENTAL_MANAGEMENT_OPTIONS}
+          options={RENTAL_MANAGEMENT_OPTIONS.map(td)}
         />
       </div>
-      <label className="grid gap-2 text-sm font-semibold text-[#4f5a54]">
-        Message
+      <label className="grid gap-2 text-sm font-semibold text-[#6B7280]">
+        {t("message")}
         <textarea
-          className="min-h-32 rounded-sm border border-[#d8d1c5] bg-white px-3 py-3 font-normal outline-none focus:border-[#123c2b] focus:ring-2 focus:ring-[#123c2b]/15"
+          className="min-h-32 rounded-sm border border-[#ECE7DA] bg-white px-3 py-3 font-normal outline-none focus:border-[#E7B93D] focus:ring-2 focus:ring-[#F5C84C]/15"
           name="message"
-          placeholder="Tell us about your target location, budget, and investment plans."
+          placeholder={t("messagePlaceholder")}
         />
       </label>
       <button
-        className="min-h-12 rounded-sm bg-[#123c2b] px-6 text-sm font-semibold text-white transition hover:bg-[#0d2d20] sm:w-fit"
+        className="min-h-12 rounded-sm bg-[#F5C84C] px-6 text-sm font-semibold text-[#1F2937] transition hover:bg-[#E7B93D] sm:w-fit"
         type="button"
       >
-        Submit Enquiry
+        {t("bookInvestorConsultation")}
       </button>
     </form>
   );
@@ -75,10 +86,10 @@ function Field({
   type?: string;
 }) {
   return (
-    <label className="grid gap-2 text-sm font-semibold text-[#4f5a54]">
+    <label className="grid gap-2 text-sm font-semibold text-[#6B7280]">
       {label}
       <input
-        className="min-h-11 rounded-sm border border-[#d8d1c5] bg-white px-3 font-normal outline-none focus:border-[#123c2b] focus:ring-2 focus:ring-[#123c2b]/15"
+        className="min-h-11 rounded-sm border border-[#ECE7DA] bg-white px-3 font-normal outline-none focus:border-[#E7B93D] focus:ring-2 focus:ring-[#F5C84C]/15"
         name={name}
         type={type}
       />
@@ -95,14 +106,16 @@ function Select({
   name: string;
   options: readonly string[];
 }) {
+  const { t } = useAppPreferences();
+
   return (
-    <label className="grid gap-2 text-sm font-semibold text-[#4f5a54]">
+    <label className="grid gap-2 text-sm font-semibold text-[#6B7280]">
       {label}
       <select
-        className="min-h-11 rounded-sm border border-[#d8d1c5] bg-white px-3 font-normal outline-none focus:border-[#123c2b] focus:ring-2 focus:ring-[#123c2b]/15"
+        className="min-h-11 rounded-sm border border-[#ECE7DA] bg-white px-3 font-normal outline-none focus:border-[#E7B93D] focus:ring-2 focus:ring-[#F5C84C]/15"
         name={name}
       >
-        <option value="">Select</option>
+        <option value="">{t("select")}</option>
         {options.map((option) => (
           <option key={option}>{option}</option>
         ))}

@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fbfaf7;
-  --foreground: #17231d;
+  --background: #FFFDF8;
+  --foreground: #1F2937;
 }
 
 * {
@@ -32,12 +32,12 @@ select {
 }
 
 ::selection {
-  background: #ffdb4d;
-  color: #17231d;
+  background: #F5C84C;
+  color: #1F2937;
 }
 
 .stone-surface {
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 219, 77, 0.12)),
+    linear-gradient(135deg, rgba(255, 253, 248, 0.98), rgba(245, 200, 76, 0.08)),
     repeating-linear-gradient(90deg, rgba(68, 58, 47, 0.035) 0, rgba(68, 58, 47, 0.035) 1px, transparent 1px, transparent 8px);
 }

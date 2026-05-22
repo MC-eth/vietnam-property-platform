@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { WhatsAppButton } from "@/components/whatsapp-button";
+import { AppPreferencesProvider } from "@/context/app-preferences-context";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -16,8 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
-        <WhatsAppButton />
+        <AppPreferencesProvider>
+          {children}
+          <WhatsAppButton />
+        </AppPreferencesProvider>
       </body>
     </html>
   );

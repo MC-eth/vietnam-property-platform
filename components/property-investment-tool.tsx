@@ -8,7 +8,8 @@ import {
   type PropertyFilters,
   type PropertySortOption,
 } from "@/components/property-filter";
-import { formatUsd } from "@/lib/formatters";
+import { useAppPreferences } from "@/context/app-preferences-context";
+import { formatCurrencyFromUsd } from "@/lib/formatters";
 import { getAverageYield, getLiquidityRank, getRiskRank } from "@/lib/property-metrics";
 import type { BuyerGoal } from "@/data/buyer-goals";
 import type { Property } from "@/types/property";
@@ -29,6 +30,7 @@ const defaultFilters: PropertyFilters = {
 };
 
 export function PropertyInvestmentTool({ properties, buyerGoal }: PropertyInvestmentToolProps) {
+  const { currency, t, td } = useAppPreferences();
   const [filters, setFilters] = useState<PropertyFilters>({
     ...defaultFilters,
     ...buyerGoal?.filters,
@@ -77,29 +79,29 @@ export function PropertyInvestmentTool({ properties, buyerGoal }: PropertyInvest
   return (
     <div>
       {buyerGoal ? (
-        <section className="mb-8 rounded-sm border border-[#d7bd7d]/60 bg-[#fffaf0] p-6 shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#a47d32]">
-            Guided recommendation path
+        <section className="mb-8 rounded-sm border border-[#F5C84C]/60 bg-[#fffaf0] p-6 shadow-sm">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#E7B93D]">
+            {t("guidedRecommendationPath")}
           </p>
           <div className="mt-3 grid gap-5 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
             <div>
-              <h2 className="text-3xl font-semibold text-[#16231d]">
-                {buyerGoal.title} recommendations
+              <h2 className="text-3xl font-semibold text-[#1F2937]">
+                {td(buyerGoal.title)} {t("recommendations")}
               </h2>
-              <p className="mt-3 text-sm leading-7 text-[#5b645f]">{buyerGoal.summary}</p>
-              <p className="mt-3 text-sm leading-7 text-[#5b645f]">{buyerGoal.whyItFits}</p>
+              <p className="mt-3 text-sm leading-7 text-[#6B7280]">{td(buyerGoal.summary)}</p>
+              <p className="mt-3 text-sm leading-7 text-[#6B7280]">{td(buyerGoal.whyItFits)}</p>
             </div>
             <div className="grid gap-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#7a817c]">
-                Recommended districts
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#6B7280]">
+                {t("recommendedDistricts")}
               </p>
               <div className="flex flex-wrap gap-2">
                 {buyerGoal.recommendedDistricts.map((district) => (
                   <span
-                    className="rounded-sm border border-[#d7bd7d]/60 bg-white px-3 py-2 text-xs font-semibold uppercase tracking-[0.1em] text-[#6b4e18]"
+                    className="rounded-sm border border-[#F5C84C]/60 bg-white px-3 py-2 text-xs font-semibold uppercase tracking-[0.1em] text-[#1F2937]"
                     key={district}
                   >
-                    {district}
+                    {td(district)}
                   </span>
                 ))}
               </div>
@@ -121,15 +123,18 @@ export function PropertyInvestmentTool({ properties, buyerGoal }: PropertyInvest
         onSortChange={setSortBy}
       />
 
-      <div className="mt-5 grid gap-4 rounded-sm border border-[#e1dbd0] bg-white p-5 shadow-sm lg:grid-cols-3">
-        <ToolMetric label="Selected for compare" value={`${compareIds.length}/3`} />
-        <ToolMetric label="Saved shortlist" value={String(shortlistIds.length)} />
-        <ToolMetric label="Top visible score" value={getTopScoreLabel(filteredProperties)} />
+      <div className="mt-5 grid gap-4 rounded-sm border border-[#ECE7DA] bg-white p-5 shadow-sm lg:grid-cols-3">
+        <ToolMetric label={t("selectedForCompare")} value={`${compareIds.length}/3`} />
+        <ToolMetric label={t("shortlist")} value={String(shortlistIds.length)} />
+        <ToolMetric label={t("topVisibleScore")} value={getTopScoreLabel(filteredProperties)} />
       </div>
 
       {compareProperties.length > 0 && (
         <ComparePanel
+          currency={currency}
           properties={compareProperties}
+          t={t}
+          td={td}
           onRemove={(propertyId) =>
             setCompareIds((current) => current.filter((id) => id !== propertyId))
           }
@@ -155,10 +160,10 @@ export function PropertyInvestmentTool({ properties, buyerGoal }: PropertyInvest
       </div>
 
       {filteredProperties.length === 0 && (
-        <div className="mt-8 rounded-sm border border-[#e1dbd0] bg-white p-8 text-center shadow-sm">
-          <h2 className="text-2xl font-semibold text-[#16231d]">No matching properties</h2>
-          <p className="mt-3 text-sm leading-7 text-[#5b645f]">
-            Adjust the investment filters to broaden the current mock property set.
+        <div className="mt-8 rounded-sm border border-[#ECE7DA] bg-white p-8 text-center shadow-sm">
+          <h2 className="text-2xl font-semibold text-[#1F2937]">{t("noPropertiesFound")}</h2>
+          <p className="mt-3 text-sm leading-7 text-[#6B7280]">
+            {t("noPropertiesFoundDescription")}
           </p>
         </div>
       )}
@@ -213,62 +218,68 @@ function sortProperties(a: Property, b: Property, sortBy: PropertySortOption) {
 
 function ToolMetric({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-sm bg-[#f3efe8] p-4">
-      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#7a817c]">
+    <div className="rounded-sm bg-[#FFFDF8] p-4">
+      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#6B7280]">
         {label}
       </p>
-      <p className="mt-2 text-2xl font-semibold text-[#16231d]">{value}</p>
+      <p className="mt-2 text-2xl font-semibold text-[#1F2937]">{value}</p>
     </div>
   );
 }
 
 function ComparePanel({
+  currency,
   properties,
+  t,
+  td,
   onRemove,
 }: {
+  currency: "USD" | "HKD";
   properties: Property[];
+  t: ReturnType<typeof useAppPreferences>["t"];
+  td: ReturnType<typeof useAppPreferences>["td"];
   onRemove: (propertyId: string) => void;
 }) {
   const rows = [
-    { label: "Price", getValue: (property: Property) => property.price },
-    { label: "Estimated yield", getValue: (property: Property) => property.estimatedYield },
+    { label: t("price"), getValue: (property: Property) => formatCurrencyFromUsd(property.priceUsd, currency) },
+    { label: t("estimatedRentalYield"), getValue: (property: Property) => property.estimatedYield },
     {
-      label: "Est. monthly rent",
-      getValue: (property: Property) => formatUsd(property.roiDefaults.rentMonthlyUsd),
+      label: t("estimatedMonthlyRent"),
+      getValue: (property: Property) => formatCurrencyFromUsd(property.roiDefaults.rentMonthlyUsd, currency),
     },
     {
-      label: "Investment score",
+      label: t("investmentScore"),
       getValue: (property: Property) => `${property.investmentScore.total.toFixed(1)} / 10`,
     },
-    { label: "Risk rating", getValue: (property: Property) => property.riskRating },
-    { label: "Liquidity", getValue: (property: Property) => property.liquidity },
-    { label: "Rental demand", getValue: (property: Property) => property.rentalDemand },
-    { label: "Developer quality", getValue: (property: Property) => property.developerQuality },
+    { label: t("riskRating"), getValue: (property: Property) => td(property.riskRating) },
+    { label: t("liquidity"), getValue: (property: Property) => td(property.liquidity) },
+    { label: t("rentalDemand"), getValue: (property: Property) => td(property.rentalDemand) },
+    { label: t("developerQuality"), getValue: (property: Property) => td(property.developerQuality) },
     {
-      label: "Ownership eligibility",
-      getValue: (property: Property) => property.foreignOwnership,
+      label: t("ownershipEligibility"),
+      getValue: (property: Property) => td(property.foreignOwnership),
     },
-    { label: "Best-for profile", getValue: (property: Property) => property.bestFor },
+    { label: t("bestFor"), getValue: (property: Property) => td(property.bestFor) },
   ];
 
   return (
-    <section className="mt-8 overflow-hidden rounded-sm border border-[#e1dbd0] bg-white shadow-sm">
-      <div className="flex flex-col justify-between gap-4 border-b border-[#e1dbd0] p-5 lg:flex-row lg:items-center">
+    <section className="mt-8 overflow-hidden rounded-sm border border-[#ECE7DA] bg-white shadow-sm">
+      <div className="flex flex-col justify-between gap-4 border-b border-[#ECE7DA] p-5 lg:flex-row lg:items-center">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#a47d32]">
-            Compare properties
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#E7B93D]">
+            {t("compareProperties")}
           </p>
-          <h2 className="mt-2 text-2xl font-semibold text-[#16231d]">
-            Side-by-side investment view
+          <h2 className="mt-2 text-2xl font-semibold text-[#1F2937]">
+            {t("sideBySideInvestmentView")}
           </h2>
         </div>
-        <p className="text-sm text-[#6d746f]">Select up to 3 properties</p>
+        <p className="text-sm text-[#6B7280]">{t("comparePropertiesHelp")}</p>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full min-w-[760px] border-collapse text-left text-sm">
-          <thead className="bg-[#f3efe8] text-[#4f5a54]">
+          <thead className="bg-[#FFFDF8] text-[#6B7280]">
             <tr>
-              <th className="w-48 px-5 py-4 font-semibold">Metric</th>
+              <th className="w-48 px-5 py-4 font-semibold">{t("metric")}</th>
               {properties.map((property) => (
                 <th className="px-5 py-4 font-semibold" key={property.id}>
                   <div className="flex items-start justify-between gap-3">
@@ -278,19 +289,19 @@ function ComparePanel({
                       type="button"
                       onClick={() => onRemove(property.id)}
                     >
-                      Remove
+                      {t("remove")}
                     </button>
                   </div>
                 </th>
               ))}
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#eee8de]">
+          <tbody className="divide-y divide-[#ECE7DA]">
             {rows.map((row) => (
               <tr key={row.label}>
-                <td className="px-5 py-4 font-semibold text-[#16231d]">{row.label}</td>
+                <td className="px-5 py-4 font-semibold text-[#1F2937]">{row.label}</td>
                 {properties.map((property) => (
-                  <td className="px-5 py-4 text-[#5b645f]" key={property.id}>
+                  <td className="px-5 py-4 text-[#6B7280]" key={property.id}>
                     {row.getValue(property)}
                   </td>
                 ))}

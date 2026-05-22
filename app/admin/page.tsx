@@ -1,6 +1,7 @@
 import { DashboardCard } from "@/components/dashboard-card";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { T, TD } from "@/components/localized-text";
 import { PageHeading } from "@/components/page-heading";
 import { getAvailableAgents } from "@/services/agentService";
 import { getEnquiries } from "@/services/enquiryService";
@@ -35,9 +36,9 @@ export default async function AdminPage() {
       <main>
         <section className="stone-surface px-5 py-14 sm:px-8 lg:py-20">
           <PageHeading
-            eyebrow="Admin dashboard mockup"
-            title="Internal operating view for enquiries, agents, and deal stages."
-            description="This is a placeholder dashboard only. Authentication, permissions, and CRM sync can be added later."
+            eyebrow={<T k="adminDashboard" />}
+            title={<TD value="Internal operating view for enquiries, agents, and deal stages." />}
+            description={<TD value="This is a placeholder dashboard only. Authentication, permissions, and CRM sync can be added later." />}
           />
         </section>
         <section className="px-5 py-12 sm:px-8 lg:py-16">
@@ -48,38 +49,38 @@ export default async function AdminPage() {
               ))}
             </div>
 
-            <div className="mt-8 overflow-hidden rounded-sm border border-[#e1dbd0] bg-white shadow-sm">
-              <div className="border-b border-[#e1dbd0] p-5">
-                <h2 className="text-xl font-semibold text-[#16231d]">Buyer pipeline</h2>
+            <div className="mt-8 overflow-hidden rounded-sm border border-[#ECE7DA] bg-white shadow-sm">
+              <div className="border-b border-[#ECE7DA] p-5">
+                <h2 className="text-xl font-semibold text-[#1F2937]"><TD value="Buyer pipeline" /></h2>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[760px] border-collapse text-left text-sm">
-                  <thead className="bg-[#f3efe8] text-[#4f5a54]">
+                  <thead className="bg-[#FFFDF8] text-[#6B7280]">
                     <tr>
                       {["Buyer", "Residence", "Target city", "Agent assigned", "Deal stage"].map((heading) => (
                         <th className="px-5 py-4 font-semibold" key={heading}>
-                          {heading}
+                          <TD value={heading} />
                         </th>
                       ))}
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#eee8de]">
+                  <tbody className="divide-y divide-[#ECE7DA]">
                     {enquiries.map((enquiry) => (
                       <tr key={enquiry.id}>
-                        <td className="px-5 py-4 text-[#5b645f]">
+                        <td className="px-5 py-4 text-[#6B7280]">
                           {enquiry.buyer.fullName}
                         </td>
-                        <td className="px-5 py-4 text-[#5b645f]">
+                        <td className="px-5 py-4 text-[#6B7280]">
                           {enquiry.buyer.countryOfResidence}
                         </td>
-                        <td className="px-5 py-4 text-[#5b645f]">
-                          {enquiry.targetCity}
+                        <td className="px-5 py-4 text-[#6B7280]">
+                          <TD value={enquiry.targetCity} />
                         </td>
-                        <td className="px-5 py-4 text-[#5b645f]">
+                        <td className="px-5 py-4 text-[#6B7280]">
                           {getAssignedAgentName(enquiry.targetCity, agents)}
                         </td>
-                        <td className="px-5 py-4 text-[#5b645f]">
-                          {enquiry.status}
+                        <td className="px-5 py-4 text-[#6B7280]">
+                          <TD value={enquiry.status} />
                         </td>
                       </tr>
                     ))}

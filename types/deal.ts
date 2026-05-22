@@ -6,7 +6,7 @@ export type DealStatus = "completed" | "current" | "upcoming" | "blocked";
 
 export type DocumentChecklistItem = (typeof DOCUMENT_CHECKLIST_ITEMS)[number];
 
-export type DealDocumentStatus = "received" | "required" | "reviewing" | "not-started";
+export type DealDocumentStatus = "required" | "uploaded" | "under review" | "approved" | "missing";
 
 export type DealDocument = {
   name: DocumentChecklistItem;
@@ -17,6 +17,34 @@ export type DealDocument = {
 export type DealKeyDate = {
   label: string;
   date: string;
+};
+
+export type DealStageDetail = {
+  stage: DealStage;
+  status: DealStatus;
+  responsibleParty: string;
+  expectedDate: string;
+  nextAction: string;
+};
+
+export type DealPaymentStatus = "upcoming" | "due" | "paid" | "under review";
+
+export type DealPayment = {
+  label: string;
+  amount: string;
+  amountUsd: number;
+  dueDate: string;
+  status: DealPaymentStatus;
+  receiptUploaded: boolean;
+  note: string;
+};
+
+export type DealRoles = {
+  buyerAdvisor: string;
+  vietnamAgent: string;
+  legalPartner: string;
+  developerContact: string;
+  rentalManager: string;
 };
 
 export type BuyerDeal = {
@@ -30,7 +58,9 @@ export type BuyerDeal = {
   assignedAdvisor: string;
   assignedLocalAgent: string;
   stageStatuses: Partial<Record<DealStage, DealStatus>>;
+  stageDetails: DealStageDetail[];
   documents: DealDocument[];
+  payments: DealPayment[];
+  roles: DealRoles;
   keyDates: DealKeyDate[];
 };
-

@@ -1,5 +1,6 @@
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { T } from "@/components/localized-text";
 import { PageHeading } from "@/components/page-heading";
 import { PropertyInvestmentTool } from "@/components/property-investment-tool";
 import { getBuyerGoalBySlug } from "@/data/buyer-goals";
@@ -23,9 +24,9 @@ export default async function PropertiesPage({ searchParams }: PropertiesPagePro
       <main>
         <section className="stone-surface px-5 py-14 sm:px-8 lg:py-20">
           <PageHeading
-            eyebrow="Investment screener"
-            title="Compare Vietnam property opportunities by score, yield, risk, and liquidity."
-            description="Use the local MVP data to filter, sort, shortlist, and compare residential investment opportunities in Ho Chi Minh City and Hanoi."
+            eyebrow={<T k="investmentFilters" />}
+            title={<T k="propertiesTitle" />}
+            description={<T k="propertiesDescription" />}
           />
         </section>
         <section className="px-5 py-12 sm:px-8 lg:py-16">

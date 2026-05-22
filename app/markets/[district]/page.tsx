@@ -45,15 +45,15 @@ export default async function DistrictMarketPage({ params }: DistrictPageProps) 
 
             <div className="mt-8 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#a47d32]">
+                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#E7B93D]">
                   Matched properties
                 </p>
-                <h2 className="mt-3 text-2xl font-semibold text-[#16231d]">
+                <h2 className="mt-3 text-2xl font-semibold text-[#1F2937]">
                   Properties currently mapped to {insight.district}
                 </h2>
               </div>
               <Link
-                className="inline-flex min-h-11 w-fit items-center rounded-sm border border-[#123c2b] px-5 text-sm font-semibold text-[#123c2b] transition hover:bg-[#123c2b] hover:text-white"
+                className="inline-flex min-h-11 w-fit items-center rounded-sm border border-[#F5C84C] px-5 text-sm font-semibold text-[#1F2937] transition hover:bg-[#F5C84C] hover:text-[#1F2937]"
                 href={`/properties?city=${encodeURIComponent(insight.city)}`}
               >
                 Open investment screener
