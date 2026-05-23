@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { AppPreferencesProvider } from "@/context/app-preferences-context";
+import { AuthProvider } from "@/context/auth-context";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -18,8 +19,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <AppPreferencesProvider>
-          {children}
-          <WhatsAppButton />
+          <AuthProvider>
+            {children}
+            <WhatsAppButton />
+          </AuthProvider>
         </AppPreferencesProvider>
       </body>
     </html>

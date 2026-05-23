@@ -1,3 +1,4 @@
+import { AccessGate } from "@/components/access-gate";
 import { DashboardCard } from "@/components/dashboard-card";
 import { DealProgressTracker } from "@/components/deal-progress-tracker";
 import { DealSummaryCard } from "@/components/deal-summary-card";
@@ -22,14 +23,15 @@ export default function OwnerPortalPage() {
   return (
     <>
       <Header />
-      <main>
-        <section className="stone-surface px-5 py-14 sm:px-8 lg:py-20">
-          <PageHeading
-            eyebrow={<TD value="Buyer and owner operating dashboard" />}
-            title={<TD value="Transparent cross-border deal progress from enquiry to rental setup." />}
-            description={<TD value="Mock dashboard only. This shows how the platform can later connect buyer accounts, CRM stages, legal documents, agent updates, and rental management reporting." />}
-          />
-        </section>
+      <AccessGate allowedRoles={["buyer"]}>
+        <main>
+          <section className="stone-surface px-5 py-14 sm:px-8 lg:py-20">
+            <PageHeading
+              eyebrow={<TD value="Buyer and owner operating dashboard" />}
+              title={<TD value="Transparent cross-border deal progress from enquiry to rental setup." />}
+              description={<TD value="Mock dashboard only. This shows how the platform can later connect buyer accounts, CRM stages, legal documents, agent updates, and rental management reporting." />}
+            />
+          </section>
         <section className="px-5 py-12 sm:px-8 lg:py-16">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -91,7 +93,8 @@ export default function OwnerPortalPage() {
             </div>
           </div>
         </section>
-      </main>
+        </main>
+      </AccessGate>
       <Footer />
     </>
   );

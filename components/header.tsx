@@ -1,20 +1,34 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { CURRENCIES } from "@/constants";
 import { LANGUAGES, type LanguageCode, type TranslationKey } from "@/constants/translations";
 import { useAppPreferences } from "@/context/app-preferences-context";
+import { useAuth } from "@/hooks/use-auth";
 import type { CurrencyCode } from "@/types/currency";
 
-const navItems = [
+const publicNavItems = [
   { href: "/properties", labelKey: "properties" },
   { href: "/districts", labelKey: "districts" },
   { href: "/how-it-works", labelKey: "howItWorks" },
   { href: "/services", labelKey: "navigationServices" },
   { href: "/learn", labelKey: "learn" },
   { href: "/enquiry", labelKey: "enquiry" },
+] as const satisfies readonly {
+  href: string;
+  labelKey: TranslationKey;
+}[];
+
+const buyerNavItems = [
   { href: "/buyer-dashboard", labelKey: "buyerDashboard" },
   { href: "/owner-portal", labelKey: "ownerPortal" },
+] as const satisfies readonly {
+  href: string;
+  labelKey: TranslationKey;
+}[];
+
+const adminNavItems = [
   { href: "/admin", labelKey: "admin" },
 ] as const satisfies readonly {
   href: string;
@@ -23,6 +37,9 @@ const navItems = [
 
 export function Header() {
   const { currency, language, setCurrency, setLanguage, t } = useAppPreferences();
+  const { isLoggedIn, openLoginModal, userRole } = useAuth();
+  const roleNavItems = userRole === "buyer" ? buyerNavItems : userRole === "admin" ? adminNavItems : [];
+  const visibleNavItems = [...publicNavItems, ...roleNavItems];
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#ECE7DA] bg-white/92 backdrop-blur">
@@ -37,7 +54,7 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-5 text-sm font-medium text-[#6B7280] xl:flex">
-          {navItems.map((item) => (
+          {visibleNavItems.map((item) => (
             <Link className="transition hover:text-[#1F2937]" href={item.href} key={item.href}>
               {t(item.labelKey)}
             </Link>
@@ -64,18 +81,24 @@ export function Header() {
           ))}
         </div>
 
-        <Link
-          className="inline-flex min-h-11 items-center rounded-sm bg-[#F5C84C] px-4 text-sm font-semibold text-[#1F2937] transition hover:bg-[#E7B93D]"
-          href="/enquiry"
-        >
-          {t("bookInvestorConsultation")}
-        </Link>
+        {isLoggedIn ? (
+          <UserMenu />
+        ) : (
+          <button
+            className="inline-flex min-h-11 items-center gap-2 rounded-sm bg-[#F5C84C] px-4 text-sm font-semibold text-[#1F2937] transition hover:bg-[#E7B93D]"
+            onClick={openLoginModal}
+            type="button"
+          >
+            <UserIcon />
+            {t("signIn")}
+          </button>
+        )}
       </div>
 
       <div className="border-t border-[#ECE7DA] px-5 py-3 lg:hidden">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3">
           <nav className="flex flex-wrap items-center gap-3 text-xs font-semibold text-[#6B7280]">
-            {navItems.slice(0, 5).map((item) => (
+            {visibleNavItems.map((item) => (
               <Link className="transition hover:text-[#1F2937]" href={item.href} key={item.href}>
                 {t(item.labelKey)}
               </Link>
@@ -102,6 +125,66 @@ export function Header() {
         </div>
       </div>
     </header>
+  );
+}
+
+function UserMenu() {
+  const [isOpen, setIsOpen] = useState(false);
+  const { logout, userName, userRole } = useAuth();
+  const { t } = useAppPreferences();
+  const dashboardHref = userRole === "admin" ? "/admin" : "/buyer-dashboard";
+  const dashboardLabel = userRole === "admin" ? t("adminPanel") : t("dashboard");
+
+  return (
+    <div className="relative">
+      <button
+        className="inline-flex min-h-11 items-center gap-2 rounded-sm border border-[#ECE7DA] bg-white px-4 text-sm font-semibold text-[#1F2937] transition hover:border-[#F5C84C]"
+        onClick={() => setIsOpen((current) => !current)}
+        type="button"
+      >
+        <UserIcon />
+        {userName}
+      </button>
+      {isOpen ? (
+        <div className="absolute right-0 mt-2 w-56 rounded-sm border border-[#ECE7DA] bg-white p-2 shadow-xl">
+          <Link
+            className="block rounded-sm px-3 py-2 text-sm font-semibold text-[#1F2937] transition hover:bg-[#FFFDF8]"
+            href={dashboardHref}
+            onClick={() => setIsOpen(false)}
+          >
+            {dashboardLabel}
+          </Link>
+          <button
+            className="block w-full rounded-sm px-3 py-2 text-left text-sm font-semibold text-[#6B7280] transition hover:bg-[#FFFDF8] hover:text-[#1F2937]"
+            onClick={() => {
+              logout();
+              setIsOpen(false);
+            }}
+            type="button"
+          >
+            {t("logout")}
+          </button>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+function UserIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      className="h-4 w-4"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.8"
+      viewBox="0 0 24 24"
+    >
+      <path d="M20 21a8 8 0 0 0-16 0" />
+      <path d="M12 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z" />
+    </svg>
   );
 }
 

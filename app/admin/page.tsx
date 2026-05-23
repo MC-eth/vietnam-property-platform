@@ -1,4 +1,5 @@
 import { DashboardCard } from "@/components/dashboard-card";
+import { AccessGate } from "@/components/access-gate";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { T, TD } from "@/components/localized-text";
@@ -33,14 +34,15 @@ export default async function AdminPage() {
   return (
     <>
       <Header />
-      <main>
-        <section className="stone-surface px-5 py-14 sm:px-8 lg:py-20">
-          <PageHeading
-            eyebrow={<T k="adminDashboard" />}
-            title={<TD value="Internal operating view for enquiries, agents, and deal stages." />}
-            description={<TD value="This is a placeholder dashboard only. Authentication, permissions, and CRM sync can be added later." />}
-          />
-        </section>
+      <AccessGate allowedRoles={["admin"]}>
+        <main>
+          <section className="stone-surface px-5 py-14 sm:px-8 lg:py-20">
+            <PageHeading
+              eyebrow={<T k="adminDashboard" />}
+              title={<TD value="Internal operating view for enquiries, agents, and deal stages." />}
+              description={<TD value="This is a placeholder dashboard only. Authentication, permissions, and CRM sync can be added later." />}
+            />
+          </section>
         <section className="px-5 py-12 sm:px-8 lg:py-16">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -90,7 +92,8 @@ export default async function AdminPage() {
             </div>
           </div>
         </section>
-      </main>
+        </main>
+      </AccessGate>
       <Footer />
     </>
   );
