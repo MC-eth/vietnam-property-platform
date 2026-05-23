@@ -33,11 +33,12 @@ type StoredAuth = {
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const auth = useSyncExternalStore<StoredAuth>(
+  const storedAuthValue = useSyncExternalStore(
     subscribeToAuthChanges,
-    getStoredAuth,
-    () => ({ isLoggedIn: false, userRole: null }),
+    getStoredAuthValue,
+    () => "",
   );
+  const auth = useMemo(() => parseStoredAuth(storedAuthValue), [storedAuthValue]);
 
   const value = useMemo<AuthContextValue>(
     () => ({
@@ -154,10 +155,13 @@ function subscribeToAuthChanges(callback: () => void) {
   };
 }
 
-function getStoredAuth(): StoredAuth {
-  if (typeof window === "undefined") return { isLoggedIn: false, userRole: null };
+function getStoredAuthValue() {
+  if (typeof window === "undefined") return "";
 
-  const storedAuth = window.localStorage.getItem(AUTH_STORAGE_KEY);
+  return window.localStorage.getItem(AUTH_STORAGE_KEY) ?? "";
+}
+
+function parseStoredAuth(storedAuth: string): StoredAuth {
   if (!storedAuth) return { isLoggedIn: false, userRole: null };
 
   try {
