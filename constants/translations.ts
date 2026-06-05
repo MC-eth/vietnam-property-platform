@@ -1500,7 +1500,7 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
       "橋樑及隧道連接支撐往來第一郡及平盛區",
     "Improved connectivity may widen tenant access, shorten CBD travel friction and support long-term residential relevance.":
       "交通連接改善或可擴大租客覆蓋、降低往來 CBD 的時間阻力，並支持長線住宅吸引力。",
-    "Public Realm, Schools & Lifestyle": "公共空間、學校及生活配套",
+    "Riverfront Public Realm & Lifestyle": "河畔公共空間及生活配套",
     "Thu Thiem’s longer-term appeal is not only about towers. Riverfront public spaces, central square concepts, civic facilities and nearby international schools may help the district feel more complete for long-stay residents.":
       "守添的長線吸引力不只來自高樓項目。河畔公共空間、中央廣場概念、公共設施及鄰近國際學校生態，或有助此區更適合長住租客及家庭客群。",
     "Central Square and HCMC Administrative Center investment policy approved":
@@ -1514,7 +1514,7 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
       "私人診所及核心醫療設施可視為周邊生活支援，但正式發布前需再核實",
     "A stronger lifestyle and education ecosystem may support family tenants, executives and longer-stay overseas residents.":
       "更完整的生活及教育配套，或可支持家庭租客、行政人員及長住海外租客需求。",
-    "Commercial & Financial Pipeline": "商業及金融發展脈絡",
+    "Financial & Commercial Positioning": "金融及商業定位",
     "Thu Thiem is increasingly positioned around financial services, Grade A office space, and mixed-use commercial development. This may support its role as an emerging business district beside the CBD.":
       "守添正逐步圍繞金融服務、甲級寫字樓及綜合商業發展建立定位。這或有助其成為 CBD 旁邊的新興商業區。",
     "The Hallmark: Grade A office in Thu Thiem New Urban Area, described as a 30-storey commercial tower in central Thu Thiem":
@@ -1527,7 +1527,7 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
       "國際金融中心規劃主題有助強化守添的商業區定位",
     "More office and mixed-use supply may create a broader professional tenant base and strengthen weekday demand around the district.":
       "更多辦公及綜合商業供應，或可擴大專業租客基礎，並提升區內平日活動及商業需求。",
-    "Industry Direction & Long-Term Demand": "產業方向及長線需求",
+    "Future Growth & Industry Direction": "未來增長及產業方向",
     "The wider Eastern Zone / Thu Duc City planning context points toward finance, technology, education and knowledge-economy uses. For Thu Thiem, the most relevant themes are financial services, fintech and professional office demand.":
       "守德市／東部區的規劃方向涵蓋金融、科技、教育及知識型經濟。對守添而言，較相關的主題是金融服務、金融科技及專業辦公需求。",
     "VIFC-HCMC positions the city as Vietnam’s international financial gateway":

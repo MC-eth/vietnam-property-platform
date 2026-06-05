@@ -150,7 +150,7 @@ export const districtInsights: DistrictInsightPageData[] = [
       },
       {
         id: "public-realm-lifestyle",
-        title: "Public Realm, Schools & Lifestyle",
+        title: "Riverfront Public Realm & Lifestyle",
         description:
           "Thu Thiem’s longer-term appeal is not only about towers. Riverfront public spaces, central square concepts, civic facilities and nearby international schools may help the district feel more complete for long-stay residents.",
         bullets: [
@@ -167,7 +167,7 @@ export const districtInsights: DistrictInsightPageData[] = [
       },
       {
         id: "financial-commercial-pipeline",
-        title: "Commercial & Financial Pipeline",
+        title: "Financial & Commercial Positioning",
         description:
           "Thu Thiem is increasingly positioned around financial services, Grade A office space, and mixed-use commercial development. This may support its role as an emerging business district beside the CBD.",
         bullets: [
@@ -184,7 +184,7 @@ export const districtInsights: DistrictInsightPageData[] = [
       },
       {
         id: "industry-direction",
-        title: "Industry Direction & Long-Term Demand",
+        title: "Future Growth & Industry Direction",
         description:
           "The wider Eastern Zone / Thu Duc City planning context points toward finance, technology, education and knowledge-economy uses. For Thu Thiem, the most relevant themes are financial services, fintech and professional office demand.",
         bullets: [
