@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { DistrictInsightPanels } from "@/components/district-insight-panels";
 import { PropertyCard } from "@/components/property-card";
 import {
   PropertyFilter,
@@ -9,8 +8,9 @@ import {
   type PropertySortOption,
 } from "@/components/property-filter";
 import { useAppPreferences } from "@/context/app-preferences-context";
+import { PROPERTY_SORT_OPTIONS } from "@/constants";
 import { formatCurrencyFromUsd } from "@/lib/formatters";
-import { getAverageYield, getLiquidityRank, getRiskRank } from "@/lib/property-metrics";
+import { useInvestmentWorkspace } from "@/context/investment-workspace-context";
 import type { BuyerGoal } from "@/data/buyer-goals";
 import type { Property } from "@/types/property";
 
@@ -20,24 +20,26 @@ type PropertyInvestmentToolProps = {
 };
 
 const defaultFilters: PropertyFilters = {
-  city: "All",
-  budget: "All",
+  city: "Ho Chi Minh City",
+  district: "All",
   completionStatus: "All",
-  riskRating: "All",
-  rentalDemand: "All",
   ownership: "All",
-  minScore: "All",
 };
 
 export function PropertyInvestmentTool({ properties, buyerGoal }: PropertyInvestmentToolProps) {
   const { currency, t, td } = useAppPreferences();
+  const {
+    comparedProjectIds,
+    removeComparedProject,
+    savedResidenceIds,
+    toggleComparedProject,
+    toggleSavedResidence,
+  } = useInvestmentWorkspace();
   const [filters, setFilters] = useState<PropertyFilters>({
     ...defaultFilters,
     ...buyerGoal?.filters,
   });
-  const [sortBy, setSortBy] = useState<PropertySortOption>("score-desc");
-  const [compareIds, setCompareIds] = useState<string[]>([]);
-  const [shortlistIds, setShortlistIds] = useState<string[]>([]);
+  const [sortBy, setSortBy] = useState<PropertySortOption>("newest-listed");
 
   const filteredProperties = useMemo(() => {
     return properties
@@ -46,41 +48,36 @@ export function PropertyInvestmentTool({ properties, buyerGoal }: PropertyInvest
   }, [properties, filters, sortBy]);
 
   const compareProperties = useMemo(
-    () => properties.filter((property) => compareIds.includes(property.id)),
-    [properties, compareIds],
+    () => properties.filter((property) => comparedProjectIds.includes(property.id)),
+    [properties, comparedProjectIds],
+  );
+  const districtOptions = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          properties
+            .filter((property) => property.city === filters.city)
+            .map((property) => property.district),
+        ),
+      ).sort(),
+    [properties, filters.city],
   );
 
   function updateFilter<K extends keyof PropertyFilters>(key: K, value: PropertyFilters[K]) {
-    setFilters((current) => ({ ...current, [key]: value }));
-  }
-
-  function toggleCompare(propertyId: string) {
-    setCompareIds((current) => {
-      if (current.includes(propertyId)) {
-        return current.filter((id) => id !== propertyId);
+    setFilters((current) => {
+      if (key === "city") {
+        return { ...current, city: value as PropertyFilters["city"], district: "All" };
       }
 
-      if (current.length >= 3) {
-        return current;
-      }
-
-      return [...current, propertyId];
+      return { ...current, [key]: value };
     });
-  }
-
-  function toggleShortlist(propertyId: string) {
-    setShortlistIds((current) =>
-      current.includes(propertyId)
-        ? current.filter((id) => id !== propertyId)
-        : [...current, propertyId],
-    );
   }
 
   return (
     <div>
       {buyerGoal ? (
-        <section className="mb-8 rounded-sm border border-[#F5C84C]/60 bg-[#fffaf0] p-6 shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#E7B93D]">
+        <section className="mb-10 rounded-sm border border-[#ECE7DA] bg-white p-7 shadow-sm">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6B7280]">
             {t("guidedRecommendationPath")}
           </p>
           <div className="mt-3 grid gap-5 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
@@ -98,7 +95,7 @@ export function PropertyInvestmentTool({ properties, buyerGoal }: PropertyInvest
               <div className="flex flex-wrap gap-2">
                 {buyerGoal.recommendedDistricts.map((district) => (
                   <span
-                    className="rounded-sm border border-[#F5C84C]/60 bg-white px-3 py-2 text-xs font-semibold uppercase tracking-[0.1em] text-[#1F2937]"
+                    className="rounded-sm border border-[#ECE7DA] bg-[#FFFDF8] px-3 py-2 text-xs font-semibold uppercase tracking-[0.1em] text-[#1F2937]"
                     key={district}
                   >
                     {td(district)}
@@ -112,22 +109,15 @@ export function PropertyInvestmentTool({ properties, buyerGoal }: PropertyInvest
 
       <PropertyFilter
         filters={filters}
+        districtOptions={districtOptions}
         resultCount={filteredProperties.length}
-        sortBy={sortBy}
         totalCount={properties.length}
         onFilterChange={updateFilter}
         onReset={() => {
           setFilters({ ...defaultFilters, ...buyerGoal?.filters });
-          setSortBy("score-desc");
+          setSortBy("newest-listed");
         }}
-        onSortChange={setSortBy}
       />
-
-      <div className="mt-5 grid gap-4 rounded-sm border border-[#ECE7DA] bg-white p-5 shadow-sm lg:grid-cols-3">
-        <ToolMetric label={t("selectedForCompare")} value={`${compareIds.length}/3`} />
-        <ToolMetric label={t("shortlist")} value={String(shortlistIds.length)} />
-        <ToolMetric label={t("topVisibleScore")} value={getTopScoreLabel(filteredProperties)} />
-      </div>
 
       {compareProperties.length > 0 && (
         <ComparePanel
@@ -135,26 +125,24 @@ export function PropertyInvestmentTool({ properties, buyerGoal }: PropertyInvest
           properties={compareProperties}
           t={t}
           td={td}
-          onRemove={(propertyId) =>
-            setCompareIds((current) => current.filter((id) => id !== propertyId))
-          }
+          onRemove={removeComparedProject}
         />
       )}
 
-      <div className="mt-8">
-        <DistrictInsightPanels city={filters.city === "All" ? undefined : filters.city} />
+      <div className="mt-10 flex justify-end">
+        <SortControl sortBy={sortBy} onSortChange={setSortBy} />
       </div>
 
-      <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-4 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {filteredProperties.map((property) => (
           <PropertyCard
-            isCompared={compareIds.includes(property.id)}
-            isCompareDisabled={compareIds.length >= 3}
-            isShortlisted={shortlistIds.includes(property.id)}
+            isCompared={comparedProjectIds.includes(property.id)}
+            isCompareDisabled={comparedProjectIds.length >= 3}
+            isShortlisted={savedResidenceIds.includes(property.id)}
             key={property.id}
             property={property}
-            onCompareToggle={toggleCompare}
-            onShortlistToggle={toggleShortlist}
+            onCompareToggle={toggleComparedProject}
+            onShortlistToggle={toggleSavedResidence}
           />
         ))}
       </div>
@@ -173,58 +161,65 @@ export function PropertyInvestmentTool({ properties, buyerGoal }: PropertyInvest
 
 function matchesFilters(property: Property, filters: PropertyFilters) {
   return (
-    (filters.city === "All" || property.city === filters.city) &&
-    matchesBudget(property.priceUsd, filters.budget) &&
+    property.city === filters.city &&
+    (filters.district === "All" || property.district === filters.district) &&
     (filters.completionStatus === "All" ||
       property.completionStatus === filters.completionStatus) &&
-    (filters.riskRating === "All" || property.riskRating === filters.riskRating) &&
-    (filters.rentalDemand === "All" || property.rentalDemand === filters.rentalDemand) &&
-    (filters.ownership === "All" || property.foreignOwnership === filters.ownership) &&
-    (filters.minScore === "All" || property.investmentScore.total >= filters.minScore)
+    (filters.ownership === "All" || property.foreignOwnership === filters.ownership)
   );
-}
-
-function matchesBudget(priceUsd: number, budget: PropertyFilters["budget"]) {
-  switch (budget) {
-    case "under-200":
-      return priceUsd < 200000;
-    case "200-400":
-      return priceUsd >= 200000 && priceUsd <= 400000;
-    case "400-700":
-      return priceUsd > 400000 && priceUsd <= 700000;
-    case "700-plus":
-      return priceUsd > 700000;
-    case "All":
-      return true;
-  }
 }
 
 function sortProperties(a: Property, b: Property, sortBy: PropertySortOption) {
   switch (sortBy) {
-    case "score-desc":
-      return b.investmentScore.total - a.investmentScore.total;
-    case "yield-desc":
-      return getAverageYield(b.estimatedYield) - getAverageYield(a.estimatedYield);
+    case "newest-listed":
+      return new Date(b.listedAt).getTime() - new Date(a.listedAt).getTime();
+    case "oldest-listed":
+      return new Date(a.listedAt).getTime() - new Date(b.listedAt).getTime();
     case "price-asc":
       return a.priceUsd - b.priceUsd;
-    case "risk-asc":
-      return getRiskRank(a.riskRating) - getRiskRank(b.riskRating);
-    case "liquidity-desc":
-      return getLiquidityRank(b.liquidity) - getLiquidityRank(a.liquidity);
-    case "newest":
-      return new Date(b.listedAt).getTime() - new Date(a.listedAt).getTime();
+    case "price-desc":
+      return b.priceUsd - a.priceUsd;
   }
 }
 
-function ToolMetric({ label, value }: { label: string; value: string }) {
+function SortControl({
+  sortBy,
+  onSortChange,
+}: {
+  sortBy: PropertySortOption;
+  onSortChange: (value: PropertySortOption) => void;
+}) {
+  const { t } = useAppPreferences();
+
   return (
-    <div className="rounded-sm bg-[#FFFDF8] p-4">
-      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#6B7280]">
-        {label}
-      </p>
-      <p className="mt-2 text-2xl font-semibold text-[#1F2937]">{value}</p>
-    </div>
+    <label className="grid w-full gap-2 text-sm font-semibold text-[#6B7280] sm:w-64">
+      {t("sortBy")}
+      <select
+        className="min-h-11 rounded-sm border border-[#ECE7DA] bg-white px-3 font-normal text-[#1F2937] outline-none focus:border-[#E7B93D] focus:ring-2 focus:ring-[#F5C84C]/15"
+        value={sortBy}
+        onChange={(event) => onSortChange(event.target.value as PropertySortOption)}
+      >
+        {PROPERTY_SORT_OPTIONS.map((option) => (
+          <option key={option.value} value={option.value}>
+            {getSortLabel(option.value, t)}
+          </option>
+        ))}
+      </select>
+    </label>
   );
+}
+
+function getSortLabel(value: PropertySortOption, t: ReturnType<typeof useAppPreferences>["t"]) {
+  switch (value) {
+    case "newest-listed":
+      return t("newestListed");
+    case "oldest-listed":
+      return t("oldestListed");
+    case "price-asc":
+      return t("lowestPrice");
+    case "price-desc":
+      return t("highestPrice");
+  }
 }
 
 function ComparePanel({
@@ -247,16 +242,12 @@ function ComparePanel({
       label: t("estimatedMonthlyRent"),
       getValue: (property: Property) => formatCurrencyFromUsd(property.roiDefaults.rentMonthlyUsd, currency),
     },
-    {
-      label: t("investmentScore"),
-      getValue: (property: Property) => `${property.investmentScore.total.toFixed(1)} / 10`,
-    },
     { label: t("riskRating"), getValue: (property: Property) => td(property.riskRating) },
     { label: t("liquidity"), getValue: (property: Property) => td(property.liquidity) },
     { label: t("rentalDemand"), getValue: (property: Property) => td(property.rentalDemand) },
     { label: t("developerQuality"), getValue: (property: Property) => td(property.developerQuality) },
     {
-      label: t("ownershipEligibility"),
+      label: t("foreignBuyerStatus"),
       getValue: (property: Property) => td(property.foreignOwnership),
     },
     { label: t("bestFor"), getValue: (property: Property) => td(property.bestFor) },
@@ -312,12 +303,4 @@ function ComparePanel({
       </div>
     </section>
   );
-}
-
-function getTopScoreLabel(properties: Property[]) {
-  if (properties.length === 0) return "-";
-
-  const topScore = Math.max(...properties.map((property) => property.investmentScore.total));
-
-  return `${topScore.toFixed(1)} / 10`;
 }

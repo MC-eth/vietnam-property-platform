@@ -13,8 +13,8 @@ export function DealProgressTracker({ deal }: DealProgressTrackerProps) {
   const { t } = useAppPreferences();
 
   return (
-    <section className="rounded-sm border border-[#ECE7DA] bg-white p-6 shadow-sm">
-      <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#E7B93D]">
+    <section className="rounded-sm border border-[#ECE7DA] bg-white p-7 shadow-sm">
+      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6B7280]">
         {t("dealProgressTracker")}
       </p>
       <h2 className="mt-3 text-2xl font-semibold text-[#1F2937]">
@@ -23,7 +23,7 @@ export function DealProgressTracker({ deal }: DealProgressTrackerProps) {
       <p className="mt-3 text-sm leading-7 text-[#6B7280]">
         {t("dealProgressDescription")}
       </p>
-      <div className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {DEAL_STAGES.map((stage, index) => (
           <DealStageCard
             detail={deal.stageDetails.find((detail) => detail.stage === stage)}

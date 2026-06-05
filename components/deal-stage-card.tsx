@@ -11,9 +11,9 @@ type DealStageCardProps = {
 };
 
 const statusStyles: Record<DealStatus, string> = {
-  completed: "border-[#F5C84C]/30 bg-[#f1f7f3] text-[#1F2937]",
-  current: "border-[#F5C84C] bg-[#FFFDF8] text-[#1F2937]",
-  upcoming: "border-[#ECE7DA] bg-[#FFFDF8] text-[#6B7280]",
+  completed: "border-[#D8CDAF] bg-white text-[#1F2937]",
+  current: "border-[#D8CDAF] bg-[#FFFDF8] text-[#1F2937]",
+  upcoming: "border-[#ECE7DA] bg-white text-[#6B7280]",
   blocked: "border-[#b96b5d]/40 bg-[#fff3f0] text-[#7a3126]",
 };
 
@@ -21,15 +21,15 @@ export function DealStageCard({ stage, status, index, detail }: DealStageCardPro
   const { t, td } = useAppPreferences();
 
   return (
-    <article className={`rounded-sm border p-4 ${statusStyles[status]}`}>
+    <article className={`rounded-sm border p-5 ${statusStyles[status]}`}>
       <div className="flex items-center gap-3">
         <span
           className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold ${
             status === "completed"
-              ? "bg-[#F5C84C] text-[#1F2937]"
+              ? "bg-[#FFF7D6] text-[#1F2937] ring-1 ring-[#ECD88C]"
               : status === "current"
-                ? "bg-[#F5C84C] text-[#1F2937]"
-                : "bg-white text-[#6B7280]"
+                ? "bg-[#E7B93D] text-[#1F2937]"
+                : "bg-[#FFFDF8] text-[#6B7280] ring-1 ring-[#ECE7DA]"
           }`}
         >
           {index + 1}

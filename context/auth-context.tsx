@@ -9,6 +9,7 @@ import {
   type ReactNode,
 } from "react";
 import { useAppPreferences } from "@/context/app-preferences-context";
+import type { TranslationKey } from "@/constants/translations";
 
 export type UserRole = "buyer" | "admin";
 
@@ -18,7 +19,7 @@ type AuthContextValue = {
   userName: string;
   login: (role: UserRole) => void;
   logout: () => void;
-  openLoginModal: () => void;
+  openLoginModal: (message?: TranslationKey) => void;
 };
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
@@ -33,6 +34,7 @@ type StoredAuth = {
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [loginMessage, setLoginMessage] = useState<TranslationKey | null>(null);
   const storedAuthValue = useSyncExternalStore(
     subscribeToAuthChanges,
     getStoredAuthValue,
@@ -48,11 +50,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       login: (role) => {
         setStoredAuth({ isLoggedIn: true, userRole: role });
         setIsLoginOpen(false);
+        setLoginMessage(null);
       },
       logout: () => {
         clearStoredAuth();
       },
-      openLoginModal: () => setIsLoginOpen(true),
+      openLoginModal: (message) => {
+        setLoginMessage(message ?? null);
+        setIsLoginOpen(true);
+      },
     }),
     [auth.isLoggedIn, auth.userRole],
   );
@@ -60,12 +66,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   return (
     <AuthContext.Provider value={value}>
       {children}
-      {isLoginOpen ? <MockLoginModal onClose={() => setIsLoginOpen(false)} /> : null}
+      {isLoginOpen ? (
+        <MockLoginModal
+          message={loginMessage}
+          onClose={() => {
+            setIsLoginOpen(false);
+            setLoginMessage(null);
+          }}
+        />
+      ) : null}
     </AuthContext.Provider>
   );
 }
 
-function MockLoginModal({ onClose }: { onClose: () => void }) {
+function MockLoginModal({
+  message,
+  onClose,
+}: {
+  message: TranslationKey | null;
+  onClose: () => void;
+}) {
   const { t } = useAppPreferences();
   const { login } = useAuth();
 
@@ -95,9 +115,12 @@ function MockLoginModal({ onClose }: { onClose: () => void }) {
           </button>
         </div>
 
-        <p className="mt-4 text-sm leading-6 text-[#6B7280]">
-          {t("mockLoginDescription")}
-        </p>
+        {message ? (
+          <p className="mt-4 rounded-sm border border-[#ECE7DA] bg-[#FFFDF8] px-4 py-3 text-sm font-semibold leading-6 text-[#1F2937]">
+            {t(message)}
+          </p>
+        ) : null}
+        <p className="mt-4 text-sm leading-6 text-[#6B7280]">{t("mockLoginDescription")}</p>
 
         <div className="mt-6 grid gap-3">
           <RoleButton

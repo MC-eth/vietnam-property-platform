@@ -6,7 +6,7 @@ import { PageHeading } from "@/components/page-heading";
 import { learnArticles } from "@/data/learn";
 
 const guideTopics = [
-  "Foreign ownership quota checks",
+  "Foreign buyer quota checks",
   "Legal coordination before reservation",
   "Rental yield and vacancy assumptions",
   "USD and HKD capital planning",

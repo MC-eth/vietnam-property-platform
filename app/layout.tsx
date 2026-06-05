@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { AppPreferencesProvider } from "@/context/app-preferences-context";
 import { AuthProvider } from "@/context/auth-context";
+import { InvestmentWorkspaceProvider } from "@/context/investment-workspace-context";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -20,8 +21,10 @@ export default function RootLayout({
       <body>
         <AppPreferencesProvider>
           <AuthProvider>
-            {children}
-            <WhatsAppButton />
+            <InvestmentWorkspaceProvider>
+              {children}
+              <WhatsAppButton />
+            </InvestmentWorkspaceProvider>
           </AuthProvider>
         </AppPreferencesProvider>
       </body>

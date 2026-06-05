@@ -1,139 +1,107 @@
 import Link from "next/link";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { HomepageInvestmentDiscovery } from "@/components/homepage-investment-discovery";
 import { InvestorJourney } from "@/components/investor-journey";
-import { LearnCard } from "@/components/learn-card";
 import { T, TD } from "@/components/localized-text";
-import { PropertyCard } from "@/components/property-card";
-import { ServiceCard } from "@/components/service-card";
-import { buyerGoals } from "@/data/buyer-goals";
-import { learnArticles } from "@/data/learn";
-import { getFeaturedProperties } from "@/services/propertyService";
+import { ProjectCard } from "@/components/project-card";
+import { getProjects } from "@/services/projectService";
 
 const whyVietnam = [
-  "Urban income growth",
-  "Deep tenant pools",
-  "Infrastructure upside",
-];
-
-const services = [
   {
-    marker: "01",
-    title: "Property sourcing",
-    description: "Curated residential opportunities in Ho Chi Minh City and Hanoi based on buyer mandate.",
+    title: "Urban income growth",
+    description: "Rising income supports long-term residential demand.",
   },
   {
-    marker: "02",
-    title: "Foreign buyer guidance",
-    description: "Ownership quota checks, document preparation guidance, and transaction process support.",
+    title: "Deep tenant pools",
+    description:
+      "HCMC and Hanoi attract professionals, expats, and corporate tenants.",
   },
   {
-    marker: "03",
-    title: "Rental management",
-    description: "Future-ready post-sale setup for tenant placement, reporting, and maintenance coordination.",
-  },
-];
-
-const faqs = [
-  {
-    question: "Can foreigners buy property in Vietnam?",
-    answer:
-      "Foreign buyers can generally buy eligible residential units subject to building-level foreign ownership quotas and legal review.",
-  },
-  {
-    question: "Which cities does the MVP cover?",
-    answer: "The first version focuses on Ho Chi Minh City and Hanoi.",
-  },
-  {
-    question: "Is rental management live yet?",
-    answer:
-      "Not yet. The owner portal and rental management areas are placeholders for future app functionality.",
+    title: "Infrastructure upside",
+    description:
+      "Metro lines, bridges, and new urban zones are reshaping access and rental demand.",
   },
 ];
 
 export default async function Home() {
-  const featuredProperties = await getFeaturedProperties();
+  const projects = await getProjects();
+  const featuredResidences = projects.slice(0, 3);
 
   return (
     <>
       <Header />
       <main>
         <section
-          className="relative overflow-hidden bg-cover bg-center px-5 py-20 sm:px-8 lg:py-28"
-          style={{ backgroundImage: "url('/images/generated/vietnam-investment-hero.jpg')" }}
+          className="relative overflow-hidden px-5 py-20 sm:px-8 lg:py-28"
         >
-          <div className="absolute inset-0 bg-[#FFFDF8]/80" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FFFDF8] via-[#FFFDF8]/86 to-[#FFFDF8]/42" />
-          <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-            <div>
-              <p className="inline-flex rounded-sm border border-[#ECE7DA] bg-white/92 px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#1F2937]">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#FFF9EA] via-[#FFFDF8] to-white" />
+          <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <div className="max-w-4xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6B7280]">
                 <T k="heroEyebrow" />
               </p>
-              <h1 className="mt-6 max-w-4xl text-5xl font-semibold leading-tight text-[#1F2937] sm:text-6xl">
+              <h1 className="mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] text-[#1F2937] sm:text-6xl lg:text-7xl">
                 <T k="heroTitle" />
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#6B7280]">
+              <p className="mt-6 max-w-xl text-lg leading-8 text-[#6B7280]">
                 <T k="heroSubtitle" />
               </p>
-              <div className="mt-8 rounded-sm border border-[#ECE7DA] bg-white p-3 shadow-lg">
-                <div className="grid gap-3 md:grid-cols-[1fr_1fr_auto]">
-                  <div className="rounded-sm border border-[#ECE7DA] px-4 py-3">
-                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6B7280]">
-                      <T k="city" />
-                    </p>
-                    <p className="mt-1 text-sm font-semibold text-[#1F2937]">
-                      <T k="hcmcOrHanoi" />
-                    </p>
-                  </div>
-                  <div className="rounded-sm border border-[#ECE7DA] px-4 py-3">
-                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6B7280]">
-                      <T k="strategy" />
-                    </p>
-                    <p className="mt-1 text-sm font-semibold text-[#1F2937]">
-                      <T k="heroStrategy" />
-                    </p>
-                  </div>
-                  <Link
-                    className="inline-flex min-h-14 items-center justify-center rounded-sm bg-[#F5C84C] px-6 text-sm font-semibold text-[#1F2937] transition hover:bg-[#E7B93D]"
-                    href="/properties"
-                  >
-                    <T k="browseInvestmentCases" />
-                  </Link>
-                </div>
+              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  className="premium-focus-ring inline-flex min-h-12 items-center justify-center rounded-sm bg-[#E7B93D] px-6 text-sm font-semibold text-[#1F2937] hover:bg-[#D8AA2F]"
+                  href="/enquiry"
+                >
+                  <T k="bookInvestorConsultation" />
+                </Link>
+                <Link
+                  className="premium-focus-ring inline-flex min-h-12 items-center justify-center rounded-sm border border-[#D8CDAF] bg-white/80 px-6 text-sm font-semibold text-[#1F2937] hover:border-[#BFAF86]"
+                  href="/properties"
+                >
+                  <T k="browseInvestmentCases" />
+                </Link>
               </div>
-              <Link
-                className="mt-5 inline-flex text-sm font-semibold text-[#1F2937] transition hover:text-[#E7B93D]"
-                href="/enquiry"
-              >
-                <T k="speakToAdvisor" />
-              </Link>
             </div>
-            <div className="rounded-sm border border-[#ECE7DA] bg-white/92 p-6 shadow-lg backdrop-blur">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#1F2937]">
-                HCMC · Hanoi
-              </p>
-              <p className="mt-6 text-5xl font-semibold text-[#1F2937]">6</p>
-              <p className="mt-3 text-sm leading-7 text-[#6B7280]">
-                <TD value="Investment-screened projects with yield, risk, ownership, and rental management context." />
-              </p>
-              <div className="mt-6 h-2 overflow-hidden rounded-full bg-[#ECE7DA]">
-                <div className="h-full w-3/4 rounded-full bg-[#F5C84C]" />
+            <div className="relative">
+              <div className="overflow-hidden rounded-sm shadow-[0_24px_80px_rgba(31,41,55,0.14)]">
+                <div
+                  className="hero-ken-burns min-h-[360px] bg-cover bg-center sm:min-h-[520px]"
+                  style={{ backgroundImage: "url('/mock-images/heroes/hcmc-sky-view.png')" }}
+                  aria-label="Aerial view of Ho Chi Minh City"
+                />
+              </div>
+              <div className="absolute bottom-5 left-5 right-5 rounded-sm border border-white/70 bg-white/88 p-5 shadow-sm backdrop-blur md:right-auto md:w-80">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6B7280]">
+                  HCMC · Hanoi
+                </p>
+                <p className="mt-3 text-sm leading-7 text-[#1F2937]">
+                  <TD value="Investment-screened residences with yield, demand, foreign-buyer status, and rental management context." />
+                </p>
+                <div className="mt-4 grid grid-cols-2 gap-3 border-t border-[#ECE7DA] pt-4 text-xs text-[#6B7280]">
+                  <span>Thu Thiem</span>
+                  <span>Tay Ho</span>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="px-5 py-20 sm:px-8 lg:py-28">
+        <HomepageInvestmentDiscovery projects={projects} />
+
+        <section className="px-5 py-16 sm:px-8 lg:py-24">
           <div className="mx-auto max-w-7xl">
             <SectionTitle
               eyebrow={<TD value="Why Vietnam" />}
               title={<TD value="A focused market thesis." />}
             />
-            <div className="mt-10 grid gap-4 md:grid-cols-3">
+            <div className="mt-8 grid gap-5 md:grid-cols-3">
               {whyVietnam.map((item) => (
-                <article className="rounded-sm border border-[#ECE7DA] bg-white p-8 shadow-sm" key={item}>
+                <article className="premium-card rounded-sm border border-[#ECE7DA] bg-white p-7 shadow-sm" key={item.title}>
                   <p className="text-xl font-semibold leading-7 text-[#1F2937]">
-                    <TD value={item} />
+                    <TD value={item.title} />
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-[#6B7280]">
+                    <TD value={item.description} />
                   </p>
                 </article>
               ))}
@@ -141,134 +109,26 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="bg-[#FFFDF8] px-5 py-20 sm:px-8 lg:py-28">
-          <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div>
-              <SectionTitle
-                eyebrow={<TD value="Ho Chi Minh City" />}
-                title={<TD value="Aerial view of Vietnam's growth market." />}
-              />
-              <p className="mt-5 max-w-xl text-sm leading-7 text-[#6B7280]">
-                <TD value="A high-level view of the market helps overseas buyers understand scale, infrastructure, riverfront districts, and long-term rental corridors before comparing individual projects." />
-              </p>
+        <section className="bg-[#FFFDF8] px-5 py-16 sm:px-8 lg:py-24">
+          <div className="mx-auto max-w-7xl">
+            <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+              <SectionTitle eyebrow={<TD value="Featured Residences" />} title={<TD value="Selected investment residences." />} />
               <Link
-                className="mt-7 inline-flex min-h-11 items-center rounded-sm border border-[#F5C84C] px-5 text-sm font-semibold text-[#1F2937] transition hover:bg-[#F5C84C] hover:text-[#1F2937]"
-                href="/properties?city=Ho%20Chi%20Minh%20City"
+                className="premium-focus-ring inline-flex min-h-11 w-fit items-center rounded-sm border border-[#D8CDAF] bg-white px-5 text-sm font-semibold text-[#1F2937] hover:border-[#F5C84C]"
+                href="/properties"
               >
                 <T k="browseInvestmentCases" />
               </Link>
             </div>
-            <div
-              className="min-h-[360px] rounded-sm bg-cover bg-center shadow-xl"
-              style={{ backgroundImage: "url('/images/generated/hcmc-sky-view.png')" }}
-              aria-label="Aerial view of Ho Chi Minh City"
-            />
-          </div>
-        </section>
-
-        <section className="px-5 py-20 sm:px-8 lg:py-28">
-          <div className="mx-auto max-w-7xl">
-            <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-              <SectionTitle
-                eyebrow={<TD value="Start with your investment goal" />}
-                title={<TD value="Choose your buyer path." />}
-              />
-              <p className="max-w-md text-sm leading-7 text-[#6B7280]">
-                <TD value="Open a pre-filtered view with matched districts and assets." />
-              </p>
-            </div>
-            <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
-              {buyerGoals.map((goal) => (
-                <Link
-                  className="group rounded-sm border border-[#ECE7DA] bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-[#F5C84C] hover:shadow-xl"
-                  href={`/properties?goal=${goal.slug}`}
-                  key={goal.slug}
-                >
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#E7B93D]">
-                    <TD value="Buyer path" />
-                  </p>
-                  <h2 className="mt-3 text-xl font-semibold leading-tight text-[#1F2937]">
-                    <TD value={goal.title} />
-                  </h2>
-                  <p className="mt-4 text-sm leading-6 text-[#6B7280]">
-                    <TD value={goal.summary} />
-                  </p>
-                  <span className="mt-5 inline-flex text-sm font-semibold text-[#1F2937]">
-                <T k="browseInvestmentCases" />
-                  </span>
-                </Link>
+            <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              {featuredResidences.map((project) => (
+                <ProjectCard project={project} variant="homepage" key={project.id} />
               ))}
             </div>
           </div>
         </section>
 
         <InvestorJourney />
-
-        <section className="bg-[#FFFDF8] px-5 py-20 sm:px-8 lg:py-28">
-          <div className="mx-auto max-w-7xl">
-            <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-              <SectionTitle eyebrow={<TD value="Featured properties" />} title={<TD value="Selected investment cases." />} />
-              <Link
-                className="inline-flex min-h-11 w-fit items-center rounded-sm border border-[#F5C84C] px-5 text-sm font-semibold text-[#1F2937] transition hover:bg-[#F5C84C] hover:text-[#1F2937]"
-                href="/properties"
-              >
-                <T k="browseInvestmentCases" />
-              </Link>
-            </div>
-            <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-              {featuredProperties.map((property) => (
-                <PropertyCard property={property} key={property.id} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="px-5 py-20 sm:px-8 lg:py-28">
-          <div className="mx-auto max-w-7xl">
-            <SectionTitle eyebrow={<T k="navigationServices" />} title={<TD value="Advisory support across the transaction." />} />
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
-              {services.map((service) => (
-                <ServiceCard {...service} key={service.title} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#FFFDF8] px-5 py-20 sm:px-8 lg:py-28">
-          <div className="mx-auto max-w-7xl">
-            <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-              <SectionTitle
-                eyebrow={<T k="learn" />}
-                title={<TD value="Investor education." />}
-              />
-              <Link
-                className="inline-flex min-h-11 w-fit items-center rounded-sm border border-[#F5C84C] px-5 text-sm font-semibold text-[#1F2937] transition hover:bg-[#F5C84C] hover:text-[#1F2937]"
-                href="/learn"
-              >
-                <T k="learn" />
-              </Link>
-            </div>
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
-              {learnArticles.map((article) => (
-                <LearnCard {...article} key={article.title} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="px-5 py-20 sm:px-8 lg:py-28">
-          <div className="mx-auto max-w-4xl">
-            <SectionTitle eyebrow={<TD value="FAQ" />} title={<TD value="Common questions." />} />
-            <div className="mt-10 divide-y divide-[#ECE7DA] rounded-sm border border-[#ECE7DA] bg-white">
-              {faqs.map((faq) => (
-                <article className="p-6" key={faq.question}>
-                  <h2 className="text-lg font-semibold text-[#1F2937]"><TD value={faq.question} /></h2>
-                  <p className="mt-3 text-sm leading-7 text-[#6B7280]"><TD value={faq.answer} /></p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
     </>
@@ -278,7 +138,7 @@ export default async function Home() {
 function SectionTitle({ eyebrow, title }: { eyebrow: React.ReactNode; title: React.ReactNode }) {
   return (
     <div className="max-w-3xl">
-      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#E7B93D]">
+      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6B7280]">
         {eyebrow}
       </p>
       <h2 className="mt-3 text-3xl font-semibold leading-tight text-[#1F2937] sm:text-4xl">

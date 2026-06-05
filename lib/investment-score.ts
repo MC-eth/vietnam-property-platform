@@ -26,15 +26,16 @@ const RATING_SCORE: Record<InvestmentRating, number> = {
 };
 
 const FOREIGN_OWNERSHIP_SCORE: Record<ForeignOwnershipStatus, number> = {
-  Eligible: 10,
-  "Limited quota": 7,
-  "Advisor review": 5,
+  "Foreigner-eligible": 10,
+  "Quota review needed": 7,
+  "Advisor confirmation needed": 6,
 };
 
 const COMPLETION_SCORE: Record<PropertyStatus, number> = {
-  Completed: 10,
-  "Under construction": 7,
-  "Off-plan": 5,
+  "New Builds": 9,
+  "Pre-Owned": 8.5,
+  "In Construction": 7,
+  Planning: 5,
 };
 
 const RISK_SCORE: Record<RiskRating, number> = {
@@ -118,4 +119,3 @@ function getInvestmentScoreLabel(total: number): InvestmentScore["label"] {
 function roundToOneDecimal(value: number) {
   return Math.round(value * 10) / 10;
 }
-

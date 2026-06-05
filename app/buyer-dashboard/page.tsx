@@ -25,7 +25,7 @@ export default function BuyerDashboardPage() {
       <Header />
       <AccessGate allowedRoles={["buyer"]}>
         <main>
-          <section className="stone-surface px-5 py-14 sm:px-8 lg:py-20">
+          <section className="stone-surface px-5 py-16 sm:px-8 lg:py-24">
             <PageHeading
               eyebrow={<TD value="Buyer transaction dashboard" />}
               title={<TD value="Track a Vietnam property purchase from enquiry to rental setup." />}
@@ -47,12 +47,12 @@ export default function BuyerDashboardPage() {
             </div>
           </section>
 
-        <section className="px-5 py-12 sm:px-8 lg:py-16">
+        <section className="px-5 py-14 sm:px-8 lg:py-20">
           <div className="mx-auto max-w-7xl">
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
               {dashboardMetrics.map((metric) => (
                 <article
-                  className="rounded-sm border border-[#ECE7DA] bg-white p-5 shadow-sm"
+                  className="rounded-sm border border-[#ECE7DA] bg-white p-6 shadow-sm"
                   key={metric.label}
                 >
                   <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#6B7280]">
@@ -65,24 +65,24 @@ export default function BuyerDashboardPage() {
               ))}
             </div>
 
-            <div className="mt-8">
+            <div className="mt-10">
               <NextActionCard deal={activeBuyerDeal} />
             </div>
 
-            <div className="mt-8">
+            <div className="mt-10">
               <DealSummaryCard deal={activeBuyerDeal} />
             </div>
 
-            <div className="mt-8">
+            <div className="mt-10">
               <DealProgressTracker deal={activeBuyerDeal} />
             </div>
 
-            <div className="mt-8 grid gap-5 xl:grid-cols-[1fr_1fr]">
+            <div className="mt-10 grid gap-6 xl:grid-cols-[1fr_1fr]">
               <DocumentChecklist documents={activeBuyerDeal.documents} />
               <PaymentTracker payments={activeBuyerDeal.payments} />
             </div>
 
-            <div className="mt-8 grid gap-5 xl:grid-cols-[0.8fr_1.2fr]">
+            <div className="mt-10 grid gap-6 xl:grid-cols-[0.8fr_1.2fr]">
               <RoleClarityCard roles={activeBuyerDeal.roles} />
               <article className="rounded-sm border border-[#ECE7DA] bg-white p-6 shadow-sm">
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#E7B93D]">

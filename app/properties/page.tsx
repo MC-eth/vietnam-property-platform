@@ -1,37 +1,37 @@
+import { FeaturedPropertyCarousel } from "@/components/featured-property-carousel";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
-import { T } from "@/components/localized-text";
-import { PageHeading } from "@/components/page-heading";
-import { PropertyInvestmentTool } from "@/components/property-investment-tool";
+import { ProjectInvestmentTool } from "@/components/project-investment-tool";
 import { getBuyerGoalBySlug } from "@/data/buyer-goals";
-import { getProperties } from "@/services/propertyService";
+import { getDistrictInsightByFilter } from "@/data/district-insights";
+import { getProjects } from "@/services/projectService";
 
 type PropertiesPageProps = {
   searchParams: Promise<{
     goal?: string;
     city?: string;
+    district?: string;
   }>;
 };
 
 export default async function PropertiesPage({ searchParams }: PropertiesPageProps) {
-  const { goal } = await searchParams;
-  const properties = await getProperties();
+  const { district, goal } = await searchParams;
+  const projects = await getProjects();
   const buyerGoal = getBuyerGoalBySlug(goal);
+  const districtInsight = district ? getDistrictInsightByFilter(district) : undefined;
 
   return (
     <>
       <Header />
       <main>
-        <section className="stone-surface px-5 py-14 sm:px-8 lg:py-20">
-          <PageHeading
-            eyebrow={<T k="investmentFilters" />}
-            title={<T k="propertiesTitle" />}
-            description={<T k="propertiesDescription" />}
-          />
-        </section>
-        <section className="px-5 py-12 sm:px-8 lg:py-16">
+        <FeaturedPropertyCarousel />
+        <section className="px-5 py-14 sm:px-8 lg:py-20">
           <div className="mx-auto max-w-7xl">
-            <PropertyInvestmentTool buyerGoal={buyerGoal} properties={properties} />
+            <ProjectInvestmentTool
+              buyerGoal={buyerGoal}
+              initialDistrictFilter={districtInsight}
+              projects={projects}
+            />
           </div>
         </section>
       </main>

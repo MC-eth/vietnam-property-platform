@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="lobby" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffdf8"/>
+      <stop offset=".55" stop-color="#ead8b4"/>
+      <stop offset="1" stop-color="#9e8162"/>
+    </linearGradient>
+    <linearGradient id="stone" x1="0" x2="1">
+      <stop offset="0" stop-color="#efe3cf"/>
+      <stop offset="1" stop-color="#c5a676"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#lobby)"/>
+  <rect x="180" y="150" width="1240" height="640" rx="10" fill="#fff8ea" opacity=".58"/>
+  <rect x="305" y="235" width="245" height="555" fill="url(#stone)"/>
+  <rect x="610" y="185" width="380" height="605" fill="#fffaf0" opacity=".85"/>
+  <rect x="1050" y="235" width="245" height="555" fill="url(#stone)"/>
+  <rect x="662" y="280" width="276" height="400" fill="#304b58" opacity=".55"/>
+  <circle cx="800" cy="245" r="62" fill="#f5c84c" opacity=".55"/>
+  <rect x="0" y="790" width="1600" height="210" fill="#bea06f"/>
+  <path d="M260 860 L1340 860" stroke="#fff5d5" stroke-width="18" opacity=".45"/>
+  <rect x="575" y="720" width="450" height="48" fill="#896b46"/>
+  <rect x="640" y="675" width="320" height="65" rx="8" fill="#f8ead3"/>
+</svg>

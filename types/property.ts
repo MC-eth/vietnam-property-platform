@@ -1,8 +1,11 @@
-export type PropertyStatus = "Completed" | "Under construction" | "Off-plan";
+export type PropertyStatus = "New Builds" | "Pre-Owned" | "In Construction" | "Planning";
 export type RiskRating = "Low" | "Medium" | "Medium-high";
 export type VerifiedProjectLevel = "Verified" | "Enhanced due diligence" | "Pre-check";
 export type City = "Ho Chi Minh City" | "Hanoi";
-export type ForeignOwnershipStatus = "Eligible" | "Limited quota" | "Advisor review";
+export type ForeignOwnershipStatus =
+  | "Foreigner-eligible"
+  | "Quota review needed"
+  | "Advisor confirmation needed";
 export type InvestmentRating = "Very high" | "High" | "Moderate" | "Selective";
 
 export type InvestmentScore = {

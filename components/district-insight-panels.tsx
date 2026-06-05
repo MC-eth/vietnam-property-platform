@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { districtInsights } from "@/data/district-insights";
 import { useAppPreferences } from "@/context/app-preferences-context";
 import type { City } from "@/types/property";
@@ -13,7 +14,7 @@ export function DistrictInsightPanels({ city, district }: DistrictInsightPanelsP
   const { t, td } = useAppPreferences();
   const insights = districtInsights.filter((insight) => {
     const cityMatches = city ? insight.city === city : true;
-    const districtMatches = district ? insight.district === district : true;
+    const districtMatches = district ? insight.districtContext === district : true;
 
     return cityMatches && districtMatches;
   });
@@ -38,7 +39,7 @@ export function DistrictInsightPanels({ city, district }: DistrictInsightPanelsP
         {insights.map((insight) => (
           <details
             className="rounded-sm border border-[#ECE7DA] bg-[#FFFDF8] p-5"
-            key={insight.id}
+            key={insight.slug}
             open={Boolean(district)}
           >
             <summary className="cursor-pointer list-none">
@@ -48,31 +49,31 @@ export function DistrictInsightPanels({ city, district }: DistrictInsightPanelsP
                     {td(insight.city)}
                   </p>
                   <h3 className="mt-2 text-xl font-semibold text-[#1F2937]">
-                    {td(insight.district)}
+                    {td(insight.displayName)}
                   </h3>
                 </div>
-                <div className="grid gap-3 sm:grid-cols-3 md:min-w-[420px]">
-                  <InsightMetric label={t("estimatedRentalYield")} value={insight.averageYield} />
-                  <InsightMetric label={t("liquidity")} value={td(insight.liquidity)} />
+                <div className="grid gap-3 sm:grid-cols-2 md:min-w-[320px]">
                   <InsightMetric label={t("rentalDemand")} value={td(insight.rentalDemand)} />
+                  <InsightMetric
+                    label={t("selectedResidencesInThisDistrict")}
+                    value={`${insight.selectedResidenceSlugs.length}`}
+                  />
                 </div>
               </div>
-              <p className="mt-4 text-sm font-semibold text-[#1F2937]">
-                {t("viewMarketInsights")}
-              </p>
             </summary>
             <div className="mt-6 grid gap-4 border-t border-[#ECE7DA] pt-5 lg:grid-cols-2">
-              <InsightText label={t("buyerProfile")} value={td(insight.buyerProfile)} />
-              <InsightText label={t("infrastructureOutlook")} value={td(insight.infrastructureOutlook)} />
-              <InsightText label={t("priceTrend")} value={td(insight.priceTrend)} />
-              <InsightText label={t("foreignBuyerPopularity")} value={td(insight.foreignBuyerPopularity)} />
+              <InsightText label={t("districtOverview")} value={td(insight.shortPositioning)} />
+              <InsightText
+                label={t("bestFor")}
+                value={insight.basicInfo.suitableFor.map((item) => td(item)).join(" · ")}
+              />
             </div>
-            <a
+            <Link
               className="mt-5 inline-flex min-h-10 items-center rounded-sm border border-[#F5C84C] px-4 text-sm font-semibold text-[#1F2937] transition hover:bg-[#F5C84C] hover:text-[#1F2937]"
-              href={`/markets/${insight.id}`}
+              href={`/districts/${insight.slug}`}
             >
-              {t("viewMarketInsights")}
-            </a>
+              {t("viewDistrictInsights")}
+            </Link>
           </details>
         ))}
       </div>

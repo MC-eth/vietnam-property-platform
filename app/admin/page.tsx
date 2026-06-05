@@ -36,14 +36,14 @@ export default async function AdminPage() {
       <Header />
       <AccessGate allowedRoles={["admin"]}>
         <main>
-          <section className="stone-surface px-5 py-14 sm:px-8 lg:py-20">
+          <section className="stone-surface px-5 py-16 sm:px-8 lg:py-24">
             <PageHeading
               eyebrow={<T k="adminDashboard" />}
               title={<TD value="Internal operating view for enquiries, agents, and deal stages." />}
               description={<TD value="This is a placeholder dashboard only. Authentication, permissions, and CRM sync can be added later." />}
             />
           </section>
-        <section className="px-5 py-12 sm:px-8 lg:py-16">
+        <section className="px-5 py-14 sm:px-8 lg:py-20">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
               {adminMetrics.map((metric) => (
@@ -51,7 +51,7 @@ export default async function AdminPage() {
               ))}
             </div>
 
-            <div className="mt-8 overflow-hidden rounded-sm border border-[#ECE7DA] bg-white shadow-sm">
+            <div className="mt-10 overflow-hidden rounded-sm border border-[#ECE7DA] bg-white shadow-sm">
               <div className="border-b border-[#ECE7DA] p-5">
                 <h2 className="text-xl font-semibold text-[#1F2937]"><TD value="Buyer pipeline" /></h2>
               </div>
@@ -101,7 +101,7 @@ export default async function AdminPage() {
 
 function getAssignedAgentName(targetCity: City | "Both cities", agents: Agent[]) {
   if (targetCity === "Both cities") {
-    return "Advisor review";
+    return "Advisor assignment pending";
   }
 
   return agents.find((agent) => agent.markets.includes(targetCity))?.name ?? "TBD";

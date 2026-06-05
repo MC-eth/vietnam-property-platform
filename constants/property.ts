@@ -10,15 +10,16 @@ export const INVESTMENT_RATINGS: InvestmentRating[] = [
 ];
 
 export const PROPERTY_STATUSES: PropertyStatus[] = [
-  "Completed",
-  "Under construction",
-  "Off-plan",
+  "New Builds",
+  "Pre-Owned",
+  "In Construction",
+  "Planning",
 ];
 
 export const FOREIGN_OWNERSHIP_STATUSES = [
-  "Eligible",
-  "Limited quota",
-  "Advisor review",
+  "Foreigner-eligible",
+  "Quota review needed",
+  "Advisor confirmation needed",
 ] as const;
 
 export const VERIFIED_PROJECT_LEVELS = [
@@ -27,13 +28,9 @@ export const VERIFIED_PROJECT_LEVELS = [
   "Pre-check",
 ] as const;
 
-export const MIN_INVESTMENT_SCORE_OPTIONS = [6, 7, 8, 9] as const;
-
 export const PROPERTY_SORT_OPTIONS = [
-  { label: "Highest investment score", value: "score-desc" },
-  { label: "Highest yield", value: "yield-desc" },
+  { label: "Newest listed", value: "newest-listed" },
+  { label: "Oldest listed", value: "oldest-listed" },
   { label: "Lowest price", value: "price-asc" },
-  { label: "Lowest risk", value: "risk-asc" },
-  { label: "Best liquidity", value: "liquidity-desc" },
-  { label: "Newest", value: "newest" },
+  { label: "Highest price", value: "price-desc" },
 ] as const;

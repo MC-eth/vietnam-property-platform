@@ -18,13 +18,13 @@ export default function HowItWorksPage() {
           />
           <div className="mx-auto mt-8 flex max-w-3xl flex-col justify-center gap-3 sm:flex-row">
             <Link
-              className="inline-flex min-h-12 items-center justify-center rounded-sm bg-[#F5C84C] px-6 text-sm font-semibold text-[#1F2937] transition hover:bg-[#E7B93D]"
+              className="premium-focus-ring inline-flex min-h-12 items-center justify-center rounded-sm bg-[#F5C84C] px-6 text-sm font-semibold text-[#1F2937] hover:bg-[#E7B93D]"
               href="/properties"
             >
               <T k="browseInvestmentCases" />
             </Link>
             <Link
-              className="inline-flex min-h-12 items-center justify-center rounded-sm border border-[#F5C84C] px-6 text-sm font-semibold text-[#1F2937] transition hover:bg-[#F5C84C] hover:text-[#1F2937]"
+              className="premium-focus-ring inline-flex min-h-12 items-center justify-center rounded-sm border border-[#F5C84C] px-6 text-sm font-semibold text-[#1F2937] hover:bg-[#F5C84C] hover:text-[#1F2937]"
               href="/enquiry"
             >
               <T k="bookInvestorConsultation" />

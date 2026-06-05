@@ -34,7 +34,7 @@ export function AccessGate({ allowedRoles, children }: AccessGateProps) {
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <button
             className="inline-flex min-h-12 items-center justify-center rounded-sm bg-[#F5C84C] px-6 text-sm font-semibold text-[#1F2937] transition hover:bg-[#E7B93D]"
-            onClick={openLoginModal}
+            onClick={() => openLoginModal()}
             type="button"
           >
             {t("signIn")}

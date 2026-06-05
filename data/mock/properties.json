@@ -24,10 +24,10 @@
     "whyInvest": [
       "Completed central asset with immediate leasing potential",
       "Thu Thiem benefits from office, infrastructure, and international tenant demand",
-      "Eligible foreign ownership profile reduces execution uncertainty"
+      "Indicative foreign-buyer profile supports initial screening"
     ],
-    "foreignOwnership": "Eligible",
-    "completionStatus": "Completed",
+    "foreignOwnership": "Foreigner-eligible",
+    "completionStatus": "New Builds",
     "verifiedProject": {
       "level": "Verified",
       "summary": "Quota, developer track record, rental demand, and handover status pre-checked.",
@@ -58,7 +58,7 @@
       "International tenant profile suited to furnished leasing"
     ],
     "foreignBuyerNotes": [
-      "Foreign ownership quota currently available",
+      "Foreign buyer quota currently indicated",
       "Legal review recommended before reservation",
       "Rental management can be arranged after handover"
     ]
@@ -81,7 +81,7 @@
     "bestFor": "Stable expat rental income",
     "targetBuyerTypes": ["Income-focused investor", "Lifestyle buyer", "Long-hold owner"],
     "keyRisks": [
-      "Foreign ownership quota should be reconfirmed before deposit",
+      "Foreign buyer quota should be reconfirmed before deposit",
       "Resale liquidity is strongest for well-managed furnished units",
       "Rental growth may be steadier than central Ho Chi Minh City assets"
     ],
@@ -90,11 +90,11 @@
       "Completed asset suitable for long-stay furnished leasing",
       "Stable district fundamentals support defensive income strategy"
     ],
-    "foreignOwnership": "Limited quota",
-    "completionStatus": "Completed",
+    "foreignOwnership": "Advisor confirmation needed",
+    "completionStatus": "Pre-Owned",
     "verifiedProject": {
       "level": "Enhanced due diligence",
-      "summary": "Rental corridor verified; ownership quota requires final confirmation before reservation.",
+      "summary": "Rental corridor reviewed; foreign buyer quota requires final confirmation before reservation.",
       "checks": {
         "foreignQuotaChecked": false,
         "developerReviewed": true,
@@ -154,11 +154,11 @@
       "Larger layout targets executive and family tenants",
       "Central location benefits from office, hospitality, and retail demand"
     ],
-    "foreignOwnership": "Advisor review",
-    "completionStatus": "Completed",
+    "foreignOwnership": "Advisor confirmation needed",
+    "completionStatus": "Pre-Owned",
     "verifiedProject": {
       "level": "Enhanced due diligence",
-      "summary": "Prime location and developer profile reviewed; ownership structure needs advisor review.",
+      "summary": "Prime location and developer profile reviewed; foreign buyer status needs advisor confirmation.",
       "checks": {
         "foreignQuotaChecked": false,
         "developerReviewed": true,
@@ -186,7 +186,7 @@
       "Walkable access to Grade A office and hospitality demand"
     ],
     "foreignBuyerNotes": [
-      "Advisor review required for ownership structure",
+      "Advisor confirmation needed for foreign buyer status",
       "Building-level quota must be confirmed",
       "Management fees and sinking fund should be reviewed"
     ]
@@ -218,8 +218,8 @@
       "Western Hanoi business districts support professional tenant demand",
       "Construction-linked payment schedule can improve cash planning"
     ],
-    "foreignOwnership": "Eligible",
-    "completionStatus": "Under construction",
+    "foreignOwnership": "Foreigner-eligible",
+    "completionStatus": "In Construction",
     "verifiedProject": {
       "level": "Pre-check",
       "summary": "Area demand reviewed; construction and escrow documents require final diligence.",
@@ -282,8 +282,8 @@
       "Family-sized units can attract longer tenancy periods",
       "Completed asset with eligible foreign buyer review supports lower execution risk"
     ],
-    "foreignOwnership": "Eligible",
-    "completionStatus": "Completed",
+    "foreignOwnership": "Foreigner-eligible",
+    "completionStatus": "New Builds",
     "verifiedProject": {
       "level": "Verified",
       "summary": "Completed family rental asset with eligible foreign buyer review and management checks.",
@@ -314,7 +314,7 @@
       "Attractive balance of yield and lifestyle appeal"
     ],
     "foreignBuyerNotes": [
-      "Eligible for foreign buyer review",
+      "Initially screened for foreign-buyer review",
       "Tenant demand strongest for furnished family layouts",
       "Building management standards should be checked"
     ]
@@ -338,7 +338,7 @@
     "targetBuyerTypes": ["Speculative growth investor", "Small-ticket investor", "Experienced foreign buyer"],
     "keyRisks": [
       "Off-plan structure requires detailed legal diligence",
-      "Foreign ownership eligibility must be verified before deposit",
+      "Foreign buyer status must be verified before deposit",
       "Short-stay rental rules may change by building and district"
     ],
     "whyInvest": [
@@ -346,8 +346,8 @@
       "Early-stage pricing may offer capital growth potential",
       "Compact format can suit single professionals and medium-stay tenants"
     ],
-    "foreignOwnership": "Advisor review",
-    "completionStatus": "Off-plan",
+    "foreignOwnership": "Advisor confirmation needed",
+    "completionStatus": "Planning",
     "verifiedProject": {
       "level": "Pre-check",
       "summary": "Concept and central location reviewed; off-plan structure needs detailed legal diligence.",
@@ -379,7 +379,7 @@
     ],
     "foreignBuyerNotes": [
       "Off-plan structure requires careful legal review",
-      "Foreign ownership eligibility should be verified before deposit",
+      "Foreign buyer status should be verified before deposit",
       "Short-stay rental rules may change by building and district"
     ]
   }

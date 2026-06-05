@@ -11,8 +11,8 @@ export function DealSummaryCard({ deal }: DealSummaryCardProps) {
   const { t, td } = useAppPreferences();
 
   return (
-    <article className="rounded-sm border border-[#ECE7DA] bg-white p-6 shadow-sm">
-      <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#E7B93D]">
+    <article className="rounded-sm border border-[#ECE7DA] bg-white p-7 shadow-sm">
+      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6B7280]">
         {t("activeBuyerDeal")}
       </p>
       <div className="mt-4 flex flex-col justify-between gap-5 lg:flex-row lg:items-start">
@@ -22,21 +22,21 @@ export function DealSummaryCard({ deal }: DealSummaryCardProps) {
             {deal.buyerName} · {td(deal.city)}
           </p>
         </div>
-        <div className="rounded-sm bg-[#F5C84C] px-4 py-3 text-[#1F2937]">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1F2937]">
+        <div className="rounded-sm border border-[#ECE7DA] bg-[#FFFDF8] px-4 py-3 text-[#1F2937]">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6B7280]">
             {t("currentStage")}
           </p>
           <p className="mt-1 text-sm font-semibold">{td(deal.currentStage)}</p>
         </div>
       </div>
 
-      <div className="mt-6 grid gap-4 md:grid-cols-3">
+      <div className="mt-7 grid gap-4 md:grid-cols-3">
         <SummaryItem label={t("nextActionRequired")} value={td(deal.nextAction)} />
         <SummaryItem label={t("assignedAdvisor")} value={deal.assignedAdvisor} />
         <SummaryItem label={t("localVietnamAgent")} value={deal.assignedLocalAgent} />
       </div>
 
-      <div className="mt-6 border-t border-[#ECE7DA] pt-5">
+      <div className="mt-7 border-t border-[#ECE7DA] pt-6">
         <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-[#6B7280]">
           {t("keyDates")}
         </h3>
@@ -57,7 +57,7 @@ export function DealSummaryCard({ deal }: DealSummaryCardProps) {
 
 function SummaryItem({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-sm border border-[#ECE7DA] bg-[#FFFDF8] p-4">
+    <div className="rounded-sm border border-[#ECE7DA] bg-[#FFFDF8] p-5">
       <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[#6B7280]">
         {label}
       </p>

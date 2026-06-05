@@ -25,14 +25,14 @@ export default function OwnerPortalPage() {
       <Header />
       <AccessGate allowedRoles={["buyer"]}>
         <main>
-          <section className="stone-surface px-5 py-14 sm:px-8 lg:py-20">
+          <section className="stone-surface px-5 py-16 sm:px-8 lg:py-24">
             <PageHeading
               eyebrow={<TD value="Buyer and owner operating dashboard" />}
               title={<TD value="Transparent cross-border deal progress from enquiry to rental setup." />}
               description={<TD value="Mock dashboard only. This shows how the platform can later connect buyer accounts, CRM stages, legal documents, agent updates, and rental management reporting." />}
             />
           </section>
-        <section className="px-5 py-12 sm:px-8 lg:py-16">
+        <section className="px-5 py-14 sm:px-8 lg:py-20">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
               {ownerMetrics.map((metric) => (
@@ -40,21 +40,21 @@ export default function OwnerPortalPage() {
               ))}
             </div>
 
-            <div className="mt-8">
+            <div className="mt-10">
               <DealSummaryCard deal={activeBuyerDeal} />
             </div>
 
-            <div className="mt-8 grid gap-5 xl:grid-cols-[1.2fr_0.8fr]">
+            <div className="mt-10 grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
               <DealProgressTracker deal={activeBuyerDeal} />
               <DocumentChecklist documents={activeBuyerDeal.documents} />
             </div>
 
-            <div className="mt-8 grid gap-5 xl:grid-cols-[1.1fr_0.9fr]">
+            <div className="mt-10 grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
               <OwnerRentalDashboard rentals={rentalSummaries} />
               <InvestmentInsightPanel insights={mockInvestmentInsights} />
             </div>
 
-            <div className="mt-8 overflow-hidden rounded-sm border border-[#ECE7DA] bg-white shadow-sm">
+            <div className="mt-10 overflow-hidden rounded-sm border border-[#ECE7DA] bg-white shadow-sm">
               <div className="border-b border-[#ECE7DA] p-5">
                 <h2 className="text-xl font-semibold text-[#1F2937]">
                   <TD value="Buyer deal pipeline" />

@@ -4,87 +4,51 @@ export type InvestorJourneyStage = {
   title: string;
   description: string;
   details: string[];
-  ctaLabel: string;
-  ctaHref: string;
 };
 
 export const investorJourneyStages: InvestorJourneyStage[] = [
   {
     step: "01",
-    icon: "DC",
-    title: "Discover & Compare",
+    icon: "DR",
+    title: "Discover Districts & Residences",
     description:
-      "Browse curated HCMC and Hanoi opportunities with investor-first screening tools.",
+      "Explore curated residences, district insights, and investment positioning across HCMC and Hanoi.",
     details: [
-      "Compare investment score, yield, risk, liquidity, and district insights.",
-      "Shortlist projects that fit your preferred buyer profile.",
+      "Review district positioning before comparing residences.",
+      "Start with market context instead of browsing blind.",
     ],
-    ctaLabel: "Open investment screener",
-    ctaHref: "/properties",
   },
   {
     step: "02",
-    icon: "SA",
-    title: "Speak with Advisor",
+    icon: "CU",
+    title: "Compare Units & Speak with Advisor",
     description:
-      "Submit an enquiry so the platform can qualify your mandate and route support.",
+      "Shortlist suitable units, compare key figures, and submit an enquiry for advisor support.",
     details: [
-      "Capture budget, goal, timeline, funding source, and preferred city.",
-      "Coordinate with a Hong Kong or international advisor for next steps.",
+      "Compare available units, pricing, and indicative rent.",
+      "Share your mandate for advisor support.",
     ],
-    ctaLabel: "Submit enquiry",
-    ctaHref: "/enquiry",
   },
   {
     step: "03",
-    icon: "LP",
-    title: "Legal & Payment Coordination",
+    icon: "RP",
+    title: "Reserve with Legal & Payment Coordination",
     description:
-      "Coordinate local Vietnam agent and legal partner support before progressing.",
+      "Coordinate local agent, legal document review, foreign buyer status, and payment milestones before reservation.",
     details: [
-      "Review project eligibility, foreign quota, and buyer documentation needs.",
-      "Prepare an indicative document checklist and payment timeline.",
+      "Check unit-level legal documents and foreign buyer status.",
+      "Understand reservation steps and payment milestones.",
     ],
-    ctaLabel: "View deal dashboard",
-    ctaHref: "/owner-portal",
   },
   {
     step: "04",
-    icon: "RP",
-    title: "Reserve & Purchase",
-    description:
-      "Track the reservation, legal notes, SPA process, and payment milestones.",
-    details: [
-      "Use the dashboard to follow reservation, deposit, and contract status.",
-      "Keep transaction information visible for advisor and local partner coordination.",
-    ],
-    ctaLabel: "Track transaction",
-    ctaHref: "/owner-portal",
-  },
-  {
-    step: "05",
     icon: "HR",
     title: "Handover & Rental Setup",
     description:
-      "Move from completion into furnishing, handover coordination, and leasing preparation.",
+      "Move from completion into furnishing, handover coordination, leasing preparation, and owner visibility.",
     details: [
-      "Prepare a rental strategy with local market and furnishing considerations.",
-      "Move the asset into the rental management dashboard after handover.",
+      "Coordinate handover, furnishing, and leasing preparation.",
+      "Track rent, occupancy, documents, and owner reporting after setup.",
     ],
-    ctaLabel: "Preview rental setup",
-    ctaHref: "/owner-portal",
-  },
-  {
-    step: "06",
-    icon: "OR",
-    title: "Ongoing Owner Reporting",
-    description:
-      "Monitor post-purchase performance through a transparent owner reporting layer.",
-    details: [
-      "Track rent, occupancy, net yield, maintenance requests, and lease expiry.",
-      "Keep statements and property documents organized for future reporting.",
-    ],
-    ctaLabel: "View owner reporting",
-    ctaHref: "/owner-portal",
   },
 ];

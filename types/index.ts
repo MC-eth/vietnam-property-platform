@@ -5,5 +5,6 @@ export * from "./deal";
 export * from "./district";
 export * from "./enquiry";
 export * from "./property";
+export * from "./project";
 export * from "./rental";
 export * from "./user";

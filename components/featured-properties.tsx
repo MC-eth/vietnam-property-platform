@@ -14,7 +14,7 @@ export function FeaturedProperties() {
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeading
-            eyebrow={<TD value="Featured properties" />}
+            eyebrow={<TD value="Featured Residences" />}
             title={<TD value="Mock investment shortlist." />}
             description={<TD value="Representative listings only. Each card is structured for future listing data without connecting a backend yet." />}
           />

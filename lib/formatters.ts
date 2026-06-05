@@ -35,6 +35,10 @@ export function convertUsdToCurrency(valueUsd: number, currency: CurrencyCode) {
   return currency === "HKD" ? valueUsd * HKD_PER_USD : valueUsd;
 }
 
+export function convertCurrencyToUsd(value: number, currency: CurrencyCode) {
+  return currency === "HKD" ? value / HKD_PER_USD : value;
+}
+
 export function formatCurrencyFromUsd(valueUsd: number, currency: CurrencyCode) {
   return formatCurrency(convertUsdToCurrency(valueUsd, currency), currency, {
     locale: currency === "HKD" ? "en-HK" : "en-US",

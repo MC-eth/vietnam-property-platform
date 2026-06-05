@@ -1,7 +1,7 @@
 export const learnArticles = [
   {
-    category: "Foreign ownership",
-    title: "How Vietnam foreign ownership quotas work",
+    category: "Foreign buyer status",
+    title: "How Vietnam foreign buyer quotas work",
     summary:
       "Understand building-level quotas, eligible residential assets, and when to ask for legal confirmation.",
     readTime: "6 min read",
