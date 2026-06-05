@@ -278,7 +278,7 @@ function DistrictDriversSection({
 type DriverFeature = DistrictGrowthDriver & {
   imagePath?: string;
   placeholderLabel: string;
-  variant: "strategic" | "infrastructure" | "lifestyle" | "commercial";
+  variant: "transport" | "lifestyle" | "commercial" | "industry";
 };
 
 function DistrictDriverFeatureCard({ feature, index }: { feature: DriverFeature; index: number }) {
@@ -294,7 +294,10 @@ function DistrictDriverFeatureCard({ feature, index }: { feature: DriverFeature;
       <p className="mt-4 max-w-2xl text-sm leading-7 text-[#4B5563]">
         <TD value={feature.description} />
       </p>
-      <ul className="mt-6 grid gap-3 text-sm font-medium leading-6 text-[#374151]">
+      <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-[#A9851D]">
+        <T k="keyExamples" />
+      </p>
+      <ul className="mt-3 grid gap-2.5 text-sm font-medium leading-6 text-[#374151]">
         {feature.bullets.map((bullet) => (
           <li className="flex gap-3" key={bullet}>
             <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#B88A18]" />
@@ -304,8 +307,18 @@ function DistrictDriverFeatureCard({ feature, index }: { feature: DriverFeature;
           </li>
         ))}
       </ul>
+      {feature.whyItMatters ? (
+        <div className="mt-5 rounded-2xl border border-[#ECE7DA] bg-[#FFFDF8] px-4 py-3">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#A9851D]">
+            <T k="whyItMatters" />
+          </p>
+          <p className="mt-2 text-sm leading-6 text-[#4B5563]">
+            <TD value={feature.whyItMatters} />
+          </p>
+        </div>
+      ) : null}
       {feature.statusNote ? (
-        <p className="mt-5 border-t border-[#ECE7DA] pt-4 text-xs leading-5 text-[#8A7B58]">
+        <p className="mt-4 border-t border-[#ECE7DA] pt-4 text-xs leading-5 text-[#8A7B58]">
           <TD value={feature.statusNote} />
         </p>
       ) : null}
@@ -327,18 +340,27 @@ function DriverVisual({ feature }: { feature: DriverFeature }) {
   const hasImage = hasLocalImage(feature.imagePath);
 
   return (
-    <div className="relative min-h-[260px] overflow-hidden bg-[#FFF8E8] lg:h-full lg:min-h-[390px]">
+    <div className="relative min-h-[240px] overflow-hidden bg-[#FFF8E8] lg:h-full lg:min-h-[350px]">
       {feature.imagePath && hasImage ? (
-        <Image
-          alt=""
-          className="object-cover"
-          fill
-          sizes="(min-width: 1024px) 44vw, 100vw"
-          src={feature.imagePath}
-        />
+        <>
+          <Image
+            alt=""
+            className="object-cover object-[center_42%]"
+            fill
+            sizes="(min-width: 1024px) 44vw, 100vw"
+            src={feature.imagePath}
+          />
+          {feature.variant === "commercial" ? (
+            <div className="absolute inset-x-6 bottom-6 rounded-2xl border border-white/70 bg-white/78 px-4 py-3 shadow-sm backdrop-blur">
+              <p className="text-xs leading-5 text-[#6B7280]">
+                <T k="districtHeroVisualCaption" />
+              </p>
+            </div>
+          ) : null}
+        </>
       ) : (
         <>
-          <AbstractPlanningVisual density={feature.variant === "commercial" ? "strategic" : feature.variant} />
+          <AbstractPlanningVisual density={feature.variant} />
           <div className="absolute inset-x-6 bottom-6 rounded-2xl border border-white/70 bg-white/75 px-4 py-3 shadow-sm backdrop-blur">
             <p className="text-sm font-semibold text-[#1F2937]">
               <TD value={feature.placeholderLabel} />
@@ -363,7 +385,7 @@ function getDriverVisualConfig(
     {
       imagePath: district.infrastructureConceptImage,
       placeholderLabel: "Transport Concept Visual",
-      variant: "infrastructure",
+      variant: "transport",
     },
     {
       imagePath: district.lifestyleCommercialConceptImage,
@@ -377,8 +399,8 @@ function getDriverVisualConfig(
     },
     {
       imagePath: district.strategicDiagramImage,
-      placeholderLabel: "Future Growth Visual",
-      variant: "strategic",
+      placeholderLabel: "Industry Direction Visual",
+      variant: "industry",
     },
   ];
 
@@ -398,8 +420,12 @@ function SectionIntro({ subtitle, title }: { subtitle?: React.ReactNode; title: 
   );
 }
 
-function AbstractPlanningVisual({ density }: { density: "hero" | "strategic" | "infrastructure" | "lifestyle" }) {
+function AbstractPlanningVisual({ density }: { density: "hero" | "transport" | "lifestyle" | "commercial" | "industry" }) {
   const isHero = density === "hero";
+  const isTransport = density === "transport";
+  const isLifestyle = density === "lifestyle";
+  const isCommercial = density === "commercial";
+  const isIndustry = density === "industry";
 
   return (
     <div className="absolute inset-0 overflow-hidden">
@@ -413,11 +439,41 @@ function AbstractPlanningVisual({ density }: { density: "hero" | "strategic" | "
       <div className="absolute bottom-[24%] left-[42%] h-2 w-2 rounded-full bg-[#B88A18]/50 shadow-[0_0_0_9px_rgba(245,200,76,0.10)]" />
       <div className="absolute left-[17%] top-[23%] h-px w-[56%] rotate-[8deg] bg-[#B88A18]/25" />
       <div className="absolute bottom-[25%] left-[43%] h-px w-[34%] -rotate-[20deg] border-t border-dashed border-[#B88A18]/35" />
-      {density === "infrastructure" ? (
-        <div className="absolute left-[10%] top-[44%] h-px w-[84%] -rotate-3 border-t-2 border-dashed border-[#B88A18]/35" />
+      {isTransport ? (
+        <>
+          <div className="absolute left-[10%] top-[44%] h-px w-[84%] -rotate-3 border-t-2 border-dashed border-[#B88A18]/45" />
+          <div className="absolute left-[18%] top-[43%] h-4 w-4 rounded-full border-2 border-[#B88A18] bg-white" />
+          <div className="absolute left-[52%] top-[40%] h-4 w-4 rounded-full border-2 border-[#B88A18] bg-white" />
+          <div className="absolute right-[16%] top-[37%] h-4 w-4 rounded-full border-2 border-[#B88A18] bg-white" />
+          <div className="absolute bottom-[34%] left-[22%] h-12 w-32 rounded-full border border-[#B88A18]/30 bg-white/20" />
+        </>
       ) : null}
-      {density === "lifestyle" ? (
-        <div className="absolute bottom-[16%] right-[10%] h-20 w-20 rounded-full border border-[#B88A18]/25 bg-white/22" />
+      {isLifestyle ? (
+        <>
+          <div className="absolute bottom-[16%] right-[10%] h-20 w-20 rounded-full border border-[#B88A18]/25 bg-white/22" />
+          <div className="absolute left-[12%] bottom-[14%] h-16 w-28 rounded-t-full bg-[#B8C7B1]/45" />
+          <div className="absolute right-[34%] top-[18%] h-12 w-20 rounded-sm border border-white/70 bg-white/35" />
+          <div className="absolute right-[37%] top-[24%] h-px w-14 bg-[#B88A18]/35" />
+        </>
+      ) : null}
+      {isCommercial ? (
+        <>
+          <div className="absolute bottom-[20%] left-[16%] h-28 w-12 rounded-t-sm bg-[#1F2A37]/35" />
+          <div className="absolute bottom-[20%] left-[32%] h-40 w-16 rounded-t-sm bg-[#1F2A37]/45" />
+          <div className="absolute bottom-[20%] right-[28%] h-32 w-14 rounded-t-sm bg-[#1F2A37]/35" />
+          <div className="absolute right-[18%] top-[18%] h-20 w-20 rounded-full border border-[#B88A18]/30 bg-white/20" />
+        </>
+      ) : null}
+      {isIndustry ? (
+        <>
+          <div className="absolute left-[18%] top-[28%] h-3 w-3 rounded-full bg-[#B88A18]" />
+          <div className="absolute left-[48%] top-[18%] h-3 w-3 rounded-full bg-[#B88A18]/80" />
+          <div className="absolute right-[20%] top-[42%] h-3 w-3 rounded-full bg-[#B88A18]/70" />
+          <div className="absolute bottom-[24%] left-[34%] h-3 w-3 rounded-full bg-[#B88A18]/60" />
+          <div className="absolute left-[20%] top-[30%] h-px w-[28%] -rotate-12 bg-[#B88A18]/35" />
+          <div className="absolute left-[49%] top-[20%] h-px w-[30%] rotate-[24deg] bg-[#B88A18]/35" />
+          <div className="absolute left-[35%] bottom-[27%] h-px w-[42%] -rotate-[18deg] border-t border-dashed border-[#B88A18]/40" />
+        </>
       ) : null}
     </div>
   );

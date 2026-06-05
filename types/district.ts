@@ -92,6 +92,8 @@ export type DistrictGrowthDriver = {
   description: string;
   bullets: string[];
   icon: "building" | "bridge" | "users" | "waves" | "route" | "compass" | "train" | "trees" | "briefcase" | "network";
+  whyItMatters?: string;
+  visualType?: "transport" | "lifestyle" | "commercial" | "industry";
   statusNote?: string;
 };
 

@@ -138,48 +138,65 @@ export const districtInsights: DistrictInsightPageData[] = [
         description:
           "Thu Thiem’s access story is shaped by planned metro, bridge, tunnel, and internal road improvements. These themes may improve movement between the district, District 1, and wider HCMC over time.",
         bullets: [
-          "Metro and future transit connections",
-          "Bridge / tunnel links to District 1",
-          "Internal road network and CBD access",
+          "Ben Thanh–Thu Thiem Metro Line 2 section, targeted within HCMC’s 2030 urban rail priorities",
+          "Thu Thiem–Long Thanh urban railway, targeted as part of longer-term airport connectivity",
+          "Four main roads, northern residential infrastructure and North–South axis road segment expected to support Thu Thiem’s internal framework",
+          "Bridge and tunnel links supporting access to District 1 and Binh Thanh",
         ],
         icon: "train",
+        whyItMatters:
+          "Improved connectivity may widen tenant access, shorten CBD travel friction and support long-term residential relevance.",
+        visualType: "transport",
       },
       {
         id: "public-realm-lifestyle",
-        title: "Riverfront Public Realm & Lifestyle",
+        title: "Public Realm, Schools & Lifestyle",
         description:
-          "Thu Thiem’s riverfront setting supports a more lifestyle-led residential positioning. Public realm, promenade, and mixed-use planning themes may help the district feel more complete for long-stay residents.",
+          "Thu Thiem’s longer-term appeal is not only about towers. Riverfront public spaces, central square concepts, civic facilities and nearby international schools may help the district feel more complete for long-stay residents.",
         bullets: [
-          "Riverfront promenade and open spaces",
-          "Civic / public realm concepts",
-          "Walkable mixed-use lifestyle environment",
+          "Central Square and HCMC Administrative Center investment policy approved",
+          "Riverfront public spaces and promenade concepts",
+          "Australian International School has a Thu Thiem campus",
+          "Nearby former District 2 / Thu Duc City international-school ecosystem includes ISHCMC, BIS, AIS, European International School and German School",
+          "Access to private clinics and central hospitals across District 1, Binh Thanh and Thu Duc City should be verified before final publication",
         ],
         icon: "trees",
+        whyItMatters:
+          "A stronger lifestyle and education ecosystem may support family tenants, executives and longer-stay overseas residents.",
+        visualType: "lifestyle",
       },
       {
         id: "financial-commercial-pipeline",
-        title: "Financial & Commercial Positioning",
+        title: "Commercial & Financial Pipeline",
         description:
           "Thu Thiem is increasingly positioned around financial services, Grade A office space, and mixed-use commercial development. This may support its role as an emerging business district beside the CBD.",
         bullets: [
-          "International Financial Centre planning theme",
-          "Grade A office and mixed-use commercial context",
-          "Emerging business district positioning",
+          "The Hallmark: Grade A office in Thu Thiem New Urban Area, described as a 30-storey commercial tower in central Thu Thiem",
+          "The METT: Class A office component within The Metropole Thu Thiem",
+          "Lotte Eco Smart City: under-review mixed-use project in functional area 2A, planned to include financial center, service area and multi-functional residential components",
+          "International Financial Center planning theme supports Thu Thiem’s commercial identity",
         ],
         icon: "briefcase",
+        whyItMatters:
+          "More office and mixed-use supply may create a broader professional tenant base and strengthen weekday demand around the district.",
         statusNote: "Proposed and under-review projects remain subject to official updates.",
+        visualType: "commercial",
       },
       {
         id: "industry-direction",
-        title: "Future Growth & Industry Direction",
+        title: "Industry Direction & Long-Term Demand",
         description:
-          "The wider Eastern Zone / Thu Duc City planning context points toward finance, technology, education, and knowledge-economy uses. For buyers, this frames Thu Thiem as a long-term urban growth district rather than a short-cycle investment story.",
+          "The wider Eastern Zone / Thu Duc City planning context points toward finance, technology, education and knowledge-economy uses. For Thu Thiem, the most relevant themes are financial services, fintech and professional office demand.",
         bullets: [
-          "Financial services and professional office demand",
-          "Fintech / innovation / knowledge economy direction",
-          "Longer-term urban growth context",
+          "VIFC-HCMC positions the city as Vietnam’s international financial gateway",
+          "VIFC themes include Aviation Financial Hub, FinTech Hub, Maritime Financial Hub and International Interbank / Global Financial Infrastructure",
+          "FinTech themes include cross-border payments, blockchain, AI in finance, digital assets and regulatory sandbox context",
+          "These themes may support long-term professional services and corporate tenant relevance",
         ],
         icon: "network",
+        whyItMatters:
+          "Industry positioning does not guarantee rental growth, but it helps frame why Thu Thiem may remain relevant to business-led residential demand.",
+        visualType: "industry",
       },
     ],
     ctaDistrictFilter: "thu-thiem",

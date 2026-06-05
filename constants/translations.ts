@@ -151,6 +151,8 @@ export const translations = {
     districtDriversFutureVision: "District Drivers & Future Vision",
     districtDriversFutureVisionSubtitle:
       "Key themes shaping Thu Thiem’s connectivity, lifestyle, commercial role, and long-term development.",
+    keyExamples: "Key examples",
+    whyItMatters: "Why it matters",
     connectivityLifestyleGrowthDrivers: "Connectivity, Lifestyle & Growth Drivers",
     masterPlanContext: "Master Plan Context",
     urbanZone: "Urban Zone",
@@ -166,7 +168,7 @@ export const translations = {
     growthDriversSubtitle:
       "Key district themes that may shape Thu Thiem’s long-term residential appeal.",
     growthDriversSourceNote:
-      "Based on publicly reported planning and market information. Future projects and infrastructure timelines remain subject to official updates and actual delivery.",
+      "Based on publicly reported planning, infrastructure and market information. Future projects and delivery timelines remain subject to official updates and actual completion.",
     hcmcInvestmentMapTitle: "Explore Ho Chi Minh City Investment Map",
     hcmcInvestmentMapSubtitle:
       "Discover key investment districts, landmarks, infrastructure corridors, and curated residences across Ho Chi Minh City.",
@@ -760,9 +762,11 @@ export const translations = {
       "原創區域示意圖，並非官方地圖或已確認發展藍圖。",
     originalPlanningVisualNotOfficial:
       "原創規劃示意圖，並非官方地圖。",
-    districtDriversFutureVision: "區域動力及未來願景",
+    districtDriversFutureVision: "區域發展動力及未來願景",
     districtDriversFutureVisionSubtitle:
       "塑造守添交通連接、生活方式、商業角色及長線發展的核心主題。",
+    keyExamples: "重點例子",
+    whyItMatters: "為何重要",
     connectivityLifestyleGrowthDrivers: "交通、生活配套及發展動力",
     masterPlanContext: "總體規劃定位",
     urbanZone: "城市發展區",
@@ -778,7 +782,7 @@ export const translations = {
     growthDriversSubtitle:
       "以下區域主題或有助塑造守添的長線住宅吸引力。",
     growthDriversSourceNote:
-      "資料基於公開規劃及市場資訊整理。未來項目及基建時間表仍需以官方公布及實際落成為準。",
+      "資料基於公開規劃、基建及市場資訊整理。未來項目及落成時間仍需以官方公布及實際交付為準。",
     hcmcInvestmentMapTitle: "探索胡志明市投資地圖",
     hcmcInvestmentMapSubtitle:
       "探索胡志明市主要投資區域、地標、基建走廊及精選住宅項目。",
@@ -1480,36 +1484,66 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Overseas investors": "海外投資者",
     "Residences": "住宅項目",
     "2 curated projects": "2 個精選項目",
-    "District Drivers & Future Vision": "區域動力及未來願景",
+    "District Drivers & Future Vision": "區域發展動力及未來願景",
     "Key themes shaping Thu Thiem’s connectivity, lifestyle, commercial role, and long-term development.":
       "塑造守添交通連接、生活方式、商業角色及長線發展的核心主題。",
     "Transport & Connectivity": "交通及連接",
     "Thu Thiem’s access story is shaped by planned metro, bridge, tunnel, and internal road improvements. These themes may improve movement between the district, District 1, and wider HCMC over time.":
-      "守添的交通連接由地鐵、橋樑、隧道及區內道路規劃共同塑造。這些主題或可逐步改善守添與第一郡及胡志明市其他地區之間的往來。",
-    "Metro and future transit connections": "地鐵及未來公共交通連接",
-    "Internal road network and CBD access": "區內道路網絡及 CBD 連接",
-    "Riverfront Public Realm & Lifestyle": "河畔公共空間及生活方式",
-    "Thu Thiem’s riverfront setting supports a more lifestyle-led residential positioning. Public realm, promenade, and mixed-use planning themes may help the district feel more complete for long-stay residents.":
-      "守添的河畔位置支持更具生活方式導向的住宅定位。公共空間、河畔步道及綜合用途規劃主題，或有助此區為長住居民提供更完整的城區體驗。",
+      "守添的交通故事由地鐵規劃、橋樑／隧道連接及區內道路基建共同構成。這些項目或可逐步改善守添與第一郡及胡志明市其他地區之間的往來。",
+    "Ben Thanh–Thu Thiem Metro Line 2 section, targeted within HCMC’s 2030 urban rail priorities":
+      "Ben Thanh–Thu Thiem 地鐵 2 號線段，被納入胡志明市 2030 城市鐵路重點方向",
+    "Thu Thiem–Long Thanh urban railway, targeted as part of longer-term airport connectivity":
+      "Thu Thiem–Long Thanh 城市鐵路，屬較長線機場連接規劃主題",
+    "Four main roads, northern residential infrastructure and North–South axis road segment expected to support Thu Thiem’s internal framework":
+      "四條主要道路、北部住宅區基建及北南軸線，有助形成守添區內交通框架",
+    "Bridge and tunnel links supporting access to District 1 and Binh Thanh":
+      "橋樑及隧道連接支撐往來第一郡及平盛區",
+    "Improved connectivity may widen tenant access, shorten CBD travel friction and support long-term residential relevance.":
+      "交通連接改善或可擴大租客覆蓋、降低往來 CBD 的時間阻力，並支持長線住宅吸引力。",
+    "Public Realm, Schools & Lifestyle": "公共空間、學校及生活配套",
+    "Thu Thiem’s longer-term appeal is not only about towers. Riverfront public spaces, central square concepts, civic facilities and nearby international schools may help the district feel more complete for long-stay residents.":
+      "守添的長線吸引力不只來自高樓項目。河畔公共空間、中央廣場概念、公共設施及鄰近國際學校生態，或有助此區更適合長住租客及家庭客群。",
+    "Central Square and HCMC Administrative Center investment policy approved":
+      "中央廣場及胡志明市行政中心投資政策已獲批准",
     "Riverfront promenade and open spaces": "河畔步道及開放空間",
-    "Civic / public realm concepts": "公共及市民空間概念",
-    "Walkable mixed-use lifestyle environment": "可步行的綜合生活環境",
-    "Financial & Commercial Positioning": "金融及商業定位",
+    "Australian International School has a Thu Thiem campus":
+      "Australian International School 設有 Thu Thiem campus",
+    "Nearby former District 2 / Thu Duc City international-school ecosystem includes ISHCMC, BIS, AIS, European International School and German School":
+      "前第2郡／守德市周邊國際學校生態包括 ISHCMC、BIS、AIS、European International School 及 German School",
+    "Access to private clinics and central hospitals across District 1, Binh Thanh and Thu Duc City should be verified before final publication":
+      "私人診所及核心醫療設施可視為周邊生活支援，但正式發布前需再核實",
+    "A stronger lifestyle and education ecosystem may support family tenants, executives and longer-stay overseas residents.":
+      "更完整的生活及教育配套，或可支持家庭租客、行政人員及長住海外租客需求。",
+    "Commercial & Financial Pipeline": "商業及金融發展脈絡",
     "Thu Thiem is increasingly positioned around financial services, Grade A office space, and mixed-use commercial development. This may support its role as an emerging business district beside the CBD.":
       "守添正逐步圍繞金融服務、甲級寫字樓及綜合商業發展建立定位。這或有助其成為 CBD 旁邊的新興商業區。",
-    "International Financial Centre planning theme": "國際金融中心規劃主題",
-    "Grade A office and mixed-use commercial context": "甲級寫字樓及綜合商業背景",
-    "Emerging business district positioning": "新興商業區定位",
-    "Future Growth & Industry Direction": "未來增長及產業方向",
-    "The wider Eastern Zone / Thu Duc City planning context points toward finance, technology, education, and knowledge-economy uses. For buyers, this frames Thu Thiem as a long-term urban growth district rather than a short-cycle investment story.":
-      "更廣泛的東部區／守德市規劃背景指向金融、科技、教育及知識型經濟用途。對買家而言，這令守添更像長線城市發展區，而非短周期投資故事。",
-    "Financial services and professional office demand": "金融服務及專業辦公需求",
-    "Fintech / innovation / knowledge economy direction": "金融科技、創新及知識型經濟方向",
-    "Longer-term urban growth context": "較長線城市增長背景",
+    "The Hallmark: Grade A office in Thu Thiem New Urban Area, described as a 30-storey commercial tower in central Thu Thiem":
+      "The Hallmark：位於守添新城區的甲級寫字樓，被描述為 central Thu Thiem 的 30 層商業大樓",
+    "The METT: Class A office component within The Metropole Thu Thiem":
+      "The METT：The Metropole Thu Thiem 內的甲級寫字樓部分",
+    "Lotte Eco Smart City: under-review mixed-use project in functional area 2A, planned to include financial center, service area and multi-functional residential components":
+      "Lotte Eco Smart City：位於 functional area 2A 的綜合發展項目，規劃包括金融中心、服務區及多功能住宅部分，目前仍屬 under review / restart context",
+    "International Financial Center planning theme supports Thu Thiem’s commercial identity":
+      "國際金融中心規劃主題有助強化守添的商業區定位",
+    "More office and mixed-use supply may create a broader professional tenant base and strengthen weekday demand around the district.":
+      "更多辦公及綜合商業供應，或可擴大專業租客基礎，並提升區內平日活動及商業需求。",
+    "Industry Direction & Long-Term Demand": "產業方向及長線需求",
+    "The wider Eastern Zone / Thu Duc City planning context points toward finance, technology, education and knowledge-economy uses. For Thu Thiem, the most relevant themes are financial services, fintech and professional office demand.":
+      "守德市／東部區的規劃方向涵蓋金融、科技、教育及知識型經濟。對守添而言，較相關的主題是金融服務、金融科技及專業辦公需求。",
+    "VIFC-HCMC positions the city as Vietnam’s international financial gateway":
+      "VIFC-HCMC 將胡志明市定位為越南國際金融門戶",
+    "VIFC themes include Aviation Financial Hub, FinTech Hub, Maritime Financial Hub and International Interbank / Global Financial Infrastructure":
+      "VIFC 主題包括航空金融中心、金融科技中心、航運金融中心及國際銀行間／全球金融基建",
+    "FinTech themes include cross-border payments, blockchain, AI in finance, digital assets and regulatory sandbox context":
+      "金融科技方向包括跨境支付、區塊鏈、金融 AI、數碼資產及監管沙盒",
+    "These themes may support long-term professional services and corporate tenant relevance":
+      "這些主題或可支持專業服務及企業租客的長線需求",
+    "Industry positioning does not guarantee rental growth, but it helps frame why Thu Thiem may remain relevant to business-led residential demand.":
+      "產業定位並不等於租金增長保證，但有助解釋守添為何可能持續受惠於商業及專業租客需求。",
     "Transport Concept Visual": "交通概念圖",
     "Lifestyle Concept Visual": "生活方式概念圖",
     "Commercial Positioning Visual": "商業定位視覺圖",
-    "Future Growth Visual": "未來增長視覺圖",
+    "Industry Direction Visual": "產業方向視覺圖",
     "Shows the relationship between District 1 CBD, Saigon River, Thu Thiem and selected residences.":
       "展示第一郡 CBD、西貢河、守添及精選住宅項目之間的關係。",
     "Shows metro, bridge, road and future connectivity themes.":
