@@ -298,14 +298,25 @@ function DistrictDriverFeatureCard({ feature, index }: { feature: DriverFeature;
         <T k="keyExamples" />
       </p>
       <ul className="mt-3 grid gap-2.5 text-sm font-medium leading-6 text-[#374151]">
-        {feature.bullets.map((bullet) => (
-          <li className="flex gap-3" key={bullet}>
-            <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#B88A18]" />
-            <span>
-              <TD value={bullet} />
-            </span>
-          </li>
-        ))}
+        {feature.bullets.map((bullet) => {
+          const example = typeof bullet === "string" ? { status: undefined, text: bullet } : bullet;
+
+          return (
+            <li className="flex gap-3" key={example.text}>
+              <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#B88A18]" />
+              <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                {example.status ? (
+                  <span className="inline-flex shrink-0 rounded-full border border-[#D8CDAF] bg-[#FFF8E8] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#8A6B16]">
+                    <TD value={example.status} />
+                  </span>
+                ) : null}
+                <span>
+                  <TD value={example.text} />
+                </span>
+              </span>
+            </li>
+          );
+        })}
       </ul>
       {feature.whyItMatters ? (
         <div className="mt-5 rounded-2xl border border-[#ECE7DA] bg-[#FFFDF8] px-4 py-3">

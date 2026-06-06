@@ -50,14 +50,18 @@ export function GrowthDriverCards({ drivers }: GrowthDriverCardsProps) {
             <TD value={driver.description} />
           </p>
           <ul className="mt-4 grid gap-2 text-xs font-medium leading-5 text-[#4B5563]">
-            {driver.bullets.map((bullet) => (
-              <li className="flex gap-2" key={bullet}>
-                <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#B88A18]" />
-                <span>
-                  <TD value={bullet} />
-                </span>
-              </li>
-            ))}
+            {driver.bullets.map((bullet) => {
+              const example = typeof bullet === "string" ? { status: undefined, text: bullet } : bullet;
+
+              return (
+                <li className="flex gap-2" key={example.text}>
+                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#B88A18]" />
+                  <span>
+                    <TD value={example.text} />
+                  </span>
+                </li>
+              );
+            })}
           </ul>
           {driver.statusNote ? (
             <p className="mt-4 border-t border-[#ECE7DA] pt-3 text-[11px] font-medium leading-5 text-[#8A7B58]">

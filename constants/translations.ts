@@ -1265,6 +1265,16 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     Reviewed: "已初步審視",
     "Advisor Review": "需顧問審查",
     "Pending Review": "待審查",
+    Existing: "已有",
+    Planned: "規劃中",
+    Targeted: "目標推進",
+    "Approved policy": "政策已批",
+    "Under review": "審議中",
+    Proposed: "提案中",
+    "Subject to delivery": "以實際交付為準",
+    "Planning theme": "規劃主題",
+    "Nearby ecosystem": "周邊生態",
+    "Existing / Planned": "已有／規劃中",
     Indicative: "參考性質",
     "Not Verified": "未驗證",
     "Executive furnished leasing": "行政租客傢俬租賃",
@@ -1497,7 +1507,7 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Thu Thiem–Long Thanh urban railway, targeted as part of longer-term airport connectivity":
       "Thu Thiem–Long Thanh 城市鐵路，屬較長線機場連接規劃主題",
     "Four main roads, northern residential infrastructure and North–South axis road segment expected to support Thu Thiem’s internal framework":
-      "四條主要道路、北部住宅區基建及北南軸線，有助形成守添區內交通框架",
+      "四條主要道路、北部住宅區基建及北南軸線，預計有助形成守添區內交通框架",
     "Bridge and tunnel links supporting access to District 1 and Binh Thanh":
       "橋樑及隧道連接支撐往來第一郡及平盛區",
     "Improved connectivity may widen tenant access, shorten CBD travel friction and support long-term residential relevance.":
@@ -1508,8 +1518,11 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Central Square and HCMC Administrative Center investment policy approved":
       "中央廣場及胡志明市行政中心投資政策已獲批准",
     "Riverfront promenade and open spaces": "河畔步道及開放空間",
+    "Riverfront public spaces and promenade concepts": "河畔公共空間及步行長廊概念",
     "Australian International School has a Thu Thiem campus":
       "Australian International School 設有 Thu Thiem campus",
+    "Former District 2 / Thu Duc City international-school ecosystem":
+      "前第2郡／守德市周邊國際學校生態",
     "Nearby former District 2 / Thu Duc City international-school ecosystem includes ISHCMC, BIS, AIS, European International School and German School":
       "前第2郡／守德市周邊國際學校生態包括 ISHCMC、BIS、AIS、European International School 及 German School",
     "Access to private clinics and central hospitals across District 1, Binh Thanh and Thu Duc City should be verified before final publication":
@@ -1521,10 +1534,13 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
       "守添正逐步圍繞金融服務、甲級寫字樓及綜合商業發展建立定位。這或有助其成為 CBD 旁邊的新興商業區。",
     "The Hallmark: Grade A office in Thu Thiem New Urban Area, described as a 30-storey commercial tower in central Thu Thiem":
       "The Hallmark：位於守添新城區的甲級寫字樓，被描述為 central Thu Thiem 的 30 層商業大樓",
+    "The Hallmark: Grade A office in Thu Thiem New Urban Area":
+      "The Hallmark：位於守添新城區的甲級寫字樓",
     "The METT: Class A office component within The Metropole Thu Thiem":
       "The METT：The Metropole Thu Thiem 內的甲級寫字樓部分",
     "Lotte Eco Smart City: under-review mixed-use project in functional area 2A, planned to include financial center, service area and multi-functional residential components":
       "Lotte Eco Smart City：位於 functional area 2A 的綜合發展項目，規劃包括金融中心、服務區及多功能住宅部分，目前仍屬 under review / restart context",
+    "Lotte Eco Smart City mixed-use project": "Lotte Eco Smart City 綜合發展項目",
     "International Financial Center planning theme supports Thu Thiem’s commercial identity":
       "國際金融中心規劃主題有助強化守添的商業區定位",
     "More office and mixed-use supply may create a broader professional tenant base and strengthen weekday demand around the district.":
@@ -1536,10 +1552,16 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
       "VIFC-HCMC 將胡志明市定位為越南國際金融門戶",
     "VIFC themes include Aviation Financial Hub, FinTech Hub, Maritime Financial Hub and International Interbank / Global Financial Infrastructure":
       "VIFC 主題包括航空金融中心、金融科技中心、航運金融中心及國際銀行間／全球金融基建",
+    "Aviation Financial Hub, FinTech Hub, Maritime Financial Hub and global financial infrastructure":
+      "航空金融中心、金融科技中心、航運金融中心及全球金融基建",
     "FinTech themes include cross-border payments, blockchain, AI in finance, digital assets and regulatory sandbox context":
       "金融科技方向包括跨境支付、區塊鏈、金融 AI、數碼資產及監管沙盒",
+    "Cross-border payments, blockchain, AI in finance, digital assets and regulatory sandbox context":
+      "跨境支付、區塊鏈、金融 AI、數碼資產及監管沙盒方向",
     "These themes may support long-term professional services and corporate tenant relevance":
       "這些主題或可支持專業服務及企業租客的長線需求",
+    "These themes may support professional services and corporate tenant relevance":
+      "這些主題或可支持專業服務及企業租客相關需求",
     "Industry positioning does not guarantee rental growth, but it helps frame why Thu Thiem may remain relevant to business-led residential demand.":
       "產業定位並不等於租金增長保證，但有助解釋守添為何可能持續受惠於商業及專業租客需求。",
     "Transport Concept Visual": "交通概念圖",

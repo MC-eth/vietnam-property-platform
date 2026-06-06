@@ -90,7 +90,13 @@ export type DistrictGrowthDriver = {
   id: string;
   title: string;
   description: string;
-  bullets: string[];
+  bullets: Array<
+    | string
+    | {
+        status: string;
+        text: string;
+      }
+  >;
   icon: "building" | "bridge" | "users" | "waves" | "route" | "compass" | "train" | "trees" | "briefcase" | "network";
   whyItMatters?: string;
   visualType?: "transport" | "lifestyle" | "commercial" | "industry";

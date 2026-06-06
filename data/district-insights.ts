@@ -138,10 +138,22 @@ export const districtInsights: DistrictInsightPageData[] = [
         description:
           "Thu Thiem’s access story is shaped by planned metro, bridge, tunnel, and internal road improvements. These themes may improve movement between the district, District 1, and wider HCMC over time.",
         bullets: [
-          "Ben Thanh–Thu Thiem Metro Line 2 section, targeted within HCMC’s 2030 urban rail priorities",
-          "Thu Thiem–Long Thanh urban railway, targeted as part of longer-term airport connectivity",
-          "Four main roads, northern residential infrastructure and North–South axis road segment expected to support Thu Thiem’s internal framework",
-          "Bridge and tunnel links supporting access to District 1 and Binh Thanh",
+          {
+            status: "Targeted",
+            text: "Ben Thanh–Thu Thiem Metro Line 2 section, targeted within HCMC’s 2030 urban rail priorities",
+          },
+          {
+            status: "Planned",
+            text: "Thu Thiem–Long Thanh urban railway, targeted as part of longer-term airport connectivity",
+          },
+          {
+            status: "Subject to delivery",
+            text: "Four main roads, northern residential infrastructure and North–South axis road segment expected to support Thu Thiem’s internal framework",
+          },
+          {
+            status: "Existing / Planned",
+            text: "Bridge and tunnel links supporting access to District 1 and Binh Thanh",
+          },
         ],
         icon: "train",
         whyItMatters:
@@ -154,11 +166,26 @@ export const districtInsights: DistrictInsightPageData[] = [
         description:
           "Thu Thiem’s longer-term appeal is not only about towers. Riverfront public spaces, central square concepts, civic facilities and nearby international schools may help the district feel more complete for long-stay residents.",
         bullets: [
-          "Central Square and HCMC Administrative Center investment policy approved",
-          "Riverfront public spaces and promenade concepts",
-          "Australian International School has a Thu Thiem campus",
-          "Nearby former District 2 / Thu Duc City international-school ecosystem includes ISHCMC, BIS, AIS, European International School and German School",
-          "Access to private clinics and central hospitals across District 1, Binh Thanh and Thu Duc City should be verified before final publication",
+          {
+            status: "Approved policy",
+            text: "Central Square and HCMC Administrative Center investment policy approved",
+          },
+          {
+            status: "Planned",
+            text: "Riverfront public spaces and promenade concepts",
+          },
+          {
+            status: "Existing",
+            text: "Australian International School has a Thu Thiem campus",
+          },
+          {
+            status: "Nearby ecosystem",
+            text: "Former District 2 / Thu Duc City international-school ecosystem",
+          },
+          {
+            status: "Indicative",
+            text: "Access to private clinics and central hospitals across District 1, Binh Thanh and Thu Duc City should be verified before final publication",
+          },
         ],
         icon: "trees",
         whyItMatters:
@@ -171,10 +198,22 @@ export const districtInsights: DistrictInsightPageData[] = [
         description:
           "Thu Thiem is increasingly positioned around financial services, Grade A office space, and mixed-use commercial development. This may support its role as an emerging business district beside the CBD.",
         bullets: [
-          "The Hallmark: Grade A office in Thu Thiem New Urban Area, described as a 30-storey commercial tower in central Thu Thiem",
-          "The METT: Class A office component within The Metropole Thu Thiem",
-          "Lotte Eco Smart City: under-review mixed-use project in functional area 2A, planned to include financial center, service area and multi-functional residential components",
-          "International Financial Center planning theme supports Thu Thiem’s commercial identity",
+          {
+            status: "Existing",
+            text: "The Hallmark: Grade A office in Thu Thiem New Urban Area",
+          },
+          {
+            status: "Existing",
+            text: "The METT: Class A office component within The Metropole Thu Thiem",
+          },
+          {
+            status: "Under review",
+            text: "Lotte Eco Smart City mixed-use project",
+          },
+          {
+            status: "Planning theme",
+            text: "International Financial Center planning theme",
+          },
         ],
         icon: "briefcase",
         whyItMatters:
@@ -188,10 +227,22 @@ export const districtInsights: DistrictInsightPageData[] = [
         description:
           "The wider Eastern Zone / Thu Duc City planning context points toward finance, technology, education and knowledge-economy uses. For Thu Thiem, the most relevant themes are financial services, fintech and professional office demand.",
         bullets: [
-          "VIFC-HCMC positions the city as Vietnam’s international financial gateway",
-          "VIFC themes include Aviation Financial Hub, FinTech Hub, Maritime Financial Hub and International Interbank / Global Financial Infrastructure",
-          "FinTech themes include cross-border payments, blockchain, AI in finance, digital assets and regulatory sandbox context",
-          "These themes may support long-term professional services and corporate tenant relevance",
+          {
+            status: "Planning theme",
+            text: "VIFC-HCMC positions the city as Vietnam’s international financial gateway",
+          },
+          {
+            status: "Planning theme",
+            text: "Aviation Financial Hub, FinTech Hub, Maritime Financial Hub and global financial infrastructure",
+          },
+          {
+            status: "Planning theme",
+            text: "Cross-border payments, blockchain, AI in finance, digital assets and regulatory sandbox context",
+          },
+          {
+            status: "Indicative",
+            text: "These themes may support professional services and corporate tenant relevance",
+          },
         ],
         icon: "network",
         whyItMatters:
