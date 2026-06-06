@@ -62,10 +62,10 @@ export const districtInsights: DistrictInsightPageData[] = [
     heroQuickFacts: [
       { label: "District role", value: "Riverside financial district" },
       { label: "CBD access", value: "Across from District 1" },
-      { label: "Investor fit", value: "Long-term capital growth" },
-      { label: "Rental profile", value: "Premium executive rental" },
+      { label: "Investor fit", value: "Long-term growth positioning" },
+      { label: "Rental profile", value: "Executive rental demand" },
       { label: "Buyer type", value: "Overseas investors" },
-      { label: "Residences", value: "2 curated projects" },
+      { label: "Residences", value: "2 selected residences" },
     ],
     basicInfo: {
       positioning: "Riverside financial district and premium residential area.",
