@@ -129,7 +129,9 @@ export default async function DistrictInsightPage({ params }: DistrictInsightPag
             <div className="flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
               <SectionIntro
                 title={
-                  district.slug === "thu-thiem" ? (
+                  district.selectedResidencesTitle ? (
+                    <TD value={district.selectedResidencesTitle} />
+                  ) : district.slug === "thu-thiem" ? (
                     <T k="selectedResidencesThuThiem" />
                   ) : (
                     <T k="selectedResidencesInThisDistrict" />
@@ -140,7 +142,11 @@ export default async function DistrictInsightPage({ params }: DistrictInsightPag
                 className="premium-focus-ring inline-flex min-h-11 w-fit items-center justify-center rounded-full border border-[#D8CDAF] bg-white px-5 text-sm font-semibold text-[#1F2937] transition hover:border-[#E7B93D]"
                 href={filterHref}
               >
-                <T k="exploreResidences" />
+                {district.exploreResidencesCtaLabel ? (
+                  <TD value={district.exploreResidencesCtaLabel} />
+                ) : (
+                  <T k="exploreResidences" />
+                )}
               </Link>
             </div>
 

@@ -259,38 +259,56 @@ export const districtInsights: DistrictInsightPageData[] = [
     city: "Ho Chi Minh City",
     districtContext: "District 2",
     ...zoneFields("eastern-zone"),
-    shortPositioning: "Established expat lifestyle hub within the Eastern Zone.",
+    shortPositioning: "Established expat lifestyle enclave within Thu Duc City.",
     masterPlanContext:
-      "Connected to Thu Duc City’s innovation, education, international lifestyle, and knowledge-economy positioning.",
+      "Thao Dien sits within the wider Thu Duc City / Eastern Zone context, connected to HCMC’s innovation, education, high-tech and financial services direction.",
+    masterPlanShortContext:
+      "Thao Dien sits within the wider Thu Duc City / Eastern Zone context, connected to HCMC’s innovation, education, high-tech and financial services direction.",
+    heroQuickFacts: [
+      { label: "District role", value: "Expat lifestyle hub" },
+      { label: "CBD access", value: "Across the river from District 1" },
+      { label: "Investor fit", value: "Rental lifestyle demand" },
+      { label: "Rental profile", value: "Expat families and professionals" },
+      { label: "Buyer type", value: "Lifestyle-led investors" },
+      { label: "Residences", value: "selected residences" },
+    ],
     basicInfo: {
       positioning: "Mature lifestyle district with international school and long-stay tenant demand.",
       suitableFor: ["Rental Income", "Lifestyle Buyers", "Overseas Buyers"],
       buyerProfiles: ["Rental income buyer", "Lifestyle buyer", "Remote investor"],
-      districtRole: "Established expat lifestyle hub",
+      districtRole: "Expat lifestyle hub",
       planningTheme: "Education, international lifestyle, knowledge-economy support",
       investorRelevance: "Established expat lifestyle infrastructure may support long-term leasing interest",
     },
     rentalDemand: "High",
     selectedResidenceSlugs: ["masteri-thao-dien"],
+    exploreResidencesCtaLabel: "Explore Residences in Thao Dien",
+    selectedResidencesTitle: "Selected Residences in Thao Dien",
     timeline: [
       {
-        year: "2014",
-        title: "Condominium communities matured",
-        description: "Managed residential towers helped establish the district’s rental base.",
+        year: "2000s",
+        title: "Former District 2 develops as expat residential area",
+        description: "International residents and family-oriented amenities helped shape Thao Dien’s rental identity.",
         status: "Completed",
       },
       {
-        year: "2021",
-        title: "Lifestyle retail deepened",
-        description: "Cafe, school, and service clusters strengthened daily-living appeal.",
+        year: "2010s",
+        title: "International school ecosystem expands",
+        description: "Education and lifestyle services strengthened the area’s family tenant appeal.",
+        status: "Completed",
+      },
+      {
+        year: "2020s",
+        title: "Condo and serviced apartment supply matures",
+        description: "Managed towers and serviced residences created a deeper leasing market.",
         status: "Completed",
       },
       sixZoneMilestone,
       {
         year: "2026+",
-        title: "Metro access theme continues",
-        description: "Transit-led access may support tenant convenience and leasing relevance.",
-        status: "Planned",
+        title: "Eastern Zone growth themes continue",
+        description: "Thu Duc City planning themes may support longer-term residential relevance.",
+        status: "Indicative",
       },
     ],
     futureAdvantages: [
@@ -307,6 +325,72 @@ export const districtInsights: DistrictInsightPageData[] = [
         description: "International schools, cafes, and professional tenant demand may support leasing depth.",
       },
     ],
+    growthDrivers: [
+      {
+        id: "cbd-access-metro-connectivity",
+        title: "CBD Access & Metro Connectivity",
+        description:
+          "Thao Dien benefits from its position across the Saigon River from District 1 and along HCMC’s eastern residential corridor.",
+        bullets: [
+          { status: "Existing", text: "Hanoi Highway / eastern corridor access" },
+          { status: "Existing", text: "Saigon River connection to central districts" },
+          { status: "Subject to delivery", text: "Metro Line 1 corridor relevance to Thao Dien / An Phu area" },
+          { status: "Subject to delivery", text: "Ongoing eastern connectivity improvements" },
+        ],
+        icon: "train",
+        whyItMatters:
+          "Better connectivity may support commute-based rental demand from professionals working in central and eastern HCMC.",
+        visualType: "transport",
+      },
+      {
+        id: "international-schools-family-lifestyle",
+        title: "International Schools & Family Lifestyle",
+        description:
+          "Thao Dien and nearby An Phu have one of HCMC’s strongest international-school and expat-family ecosystems.",
+        bullets: [
+          { status: "Existing", text: "International School Ho Chi Minh City in former District 2 / Thu Duc City" },
+          { status: "Existing", text: "British International School Vietnam campuses in the area" },
+          { status: "Existing", text: "European International School and German School in Thao Dien area" },
+          { status: "Existing", text: "Cafes, restaurants, supermarkets and wellness facilities serving expat families" },
+        ],
+        icon: "trees",
+        whyItMatters:
+          "A strong education and lifestyle ecosystem may support family rental demand and longer-stay tenants.",
+        visualType: "lifestyle",
+      },
+      {
+        id: "expat-retail-hospitality-ecosystem",
+        title: "Expat Retail & Hospitality Ecosystem",
+        description:
+          "Thao Dien is known for restaurants, boutiques, cafes, gyms and lifestyle services that support a higher-comfort rental environment.",
+        bullets: [
+          { status: "Existing", text: "Western and international dining clusters" },
+          { status: "Existing", text: "Boutique retail, groceries and wellness services" },
+          { status: "Existing", text: "Serviced apartment and condo rental ecosystem" },
+          { status: "Existing", text: "International community presence" },
+        ],
+        icon: "briefcase",
+        whyItMatters:
+          "Lifestyle convenience may improve tenant retention and support rental appeal.",
+        visualType: "commercial",
+      },
+      {
+        id: "eastern-zone-long-term-positioning",
+        title: "Eastern Zone Long-Term Positioning",
+        description:
+          "Thao Dien is not the formal financial district like Thu Thiem, but it benefits from the wider Eastern Zone / Thu Duc City direction.",
+        bullets: [
+          { status: "Planning context", text: "Eastern Zone focuses on innovation, education, high-tech, financial services, healthcare and eco-tourism" },
+          { status: "Existing", text: "Established residential and expat community" },
+          { status: "Indicative", text: "Lifestyle maturity differentiates Thao Dien from newer township districts" },
+          { status: "Indicative", text: "Rental appeal depends on tenant preference, building quality and flood / traffic conditions" },
+        ],
+        icon: "network",
+        whyItMatters:
+          "Thao Dien may suit buyers seeking lifestyle-led rental demand rather than pure new-district capital growth.",
+        visualType: "industry",
+      },
+    ],
     ctaDistrictFilter: "thao-dien",
   },
   {
@@ -316,37 +400,55 @@ export const districtInsights: DistrictInsightPageData[] = [
     city: "Ho Chi Minh City",
     districtContext: "CBD",
     ...zoneFields("central-urban-zone"),
-    shortPositioning: "CBD benchmark, administrative/commercial core, prestige and liquidity reference.",
+    shortPositioning: "Historic commercial core and CBD benchmark for Ho Chi Minh City.",
     masterPlanContext:
-      "Part of the central urban core associated with administration, commerce, services, knowledge economy, and creative industries.",
+      "District 1 sits within HCMC’s central urban core, associated with administration, commerce, services, knowledge economy and creative industries.",
+    masterPlanShortContext:
+      "District 1 sits within HCMC’s central urban core, associated with administration, commerce, services, knowledge economy and creative industries.",
+    heroQuickFacts: [
+      { label: "District role", value: "Historic CBD and commercial core" },
+      { label: "CBD access", value: "Core location" },
+      { label: "Investor fit", value: "Prestige and rental resilience" },
+      { label: "Rental profile", value: "Corporate and serviced-apartment demand" },
+      { label: "Buyer type", value: "Prime-location buyers" },
+      { label: "Residences", value: "selected residences nearby" },
+    ],
     basicInfo: {
       positioning: "Core CBD district with office, retail, hospitality, and prestige value.",
       suitableFor: ["CBD exposure", "Prestige", "Overseas Buyers"],
       buyerProfiles: ["Capital growth buyer", "Lifestyle buyer", "Liquidity-focused investor"],
-      districtRole: "Administrative and commercial core",
+      districtRole: "Historic CBD and commercial core",
       planningTheme: "Commerce, services, knowledge economy, creative industries",
       investorRelevance: "Central commercial and administrative positioning may support long-term buyer interest and rental relevance",
     },
     rentalDemand: "High",
-    selectedResidenceSlugs: ["vinhomes-golden-river"],
+    selectedResidenceSlugs: ["empire-city", "the-metropole-thu-thiem"],
+    exploreResidencesCtaLabel: "Explore Residences in District 1",
+    selectedResidencesTitle: "CBD-adjacent selected residences",
     timeline: [
       {
-        year: "2015",
-        title: "CBD residential scarcity theme deepened",
-        description: "Selective central residences became easier for overseas buyers to understand.",
+        year: "Historic",
+        title: "Historic CBD and civic core established",
+        description: "District 1 became the city’s central commercial and civic reference point.",
         status: "Completed",
       },
       {
-        year: "2021",
-        title: "Metro completion themes advanced",
-        description: "Transit improvements supported central accessibility narratives.",
-        status: "Under Construction",
+        year: "2010s",
+        title: "Retail, office and hospitality consolidation",
+        description: "Office, hotel and retail clusters strengthened the district’s central role.",
+        status: "Completed",
+      },
+      {
+        year: "2020s",
+        title: "Ben Thanh transit-node relevance",
+        description: "Transit planning reinforces Ben Thanh’s importance as a central access point.",
+        status: "Planned",
       },
       sixZoneMilestone,
       {
         year: "2026+",
-        title: "Central scarcity remains relevant",
-        description: "Limited new residential supply may support continued buyer attention.",
+        title: "Central commercial positioning continues",
+        description: "Commerce, services and creative-industry themes may keep District 1 relevant as a benchmark.",
         status: "Indicative",
       },
     ],
@@ -364,6 +466,72 @@ export const districtInsights: DistrictInsightPageData[] = [
         description: "Corporate, hospitality, and service-sector demand supports a familiar rental story.",
       },
     ],
+    growthDrivers: [
+      {
+        id: "cbd-connectivity-walkability",
+        title: "CBD Connectivity & Walkability",
+        description:
+          "District 1 remains the city’s central reference point, with strong access to offices, hotels, retail streets and heritage landmarks.",
+        bullets: [
+          { status: "Existing", text: "Nguyen Hue walking street and Dong Khoi commercial corridor" },
+          { status: "Existing", text: "Central Post Office, Notre-Dame Cathedral area and historic civic core" },
+          { status: "Existing", text: "Direct access to key office, hotel and retail clusters" },
+          { status: "Existing", text: "Taxi, ride-hailing and future metro interchange relevance around Ben Thanh" },
+        ],
+        icon: "route",
+        whyItMatters:
+          "A central location may support corporate tenants, short-stay demand and prestige-driven buyers.",
+        visualType: "transport",
+      },
+      {
+        id: "retail-hospitality-lifestyle-core",
+        title: "Retail, Hospitality & Lifestyle Core",
+        description:
+          "District 1 combines commercial, hospitality, dining, nightlife and cultural assets in a compact urban core.",
+        bullets: [
+          { status: "Existing", text: "Nguyen Hue and Dong Khoi retail / hospitality corridor" },
+          { status: "Existing", text: "Ben Thanh Market tourism and transit node" },
+          { status: "Existing", text: "Landmark hotels, serviced apartments and dining clusters" },
+          { status: "Existing", text: "Cultural and historic attractions supporting visitor demand" },
+        ],
+        icon: "trees",
+        whyItMatters:
+          "Lifestyle depth may support serviced-apartment, corporate leasing and short-stay relevance.",
+        visualType: "lifestyle",
+      },
+      {
+        id: "commercial-office-demand",
+        title: "Commercial & Office Demand",
+        description:
+          "District 1 remains one of HCMC’s strongest office and commercial areas, although new supply pressure may increasingly come from Thu Thiem and other growth districts.",
+        bullets: [
+          { status: "Existing", text: "Core CBD office clusters" },
+          { status: "Existing", text: "Consulates, banks and corporate service providers" },
+          { status: "Existing", text: "High street retail and hospitality demand" },
+          { status: "Planning context", text: "Central Urban Zone role in commerce, services and knowledge economy" },
+        ],
+        icon: "briefcase",
+        whyItMatters:
+          "Office and service-sector demand may help sustain long-term rental relevance, while newer districts provide comparison points.",
+        visualType: "commercial",
+      },
+      {
+        id: "prime-location-supply-scarcity",
+        title: "Prime Location & Supply Scarcity",
+        description:
+          "As a dense historic core, District 1 offers limited new residential supply compared with emerging districts.",
+        bullets: [
+          { status: "Existing", text: "Mature central urban fabric" },
+          { status: "Existing", text: "Limited room for large new residential townships" },
+          { status: "Existing", text: "Premium serviced apartment and luxury residence demand" },
+          { status: "Indicative", text: "Scarcity may support long-term prime-location appeal" },
+        ],
+        icon: "network",
+        whyItMatters:
+          "Scarcity and centrality can make District 1 useful as a pricing and prestige benchmark.",
+        visualType: "industry",
+      },
+    ],
     ctaDistrictFilter: "district-1-cbd",
   },
   {
@@ -372,33 +540,57 @@ export const districtInsights: DistrictInsightPageData[] = [
     city: "Ho Chi Minh City",
     districtContext: "Phu My Hung",
     ...zoneFields("southern-zone"),
-    shortPositioning: "Family rental, international community, and southern ecological / lifestyle corridor.",
+    shortPositioning: "Established south-side township and family-oriented residential hub.",
     masterPlanContext:
-      "Southern Zone is planned as a high-tech, water-based ecological city with knowledge economy, cultural, exhibition, entertainment, eco-tourism, industry, logistics, and marine economy functions.",
+      "District 7 / Nha Be is positioned within HCMC’s southern water-based ecological city framework, with themes around knowledge economy, culture, exhibitions, logistics, eco-tourism and marine economy.",
+    masterPlanShortContext:
+      "District 7 / Nha Be is positioned within HCMC’s southern water-based ecological city framework, with themes around knowledge economy, culture, exhibitions, logistics, eco-tourism and marine economy.",
+    heroQuickFacts: [
+      { label: "District role", value: "Planned family township" },
+      { label: "CBD access", value: "Southern HCMC corridor" },
+      { label: "Investor fit", value: "Stable family rental demand" },
+      { label: "Rental profile", value: "Families, professionals and expats" },
+      { label: "Buyer type", value: "Long-stay rental investors" },
+      { label: "Residences", value: "selected residences" },
+    ],
     basicInfo: {
       positioning: "South Saigon residential district known for schools, healthcare, and family tenants.",
       suitableFor: ["Family rental market", "Stable income", "Overseas Buyers"],
       buyerProfiles: ["Rental income buyer", "Family tenant market", "Remote investor"],
-      districtRole: "Family rental and international community district",
+      districtRole: "Planned family township",
       planningTheme: "Water-based ecological city, exhibitions, logistics, lifestyle services",
       investorRelevance: "Established international community and southern planning themes may support stable family rental demand",
     },
     rentalDemand: "High",
     selectedResidenceSlugs: [],
+    exploreResidencesCtaLabel: "Explore Residences in District 7",
+    selectedResidencesTitle: "Selected Residences in District 7",
     timeline: [
       {
         year: "2000s",
-        title: "Phu My Hung community established",
-        description: "Master-planned amenities created a recognisable family lifestyle district.",
+        title: "Phu My Hung planned urban area develops",
+        description: "Saigon South’s planned amenities created a recognisable family lifestyle district.",
         status: "Completed",
       },
       {
-        year: "2023+",
-        title: "Selective new supply continues",
-        description: "Newer projects add options while mature amenities support tenant appeal.",
-        status: "Indicative",
+        year: "2003",
+        title: "District 7 established as an urban district",
+        description: "Administrative development supported the area’s south-side urban identity.",
+        status: "Completed",
+      },
+      {
+        year: "2009",
+        title: "Phu My Bridge opened",
+        description: "The bridge improved east-side connectivity from the southern corridor.",
+        status: "Completed",
       },
       sixZoneMilestone,
+      {
+        year: "2026+",
+        title: "Southern Zone planning themes continue",
+        description: "District 7 / Nha Be themes may support long-term family and lifestyle relevance.",
+        status: "Indicative",
+      },
     ],
     futureAdvantages: [
       {
@@ -412,6 +604,72 @@ export const districtInsights: DistrictInsightPageData[] = [
       {
         title: "Tenant / Buyer Demand Drivers",
         description: "Korean, Japanese, and regional family tenants may support stable occupancy interest.",
+      },
+    ],
+    growthDrivers: [
+      {
+        id: "southern-corridor-connectivity",
+        title: "Southern Corridor Connectivity",
+        description:
+          "District 7 is connected to HCMC’s southern corridor, with road links supporting access to central areas, Nha Be, Binh Chanh and logistics corridors.",
+        bullets: [
+          { status: "Existing", text: "Nguyen Van Linh Boulevard as a major southern corridor" },
+          { status: "Existing", text: "Phu My Bridge connection toward Thu Duc / eastern side" },
+          { status: "Existing", text: "Access toward District 1 via bridges and main roads" },
+          { status: "Subject to congestion", text: "Travel time depends heavily on peak-hour traffic" },
+        ],
+        icon: "route",
+        whyItMatters:
+          "Connectivity shapes family rental preference and commute comfort.",
+        visualType: "transport",
+      },
+      {
+        id: "schools-healthcare-family-amenities",
+        title: "Schools, Healthcare & Family Amenities",
+        description:
+          "District 7 / Phu My Hung is one of HCMC’s strongest family-oriented residential zones, supported by schools, hospitals, retail and open space.",
+        bullets: [
+          { status: "Existing", text: "International schools and bilingual education options around Phu My Hung" },
+          { status: "Existing", text: "FV Hospital / private healthcare ecosystem in the area" },
+          { status: "Existing", text: "Crescent Mall and Phu My Hung lifestyle amenities" },
+          { status: "Existing", text: "Parks, walkable streets and planned-township environment" },
+        ],
+        icon: "trees",
+        whyItMatters:
+          "Family-oriented amenities may support stable long-stay rental demand.",
+        visualType: "lifestyle",
+      },
+      {
+        id: "planned-township-lifestyle-depth",
+        title: "Planned Township & Lifestyle Depth",
+        description:
+          "Phu My Hung is one of Vietnam’s best-known planned urban areas and provides a mature residential environment.",
+        bullets: [
+          { status: "Existing", text: "Phu My Hung / Saigon South planned urban area" },
+          { status: "Existing", text: "Walkable streets, lakes, parks and retail clusters" },
+          { status: "Existing", text: "Established condominium and townhouse communities" },
+          { status: "Existing", text: "Strong reputation among families and long-stay residents" },
+        ],
+        icon: "building",
+        whyItMatters:
+          "A mature township can reduce lifestyle uncertainty for overseas landlords and tenants.",
+        visualType: "commercial",
+      },
+      {
+        id: "southern-zone-long-term-positioning",
+        title: "Southern Zone Long-Term Positioning",
+        description:
+          "The Southern Zone master plan context points toward a water-based ecological city with knowledge economy, exhibitions, culture, logistics and marine economy themes.",
+        bullets: [
+          { status: "Planning context", text: "District 7 – Nha Be Southern Zone" },
+          { status: "Planning context", text: "Knowledge economy, arts, exhibitions and entertainment themes" },
+          { status: "Planning context", text: "Logistics and marine-economy relevance" },
+          { status: "Indicative", text: "Long-term appeal depends on infrastructure delivery and supply quality" },
+        ],
+        icon: "network",
+        whyItMatters:
+          "District 7 may suit investors looking for mature family rental demand rather than pure CBD prestige.",
+        visualType: "industry",
       },
     ],
     ctaDistrictFilter: "district-7",

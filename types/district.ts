@@ -121,6 +121,8 @@ export type DistrictInsightPageData = {
   districtHeroVisualImage?: string;
   districtHeroVisualAlt?: string;
   districtHeroVisualCaption?: string;
+  exploreResidencesCtaLabel?: string;
+  selectedResidencesTitle?: string;
   strategicDiagramImage?: string;
   infrastructureConceptImage?: string;
   lifestyleCommercialConceptImage?: string;

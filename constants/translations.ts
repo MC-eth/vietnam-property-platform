@@ -232,7 +232,7 @@ export const translations = {
       "Browse curated residences and available units in this district.",
     browseCuratedResidencesThuThiem:
       "Browse curated residences and available units in Thu Thiem.",
-    noResidencesForDistrict: "No residences currently shown for this district.",
+    noResidencesForDistrict: "No curated residences are currently shown for this district.",
     viewResidence: "View Residence",
     viewTimeline: "View Timeline",
     districtInsight: "District Insight",
@@ -846,7 +846,7 @@ export const translations = {
       "瀏覽此區的精選住宅項目及可售單位。",
     browseCuratedResidencesThuThiem:
       "瀏覽守添的精選住宅項目及可售單位。",
-    noResidencesForDistrict: "目前此區暫無顯示住宅項目。",
+    noResidencesForDistrict: "目前此區暫無顯示精選住宅項目。",
     viewResidence: "查看住宅項目",
     viewTimeline: "查看時間線",
     districtInsight: "區域分析",
@@ -1273,6 +1273,8 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     Proposed: "提案中",
     "Subject to delivery": "以實際交付為準",
     "Planning theme": "規劃主題",
+    "Planning context": "規劃背景",
+    "Subject to congestion": "受交通擠塞影響",
     "Nearby ecosystem": "周邊生態",
     "Existing / Planned": "已有／規劃中",
     Indicative: "參考性質",
@@ -1617,11 +1619,221 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Connected to Thu Duc City’s innovation, education, international lifestyle, and knowledge-economy positioning.":
       "連接守德市創新、教育、國際生活方式及知識型經濟定位。",
     "Established expat lifestyle hub": "成熟外籍生活方式樞紐",
+    "Established expat lifestyle enclave within Thu Duc City.": "守德市內成熟的外籍租客及生活圈。",
+    "Thao Dien sits within the wider Thu Duc City / Eastern Zone context, connected to HCMC’s innovation, education, high-tech and financial services direction.":
+      "Thao Dien 位於守德市／東部區框架內，與胡志明市創新、教育、高科技及金融服務方向相連。",
+    "Expat lifestyle hub": "外籍生活圈",
+    "Across the river from District 1": "與第一郡隔河相連",
+    "Rental lifestyle demand": "生活圈收租需求",
+    "Expat families and professionals": "外籍家庭及專業人士",
+    "Lifestyle-led investors": "生活圈導向投資者",
+    "selected residences": "精選住宅項目",
+    "Explore Residences in Thao Dien": "查看 Thao Dien 住宅項目",
+    "Selected Residences in Thao Dien": "Thao Dien 精選住宅項目",
+    "Former District 2 develops as expat residential area": "前第2郡發展為外籍住宅區",
+    "International residents and family-oriented amenities helped shape Thao Dien’s rental identity.":
+      "國際住戶及家庭型配套塑造了 Thao Dien 的租務定位。",
+    "International school ecosystem expands": "國際學校生態擴展",
+    "Education and lifestyle services strengthened the area’s family tenant appeal.":
+      "教育及生活配套加強了此區對家庭租客的吸引力。",
+    "Condo and serviced apartment supply matures": "公寓及服務式住宅供應成熟",
+    "Managed towers and serviced residences created a deeper leasing market.":
+      "管理完善的住宅大樓及服務式住宅形成更成熟的租務市場。",
+    "Eastern Zone growth themes continue": "東部區增長主題延續",
+    "Thu Duc City planning themes may support longer-term residential relevance.":
+      "守德市規劃主題或可支持較長線的住宅相關性。",
+    "CBD Access & Metro Connectivity": "CBD 連接及地鐵交通",
+    "Thao Dien benefits from its position across the Saigon River from District 1 and along HCMC’s eastern residential corridor.":
+      "Thao Dien 受惠於其位處第一郡對岸及胡志明市東部住宅走廊的位置。",
+    "Hanoi Highway / eastern corridor access": "河內公路／東部走廊連接",
+    "Saigon River connection to central districts": "西貢河連接核心城區",
+    "Metro Line 1 corridor relevance to Thao Dien / An Phu area":
+      "地鐵 1 號線走廊與 Thao Dien／An Phu 一帶具相關性",
+    "Ongoing eastern connectivity improvements": "東部交通連接持續改善",
+    "Better connectivity may support commute-based rental demand from professionals working in central and eastern HCMC.":
+      "交通改善或可支持在胡志明市中心及東部工作的專業人士通勤型租務需求。",
+    "International Schools & Family Lifestyle": "國際學校及家庭生活圈",
+    "Thao Dien and nearby An Phu have one of HCMC’s strongest international-school and expat-family ecosystems.":
+      "Thao Dien 及鄰近 An Phu 擁有胡志明市較成熟的國際學校及外籍家庭生態。",
+    "International School Ho Chi Minh City in former District 2 / Thu Duc City":
+      "International School Ho Chi Minh City 位於前第2郡／守德市",
+    "British International School Vietnam campuses in the area":
+      "British International School Vietnam 於區內設有校園",
+    "European International School and German School in Thao Dien area":
+      "European International School 及 German School 位於 Thao Dien 一帶",
+    "Cafes, restaurants, supermarkets and wellness facilities serving expat families":
+      "服務外籍家庭的咖啡店、餐廳、超市及健康生活配套",
+    "A strong education and lifestyle ecosystem may support family rental demand and longer-stay tenants.":
+      "成熟教育及生活生態或可支持家庭租務需求及長住租客。",
+    "Expat Retail & Hospitality Ecosystem": "外籍零售及餐飲生活生態",
+    "Thao Dien is known for restaurants, boutiques, cafes, gyms and lifestyle services that support a higher-comfort rental environment.":
+      "Thao Dien 以餐廳、精品店、咖啡店、健身室及生活服務見稱，有助形成較舒適的租住環境。",
+    "Western and international dining clusters": "西式及國際餐飲群",
+    "Boutique retail, groceries and wellness services": "精品零售、食品雜貨及健康生活服務",
+    "Serviced apartment and condo rental ecosystem": "服務式住宅及公寓租務生態",
+    "International community presence": "國際社群基礎",
+    "Lifestyle convenience may improve tenant retention and support rental appeal.":
+      "生活便利度或可提升租客留存及租務吸引力。",
+    "Eastern Zone Long-Term Positioning": "東部區長線定位",
+    "Thao Dien is not the formal financial district like Thu Thiem, but it benefits from the wider Eastern Zone / Thu Duc City direction.":
+      "Thao Dien 並非像守添一樣的正式金融區，但受惠於較廣泛的東部區／守德市發展方向。",
+    "Eastern Zone focuses on innovation, education, high-tech, financial services, healthcare and eco-tourism":
+      "東部區聚焦創新、教育、高科技、金融服務、醫療及生態旅遊",
+    "Established residential and expat community": "成熟住宅及外籍社群",
+    "Lifestyle maturity differentiates Thao Dien from newer township districts":
+      "生活圈成熟度令 Thao Dien 有別於較新的大型社區",
+    "Rental appeal depends on tenant preference, building quality and flood / traffic conditions":
+      "租務吸引力取決於租客偏好、樓宇質素及水浸／交通情況",
+    "Thao Dien may suit buyers seeking lifestyle-led rental demand rather than pure new-district capital growth.":
+      "Thao Dien 或較適合尋求生活圈收租需求，而非純新區資本增長的買家。",
     "Education, international lifestyle, knowledge-economy support": "教育、國際生活方式、知識型經濟支撐",
     "Established expat lifestyle infrastructure may support long-term leasing interest":
       "成熟外籍生活配套或可支持長期租務關注。",
     "CBD benchmark, administrative/commercial core, prestige and liquidity reference.":
       "CBD 基準區、行政／商業核心及高端流動性參考。",
+    "Historic commercial core and CBD benchmark for Ho Chi Minh City.":
+      "胡志明市歷史商業核心及 CBD 基準區。",
+    "District 1 sits within HCMC’s central urban core, associated with administration, commerce, services, knowledge economy and creative industries.":
+      "第一郡位於胡志明市中心城區，與行政、商業、服務、知識型經濟及創意產業核心功能相關。",
+    "Historic CBD and commercial core": "歷史 CBD 及商業核心",
+    "Core location": "核心地段",
+    "Prestige and rental resilience": "核心地段及租務韌性",
+    "Corporate and serviced-apartment demand": "企業及服務式住宅需求",
+    "Prime-location buyers": "核心地段買家",
+    "selected residences nearby": "周邊精選項目",
+    "Explore Residences in District 1": "查看第一郡住宅項目",
+    "CBD-adjacent selected residences": "CBD 周邊精選住宅項目",
+    "Historic CBD and civic core established": "歷史 CBD 及市政核心形成",
+    "District 1 became the city’s central commercial and civic reference point.":
+      "第一郡成為胡志明市核心商業及市政參考地段。",
+    "Retail, office and hospitality consolidation": "零售、辦公及酒店功能集中",
+    "Office, hotel and retail clusters strengthened the district’s central role.":
+      "辦公樓、酒店及零售群加強了第一郡的核心角色。",
+    "Ben Thanh transit-node relevance": "Ben Thanh 交通節點相關性",
+    "Transit planning reinforces Ben Thanh’s importance as a central access point.":
+      "交通規劃加強了 Ben Thanh 作為核心交通節點的重要性。",
+    "Central commercial positioning continues": "中心商業定位延續",
+    "Commerce, services and creative-industry themes may keep District 1 relevant as a benchmark.":
+      "商業、服務及創意產業主題或可令第一郡持續作為市場基準。",
+    "CBD Connectivity & Walkability": "CBD 交通及步行便利",
+    "District 1 remains the city’s central reference point, with strong access to offices, hotels, retail streets and heritage landmarks.":
+      "第一郡仍然是胡志明市核心參考地段，連接辦公樓、酒店、零售街道及歷史地標。",
+    "Nguyen Hue walking street and Dong Khoi commercial corridor":
+      "Nguyen Hue 步行街及 Dong Khoi 商業走廊",
+    "Central Post Office, Notre-Dame Cathedral area and historic civic core":
+      "中央郵政局、聖母大教堂一帶及歷史市政核心",
+    "Direct access to key office, hotel and retail clusters":
+      "直接連接主要辦公、酒店及零售群",
+    "Taxi, ride-hailing and future metro interchange relevance around Ben Thanh":
+      "Ben Thanh 一帶的的士、叫車及未來地鐵轉乘相關性",
+    "A central location may support corporate tenants, short-stay demand and prestige-driven buyers.":
+      "核心地段或可支持企業租客、短租需求及重視地段聲望的買家。",
+    "Retail, Hospitality & Lifestyle Core": "零售、酒店及生活核心",
+    "District 1 combines commercial, hospitality, dining, nightlife and cultural assets in a compact urban core.":
+      "第一郡在緊湊市中心內集合商業、酒店、餐飲、夜生活及文化資產。",
+    "Nguyen Hue and Dong Khoi retail / hospitality corridor":
+      "Nguyen Hue 及 Dong Khoi 零售／酒店走廊",
+    "Ben Thanh Market tourism and transit node": "Ben Thanh 市場旅遊及交通節點",
+    "Landmark hotels, serviced apartments and dining clusters":
+      "地標酒店、服務式住宅及餐飲群",
+    "Cultural and historic attractions supporting visitor demand":
+      "文化及歷史景點支撐訪客需求",
+    "Lifestyle depth may support serviced-apartment, corporate leasing and short-stay relevance.":
+      "生活配套深度或可支持服務式住宅、企業租務及短住需求。",
+    "Commercial & Office Demand": "商業及辦公需求",
+    "District 1 remains one of HCMC’s strongest office and commercial areas, although new supply pressure may increasingly come from Thu Thiem and other growth districts.":
+      "第一郡仍是胡志明市最強辦公及商業區之一，但新供應壓力或逐步來自守添及其他增長區。",
+    "Core CBD office clusters": "核心 CBD 辦公群",
+    "Consulates, banks and corporate service providers":
+      "領事館、銀行及企業服務供應商",
+    "High street retail and hospitality demand": "主要街道零售及酒店需求",
+    "Central Urban Zone role in commerce, services and knowledge economy":
+      "中心城區在商業、服務及知識型經濟中的角色",
+    "Office and service-sector demand may help sustain long-term rental relevance, while newer districts provide comparison points.":
+      "辦公及服務業需求或有助維持長線租務相關性，而新興區域則提供比較基準。",
+    "Prime Location & Supply Scarcity": "核心地段及供應稀缺性",
+    "As a dense historic core, District 1 offers limited new residential supply compared with emerging districts.":
+      "作為高密度歷史核心區，第一郡相對新興區域的新住宅供應較有限。",
+    "Mature central urban fabric": "成熟中心城區肌理",
+    "Limited room for large new residential townships": "大型新住宅社區發展空間有限",
+    "Premium serviced apartment and luxury residence demand":
+      "高端服務式住宅及豪宅需求",
+    "Scarcity may support long-term prime-location appeal":
+      "稀缺性或可支持核心地段的長線吸引力",
+    "Scarcity and centrality can make District 1 useful as a pricing and prestige benchmark.":
+      "稀缺性及核心性可令第一郡成為價格及地段聲望基準。",
+    "Established south-side township and family-oriented residential hub.":
+      "成熟南城社區及家庭型住宅區。",
+    "District 7 / Nha Be is positioned within HCMC’s southern water-based ecological city framework, with themes around knowledge economy, culture, exhibitions, logistics, eco-tourism and marine economy.":
+      "第7郡／芽皮位於胡志明市南部水域生態城市框架內，主題包括知識型經濟、文化展覽、物流、生態旅遊及海洋經濟。",
+    "Planned family township": "規劃家庭社區",
+    "Southern HCMC corridor": "南部城市走廊",
+    "Stable family rental demand": "穩定家庭租務需求",
+    "Families, professionals and expats": "家庭、專業人士及外籍租客",
+    "Long-stay rental investors": "長住租務投資者",
+    "Explore Residences in District 7": "查看第7郡住宅項目",
+    "Selected Residences in District 7": "第7郡精選住宅項目",
+    "Phu My Hung planned urban area develops": "富美興規劃城區發展",
+    "Saigon South’s planned amenities created a recognisable family lifestyle district.":
+      "西貢南部的規劃配套形成具辨識度的家庭生活區。",
+    "District 7 established as an urban district": "第7郡成為城市郡",
+    "Administrative development supported the area’s south-side urban identity.":
+      "行政發展支持此區的南城城市定位。",
+    "Phu My Bridge opened": "富美橋通車",
+    "The bridge improved east-side connectivity from the southern corridor.":
+      "該橋改善了南部走廊往東部的連接。",
+    "Southern Zone planning themes continue": "南部區規劃主題延續",
+    "District 7 / Nha Be themes may support long-term family and lifestyle relevance.":
+      "第7郡／芽皮主題或可支持長線家庭及生活圈相關性。",
+    "Southern Corridor Connectivity": "南部走廊交通連接",
+    "District 7 is connected to HCMC’s southern corridor, with road links supporting access to central areas, Nha Be, Binh Chanh and logistics corridors.":
+      "第7郡連接胡志明市南部走廊，道路網支援往返中心區、芽皮、平政及物流走廊。",
+    "Nguyen Van Linh Boulevard as a major southern corridor":
+      "Nguyen Van Linh 大道作為主要南部走廊",
+    "Phu My Bridge connection toward Thu Duc / eastern side":
+      "富美橋連接守德／東部方向",
+    "Access toward District 1 via bridges and main roads":
+      "透過橋樑及主要道路連接第一郡",
+    "Travel time depends heavily on peak-hour traffic": "通勤時間高度受繁忙時間交通影響",
+    "Connectivity shapes family rental preference and commute comfort.":
+      "交通連接影響家庭租客偏好及通勤舒適度。",
+    "Schools, Healthcare & Family Amenities": "學校、醫療及家庭配套",
+    "District 7 / Phu My Hung is one of HCMC’s strongest family-oriented residential zones, supported by schools, hospitals, retail and open space.":
+      "第7郡／富美興是胡志明市較成熟的家庭型住宅區之一，由學校、醫院、零售及開放空間支撐。",
+    "International schools and bilingual education options around Phu My Hung":
+      "富美興周邊國際學校及雙語教育選擇",
+    "FV Hospital / private healthcare ecosystem in the area":
+      "FV Hospital／區內私人醫療生態",
+    "Crescent Mall and Phu My Hung lifestyle amenities":
+      "Crescent Mall 及富美興生活配套",
+    "Parks, walkable streets and planned-township environment":
+      "公園、可步行街道及規劃社區環境",
+    "Family-oriented amenities may support stable long-stay rental demand.":
+      "家庭型配套或可支持穩定長住租務需求。",
+    "Planned Township & Lifestyle Depth": "規劃社區及生活成熟度",
+    "Phu My Hung is one of Vietnam’s best-known planned urban areas and provides a mature residential environment.":
+      "富美興是越南最知名的規劃城區之一，提供成熟住宅環境。",
+    "Phu My Hung / Saigon South planned urban area":
+      "富美興／西貢南部規劃城區",
+    "Walkable streets, lakes, parks and retail clusters":
+      "可步行街道、湖景、公園及零售群",
+    "Established condominium and townhouse communities":
+      "成熟公寓及聯排住宅社區",
+    "Strong reputation among families and long-stay residents":
+      "在家庭及長住居民中具良好口碑",
+    "A mature township can reduce lifestyle uncertainty for overseas landlords and tenants.":
+      "成熟社區可降低海外業主及租客對生活配套的不確定性。",
+    "Southern Zone Long-Term Positioning": "南部區長線定位",
+    "The Southern Zone master plan context points toward a water-based ecological city with knowledge economy, exhibitions, culture, logistics and marine economy themes.":
+      "南部區總體規劃背景指向水域生態城市，並涵蓋知識型經濟、展覽、文化、物流及海洋經濟主題。",
+    "District 7 – Nha Be Southern Zone": "第7郡－芽皮南部區",
+    "Knowledge economy, arts, exhibitions and entertainment themes":
+      "知識型經濟、藝術、展覽及娛樂主題",
+    "Logistics and marine-economy relevance": "物流及海洋經濟相關性",
+    "Long-term appeal depends on infrastructure delivery and supply quality":
+      "長線吸引力取決於基建交付及供應質素",
+    "District 7 may suit investors looking for mature family rental demand rather than pure CBD prestige.":
+      "第7郡或適合尋求成熟家庭租務需求，而非純 CBD 地段聲望的投資者。",
     "Administrative and commercial core": "行政及商業核心",
     "Commerce, services, knowledge economy, creative industries": "商業、服務、知識型經濟、創意產業",
     "Central commercial and administrative positioning may support long-term buyer interest and rental relevance":
@@ -1856,7 +2068,6 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "CBD exposure": "CBD 配置",
     "CBD benchmark": "CBD 基準區",
     "Premium riverside growth": "高端河畔增長",
-    "Expat lifestyle hub": "外籍生活樞紐",
     "CBD convenience": "CBD 便利性",
     "Growth corridor": "增長走廊",
     "CBD-fringe access": "CBD 邊緣連接",
