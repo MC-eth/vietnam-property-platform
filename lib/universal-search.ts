@@ -1,4 +1,5 @@
 import { districtInsights } from "@/data/district-insights";
+import { districtMarkets } from "@/data/districts";
 import { learnArticles, learnFaqs, learnTopics } from "@/data/learn-hub";
 import { projects } from "@/data/projects";
 import { formatUsd } from "@/lib/formatters";
@@ -38,7 +39,7 @@ export function buildUniversalSearchIndex(): UniversalSearchResult[] {
       ...(district.aliases ?? []),
       ...district.basicInfo.suitableFor,
       ...district.basicInfo.buyerProfiles,
-      ...getDistrictChineseKeywords(district.slug),
+      ...getDistrictSearchAliases(district.slug),
     ];
 
     return {
@@ -53,6 +54,48 @@ export function buildUniversalSearchIndex(): UniversalSearchResult[] {
       searchableText: normaliseSearchText(keywords),
     };
   });
+
+  const marketDistrictResults: UniversalSearchResult[] = districtMarkets
+    .filter((district) => {
+      return !districtInsights.some((insight) => {
+        return (
+          insight.slug === district.slug ||
+          insight.displayName === district.displayName ||
+          insight.aliases?.includes(district.slug)
+        );
+      });
+    })
+    .map((district) => {
+      const displayName = district.slug === "tay-ho" ? "Tay Ho (Hanoi)" : district.displayName ?? district.name;
+      const keywords = [
+        displayName,
+        district.name,
+        district.displayName ?? "",
+        district.slug,
+        district.city,
+        district.positioning,
+        district.positioningTag,
+        district.bestMatchedBuyer,
+        district.investmentStyle,
+        district.snapshot.infrastructureOutlook,
+        ...district.bestFor,
+        ...district.recentProjects,
+        ...district.relatedPropertyDistricts,
+        ...getDistrictSearchAliases(district.slug),
+      ];
+
+      return {
+        id: `district-market:${district.slug}`,
+        type: "district",
+        title: displayName,
+        subtitle: district.positioning,
+        keywords,
+        href: `/markets/${district.slug}`,
+        image: district.image,
+        metadata: district.city,
+        searchableText: normaliseSearchText(keywords),
+      };
+    });
 
   const residenceResults: UniversalSearchResult[] = projects.flatMap((project) => {
     const startingPrice = Math.min(...project.availableUnits.map((unit) => unit.priceUsd));
@@ -176,6 +219,7 @@ export function buildUniversalSearchIndex(): UniversalSearchResult[] {
 
   return [
     ...districtResults,
+    ...marketDistrictResults,
     ...residenceResults,
     ...topicResults,
     ...articleResults,
@@ -246,13 +290,79 @@ function slugify(value: string) {
     .replace(/^-+|-+$/g, "");
 }
 
-function getDistrictChineseKeywords(slug: string) {
+function getDistrictSearchAliases(slug: string) {
   const keywords: Record<string, string[]> = {
-    "thu-thiem": ["守添", "第2郡", "河畔金融區", "區域分析"],
-    "thao-dien": ["草田", "第2郡", "守德市", "外籍生活圈"],
-    "district-1-cbd": ["第一郡", "CBD", "市中心", "核心地段"],
-    "district-7": ["第七郡", "第7郡", "富美興", "家庭社區"],
-    "binh-thanh": ["平盛區", "地標81", "中心相鄰"],
+    "thu-thiem": [
+      "Thu Thiem",
+      "Thu Thiem (District 2)",
+      "District 2",
+      "D2",
+      "Thu Duc City",
+      "守添",
+      "第2郡",
+      "河畔金融區",
+      "區域分析",
+    ],
+    "thao-dien": [
+      "Thao Dien",
+      "Thao Dien (District 2)",
+      "District 2",
+      "D2",
+      "Thu Duc City",
+      "草田",
+      "第2郡",
+      "守德市",
+      "外籍生活圈",
+    ],
+    "district-1-cbd": [
+      "District 1",
+      "District 1 (CBD)",
+      "D1",
+      "CBD",
+      "Central Business District",
+      "第一郡",
+      "市中心",
+      "核心地段",
+    ],
+    "district-7": [
+      "Phu My Hung",
+      "Phu My Hung (District 7)",
+      "District 7",
+      "D7",
+      "Saigon South",
+      "第七郡",
+      "第7郡",
+      "富美興",
+      "家庭社區",
+    ],
+    "binh-thanh": [
+      "Binh Thanh",
+      "Binh Thanh District",
+      "Landmark 81",
+      "平盛",
+      "平盛區",
+      "平盛郡",
+      "地標81",
+      "中心相鄰",
+    ],
+    "binh-thanh-district": [
+      "Binh Thanh",
+      "Binh Thanh District",
+      "Landmark 81",
+      "平盛",
+      "平盛區",
+      "平盛郡",
+    ],
+    "tay-ho": [
+      "Tay Ho",
+      "Tay Ho (Hanoi)",
+      "West Lake",
+      "Hanoi",
+      "西湖",
+      "西湖郡",
+      "河內",
+      "西湖郡（河內）",
+    ],
     "thu-duc-district-9": ["守德市", "第9郡", "東部區"],
   };
 

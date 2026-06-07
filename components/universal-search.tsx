@@ -25,12 +25,12 @@ type QuickSuggestion = {
 };
 
 const QUICK_SUGGESTIONS: QuickSuggestion[] = [
-  { label: "Thu Thiem", labelZh: "守添", href: "/districts/thu-thiem" },
-  { label: "District 1", labelZh: "第一郡", href: "/districts/district-1-cbd" },
-  { label: "Thao Dien", labelZh: "Thao Dien", href: "/districts/thao-dien" },
-  { label: "District 7", labelZh: "第七郡", href: "/districts/district-7" },
-  { label: "Foreign ownership", labelZh: "外國買家持有權", query: "Foreign ownership" },
-  { label: "Foreigner quota", labelZh: "外國買家配額", query: "Foreigner quota" },
+  { label: "Thu Thiem (District 2)", labelZh: "守添（第2郡）", href: "/districts/thu-thiem" },
+  { label: "Thao Dien (District 2)", labelZh: "Thao Dien（第2郡）", href: "/districts/thao-dien" },
+  { label: "District 1 (CBD)", labelZh: "第一郡（CBD）", href: "/districts/district-1-cbd" },
+  { label: "Phu My Hung (District 7)", labelZh: "富美興（第7郡）", href: "/districts/district-7" },
+  { label: "Binh Thanh", labelZh: "平盛區", href: "/districts/binh-thanh" },
+  { label: "Tay Ho (Hanoi)", labelZh: "西湖郡（河內）", query: "Tay Ho (Hanoi)" },
 ];
 
 const GROUP_ORDER: UniversalSearchGroupKey[] = ["districts", "residences", "learn"];

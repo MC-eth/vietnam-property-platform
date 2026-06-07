@@ -57,10 +57,7 @@ export default async function Home() {
                   <TD value="Manage it all." />
                 </span>
               </h1>
-              <p className="mx-auto mt-5 max-w-2xl text-sm font-medium leading-7 text-white/78 sm:text-base">
-                <TD value="One connected platform for your Vietnam property journey." />
-              </p>
-              <div className="mt-8 sm:mt-10">
+              <div className="mt-6 sm:mt-7">
                 <UniversalSearch />
               </div>
             </div>
