@@ -208,13 +208,13 @@ export const hcmcDistrictSummaries: Record<string, HcmcDistrictSummary> = {
   "thu-thiem": {
     name: "Thu Thiem (District 2)",
     positioningBadge: "Premium Riverside Growth",
-    developmentTitle: "What's Coming",
+    developmentTitle: "Development Pipeline",
     developmentSummary:
-      "Planned transport, public-space and mixed-use commercial upgrades may continue shaping Thu Thiem over time.",
+      "Key projects expected to shape Thu Thiem’s next stage of development.",
     developmentBullets: [
-      "Metro and bridge-led connectivity improvements",
-      "Public realm and riverfront development themes",
-      "Mixed-use and commercial expansion across key plots",
+      "Metro Line 2 and future transport connections",
+      "Central Square and riverfront public realm",
+      "Grade A offices and mixed-use commercial expansion",
     ],
     bestFor: ["Capital Growth", "Premium Rental", "Overseas Investors"],
     rentalDemand: {

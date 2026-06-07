@@ -177,7 +177,7 @@ function DistrictSummaryPanel({
 
       <div className="mt-4">
         <p className="text-sm font-semibold text-[#1F2937]">
-          <TD value="Nearby Landmarks" />
+          <TD value="Landmarks & Connectivity" />
         </p>
         <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-3">
           {summary.landmarks.map((landmark) => (
@@ -302,7 +302,7 @@ function ResidenceRow({ currency, project }: { currency: CurrencyCode; project: 
           {startingPricePerSqm ? `${formatCurrencyFromUsd(startingPricePerSqm, currency)} / sqm` : <TD value="Indicative availability" />}
         </p>
         <p className="text-xs leading-5 text-[#6B7280]">
-          {availableUnitsCount > 0 ? t("availableUnitCount", { count: availableUnitsCount }) : <TD value="Indicative availability" />}
+          {availableUnitsCount > 0 ? t("listedUnitCount", { count: availableUnitsCount }) : <TD value="Indicative availability" />}
         </p>
       </div>
       <span className="text-2xl leading-none text-[#1F2937] transition group-hover:translate-x-0.5">›</span>

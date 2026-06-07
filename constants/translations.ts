@@ -47,6 +47,7 @@ export const translations = {
     buyerEnquiry: "Buyer enquiry",
     investmentDiscovery: "Investment Discovery",
     availableUnitCount: "{count, plural, one {1 unit} other {{count} units}}",
+    listedUnitCount: "{count, plural, one {1 listed unit} other {{count} listed units}}",
     availableUnits: "Available Units",
     availableUnitsIntro: "Indicative units currently available for investor review.",
     availableUnitsQuotaNote:
@@ -665,6 +666,7 @@ export const translations = {
     buyerEnquiry: "買家查詢",
     investmentDiscovery: "投資探索",
     availableUnitCount: "{count, plural, one {1 個可售單位} other {{count} 個可售單位}}",
+    listedUnitCount: "{count, plural, one {1 個上架單位} other {{count} 個上架單位}}",
     availableUnits: "可售單位",
     availableUnitsIntro: "以下為目前可供投資者初步參考的示意可售單位。",
     availableUnitsQuotaNote:
@@ -1286,18 +1288,25 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Future Development": "未來發展",
     "What's Coming": "未來重點發展",
     "Development Themes": "發展主題",
+    "Development Pipeline": "發展進程",
     "Future financial district and premium riverside address across from District 1.":
       "位於第一郡對岸的未來金融區及高端河畔地段。",
     "Metro, bridge, public-space and commercial development themes are expected to shape the district over time.":
       "地鐵、橋樑、公共空間及商業發展主題，預期將逐步塑造此區。",
     "Planned transport, public-space and mixed-use commercial upgrades may continue shaping Thu Thiem over time.":
       "規劃中的交通、公共空間及綜合商業升級，或會持續塑造守添的區域面貌。",
+    "Key projects expected to shape Thu Thiem’s next stage of development.":
+      "預期重點項目將推動守添下一階段的發展。",
     "Metro and bridge-led connectivity improvements": "地鐵及橋樑帶動的交通連接改善",
     "Public realm and riverfront development themes": "公共空間及河畔發展主題",
     "Mixed-use and commercial expansion across key plots": "重點地塊的綜合用途及商業擴展",
+    "Metro Line 2 and future transport connections": "地鐵2號線及未來交通連接",
+    "Central Square and riverfront public realm": "中央廣場及河畔公共空間",
+    "Grade A offices and mixed-use commercial expansion": "甲級寫字樓及綜合商業擴展",
     "Key Infrastructure Pipeline": "主要基建進程",
     "Planned & Ongoing Infrastructure": "規劃及建設中基建",
     "Nearby Landmarks": "附近地標",
+    "Landmarks & Connectivity": "地標及交通連接",
     "Available Residences": "可選住宅項目",
     "Indicative district assessment based on current market and planning context.":
       "根據目前市場及規劃背景作出的參考性區域評估。",
@@ -2762,10 +2771,18 @@ export function translate(
   let value = translations[language][key] ?? translations.en[key];
 
   if (
-    key === "availableUnitCount" &&
+    (key === "availableUnitCount" || key === "listedUnitCount") &&
     replacements &&
     typeof replacements.count === "number"
   ) {
+    if (key === "listedUnitCount") {
+      return language === "zh-Hant"
+        ? `${replacements.count} 個上架單位`
+        : replacements.count === 1
+          ? "1 listed unit"
+          : `${replacements.count} listed units`;
+    }
+
     return language === "zh-Hant"
       ? replacements.count === 1
         ? "1 個可售單位"
