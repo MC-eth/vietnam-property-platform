@@ -2745,6 +2745,7 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Long Thanh International Airport — Phase 1 (Approx. 2026)":
       "隆城國際機場第一期（預計2026年）",
     "Why Vietnam Now": "為何是越南，為何是現在",
+    "WHY VIETNAM NOW": "為何是越南，為何是現在",
     "GDP Growth": "GDP 增長",
     "FDI Inflows": "外商直接投資流入",
     Exports: "出口總額",
@@ -2752,6 +2753,32 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "2025 full-year preliminary data. Macroeconomic indicators provide market context and do not guarantee property investment returns.":
       "2025年全年初步數據。宏觀經濟指標僅供市場背景參考，並不保證物業投資回報。",
     "Vietnam government data reported January 2026.": "越南政府數據，於2026年1月公布。",
+    "Economic Momentum": "經濟增長動力",
+    "Vietnam continues to rank among Asia’s faster-growing economies, supported by manufacturing, domestic consumption and sustained investment activity.":
+      "越南持續位列亞洲較高速增長的經濟體，增長動力來自製造業、內部消費及持續投資活動。",
+    "2025 GDP Growth · 8.02%": "2025年 GDP 增長 · 8.02%",
+    "Urbanisation at Scale": "城市化增長",
+    "Major cities continue to expand as businesses, professionals and higher-income households concentrate around established and emerging urban districts.":
+      "隨着企業、專業人士及較高收入家庭集中於成熟及新興城區，主要城市持續擴展。",
+    "Expanding Urban Demand": "城市需求持續擴大",
+    "Infrastructure-Led Expansion": "基建帶動城市擴張",
+    "Metro systems, ring roads, airports and new urban centres are reshaping connectivity and supporting the next phase of city development.":
+      "地鐵、環城公路、機場及新城區正重塑交通網絡，並支持城市下一階段的發展。",
+    "Major Infrastructure Pipeline": "大型基建進程",
+    "Global Business & Capital": "國際企業及資本",
+    "Vietnam continues to attract international manufacturers, regional businesses and foreign capital, supporting demand for offices, housing and professional services.":
+      "越南持續吸引國際製造商、區域企業及海外資本，帶動辦公、住宅及專業服務需求。",
+    "2025 FDI Inflows · US$27.6B": "2025年外資流入 · 276億美元",
+    "Overseas Buyer Access": "海外買家參與渠道",
+    "Eligible overseas buyers may acquire qualifying residential property, subject to legal restrictions, project eligibility and available foreign-buyer quota.":
+      "合資格海外買家可購買符合規定的住宅物業，但仍須受法律限制、項目資格及外國買家配額約束。",
+    "Eligible Residential Ownership": "合資格住宅持有權",
+    "Rental & End-User Demand": "租務及自住需求",
+    "Professionals, international businesses, expatriates and local households contribute to demand across prime urban and lifestyle districts.":
+      "專業人士、國際企業、外籍居民及本地家庭，共同支持核心城市及生活型地區的住宅需求。",
+    "Diverse Urban Demand": "多元城市需求",
+    "2025 figures are preliminary full-year macroeconomic data. Other statements provide general market context. Macroeconomic conditions do not guarantee property investment returns.":
+      "2025年數字為初步全年宏觀經濟數據，其他內容只供一般市場背景參考。宏觀經濟狀況並不保證物業投資回報。",
     "Central Business District": "中央商務區",
     "Executive rental demand": "行政租客需求",
     "Lifestyle investment": "生活方式投資",

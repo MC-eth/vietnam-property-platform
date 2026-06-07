@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAppPreferences } from "@/context/app-preferences-context";
-import { vietnamStats, type VietnamStat, type VietnamStatIcon } from "@/data/vietnam-stats";
-
-const DURATION_MS = 900;
+import {
+  vietnamThesisCards,
+  type VietnamThesisCard,
+  type VietnamThesisIcon,
+} from "@/data/vietnam-thesis-cards";
 
 export function WhyVietnamStatsSection() {
   const { td } = useAppPreferences();
@@ -16,12 +18,6 @@ export function WhyVietnamStatsSection() {
     const section = sectionRef.current;
     if (!section) return;
 
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) {
-      const animationFrame = window.requestAnimationFrame(() => setHasEntered(true));
-      return () => window.cancelAnimationFrame(animationFrame);
-    }
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry?.isIntersecting) {
@@ -29,7 +25,7 @@ export function WhyVietnamStatsSection() {
           observer.disconnect();
         }
       },
-      { threshold: 0.35 },
+      { threshold: 0.22 },
     );
 
     observer.observe(section);
@@ -37,15 +33,30 @@ export function WhyVietnamStatsSection() {
   }, []);
 
   return (
-    <section className="px-5 py-14 sm:px-8 lg:py-20" ref={sectionRef}>
-      <div className="mx-auto max-w-7xl">
-        <div className="flex flex-wrap items-center gap-3">
-          <h2 className="text-3xl font-semibold leading-tight text-[#1F2937] sm:text-4xl lg:text-5xl">
+    <section
+      className="relative overflow-hidden bg-[#111827] px-5 py-16 text-white sm:px-8 lg:py-24"
+      ref={sectionRef}
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(245,200,76,0.18),transparent_28%),radial-gradient(circle_at_85%_62%,rgba(175,199,216,0.10),transparent_30%),linear-gradient(135deg,#0B1220_0%,#111827_52%,#171717_100%)]" />
+      <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.16)_1px,transparent_1px)] [background-size:38px_38px]" />
+      <svg
+        aria-hidden="true"
+        className="absolute -right-20 top-10 hidden h-[420px] w-[420px] text-[#F5C84C]/10 lg:block"
+        viewBox="0 0 420 420"
+      >
+        <path d="M30 310 C90 210 150 360 220 210 S330 110 390 190" fill="none" stroke="currentColor" strokeWidth="2" />
+        <path d="M50 340 C112 238 162 386 238 232 S338 138 402 206" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M78 370 C130 278 188 398 256 268 S350 164 408 230" fill="none" stroke="currentColor" strokeWidth="1.2" />
+      </svg>
+
+      <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="flex max-w-3xl flex-wrap items-center gap-3">
+          <p className="w-full text-xs font-semibold uppercase tracking-[0.22em] text-[#D8CDAF]">
+            {td("WHY VIETNAM NOW")}
+          </p>
+          <h2 className="text-3xl font-semibold leading-tight text-[#FFFDF8] sm:text-4xl lg:text-5xl">
             {td("Why Vietnam Now")}
           </h2>
-          <span className="inline-flex min-h-8 items-center rounded-full bg-[#F5E7C6] px-3 text-xs font-semibold text-[#1F2937] ring-1 ring-[#E7C879]">
-            2025
-          </span>
           <div
             className="relative"
             onMouseEnter={() => setIsTooltipOpen(true)}
@@ -54,8 +65,8 @@ export function WhyVietnamStatsSection() {
             <button
               aria-describedby="why-vietnam-source-note"
               aria-expanded={isTooltipOpen}
-              aria-label={td("2025 full-year preliminary data. Macroeconomic indicators provide market context and do not guarantee property investment returns.")}
-              className="premium-focus-ring flex h-8 w-8 items-center justify-center rounded-full border border-[#D8CDAF] bg-white text-xs font-semibold text-[#8A6A22] shadow-sm transition hover:border-[#F5C84C]"
+              aria-label={td("2025 figures are preliminary full-year macroeconomic data. Other statements provide general market context. Macroeconomic conditions do not guarantee property investment returns.")}
+              className="premium-focus-ring flex h-8 w-8 items-center justify-center rounded-full border border-[#D8CDAF]/45 bg-white/8 text-xs font-semibold text-[#F5C84C] shadow-sm backdrop-blur transition hover:border-[#F5C84C]"
               onBlur={() => setIsTooltipOpen(false)}
               onClick={() => setIsTooltipOpen((current) => !current)}
               onFocus={() => setIsTooltipOpen(true)}
@@ -64,21 +75,20 @@ export function WhyVietnamStatsSection() {
               i
             </button>
             <div
-              className={`absolute left-1/2 top-10 z-20 w-[min(280px,calc(100vw-2rem))] -translate-x-1/2 rounded-xl border border-[#ECE7DA] bg-white p-3 text-left text-xs leading-5 text-[#4B5563] shadow-[0_18px_50px_rgba(31,41,55,0.14)] transition ${
+              className={`absolute left-1/2 top-10 z-20 w-[min(300px,calc(100vw-2rem))] -translate-x-1/2 rounded-xl border border-[#D8CDAF]/28 bg-[#111827]/96 p-3 text-left text-xs leading-5 text-[#D8CDAF] shadow-[0_18px_50px_rgba(0,0,0,0.28)] backdrop-blur transition ${
                 isTooltipOpen ? "visible opacity-100" : "invisible opacity-0"
               }`}
               id="why-vietnam-source-note"
               role="tooltip"
             >
-              <p>{td("2025 full-year preliminary data. Macroeconomic indicators provide market context and do not guarantee property investment returns.")}</p>
-              <p className="mt-2 text-[#8A8174]">{td("Vietnam government data reported January 2026.")}</p>
+              {td("2025 figures are preliminary full-year macroeconomic data. Other statements provide general market context. Macroeconomic conditions do not guarantee property investment returns.")}
             </div>
           </div>
         </div>
 
-        <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
-          {vietnamStats.map((stat, index) => (
-            <StatCard index={index} isActive={hasEntered} key={stat.id} stat={stat} />
+        <div className="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {vietnamThesisCards.map((card, index) => (
+            <ThesisCard card={card} hasEntered={hasEntered} index={index} key={card.id} />
           ))}
         </div>
       </div>
@@ -86,116 +96,51 @@ export function WhyVietnamStatsSection() {
   );
 }
 
-function StatCard({ index, isActive, stat }: { index: number; isActive: boolean; stat: VietnamStat }) {
+function ThesisCard({
+  card,
+  hasEntered,
+  index,
+}: {
+  card: VietnamThesisCard;
+  hasEntered: boolean;
+  index: number;
+}) {
   const { td } = useAppPreferences();
-  const value = useCountUp(stat.value, stat.decimals, isActive);
-  const displayValue = formatStatValue(value, stat);
 
   return (
-    <article className="group relative min-h-[178px] overflow-hidden rounded-2xl border border-[#ECE7DA] bg-[#FFFDF8] p-4 shadow-[0_16px_46px_rgba(31,41,55,0.07)] transition duration-300 hover:-translate-y-1 hover:border-[#E7C879] hover:shadow-[0_24px_70px_rgba(31,41,55,0.12)] sm:min-h-[210px] sm:p-6">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(245,200,76,0.22),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.95),rgba(255,248,232,0.72))]" />
-      <Pattern index={index} />
-      <div className="relative z-10 flex h-full flex-col justify-between">
-        <div className="flex justify-end">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E7C879]/70 bg-white/72 text-[#A9851D] shadow-sm">
-            <StatIcon icon={stat.icon} />
-          </span>
-        </div>
-        <div>
-          <p className="font-semibold leading-none tracking-[-0.02em] text-[#1F2937] [font-variant-numeric:tabular-nums] text-[clamp(2.35rem,9vw,3.25rem)] sm:text-[clamp(3rem,6vw,4.25rem)]">
-            {displayValue}
+    <article
+      className={`group relative flex min-h-[286px] overflow-hidden rounded-3xl border border-white/10 bg-white/[0.075] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.20)] backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-[#F5C84C]/45 hover:bg-white/[0.095] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none ${
+        hasEntered ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+      }`}
+      style={{ transitionDelay: hasEntered ? `${index * 90}ms` : "0ms" }}
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_18%,rgba(245,200,76,0.10),transparent_28%),linear-gradient(145deg,rgba(255,255,255,0.10),rgba(255,255,255,0.03))]" />
+      <div className="absolute -right-12 -top-10 h-36 w-36 rounded-full border border-[#F5C84C]/12 transition duration-500 group-hover:scale-110 group-hover:border-[#F5C84C]/24" />
+
+      <div className="relative z-10 flex h-full w-full flex-col">
+        <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#F5C84C]/26 bg-[#F5C84C]/10 text-[#F5C84C] shadow-[0_0_34px_rgba(245,200,76,0.10)] transition group-hover:shadow-[0_0_42px_rgba(245,200,76,0.18)]">
+          <ThesisIcon icon={card.icon} />
+        </span>
+
+        <div className="mt-7 flex flex-1 flex-col">
+          <h3 className="text-xl font-semibold leading-7 text-[#FFFDF8]">
+            {td(card.title)}
+          </h3>
+          <p className="mt-3 line-clamp-3 text-sm leading-6 text-[#D8D2C8]">
+            {td(card.body)}
           </p>
-          <p className="mt-3 text-sm font-semibold leading-5 text-[#4B5563] sm:text-base">
-            {td(stat.label)}
-          </p>
+          <div className="mt-auto pt-6">
+            <span className="inline-flex rounded-full border border-[#F5C84C]/26 bg-[#F5C84C]/10 px-3 py-1.5 text-xs font-semibold text-[#F5E7C6]">
+              {td(card.chip)}
+            </span>
+          </div>
         </div>
       </div>
     </article>
   );
 }
 
-function useCountUp(target: number, decimals: number, isActive: boolean) {
-  const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    if (!isActive) return;
-
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) {
-      const animationFrame = window.requestAnimationFrame(() => setValue(target));
-      return () => window.cancelAnimationFrame(animationFrame);
-    }
-
-    let animationFrame = 0;
-    const start = performance.now();
-
-    const tick = (now: number) => {
-      const progress = Math.min((now - start) / DURATION_MS, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setValue(Number((target * eased).toFixed(decimals)));
-
-      if (progress < 1) {
-        animationFrame = window.requestAnimationFrame(tick);
-      } else {
-        setValue(target);
-      }
-    };
-
-    animationFrame = window.requestAnimationFrame(tick);
-    return () => window.cancelAnimationFrame(animationFrame);
-  }, [decimals, isActive, target]);
-
-  return value;
-}
-
-function formatStatValue(value: number, stat: VietnamStat) {
-  return `${stat.prefix}${value.toFixed(stat.decimals)}${stat.suffix}`;
-}
-
-function Pattern({ index }: { index: number }) {
-  const pattern = useMemo(() => index % 4, [index]);
-
-  if (pattern === 0) {
-    return (
-      <svg aria-hidden="true" className="absolute bottom-0 left-0 h-full w-full text-[#C7A76C]/26" viewBox="0 0 280 220">
-        <path d="M24 168 C74 148 102 112 146 126 C184 138 202 74 258 52" fill="none" stroke="currentColor" strokeWidth="3" />
-        <path d="M222 52h36v36" fill="none" stroke="currentColor" strokeWidth="3" />
-      </svg>
-    );
-  }
-
-  if (pattern === 1) {
-    return (
-      <svg aria-hidden="true" className="absolute inset-0 h-full w-full text-[#AFC7D8]/32" viewBox="0 0 280 220">
-        <circle cx="72" cy="64" fill="currentColor" r="5" />
-        <circle cx="178" cy="92" fill="currentColor" r="6" />
-        <circle cx="120" cy="158" fill="currentColor" r="4" />
-        <path d="M72 64 178 92 120 158 72 64" fill="none" stroke="currentColor" strokeWidth="2" />
-      </svg>
-    );
-  }
-
-  if (pattern === 2) {
-    return (
-      <svg aria-hidden="true" className="absolute inset-0 h-full w-full text-[#C7A76C]/24" viewBox="0 0 280 220">
-        <path d="M34 154h176" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
-        <path d="M128 118h116" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
-        <path d="m216 100 28 18-28 18" fill="none" stroke="currentColor" strokeWidth="2" />
-      </svg>
-    );
-  }
-
-  return (
-    <svg aria-hidden="true" className="absolute inset-0 h-full w-full text-[#B8C7B1]/34" viewBox="0 0 280 220">
-      <rect fill="currentColor" height="42" rx="6" width="18" x="52" y="126" />
-      <rect fill="currentColor" height="70" rx="6" width="18" x="90" y="98" />
-      <rect fill="currentColor" height="92" rx="6" width="18" x="128" y="76" />
-      <rect fill="currentColor" height="56" rx="6" width="18" x="166" y="112" />
-    </svg>
-  );
-}
-
-function StatIcon({ icon }: { icon: VietnamStatIcon }) {
+function ThesisIcon({ icon }: { icon: VietnamThesisIcon }) {
   const commonProps = {
     "aria-hidden": true,
     className: "h-5 w-5",
@@ -207,7 +152,7 @@ function StatIcon({ icon }: { icon: VietnamStatIcon }) {
     viewBox: "0 0 24 24",
   };
 
-  if (icon === "trending-up") {
+  if (icon === "TrendingUp") {
     return (
       <svg {...commonProps}>
         <path d="m3 17 6-6 4 4 7-8" />
@@ -216,7 +161,30 @@ function StatIcon({ icon }: { icon: VietnamStatIcon }) {
     );
   }
 
-  if (icon === "globe") {
+  if (icon === "Building2") {
+    return (
+      <svg {...commonProps}>
+        <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18" />
+        <path d="M6 12H4a2 2 0 0 0-2 2v8" />
+        <path d="M18 9h2a2 2 0 0 1 2 2v11" />
+        <path d="M10 6h4" />
+        <path d="M10 10h4" />
+        <path d="M10 14h4" />
+      </svg>
+    );
+  }
+
+  if (icon === "Route") {
+    return (
+      <svg {...commonProps}>
+        <circle cx="6" cy="19" r="3" />
+        <circle cx="18" cy="5" r="3" />
+        <path d="M9 19h4a5 5 0 0 0 0-10h-2a5 5 0 0 1 0-10h1" transform="translate(0 5)" />
+      </svg>
+    );
+  }
+
+  if (icon === "Globe2") {
     return (
       <svg {...commonProps}>
         <circle cx="12" cy="12" r="9" />
@@ -227,21 +195,21 @@ function StatIcon({ icon }: { icon: VietnamStatIcon }) {
     );
   }
 
-  if (icon === "ship") {
+  if (icon === "ShieldCheck") {
     return (
       <svg {...commonProps}>
-        <path d="M4 17h16l-2 3H6l-2-3Z" />
-        <path d="M6 17V9h12v8" />
-        <path d="M9 9V5h6v4" />
-        <path d="M3 21c2-1 4-1 6 0s4 1 6 0 4-1 6 0" />
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+        <path d="m9 12 2 2 4-5" />
       </svg>
     );
   }
 
   return (
     <svg {...commonProps}>
-      <path d="M6 8h12l-1 13H7L6 8Z" />
-      <path d="M9 8a3 3 0 0 1 6 0" />
+      <path d="M16 21v-2a4 4 0 0 0-8 0v2" />
+      <circle cx="12" cy="7" r="4" />
+      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
     </svg>
   );
 }
