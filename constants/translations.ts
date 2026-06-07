@@ -138,6 +138,9 @@ export const translations = {
     dashboard: "Dashboard",
     documentChecklist: "Document checklist",
     district: "District",
+    residences: "Residences",
+    search: "Search",
+    searchResultsFor: "Search results for",
     districtOverview: "District Overview",
     atAGlance: "At a glance",
     thuThiemDistrictVision: "Thu Thiem District Vision",
@@ -752,6 +755,9 @@ export const translations = {
     dashboard: "儀表板",
     documentChecklist: "文件清單",
     district: "區域",
+    residences: "住宅項目",
+    search: "搜尋",
+    searchResultsFor: "搜尋結果",
     districtOverview: "區域概覽",
     atAGlance: "一眼重點",
     thuThiemDistrictVision: "守添區域願景圖",
@@ -1602,6 +1608,23 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Lifestyle & Public Realm": "生活配套及公共空間",
     "Tenant Demand Drivers": "租務需求因素",
     "Long-Term District Positioning": "長線區域定位",
+    "Find it. Own it.": "尋找。持有。",
+    "Manage it all.": "全面管理。",
+    "Find it. Own it. Manage it all.": "尋找。持有。全面管理。",
+    "One connected platform for your Vietnam property journey.":
+      "一個平台，連接你的越南物業旅程。",
+    "Search districts, residences or guides": "搜尋區域、住宅項目或指南",
+    "No matching results found.": "未找到相關結果。",
+    "Try searching by district, residence name or buying topic.":
+      "可嘗試搜尋區域、住宅項目名稱或買樓主題。",
+    "No results yet": "暫未找到結果",
+    "Try a district, residence or buying topic.":
+      "可嘗試搜尋區域、住宅項目或買樓主題。",
+    "View all results": "查看全部結果",
+    "District result": "區域",
+    "Residence result": "住宅項目",
+    "Learning topic": "學習主題",
+    Article: "文章",
     "Improved bridges and metro connectivity may strengthen access between the district and the CBD.":
       "橋樑及地鐵連接改善，或可加強該區與 CBD 之間的交通。",
     "Riverfront space and planned amenities could support premium lifestyle appeal.":

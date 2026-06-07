@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
@@ -5,6 +6,7 @@ import { HomepageInvestmentDiscovery } from "@/components/homepage-investment-di
 import { InvestorJourney } from "@/components/investor-journey";
 import { T, TD } from "@/components/localized-text";
 import { ProjectCard } from "@/components/project-card";
+import { UniversalSearch } from "@/components/universal-search";
 import { getProjects } from "@/services/projectService";
 
 const whyVietnam = [
@@ -32,55 +34,34 @@ export default async function Home() {
     <>
       <Header />
       <main>
-        <section
-          className="relative overflow-hidden px-5 py-20 sm:px-8 lg:py-28"
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-[#FFF9EA] via-[#FFFDF8] to-white" />
-          <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-            <div className="max-w-4xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6B7280]">
-                <T k="heroEyebrow" />
-              </p>
-              <h1 className="mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] text-[#1F2937] sm:text-6xl lg:text-7xl">
-                <T k="heroTitle" />
+        <section className="relative flex min-h-[560px] overflow-visible px-5 py-20 text-white sm:min-h-[640px] sm:px-8 lg:min-h-[720px] lg:py-24">
+          <Image
+            alt=""
+            className="object-cover object-center"
+            fill
+            priority
+            sizes="100vw"
+            src="/mock-images/heroes/vietnam-investment-hero.jpg"
+          />
+          <div className="absolute inset-0 bg-[#0F172A]/58" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(245,200,76,0.22),transparent_30%),linear-gradient(180deg,rgba(15,23,42,0.36),rgba(15,23,42,0.78))]" />
+          <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(255,255,255,0.22)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.18)_1px,transparent_1px)] [background-size:42px_42px]" />
+
+          <div className="relative z-10 mx-auto flex w-full max-w-7xl items-center justify-center pt-4">
+            <div className="w-full text-center">
+              <h1 className="mx-auto max-w-5xl text-4xl font-semibold leading-[1.02] tracking-[-0.01em] sm:text-6xl lg:text-7xl xl:text-[80px]">
+                <span className="block">
+                  <TD value="Find it. Own it." />
+                </span>
+                <span className="block text-[#F5C84C]">
+                  <TD value="Manage it all." />
+                </span>
               </h1>
-              <p className="mt-6 max-w-xl text-lg leading-8 text-[#6B7280]">
-                <T k="heroSubtitle" />
+              <p className="mx-auto mt-5 max-w-2xl text-sm font-medium leading-7 text-white/78 sm:text-base">
+                <TD value="One connected platform for your Vietnam property journey." />
               </p>
-              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                <Link
-                  className="premium-focus-ring inline-flex min-h-12 items-center justify-center rounded-sm bg-[#E7B93D] px-6 text-sm font-semibold text-[#1F2937] hover:bg-[#D8AA2F]"
-                  href="/enquiry"
-                >
-                  <T k="bookInvestorConsultation" />
-                </Link>
-                <Link
-                  className="premium-focus-ring inline-flex min-h-12 items-center justify-center rounded-sm border border-[#D8CDAF] bg-white/80 px-6 text-sm font-semibold text-[#1F2937] hover:border-[#BFAF86]"
-                  href="/properties"
-                >
-                  <T k="browseInvestmentCases" />
-                </Link>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="overflow-hidden rounded-sm shadow-[0_24px_80px_rgba(31,41,55,0.14)]">
-                <div
-                  className="hero-ken-burns min-h-[360px] bg-cover bg-center sm:min-h-[520px]"
-                  style={{ backgroundImage: "url('/mock-images/heroes/hcmc-sky-view.png')" }}
-                  aria-label="Aerial view of Ho Chi Minh City"
-                />
-              </div>
-              <div className="absolute bottom-5 left-5 right-5 rounded-sm border border-white/70 bg-white/88 p-5 shadow-sm backdrop-blur md:right-auto md:w-80">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6B7280]">
-                  HCMC · Hanoi
-                </p>
-                <p className="mt-3 text-sm leading-7 text-[#1F2937]">
-                  <TD value="Investment-screened residences with yield, demand, foreign-buyer status, and rental management context." />
-                </p>
-                <div className="mt-4 grid grid-cols-2 gap-3 border-t border-[#ECE7DA] pt-4 text-xs text-[#6B7280]">
-                  <span>Thu Thiem</span>
-                  <span>Tay Ho</span>
-                </div>
+              <div className="mt-8 sm:mt-10">
+                <UniversalSearch />
               </div>
             </div>
           </div>
