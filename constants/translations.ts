@@ -244,7 +244,7 @@ export const translations = {
     featuredResidencesHcmc: "Featured Residences in HCMC",
     infrastructureInProgress: "Infrastructure in Progress",
     keyInfrastructurePipeline: "Key Infrastructure Pipeline",
-    widerInfrastructureConnectivity: "Wider Infrastructure & Connectivity",
+    widerInfrastructureConnectivity: "Key Infrastructure Developments",
     infrastructureTimingNote:
       "Indicative target years based on currently reported schedules and subject to official updates.",
     needHelpChoosingLocation: "Need help choosing the right location?",
@@ -866,7 +866,7 @@ export const translations = {
     featuredResidencesHcmc: "胡志明市精選住宅項目",
     infrastructureInProgress: "進行中基建",
     keyInfrastructurePipeline: "主要基建進程",
-    widerInfrastructureConnectivity: "廣域基建及交通連接",
+    widerInfrastructureConnectivity: "重點基建發展",
     infrastructureTimingNote: "預計年份根據現時公開時間表，仍可能因官方安排而更改。",
     needHelpChoosingLocation: "需要協助選擇合適地段？",
     advisorHelpShort: "我們的投資顧問可協助你作出選擇。",
