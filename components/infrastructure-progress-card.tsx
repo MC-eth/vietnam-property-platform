@@ -3,9 +3,9 @@
 import { useAppPreferences } from "@/context/app-preferences-context";
 
 const infrastructureItems = [
-  "Metro Line 2",
-  "Ring Road 3",
-  "Long Thanh International Airport",
+  "Metro Line 2 (Approx. 2030–2032)",
+  "Ring Road 3 (Approx. 2026)",
+  "Long Thanh International Airport — Phase 1 (Approx. 2026)",
 ];
 
 export function InfrastructureProgressCard() {
@@ -13,7 +13,7 @@ export function InfrastructureProgressCard() {
 
   return (
     <article className="rounded-2xl border border-[#ECE7DA] bg-white p-4 shadow-sm">
-      <h3 className="text-lg font-semibold text-[#1F2937]">{t("keyInfrastructurePipeline")}</h3>
+      <h3 className="text-lg font-semibold text-[#1F2937]">{t("widerInfrastructureConnectivity")}</h3>
       <div className="mt-3 grid gap-2.5">
         {infrastructureItems.map((item) => (
           <div className="flex items-center gap-3" key={item}>
@@ -22,6 +22,9 @@ export function InfrastructureProgressCard() {
           </div>
         ))}
       </div>
+      <p className="mt-3 text-xs leading-5 text-[#8A8174]">
+        {t("infrastructureTimingNote")}
+      </p>
     </article>
   );
 }

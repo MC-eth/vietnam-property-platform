@@ -244,6 +244,9 @@ export const translations = {
     featuredResidencesHcmc: "Featured Residences in HCMC",
     infrastructureInProgress: "Infrastructure in Progress",
     keyInfrastructurePipeline: "Key Infrastructure Pipeline",
+    widerInfrastructureConnectivity: "Wider Infrastructure & Connectivity",
+    infrastructureTimingNote:
+      "Indicative target years based on currently reported schedules and subject to official updates.",
     needHelpChoosingLocation: "Need help choosing the right location?",
     advisorHelpShort: "Our investment consultants are here to help.",
     bookConsultation: "Book Investor Consultation",
@@ -863,6 +866,8 @@ export const translations = {
     featuredResidencesHcmc: "胡志明市精選住宅項目",
     infrastructureInProgress: "進行中基建",
     keyInfrastructurePipeline: "主要基建進程",
+    widerInfrastructureConnectivity: "廣域基建及交通連接",
+    infrastructureTimingNote: "預計年份根據現時公開時間表，仍可能因官方安排而更改。",
     needHelpChoosingLocation: "需要協助選擇合適地段？",
     advisorHelpShort: "我們的投資顧問可協助你作出選擇。",
     bookConsultation: "預約投資諮詢",
@@ -1289,6 +1294,7 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "What's Coming": "未來重點發展",
     "Development Themes": "發展主題",
     "Development Pipeline": "發展進程",
+    "District Development": "區域發展",
     "Future financial district and premium riverside address across from District 1.":
       "位於第一郡對岸的未來金融區及高端河畔地段。",
     "Metro, bridge, public-space and commercial development themes are expected to shape the district over time.":
@@ -2730,10 +2736,14 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Metro Line 1": "地鐵 1 號線",
     "Metro Line 2": "地鐵 2 號線",
     "Metro Line 2 (Planned)": "地鐵2號線（規劃中）",
+    "Metro Line 2 (Approx. 2030–2032)": "地鐵2號線（預計2030–2032年）",
     "District 1 CBD": "第一郡 CBD",
     "Thu Thiem Bridge 2": "守添 2 號橋",
     "Ring Road 3": "三環路",
+    "Ring Road 3 (Approx. 2026)": "第三環城公路（預計2026年）",
     "Long Thanh International Airport": "隆城國際機場",
+    "Long Thanh International Airport — Phase 1 (Approx. 2026)":
+      "隆城國際機場第一期（預計2026年）",
     "Central Business District": "中央商務區",
     "Executive rental demand": "行政租客需求",
     "Lifestyle investment": "生活方式投資",

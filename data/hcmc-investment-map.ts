@@ -208,7 +208,7 @@ export const hcmcDistrictSummaries: Record<string, HcmcDistrictSummary> = {
   "thu-thiem": {
     name: "Thu Thiem (District 2)",
     positioningBadge: "Premium Riverside Growth",
-    developmentTitle: "Development Pipeline",
+    developmentTitle: "District Development",
     developmentSummary:
       "Key projects expected to shape Thu Thiem’s next stage of development.",
     developmentBullets: [
