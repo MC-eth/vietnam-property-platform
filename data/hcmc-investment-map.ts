@@ -1,4 +1,5 @@
 import type {
+  HcmcDistrictSummary,
   HcmcMapDistrict,
   HcmcMapLandmark,
   HcmcMapProject,
@@ -202,3 +203,31 @@ export const hcmcMapLandmarks: HcmcMapLandmark[] = [
   { id: "thu-thiem-bridge", name: "Thu Thiem Bridge", type: "bridge", mapPosition: { x: 49, y: 39 } },
   { id: "metro-line-1", name: "Metro Line 1", type: "metro", mapPosition: { x: 73, y: 18 } },
 ];
+
+export const hcmcDistrictSummaries: Record<string, HcmcDistrictSummary> = {
+  "thu-thiem": {
+    name: "Thu Thiem (District 2)",
+    positioningBadge: "Premium Riverside Growth",
+    investmentPositioning:
+      "Future financial district and premium riverside address across from District 1.",
+    futureDevelopment:
+      "Metro, bridge, public-space and commercial development themes are expected to shape the district over time.",
+    bestFor: ["Capital Growth", "Premium Rental", "Overseas Investors"],
+    rentalDemand: {
+      value: "High",
+      activeSegments: 5,
+    },
+    growthOutlook: {
+      value: "Strong",
+      activeSegments: 5,
+    },
+    landmarks: [
+      { icon: "bridge", label: "Thu Thiem Bridge" },
+      { icon: "river", label: "Saigon River" },
+      { icon: "train", label: "Metro Line 2 (Planned)" },
+      { icon: "cbd", label: "District 1 CBD" },
+    ],
+    residenceSlugs: ["the-metropole-thu-thiem", "empire-city"],
+    districtInsightsHref: "/districts/thu-thiem",
+  },
+};

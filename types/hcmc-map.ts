@@ -41,3 +41,25 @@ export type HcmcMapLandmark = {
   type: "airport" | "market" | "tower" | "bridge" | "metro";
   mapPosition: HcmcMapPosition;
 };
+
+export type HcmcDistrictSummary = {
+  name: string;
+  positioningBadge: string;
+  investmentPositioning: string;
+  futureDevelopment: string;
+  bestFor: string[];
+  rentalDemand: {
+    value: InvestmentRating;
+    activeSegments: number;
+  };
+  growthOutlook: {
+    value: string;
+    activeSegments: number;
+  };
+  landmarks: Array<{
+    icon: "bridge" | "river" | "train" | "cbd";
+    label: string;
+  }>;
+  residenceSlugs: string[];
+  districtInsightsHref: string;
+};

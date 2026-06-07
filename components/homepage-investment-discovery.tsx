@@ -16,7 +16,7 @@ export function HomepageInvestmentDiscovery({ projects }: { projects: Project[] 
     <section className="bg-[#FFFDF8] px-5 py-6 sm:px-8 lg:py-8">
       <div className="mx-auto max-w-7xl">
         <div>
-          <HomepageMapPlaceholder activeLayer={activeLayer} onLayerChange={setActiveLayer} />
+          <HomepageMapPlaceholder activeLayer={activeLayer} onLayerChange={setActiveLayer} projects={projects} />
         </div>
 
         <div className="mt-4 grid gap-4 xl:grid-cols-[minmax(0,1fr)_340px]">
