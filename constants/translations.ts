@@ -2744,6 +2744,14 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Long Thanh International Airport": "隆城國際機場",
     "Long Thanh International Airport — Phase 1 (Approx. 2026)":
       "隆城國際機場第一期（預計2026年）",
+    "Why Vietnam Now": "為何是越南，為何是現在",
+    "GDP Growth": "GDP 增長",
+    "FDI Inflows": "外商直接投資流入",
+    Exports: "出口總額",
+    "Retail Sales Growth": "零售銷售增長",
+    "2025 full-year preliminary data. Macroeconomic indicators provide market context and do not guarantee property investment returns.":
+      "2025年全年初步數據。宏觀經濟指標僅供市場背景參考，並不保證物業投資回報。",
+    "Vietnam government data reported January 2026.": "越南政府數據，於2026年1月公布。",
     "Central Business District": "中央商務區",
     "Executive rental demand": "行政租客需求",
     "Lifestyle investment": "生活方式投資",

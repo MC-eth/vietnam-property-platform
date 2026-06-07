@@ -7,24 +7,8 @@ import { InvestorJourney } from "@/components/investor-journey";
 import { T, TD } from "@/components/localized-text";
 import { ProjectCard } from "@/components/project-card";
 import { UniversalSearch } from "@/components/universal-search";
+import { WhyVietnamStatsSection } from "@/components/why-vietnam-stats";
 import { getProjects } from "@/services/projectService";
-
-const whyVietnam = [
-  {
-    title: "Urban income growth",
-    description: "Rising income supports long-term residential demand.",
-  },
-  {
-    title: "Deep tenant pools",
-    description:
-      "HCMC and Hanoi attract professionals, expats, and corporate tenants.",
-  },
-  {
-    title: "Infrastructure upside",
-    description:
-      "Metro lines, bridges, and new urban zones are reshaping access and rental demand.",
-  },
-];
 
 export default async function Home() {
   const projects = await getProjects();
@@ -66,26 +50,7 @@ export default async function Home() {
 
         <HomepageInvestmentDiscovery projects={projects} />
 
-        <section className="px-5 py-16 sm:px-8 lg:py-24">
-          <div className="mx-auto max-w-7xl">
-            <SectionTitle
-              eyebrow={<TD value="Why Vietnam" />}
-              title={<TD value="A focused market thesis." />}
-            />
-            <div className="mt-8 grid gap-5 md:grid-cols-3">
-              {whyVietnam.map((item) => (
-                <article className="premium-card rounded-sm border border-[#ECE7DA] bg-white p-7 shadow-sm" key={item.title}>
-                  <p className="text-xl font-semibold leading-7 text-[#1F2937]">
-                    <TD value={item.title} />
-                  </p>
-                  <p className="mt-3 text-sm leading-6 text-[#6B7280]">
-                    <TD value={item.description} />
-                  </p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+        <WhyVietnamStatsSection />
 
         <section className="bg-[#FFFDF8] px-5 py-16 sm:px-8 lg:py-24">
           <div className="mx-auto max-w-7xl">
