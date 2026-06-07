@@ -242,6 +242,7 @@ export const translations = {
     viewLocationInsights: "View District Insights",
     featuredResidencesHcmc: "Featured Residences in HCMC",
     infrastructureInProgress: "Infrastructure in Progress",
+    keyInfrastructurePipeline: "Key Infrastructure Pipeline",
     needHelpChoosingLocation: "Need help choosing the right location?",
     advisorHelpShort: "Our investment consultants are here to help.",
     bookConsultation: "Book Investor Consultation",
@@ -859,6 +860,7 @@ export const translations = {
     viewLocationInsights: "查看區域分析",
     featuredResidencesHcmc: "胡志明市精選住宅項目",
     infrastructureInProgress: "進行中基建",
+    keyInfrastructurePipeline: "主要基建進程",
     needHelpChoosingLocation: "需要協助選擇合適地段？",
     advisorHelpShort: "我們的投資顧問可協助你作出選擇。",
     bookConsultation: "預約投資諮詢",
@@ -1282,10 +1284,19 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Premium Riverside Growth": "高端河畔增長區",
     "Investment Positioning": "投資定位",
     "Future Development": "未來發展",
+    "What's Coming": "未來重點發展",
+    "Development Themes": "發展主題",
     "Future financial district and premium riverside address across from District 1.":
       "位於第一郡對岸的未來金融區及高端河畔地段。",
     "Metro, bridge, public-space and commercial development themes are expected to shape the district over time.":
       "地鐵、橋樑、公共空間及商業發展主題，預期將逐步塑造此區。",
+    "Planned transport, public-space and mixed-use commercial upgrades may continue shaping Thu Thiem over time.":
+      "規劃中的交通、公共空間及綜合商業升級，或會持續塑造守添的區域面貌。",
+    "Metro and bridge-led connectivity improvements": "地鐵及橋樑帶動的交通連接改善",
+    "Public realm and riverfront development themes": "公共空間及河畔發展主題",
+    "Mixed-use and commercial expansion across key plots": "重點地塊的綜合用途及商業擴展",
+    "Key Infrastructure Pipeline": "主要基建進程",
+    "Planned & Ongoing Infrastructure": "規劃及建設中基建",
     "Nearby Landmarks": "附近地標",
     "Available Residences": "可選住宅項目",
     "Indicative district assessment based on current market and planning context.":

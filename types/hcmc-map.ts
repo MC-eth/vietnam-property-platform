@@ -45,8 +45,9 @@ export type HcmcMapLandmark = {
 export type HcmcDistrictSummary = {
   name: string;
   positioningBadge: string;
-  investmentPositioning: string;
-  futureDevelopment: string;
+  developmentTitle: string;
+  developmentSummary: string;
+  developmentBullets: string[];
   bestFor: string[];
   rentalDemand: {
     value: InvestmentRating;

@@ -138,10 +138,11 @@ function DistrictSummaryPanel({
         </span>
       </div>
 
-      <div className="mt-4 grid gap-3">
-        <TextBlock title="Investment Positioning" body={summary.investmentPositioning} />
-        <TextBlock title="Future Development" body={summary.futureDevelopment} />
-      </div>
+      <DevelopmentThemes
+        bullets={summary.developmentBullets}
+        summary={summary.developmentSummary}
+        title={summary.developmentTitle}
+      />
 
       <div className="mt-4">
         <p className="text-sm font-semibold text-[#1F2937]">{t("bestFor")}</p>
@@ -202,7 +203,7 @@ function DistrictSummaryPanel({
       </div>
 
       <Link
-        className="premium-focus-ring mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#C7A76C] px-5 text-sm font-semibold text-[#1F2937] transition hover:bg-[#B99552]"
+        className="premium-focus-ring mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#F5C84C] px-5 text-sm font-semibold text-[#1F2937] shadow-[0_14px_32px_rgba(245,200,76,0.18)] transition hover:bg-[#E7B93D]"
         href={summary.districtInsightsHref}
       >
         {t("viewDistrictInsights")}
@@ -212,15 +213,31 @@ function DistrictSummaryPanel({
   );
 }
 
-function TextBlock({ body, title }: { body: string; title: string }) {
+function DevelopmentThemes({
+  bullets,
+  summary,
+  title,
+}: {
+  bullets: string[];
+  summary: string;
+  title: string;
+}) {
   return (
-    <div>
+    <div className="mt-4">
       <p className="text-sm font-semibold text-[#1F2937]">
         <TD value={title} />
       </p>
       <p className="mt-1 text-sm leading-6 text-[#4B5563]">
-        <TD value={body} />
+        <TD value={summary} />
       </p>
+      <ul className="mt-2 grid gap-1.5">
+        {bullets.map((item) => (
+          <li className="flex gap-2 text-xs leading-5 text-[#4B5563]" key={item}>
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#F5C84C]" />
+            <span><TD value={item} /></span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
