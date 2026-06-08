@@ -1913,6 +1913,8 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Short answers to common overseas-buyer questions.": "海外買家常見問題的簡短答案。",
     "Search all FAQs": "搜尋全部常見問題",
     "Search the full knowledge base": "搜尋完整知識庫",
+    "Explore Residences": "探索住宅項目",
+    "Ready to explore?": "準備開始探索？",
     "Read article": "閱讀文章",
     "Learn more": "了解更多",
     "Need a specific answer?": "想搵更具體答案？",

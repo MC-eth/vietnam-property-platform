@@ -86,6 +86,7 @@ export default function LearnPage() {
                 </Link>
               ))}
             </div>
+            <SectionResidenceCta />
           </div>
         </section>
 
@@ -107,6 +108,7 @@ export default function LearnPage() {
                 <ArticleCard article={article} key={article.title} />
               ))}
             </div>
+            <SectionResidenceCta />
           </div>
         </section>
 
@@ -158,6 +160,7 @@ export default function LearnPage() {
                 </div>
               </div>
             </div>
+            <SectionResidenceCta />
           </div>
         </section>
       </main>
@@ -201,6 +204,22 @@ function LinkButton({ href, label }: { href: string; label: string }) {
       <TD value={label} />
       <span aria-hidden="true">→</span>
     </Link>
+  );
+}
+
+function SectionResidenceCta() {
+  return (
+    <div className="mt-8 flex justify-stretch sm:justify-end">
+      <Link
+        className="premium-focus-ring group inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-[#D8CDAF] bg-white/70 px-5 text-sm font-semibold text-[#1F2937] shadow-sm transition hover:border-[#E7B93D] hover:bg-[#FFF8E8] sm:w-fit"
+        href="/properties"
+      >
+        <TD value="Explore Residences" />
+        <span aria-hidden="true" className="transition group-hover:translate-x-0.5">
+          →
+        </span>
+      </Link>
+    </div>
   );
 }
 
