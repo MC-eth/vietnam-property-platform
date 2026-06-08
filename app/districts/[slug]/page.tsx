@@ -82,37 +82,6 @@ export default async function DistrictInsightPage({ params }: DistrictInsightPag
           </div>
         </section>
 
-        <section className="px-5 py-10 sm:px-8 lg:py-14">
-          <div className="mx-auto max-w-7xl">
-            <div className="rounded-2xl border border-[#ECE7DA] bg-white p-6 shadow-sm lg:p-7">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#B88A18]">
-                <T k="masterPlanContext" />
-              </p>
-              <div className="mt-5 grid gap-5 lg:grid-cols-[0.42fr_0.58fr] lg:items-start">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#6B7280]">
-                    <T k="urbanZone" />
-                  </p>
-                  <h2 className="mt-2 text-2xl font-semibold leading-tight text-[#1F2937]">
-                    <TD value={district.urbanZoneDisplayName} />
-                  </h2>
-                </div>
-                <div>
-                  <p className="text-base leading-7 text-[#374151]">
-                    <TD value={district.masterPlanShortContext ?? district.masterPlanContext} />
-                  </p>
-                  <p className="mt-3 text-sm leading-6 text-[#6B7280]">
-                    <TD value={district.planningDisclaimer ?? "Planning context only. Investment outcomes are not guaranteed."} />
-                  </p>
-                </div>
-              </div>
-            </div>
-            <p className="mt-3 px-1 text-[11px] leading-5 text-[#9A8D74]">
-              <T k="basedOnPublicMasterPlan" />
-            </p>
-          </div>
-        </section>
-
         <section className="px-5 py-12 sm:px-8 lg:py-16" id="key-timeline">
           <div className="mx-auto max-w-7xl">
             <SectionIntro title={<T k="keyTimeline" />} />
