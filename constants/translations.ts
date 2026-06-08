@@ -156,7 +156,6 @@ export const translations = {
     districtDriversFutureVisionSubtitle:
       "Key themes shaping Thu Thiem’s connectivity, lifestyle, commercial role, and long-term development.",
     keyExamples: "Key examples",
-    whyItMatters: "Why it matters",
     connectivityLifestyleGrowthDrivers: "Connectivity, Lifestyle & Growth Drivers",
     masterPlanContext: "Master Plan Context",
     urbanZone: "Urban Zone",
@@ -778,7 +777,6 @@ export const translations = {
     districtDriversFutureVisionSubtitle:
       "塑造守添交通連接、生活方式、商業角色及長線發展的核心主題。",
     keyExamples: "重點例子",
-    whyItMatters: "為何重要",
     connectivityLifestyleGrowthDrivers: "交通、生活配套及發展動力",
     masterPlanContext: "總體規劃定位",
     urbanZone: "城市發展區",
@@ -1291,11 +1289,13 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Approved policy": "政策已批",
     "Under Construction": "建設中",
     "Under review": "審議中",
+    "Under Review": "審議中",
     Current: "目前進展",
     Future: "未來規劃",
     "Planning Horizon": "規劃展望",
     Proposed: "提案中",
     "Subject to delivery": "以實際交付為準",
+    "Subject to Delivery": "以實際交付為準",
     "Premium Riverside Growth": "高端河畔增長區",
     "Investment Positioning": "投資定位",
     "Future Development": "未來發展",
@@ -1325,6 +1325,7 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Indicative district assessment based on current market and planning context.":
       "根據目前市場及規劃背景作出的參考性區域評估。",
     "Planning theme": "規劃主題",
+    "Planning Theme": "規劃主題",
     "Planning context": "規劃背景",
     "Subject to congestion": "受交通擠塞影響",
     "Nearby ecosystem": "周邊生態",
@@ -1560,6 +1561,75 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "District Drivers & Future Vision": "區域發展動力及未來願景",
     "Key themes shaping Thu Thiem’s connectivity, lifestyle, commercial role, and long-term development.":
       "塑造守添交通連接、生活方式、商業角色及長線發展的核心主題。",
+    "Connectivity & Infrastructure": "交通及基建",
+    "Lifestyle, Schools & Public Realm": "生活配套、學校及公共空間",
+    "Business, Growth & Long-Term Demand": "商業發展、增長及長線需求",
+    "Metro, bridge and internal road development may continue improving connections between Thu Thiem, District 1 and the wider eastern corridor.":
+      "地鐵、橋樑及區內道路發展，或可持續改善守添、第一郡及更廣泛東部走廊之間的連接。",
+    "Ben Thanh–Thu Thiem Metro Line 2 connection":
+      "Ben Thanh–Thu Thiem 地鐵2號線連接",
+    "Thu Thiem Tunnel and Ba Son Bridge links":
+      "守添隧道及 Ba Son Bridge 連接",
+    "Internal roads and North–South axis infrastructure":
+      "區內道路及北南軸線基建",
+    "Riverfront public spaces, civic projects and nearby international schools may help Thu Thiem develop into a more complete mixed-use district.":
+      "河畔公共空間、市政項目及鄰近國際學校，或有助守添發展成更完整的綜合城區。",
+    "Central Square and administrative centre projects":
+      "中央廣場及行政中心項目",
+    "Riverfront promenade and public-realm development":
+      "河畔步道及公共空間發展",
+    "Australian International School Thu Thiem campus and nearby international-school network":
+      "Australian International School 守添校園及鄰近國際學校網絡",
+    "Grade A offices, financial-services planning and mixed-use projects may broaden Thu Thiem’s business base and professional tenant demand.":
+      "甲級寫字樓、金融服務規劃及綜合用途項目，或可擴大守添的商業基礎及專業租客需求。",
+    "The Hallmark and The METT Grade A offices":
+      "The Hallmark 及 The METT 甲級寫字樓",
+    "Lotte Eco Smart City mixed-use development":
+      "Lotte Eco Smart City 綜合用途發展",
+    "International financial centre and fintech ecosystem":
+      "國際金融中心及金融科技生態",
+    "Metro Line 1, Hanoi Highway and river connections support Thao Dien’s access to central HCMC and the wider eastern corridor.":
+      "地鐵1號線、Hanoi Highway 及河岸連接，支撐 Thao Dien 往返胡志明市中心及更廣泛東部走廊。",
+    "International schools, cafes, supermarkets and wellness services give Thao Dien a mature lifestyle base for families and longer-stay residents.":
+      "國際學校、咖啡店、超市及健康生活服務，令 Thao Dien 具備成熟家庭及長住居民生活基礎。",
+    "Thao Dien’s mature serviced-apartment and condo ecosystem may support lifestyle-led rental demand from professionals, families and expat residents.":
+      "Thao Dien 成熟的服務式住宅及公寓生態，或可支持專業人士、家庭及外籍居民的生活圈租務需求。",
+    "Eastern Zone education, technology and professional-services context":
+      "東部區教育、科技及專業服務背景",
+    "Central metro access, walkable CBD streets and established transport options keep District 1 connected to offices, hotels and visitor demand.":
+      "中心地鐵連接、可步行 CBD 街道及成熟交通選擇，令第一郡持續連接辦公、酒店及訪客需求。",
+    "Ben Thanh, Opera House and Ba Son Metro Line 1 stations":
+      "Ben Thanh、Opera House 及 Ba Son 地鐵1號線車站",
+    "Future Ben Thanh interchange relevance under Metro Line 2 planning":
+      "地鐵2號線規劃下 Ben Thanh 未來轉乘樞紐相關性",
+    "Taxi, ride-hailing and central road access across the CBD":
+      "CBD 內的士、叫車及中心道路連接",
+    "Retail streets, hotels, heritage landmarks and cultural assets give District 1 a compact lifestyle core for visitors and central-city residents.":
+      "零售街道、酒店、歷史地標及文化資產，令第一郡形成緊湊的訪客及中心城區生活核心。",
+    "District 1 remains a prestige office, hospitality and service-sector benchmark, while limited new residential supply supports its prime-location relevance.":
+      "第一郡仍是具地段聲望的辦公、酒店及服務業基準區，而有限新住宅供應亦支撐其核心地段相關性。",
+    "District 7’s southern corridor access depends on major roads, bridge links and peak-hour travel conditions connecting families to central and eastern HCMC.":
+      "第7郡南部走廊連接取決於主要道路、橋樑及繁忙時間交通狀況，影響家庭往返胡志明市中心及東部地區。",
+    "Schools, healthcare, retail and open space make District 7 / Phu My Hung one of HCMC’s more established family-oriented residential zones.":
+      "學校、醫療、零售及開放空間，令第7郡／富美興成為胡志明市較成熟的家庭型住宅區之一。",
+    "Crescent Mall, parks and planned-township lifestyle amenities":
+      "Crescent Mall、公園及規劃社區生活配套",
+    "Phu My Hung’s planned-township maturity and southern-zone context may support long-stay family, professional and expat residential demand.":
+      "富美興成熟的規劃社區及南部區背景，或可支持家庭、專業人士及外籍租客的長住住宅需求。",
+    "Southern Zone knowledge, exhibitions, logistics and marine-economy context":
+      "南部區知識、展覽、物流及海洋經濟背景",
+    "District access should be reviewed against delivered transport projects":
+      "區域交通連接應按已交付交通項目審視",
+    "Future links remain subject to official updates and actual completion":
+      "未來連接仍須以官方更新及實際落成為準",
+    "Amenity depth should be checked against existing services and public realm":
+      "配套深度應按現有服務及公共空間核實",
+    "Lifestyle appeal depends on tenant preferences and delivered community facilities":
+      "生活吸引力取決於租客偏好及已交付社區配套",
+    "Employment nodes and business activity shape residential relevance":
+      "就業節點及商業活動塑造住宅相關性",
+    "Project quality remains important for long-term buyer and tenant demand":
+      "項目質素對長線買家及租客需求仍然重要",
     "Transport & Connectivity": "交通及連接",
     "Thu Thiem’s access story is shaped by planned metro, bridge, tunnel, and internal road improvements. These themes may improve movement between the district, District 1, and wider HCMC over time.":
       "守添的交通故事由地鐵規劃、橋樑／隧道連接及區內道路基建共同構成。這些項目或可逐步改善守添與第一郡及胡志明市其他地區之間的往來。",
@@ -1625,8 +1695,6 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
       "這些主題或可支持專業服務及企業租客相關需求",
     "Industry positioning does not guarantee rental growth, but it helps frame why Thu Thiem may remain relevant to business-led residential demand.":
       "產業定位並不等於租金增長保證，但有助解釋守添為何可能持續受惠於商業及專業租客需求。",
-    "Transport Concept Visual": "交通概念圖",
-    "Lifestyle Concept Visual": "生活方式概念圖",
     "Commercial Positioning Visual": "商業定位視覺圖",
     "Industry Direction Visual": "產業方向視覺圖",
     "Shows the relationship between District 1 CBD, Saigon River, Thu Thiem and selected residences.":

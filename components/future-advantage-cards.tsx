@@ -47,10 +47,10 @@ export function GrowthDriverCards({ drivers }: GrowthDriverCardsProps) {
             <TD value={driver.title} />
           </h3>
           <p className="mt-3 text-sm leading-6 text-[#6B7280]">
-            <TD value={driver.description} />
+            <TD value={driver.introduction ?? driver.description ?? ""} />
           </p>
           <ul className="mt-4 grid gap-2 text-xs font-medium leading-5 text-[#4B5563]">
-            {driver.bullets.map((bullet) => {
+            {(driver.examples ?? driver.bullets ?? []).map((bullet) => {
               const example = typeof bullet === "string" ? { status: undefined, text: bullet } : bullet;
 
               return (

@@ -212,15 +212,7 @@ function DistrictDriversSection({
     strategicDiagramImage?: string;
   };
 }) {
-  const drivers =
-    district.growthDrivers ??
-    district.futureAdvantages.slice(0, 4).map((advantage, index) => ({
-      bullets: [],
-      description: advantage.description,
-      icon: advantage.icon ?? "building",
-      id: advantage.category ?? `district-driver-${index}`,
-      title: advantage.title,
-    }));
+  const drivers = normalizeDistrictDrivers(district.growthDrivers, district.futureAdvantages);
   const features = drivers.map((driver, index) => {
     const visualConfig = getDriverVisualConfig(index, district);
 
@@ -237,9 +229,19 @@ function DistrictDriversSection({
           subtitle={<T k="districtDriversFutureVisionSubtitle" />}
           title={<T k="districtDriversFutureVision" />}
         />
-        <div className="mt-9 grid gap-6">
+        <div className="mt-8 hidden gap-6 md:grid">
           {features.map((feature, index) => (
             <DistrictDriverFeatureCard feature={feature} index={index} key={feature.id} />
+          ))}
+        </div>
+        <div className="mt-7 grid gap-3 md:hidden">
+          {features.map((feature, index) => (
+            <DistrictDriverMobileAccordion
+              feature={feature}
+              index={index}
+              isDefaultOpen={index === 0}
+              key={feature.id}
+            />
           ))}
         </div>
         <p className="mt-5 max-w-3xl text-xs leading-6 text-[#8A7B58]">
@@ -250,32 +252,36 @@ function DistrictDriversSection({
   );
 }
 
+type DriverExample = {
+  status?: string;
+  text: string;
+};
+
 type DriverFeature = DistrictGrowthDriver & {
   imagePath?: string;
-  placeholderLabel: string;
-  variant: "transport" | "lifestyle" | "commercial" | "industry";
+  examples: DriverExample[];
+  introduction: string;
+  variant: "transport" | "lifestyle" | "commercial";
 };
 
 function DistrictDriverFeatureCard({ feature, index }: { feature: DriverFeature; index: number }) {
   const visual = <DriverVisual feature={feature} />;
   const text = (
-    <div className="p-6 sm:p-7 lg:p-8">
+    <div className="p-6 lg:p-7">
       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#B88A18]">
         {String(index + 1).padStart(2, "0")}
       </p>
-      <h3 className="mt-4 text-2xl font-semibold leading-tight text-[#1F2937]">
+      <h3 className="mt-3 text-2xl font-semibold leading-tight text-[#1F2937]">
         <TD value={feature.title} />
       </h3>
-      <p className="mt-4 max-w-2xl text-sm leading-7 text-[#4B5563]">
-        <TD value={feature.description} />
+      <p className="mt-3 max-w-2xl text-sm leading-6 text-[#4B5563]">
+        <TD value={feature.introduction} />
       </p>
-      <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-[#A9851D]">
+      <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-[#A9851D]">
         <T k="keyExamples" />
       </p>
-      <ul className="mt-3 grid gap-2.5 text-sm font-medium leading-6 text-[#374151]">
-        {feature.bullets.map((bullet) => {
-          const example = typeof bullet === "string" ? { status: undefined, text: bullet } : bullet;
-
+      <ul className="mt-3 grid gap-2 text-sm font-medium leading-6 text-[#374151]">
+        {feature.examples.map((example) => {
           return (
             <li className="flex gap-3" key={example.text}>
               <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#B88A18]" />
@@ -293,16 +299,6 @@ function DistrictDriverFeatureCard({ feature, index }: { feature: DriverFeature;
           );
         })}
       </ul>
-      {feature.whyItMatters ? (
-        <div className="mt-5 rounded-2xl border border-[#ECE7DA] bg-[#FFFDF8] px-4 py-3">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#A9851D]">
-            <T k="whyItMatters" />
-          </p>
-          <p className="mt-2 text-sm leading-6 text-[#4B5563]">
-            <TD value={feature.whyItMatters} />
-          </p>
-        </div>
-      ) : null}
       {feature.statusNote ? (
         <p className="mt-4 border-t border-[#ECE7DA] pt-4 text-xs leading-5 text-[#8A7B58]">
           <TD value={feature.statusNote} />
@@ -322,11 +318,74 @@ function DistrictDriverFeatureCard({ feature, index }: { feature: DriverFeature;
   );
 }
 
+function DistrictDriverMobileAccordion({
+  feature,
+  index,
+  isDefaultOpen,
+}: {
+  feature: DriverFeature;
+  index: number;
+  isDefaultOpen: boolean;
+}) {
+  return (
+    <details
+      className="group overflow-hidden rounded-2xl border border-[#ECE7DA] bg-white shadow-sm"
+      name="district-driver"
+      open={isDefaultOpen}
+    >
+      <summary className="premium-focus-ring flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 px-4 py-4 [&::-webkit-details-marker]:hidden">
+        <span>
+          <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#B88A18]">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <span className="mt-1 block text-base font-semibold leading-6 text-[#1F2937]">
+            <TD value={feature.title} />
+          </span>
+          <span className="mt-1 block text-xs leading-5 text-[#6B7280]">
+            <TD value={feature.introduction} />
+          </span>
+        </span>
+        <span
+          aria-hidden="true"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#D8CDAF] text-lg text-[#8A6B16] transition group-open:rotate-45"
+        >
+          +
+        </span>
+      </summary>
+      <div className="border-t border-[#ECE7DA] px-4 pb-4 pt-3">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#A9851D]">
+          <T k="keyExamples" />
+        </p>
+        <ul className="mt-3 grid gap-2 text-sm font-medium leading-6 text-[#374151]">
+          {feature.examples.map((example) => (
+            <li className="flex gap-3" key={example.text}>
+              <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#B88A18]" />
+              <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                {example.status ? (
+                  <span className="inline-flex shrink-0 rounded-full border border-[#D8CDAF] bg-[#FFF8E8] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#8A6B16]">
+                    <TD value={example.status} />
+                  </span>
+                ) : null}
+                <span>
+                  <TD value={example.text} />
+                </span>
+              </span>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-4 overflow-hidden rounded-2xl">
+          <DriverVisual feature={feature} />
+        </div>
+      </div>
+    </details>
+  );
+}
+
 function DriverVisual({ feature }: { feature: DriverFeature }) {
   const hasImage = hasLocalImage(feature.imagePath);
 
   return (
-    <div className="relative min-h-[240px] overflow-hidden bg-[#FFF8E8] lg:h-full lg:min-h-[350px]">
+    <div className="relative min-h-[190px] overflow-hidden bg-[#FFF8E8] md:min-h-[240px] lg:h-full lg:min-h-[300px]">
       {feature.imagePath && hasImage ? (
         <>
           <Image
@@ -345,17 +404,87 @@ function DriverVisual({ feature }: { feature: DriverFeature }) {
           ) : null}
         </>
       ) : (
-        <>
-          <AbstractPlanningVisual density={feature.variant} />
-          <div className="absolute inset-x-6 bottom-6 rounded-2xl border border-white/70 bg-white/75 px-4 py-3 shadow-sm backdrop-blur">
-            <p className="text-sm font-semibold text-[#1F2937]">
-              <TD value={feature.placeholderLabel} />
-            </p>
-          </div>
-        </>
+        <AbstractPlanningVisual density={feature.variant} />
       )}
     </div>
   );
+}
+
+function normalizeDistrictDrivers(
+  growthDrivers: DistrictGrowthDriver[] | undefined,
+  futureAdvantages: DistrictFutureAdvantage[],
+): DriverFeature[] {
+  if (growthDrivers?.length) {
+    return growthDrivers.slice(0, 3).map((driver, index) => ({
+      ...driver,
+      examples: normalizeDriverExamples(driver.examples ?? driver.bullets ?? []).slice(0, 3),
+      introduction: driver.introduction ?? driver.description ?? "",
+      variant: driver.visualType ?? getDefaultDriverVariant(index),
+    }));
+  }
+
+  const fallbackDescriptions = futureAdvantages.map((advantage) => advantage.description).filter(Boolean);
+  const planningExample = fallbackDescriptions[0] ?? "Planning context should be read as indicative until detailed project data is available.";
+  const connectivityExample = fallbackDescriptions[1] ?? "Access and infrastructure themes should be reviewed against delivered projects.";
+  const demandExample = fallbackDescriptions[2] ?? "Long-term demand depends on employment access, business activity and project quality.";
+
+  return [
+    {
+      examples: normalizeDriverExamples([
+        { status: "Indicative", text: connectivityExample },
+        { status: "Planning Theme", text: "District access should be reviewed against delivered transport projects" },
+        { status: "Subject to Delivery", text: "Future links remain subject to official updates and actual completion" },
+      ]),
+      icon: "route",
+      id: "connectivity-infrastructure",
+      introduction:
+        connectivityExample ??
+        "Connectivity and infrastructure themes may influence district access over time, subject to delivery and project-level quality.",
+      title: "Connectivity & Infrastructure",
+      variant: "transport",
+      visualType: "transport",
+    },
+    {
+      examples: normalizeDriverExamples([
+        { status: "Indicative", text: planningExample },
+        { status: "Planning Theme", text: "Amenity depth should be checked against existing services and public realm" },
+        { status: "Indicative", text: "Lifestyle appeal depends on tenant preferences and delivered community facilities" },
+      ]),
+      icon: "trees",
+      id: "lifestyle-schools-public-realm",
+      introduction:
+        planningExample ??
+        "Lifestyle, schools and public-realm depth should be assessed against existing amenities and planned community infrastructure.",
+      title: "Lifestyle, Schools & Public Realm",
+      variant: "lifestyle",
+      visualType: "lifestyle",
+    },
+    {
+      examples: normalizeDriverExamples([
+        { status: "Indicative", text: demandExample },
+        { status: "Planning Theme", text: "Employment nodes and business activity shape residential relevance" },
+        { status: "Indicative", text: "Project quality remains important for long-term buyer and tenant demand" },
+      ]),
+      icon: "briefcase",
+      id: "business-growth-long-term-demand",
+      introduction:
+        demandExample ??
+        "Business activity, employment access and longer-term district positioning may support selective residential demand.",
+      title: "Business, Growth & Long-Term Demand",
+      variant: "commercial",
+      visualType: "commercial",
+    },
+  ];
+}
+
+function normalizeDriverExamples(
+  examples: Array<string | { status?: string; text: string }>,
+): DriverExample[] {
+  return examples.map((example) => (typeof example === "string" ? { text: example } : example));
+}
+
+function getDefaultDriverVariant(index: number): "transport" | "lifestyle" | "commercial" {
+  return index === 0 ? "transport" : index === 1 ? "lifestyle" : "commercial";
 }
 
 function getDriverVisualConfig(
@@ -366,27 +495,19 @@ function getDriverVisualConfig(
     lifestyleCommercialConceptImage?: string;
     strategicDiagramImage?: string;
   },
-): Pick<DriverFeature, "imagePath" | "placeholderLabel" | "variant"> {
-  const configs: Pick<DriverFeature, "imagePath" | "placeholderLabel" | "variant">[] = [
+): Pick<DriverFeature, "imagePath" | "variant"> {
+  const configs: Pick<DriverFeature, "imagePath" | "variant">[] = [
     {
       imagePath: district.infrastructureConceptImage,
-      placeholderLabel: "Transport Concept Visual",
       variant: "transport",
     },
     {
       imagePath: district.lifestyleCommercialConceptImage,
-      placeholderLabel: "Lifestyle Concept Visual",
       variant: "lifestyle",
     },
     {
       imagePath: district.districtHeroVisualImage,
-      placeholderLabel: "Commercial Positioning Visual",
       variant: "commercial",
-    },
-    {
-      imagePath: district.strategicDiagramImage,
-      placeholderLabel: "Industry Direction Visual",
-      variant: "industry",
     },
   ];
 

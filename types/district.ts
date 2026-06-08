@@ -102,17 +102,21 @@ export type DistrictFutureAdvantage = {
 export type DistrictGrowthDriver = {
   id: string;
   title: string;
-  description: string;
-  bullets: Array<
+  description?: string;
+  introduction?: string;
+  examples?: Array<{
+    status?: string;
+    text: string;
+  }>;
+  bullets?: Array<
     | string
     | {
-        status: string;
+        status?: string;
         text: string;
       }
   >;
   icon: "building" | "bridge" | "users" | "waves" | "route" | "compass" | "train" | "trees" | "briefcase" | "network";
-  whyItMatters?: string;
-  visualType?: "transport" | "lifestyle" | "commercial" | "industry";
+  visualType?: "transport" | "lifestyle" | "commercial";
   statusNote?: string;
 };
 
