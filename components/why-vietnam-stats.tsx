@@ -9,7 +9,7 @@ import {
 } from "@/data/vietnam-thesis-cards";
 
 export function WhyVietnamStatsSection() {
-  const { td } = useAppPreferences();
+  const { language, td } = useAppPreferences();
   const sectionRef = useRef<HTMLElement | null>(null);
   const [hasEntered, setHasEntered] = useState(false);
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
@@ -65,7 +65,7 @@ export function WhyVietnamStatsSection() {
             <button
               aria-describedby="why-vietnam-source-note"
               aria-expanded={isTooltipOpen}
-              aria-label={td("2025 figures are preliminary full-year macroeconomic data. Other statements provide general market context. Macroeconomic conditions do not guarantee property investment returns.")}
+              aria-label={td("2025 GDP, retail sales, FDI and export figures are preliminary full-year macroeconomic data. The housing figure represents the average apartment price across major cities, based on data reported to September 2025. Infrastructure figures represent a wider national programme and not HCMC projects alone. These indicators provide market context and do not guarantee property investment returns.")}
               className="premium-focus-ring flex h-8 w-8 items-center justify-center rounded-full border border-[#D8CDAF]/45 bg-white/8 text-xs font-semibold text-[#F5C84C] shadow-sm backdrop-blur transition hover:border-[#F5C84C]"
               onBlur={() => setIsTooltipOpen(false)}
               onClick={() => setIsTooltipOpen((current) => !current)}
@@ -81,14 +81,14 @@ export function WhyVietnamStatsSection() {
               id="why-vietnam-source-note"
               role="tooltip"
             >
-              {td("2025 figures are preliminary full-year macroeconomic data. Other statements provide general market context. Macroeconomic conditions do not guarantee property investment returns.")}
+              {td("2025 GDP, retail sales, FDI and export figures are preliminary full-year macroeconomic data. The housing figure represents the average apartment price across major cities, based on data reported to September 2025. Infrastructure figures represent a wider national programme and not HCMC projects alone. These indicators provide market context and do not guarantee property investment returns.")}
             </div>
           </div>
         </div>
 
         <div className="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {vietnamThesisCards.map((card, index) => (
-            <ThesisCard card={card} hasEntered={hasEntered} index={index} key={card.id} />
+            <ThesisCard card={card} hasEntered={hasEntered} index={index} key={card.id} language={language} />
           ))}
         </div>
       </div>
@@ -100,12 +100,18 @@ function ThesisCard({
   card,
   hasEntered,
   index,
+  language,
 }: {
   card: VietnamThesisCard;
   hasEntered: boolean;
   index: number;
+  language: "en" | "zh-Hant";
 }) {
-  const { td } = useAppPreferences();
+  const title = language === "zh-Hant" ? card.titleZh : card.title;
+  const body = language === "zh-Hant" ? card.bodyZh : card.body;
+  const primaryStat = language === "zh-Hant" ? card.primaryStatZh : card.primaryStat;
+  const delta = language === "zh-Hant" ? card.deltaZh : card.delta;
+  const contextNote = language === "zh-Hant" ? card.contextNoteZh : card.contextNote;
 
   return (
     <article
@@ -124,15 +130,27 @@ function ThesisCard({
 
         <div className="mt-7 flex flex-1 flex-col">
           <h3 className="text-xl font-semibold leading-7 text-[#FFFDF8]">
-            {td(card.title)}
+            {title}
           </h3>
           <p className="mt-3 line-clamp-3 text-sm leading-6 text-[#D8D2C8]">
-            {td(card.body)}
+            {body}
           </p>
           <div className="mt-auto pt-6">
-            <span className="inline-flex rounded-full border border-[#F5C84C]/26 bg-[#F5C84C]/10 px-3 py-1.5 text-xs font-semibold text-[#F5E7C6]">
-              {td(card.chip)}
-            </span>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex rounded-full border border-[#F5C84C]/26 bg-[#F5C84C]/10 px-3 py-1.5 text-xs font-semibold text-[#F5E7C6]">
+                {primaryStat}
+              </span>
+              {delta ? (
+                <span className="inline-flex rounded-full border border-emerald-300/24 bg-emerald-400/10 px-2.5 py-1.5 text-xs font-semibold text-emerald-200">
+                  {delta}
+                </span>
+              ) : null}
+            </div>
+            {contextNote ? (
+              <p className="mt-2 text-xs leading-5 text-[#A9A295]">
+                {contextNote}
+              </p>
+            ) : null}
           </div>
         </div>
       </div>
@@ -195,21 +213,26 @@ function ThesisIcon({ icon }: { icon: VietnamThesisIcon }) {
     );
   }
 
-  if (icon === "ShieldCheck") {
+  if (icon === "ShoppingBag") {
     return (
       <svg {...commonProps}>
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
-        <path d="m9 12 2 2 4-5" />
+        <path d="M6 8h12l-1 13H7L6 8Z" />
+        <path d="M9 8a3 3 0 0 1 6 0" />
+        <path d="M9 13h6" />
       </svg>
     );
   }
 
-  return (
-    <svg {...commonProps}>
-      <path d="M16 21v-2a4 4 0 0 0-8 0v2" />
-      <circle cx="12" cy="7" r="4" />
-      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-    </svg>
-  );
+  if (icon === "Ship") {
+    return (
+      <svg {...commonProps}>
+        <path d="M4 17h16l-2 3H6l-2-3Z" />
+        <path d="M6 17V9h12v8" />
+        <path d="M9 9V5h6v4" />
+        <path d="M3 21c2-1 4-1 6 0s4 1 6 0 4-1 6 0" />
+      </svg>
+    );
+  }
+
+  return null;
 }

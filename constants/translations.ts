@@ -2757,6 +2757,10 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Vietnam continues to rank among Asia’s faster-growing economies, supported by manufacturing, domestic consumption and sustained investment activity.":
       "越南持續位列亞洲較高速增長的經濟體，增長動力來自製造業、內部消費及持續投資活動。",
     "2025 GDP Growth · 8.02%": "2025年 GDP 增長 · 8.02%",
+    "Domestic Demand": "內部消費需求",
+    "Rising consumer activity supports businesses, employment and broader demand across Vietnam’s major urban economies.":
+      "消費活動增長支持企業、就業及越南主要城市經濟的廣泛需求。",
+    "2025 Retail Sales Growth · 9.2% YoY": "2025年零售銷售增長 · 按年9.2%",
     "Urbanisation at Scale": "城市化增長",
     "Major cities continue to expand as businesses, professionals and higher-income households concentrate around established and emerging urban districts.":
       "隨着企業、專業人士及較高收入家庭集中於成熟及新興城區，主要城市持續擴展。",
@@ -2764,11 +2768,25 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Infrastructure-Led Expansion": "基建帶動城市擴張",
     "Metro systems, ring roads, airports and new urban centres are reshaping connectivity and supporting the next phase of city development.":
       "地鐵、環城公路、機場及新城區正重塑交通網絡，並支持城市下一階段的發展。",
+    "234 Projects · US$129.4B": "234個項目 · 1,294億美元",
+    "National programme, announced or commenced in late 2025.": "全國性項目計劃，於2025年底公布或啟動。",
     "Major Infrastructure Pipeline": "大型基建進程",
     "Global Business & Capital": "國際企業及資本",
     "Vietnam continues to attract international manufacturers, regional businesses and foreign capital, supporting demand for offices, housing and professional services.":
       "越南持續吸引國際製造商、區域企業及海外資本，帶動辦公、住宅及專業服務需求。",
     "2025 FDI Inflows · US$27.6B": "2025年外資流入 · 276億美元",
+    "▲ 9.0% YoY": "▲ 按年9.0%",
+    "Export Scale": "出口規模",
+    "Vietnam’s manufacturing and export base continues to connect the economy with major international markets.":
+      "越南的製造及出口基礎持續連接主要國際市場，支持其全球供應鏈角色。",
+    "2025 Exports · US$475B": "2025年出口總額 · 4,750億美元",
+    "▲ 17.0% YoY": "▲ 按年17.0%",
+    "Urban Housing Demand": "城市住宅需求",
+    "Apartment prices across major cities reflect continued pressure from urban housing demand, limited affordability and constrained supply.":
+      "主要城市的公寓價格反映持續的城市住宅需求、置業負擔壓力及供應限制。",
+    "US$3,028 / sqm": "每平方米3,028美元",
+    "▲ 5.6% in 2025": "▲ 2025年內上升5.6%",
+    "Major-city apartment average, data to September 2025.": "主要城市公寓平均價格，數據截至2025年9月。",
     "Overseas Buyer Access": "海外買家參與渠道",
     "Eligible overseas buyers may acquire qualifying residential property, subject to legal restrictions, project eligibility and available foreign-buyer quota.":
       "合資格海外買家可購買符合規定的住宅物業，但仍須受法律限制、項目資格及外國買家配額約束。",
@@ -2779,6 +2797,8 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Diverse Urban Demand": "多元城市需求",
     "2025 figures are preliminary full-year macroeconomic data. Other statements provide general market context. Macroeconomic conditions do not guarantee property investment returns.":
       "2025年數字為初步全年宏觀經濟數據，其他內容只供一般市場背景參考。宏觀經濟狀況並不保證物業投資回報。",
+    "2025 GDP, retail sales, FDI and export figures are preliminary full-year macroeconomic data. The housing figure represents the average apartment price across major cities, based on data reported to September 2025. Infrastructure figures represent a wider national programme and not HCMC projects alone. These indicators provide market context and do not guarantee property investment returns.":
+      "2025年 GDP、零售銷售、外資流入及出口數字為初步全年宏觀經濟數據。住宅數字代表主要城市的平均公寓價格，數據截至2025年9月。基建數字代表較廣泛的全國性項目計劃，並非只涵蓋胡志明市。所有指標只供市場背景參考，並不保證物業投資回報。",
     "Central Business District": "中央商務區",
     "Executive rental demand": "行政租客需求",
     "Lifestyle investment": "生活方式投資",
