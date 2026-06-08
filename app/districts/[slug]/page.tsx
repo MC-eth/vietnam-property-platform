@@ -67,7 +67,7 @@ export default async function DistrictInsightPage({ params }: DistrictInsightPag
                 </Link>
                 <a
                   className="premium-focus-ring inline-flex min-h-12 items-center justify-center rounded-full border border-[#D8CDAF] bg-white/80 px-6 text-sm font-semibold text-[#1F2937] transition hover:border-[#E7B93D]"
-                  href="#district-timeline"
+                  href="#key-timeline"
                 >
                   <T k="viewTimeline" />
                 </a>
@@ -113,9 +113,7 @@ export default async function DistrictInsightPage({ params }: DistrictInsightPag
           </div>
         </section>
 
-        <DistrictDriversSection district={district} />
-
-        <section className="px-5 py-12 sm:px-8 lg:py-16" id="district-timeline">
+        <section className="px-5 py-12 sm:px-8 lg:py-16" id="key-timeline">
           <div className="mx-auto max-w-7xl">
             <SectionIntro title={<T k="keyTimeline" />} />
             <div className="mt-8 rounded-2xl border border-[#ECE7DA] bg-white p-6 shadow-sm">
@@ -123,6 +121,8 @@ export default async function DistrictInsightPage({ params }: DistrictInsightPag
             </div>
           </div>
         </section>
+
+        <DistrictDriversSection district={district} />
 
         <section className="px-5 py-12 sm:px-8 lg:py-16">
           <div className="mx-auto max-w-7xl">

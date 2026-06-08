@@ -66,16 +66,29 @@ export type DistrictMarket = {
 
 export type DistrictTimelineStatus =
   | "Completed"
+  | "Operational"
   | "Announced"
+  | "Approved Policy"
   | "Under Construction"
+  | "Targeted"
   | "Planned"
+  | "Planning Horizon"
   | "Indicative";
 
 export type DistrictTimelineItem = {
-  year: string;
+  id?: string;
+  year?: string;
+  yearLabel?: string;
   title: string;
+  titleZh?: string;
   description: string;
+  descriptionZh?: string;
   status: DistrictTimelineStatus;
+  statusZh?: string;
+  phase?: "past" | "current" | "future";
+  sourceLabel?: string;
+  sourceDate?: string;
+  sourceUrl?: string;
   isFuture?: boolean;
 };
 
