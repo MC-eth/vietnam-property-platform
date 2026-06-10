@@ -173,6 +173,11 @@ export const projects: Project[] = [
           "Unit-level legal and foreign quota review is recommended before reservation.",
         paymentNote:
           "Payment timing is indicative and should be reviewed with advisor support before reservation.",
+        tenantFit: "Professionals, couples and long-stay tenants",
+        tenantFitZh: "專業人士、夫婦及長租租客",
+        investmentFit:
+          "Premium river-view positioning for buyers prioritising long-term quality and rental appeal.",
+        investmentFitZh: "河景優質定位，適合重視長線質素及租務吸引力的買家。",
       },
       {
         id: "empire-1br-core",
@@ -220,6 +225,11 @@ export const projects: Project[] = [
           "Unit-level legal and foreign quota review is recommended before reservation.",
         paymentNote:
           "Indicative payment steps should be confirmed with advisor and local legal support.",
+        tenantFit: "Single professionals and corporate tenants",
+        tenantFitZh: "單身專業人士及企業租客",
+        investmentFit:
+          "Lower ticket size for buyers prioritising entry cost and remote ownership.",
+        investmentFitZh: "較低入場門檻，適合重視成本及遙距持有的買家。",
       },
     ],
   },
@@ -354,6 +364,11 @@ export const projects: Project[] = [
         paymentPlan: "Indicative resale payment timeline",
         bestFor: "Lifestyle investment",
         notes: "Pricing premium should be compared with similar Thu Thiem stock.",
+        tenantFit: "Senior professionals and lifestyle tenants",
+        tenantFitZh: "高級專業人士及重視生活方式的租客",
+        investmentFit:
+          "Central branded positioning for buyers prioritising prime address and build quality.",
+        investmentFitZh: "核心品牌定位，適合重視優越地段及建築質素的買家。",
       },
     ],
   },
@@ -488,6 +503,11 @@ export const projects: Project[] = [
         paymentPlan: "Deposit, notarisation, transfer",
         bestFor: "Stable rental income",
         notes: "Furniture quality and lease history should be verified.",
+        tenantFit: "Professionals and small families",
+        tenantFitZh: "專業人士及小家庭",
+        investmentFit:
+          "Furnished, income-ready positioning for buyers prioritising stable rental visibility.",
+        investmentFitZh: "連傢俬、即可出租定位，適合重視穩定租務的買家。",
       },
       {
         id: "masteri-3br",
@@ -505,6 +525,11 @@ export const projects: Project[] = [
         paymentPlan: "Negotiated resale schedule",
         bestFor: "Family tenants",
         notes: "Best suited for school and family tenant demand.",
+        tenantFit: "Families seeking more space",
+        tenantFitZh: "重視較大空間的家庭租客",
+        investmentFit:
+          "Larger layout positioned for family and longer-stay tenant demand.",
+        investmentFitZh: "較大戶型，定位於家庭及長租租客需求。",
       },
     ],
   },
@@ -639,6 +664,11 @@ export const projects: Project[] = [
         paymentPlan: "Reservation and staged developer payment",
         bestFor: "Entry price and growth",
         notes: "Rental assumptions depend on furnishing and tenant absorption.",
+        tenantFit: "Young professionals and singles",
+        tenantFitZh: "年輕專業人士及單身租客",
+        investmentFit:
+          "Lowest ticket size for buyers prioritising entry cost and a smaller initial outlay.",
+        investmentFitZh: "最低入場門檻，適合重視成本及較低初期投入的買家。",
       },
       {
         id: "grandpark-2br",
@@ -656,6 +686,11 @@ export const projects: Project[] = [
         paymentPlan: "Developer staged schedule",
         bestFor: "Young professional tenants",
         notes: "Compare tower management quality before reservation.",
+        tenantFit: "Young professionals and couples",
+        tenantFitZh: "年輕專業人士及夫婦",
+        investmentFit:
+          "Lower entry cost with broad amenities for buyers prioritising affordability.",
+        investmentFitZh: "入場成本較低、配套廣泛，適合重視負擔能力的買家。",
       },
     ],
   },
@@ -790,6 +825,11 @@ export const projects: Project[] = [
         paymentPlan: "Construction-linked payment schedule",
         bestFor: "First-time overseas investor",
         notes: "Legal review recommended before reservation.",
+        tenantFit: "Single professionals and corporate tenants",
+        tenantFitZh: "單身專業人士及企業租客",
+        investmentFit:
+          "New-build positioning for first-time overseas buyers prioritising entry cost.",
+        investmentFitZh: "全新項目定位，適合重視入場成本的首次海外買家。",
       },
     ],
   },
@@ -924,6 +964,11 @@ export const projects: Project[] = [
         paymentPlan: "Indicative developer payment schedule",
         bestFor: "Lifestyle income",
         notes: "Best suited to long-hold buyers with conservative yield assumptions.",
+        tenantFit: "Executives and long-stay diplomatic tenants",
+        tenantFitZh: "行政人員及長租外交租客",
+        investmentFit:
+          "Premium lakeside positioning for buyers combining lifestyle and income objectives.",
+        investmentFitZh: "優質湖畔定位，適合兼顧生活方式及收入目標的買家。",
       },
     ],
   },

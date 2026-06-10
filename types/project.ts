@@ -45,6 +45,11 @@ export type ProjectUnit = {
   rentalStrategy?: string;
   foreignBuyerNote?: string;
   paymentNote?: string;
+  // Concise bilingual comparison copy (EN + Hong Kong Traditional Chinese).
+  tenantFit: string;
+  tenantFitZh: string;
+  investmentFit: string;
+  investmentFitZh: string;
 };
 
 export type DueDiligenceStatus =
