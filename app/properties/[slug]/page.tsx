@@ -106,10 +106,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                 <T k="locationConnectivity" />
               </h2>
             </div>
-            <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:items-start">
-              <ProjectLocationMap project={project} />
-              <NearbyConnectivity highlights={project.locationHighlights} />
-            </div>
+            <ProjectLocationMap project={project} />
           </div>
         </section>
 
@@ -224,30 +221,6 @@ function RisksConsiderationsSection({ items }: { items: ProjectRiskConsideration
         <T k="risksGuidanceNote" />
       </p>
     </section>
-  );
-}
-
-function NearbyConnectivity({ highlights }: { highlights: string[] }) {
-  if (highlights.length === 0) {
-    return null;
-  }
-
-  return (
-    <aside className="rounded-sm border border-[#ECE7DA] bg-white p-6 shadow-sm">
-      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6B7280]">
-        <T k="locationNearby" />
-      </p>
-      <ul className="mt-4 grid gap-3 text-sm leading-6 text-[#4B5563]">
-        {highlights.map((highlight) => (
-          <li className="flex gap-3" key={highlight}>
-            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#E7B93D]" />
-            <span>
-              <TD value={highlight} />
-            </span>
-          </li>
-        ))}
-      </ul>
-    </aside>
   );
 }
 
