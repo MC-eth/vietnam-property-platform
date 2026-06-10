@@ -5,7 +5,8 @@ import { T } from "@/components/localized-text";
 import { useAppPreferences } from "@/context/app-preferences-context";
 import { useAuth } from "@/context/auth-context";
 import { convertUsdToCurrency, formatCurrency } from "@/lib/formatters";
-import { generateLinearRegressionForecast } from "@/lib/market-forecast";
+import { FORECAST_YEARS, MARKET_FORECAST_ASSUMPTIONS } from "@/data/market-assumptions";
+import { generateMarketForecast } from "@/lib/market-forecast";
 import type { DistrictPriceHistoryPoint } from "@/data/district-price-history";
 
 type DistrictPriceChartProps = {
@@ -36,13 +37,26 @@ export function DistrictPriceChart({ history }: DistrictPriceChartProps) {
   );
   const projectionData = useMemo(
     () =>
-      generateLinearRegressionForecast(history, 5).map((point) => ({
-        year: point.year,
-        price: convertUsdToCurrency(point.projectedPricePerSqmUsd, currency),
-        series: "projection" as const,
-      })),
+      generateMarketForecast(history, FORECAST_YEARS, MARKET_FORECAST_ASSUMPTIONS).map(
+        (point, index) => {
+          // Currency (FX) adjustment is applied only on the HKD view, compounding per
+          // projected year, to reflect the assumed VND/currency movement for foreign buyers.
+          const fxFactor =
+            currency === "HKD"
+              ? (1 + MARKET_FORECAST_ASSUMPTIONS.assumedAnnualFxAdjustment) ** (index + 1)
+              : 1;
+
+          return {
+            year: point.year,
+            price: convertUsdToCurrency(point.projectedPricePerSqmUsd, currency) * fxFactor,
+            series: "projection" as const,
+          };
+        },
+      ),
     [currency, history],
   );
+  const inflationPct = `${Math.round(MARKET_FORECAST_ASSUMPTIONS.assumedAnnualInflationRate * 100)}%`;
+  const fxPct = `${Math.round(MARKET_FORECAST_ASSUMPTIONS.assumedAnnualFxAdjustment * 100)}%`;
   const chartData = [...historicalData, ...projectionData];
   const values = chartData.map((point) => point.price);
   const minValue = Math.min(...values);
@@ -79,10 +93,7 @@ export function DistrictPriceChart({ history }: DistrictPriceChartProps) {
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#E7B93D]">
             <T k="membersOnlyMarketInsight" />
           </p>
-          <h2 className="mt-2 text-2xl font-semibold text-[#1F2937]">
-            <T k="districtPriceTrendProjection" />
-          </h2>
-          <p className="mt-3 max-w-3xl text-sm leading-6 text-[#6B7280]">
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-[#6B7280]">
             <T k="districtPriceTrendSubtitle" />
           </p>
         </div>
@@ -189,11 +200,9 @@ export function DistrictPriceChart({ history }: DistrictPriceChartProps) {
             </div>
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6B7280]">
-                <T k="projectionMethod" />
+                <T k="forecastInflationLabel" />
               </p>
-              <p className="mt-1 text-sm font-semibold text-[#1F2937]">
-                <T k="linearRegressionMethod" />
-              </p>
+              <p className="mt-1 text-sm font-semibold text-[#1F2937]">{inflationPct}</p>
             </div>
           </div>
           <div className="flex flex-wrap gap-4 text-xs font-semibold text-[#6B7280]">
@@ -219,7 +228,7 @@ export function DistrictPriceChart({ history }: DistrictPriceChartProps) {
           <T k="districtPriceInterpretation" />
         </p>
         <p className="mt-3 text-xs leading-5 text-[#6B7280]">
-          <T k="projectionDisclaimer" />
+          <T k="forecastAssumptionsNote" replacements={{ fx: fxPct, inflation: inflationPct }} />
         </p>
 
         {!isLoggedIn ? (

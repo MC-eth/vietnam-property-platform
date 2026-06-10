@@ -8,11 +8,14 @@ import { ProjectGalleryHero } from "@/components/project-gallery-hero";
 import { ProjectWorkspaceActions } from "@/components/workspace-action-buttons";
 import { UnitCompareWorkspace } from "@/components/unit-compare-workspace";
 import { ZoomableMap } from "@/components/zoomable-map";
-import { T, TD } from "@/components/localized-text";
+import { LocalizedField, T, TD } from "@/components/localized-text";
 import { getDistrictPriceHistory } from "@/data/district-price-history";
 import { getProjectBySlugFromService, getProjects } from "@/services/projectService";
-import type { TranslationKey } from "@/constants/translations";
-import type { Project } from "@/types/project";
+import type {
+  Project,
+  ProjectInvestmentCaseItem,
+  ProjectRiskConsideration,
+} from "@/types/project";
 
 type ProjectDetailPageProps = {
   params: Promise<{
@@ -42,6 +45,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
     <>
       <Header />
       <main>
+        {/* 1. Hero */}
         <ProjectGalleryHero project={project} />
 
         <section className="px-5 py-6 sm:px-8">
@@ -53,6 +57,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
           </div>
         </section>
 
+        {/* 2. Available Units */}
         <section className="bg-[#FFFDF8] px-5 py-16 sm:px-8 lg:py-24" id="available-units">
           <div className="mx-auto max-w-7xl">
             <div className="flex flex-col gap-4 border-b border-[#ECE7DA] pb-6 sm:flex-row sm:items-end sm:justify-between">
@@ -65,18 +70,35 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                 </h2>
               </div>
               <p className="max-w-md text-sm leading-6 text-[#6B7280]">
-                <T k="availableUnitsShortNote" />
+                <T k="availableUnitsListedNote" />
               </p>
             </div>
-            <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {project.availableUnits.map((unit) => (
-                <AvailableUnitCard key={unit.id} project={project} unit={unit} />
-              ))}
-            </div>
-            <UnitCompareWorkspace projects={projects} />
+            {project.availableUnits.length > 0 ? (
+              <>
+                <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                  {project.availableUnits.map((unit) => (
+                    <AvailableUnitCard key={unit.id} project={project} unit={unit} />
+                  ))}
+                </div>
+                <UnitCompareWorkspace projects={projects} />
+              </>
+            ) : (
+              <div className="mt-8 rounded-sm border border-[#ECE7DA] bg-white px-6 py-12 text-center shadow-sm">
+                <p className="mx-auto max-w-xl text-base leading-7 text-[#4B5563]">
+                  <T k="availableUnitsEmptyState" />
+                </p>
+                <Link
+                  className="premium-focus-ring mt-6 inline-flex min-h-11 items-center justify-center rounded-sm bg-[#F5C84C] px-6 text-sm font-semibold text-[#1F2937] hover:bg-[#E7B93D]"
+                  href={`/enquiry?project=${project.slug}`}
+                >
+                  <T k="bookInvestorConsultation" />
+                </Link>
+              </div>
+            )}
           </div>
         </section>
 
+        {/* 3. Location & Connectivity */}
         <section className="px-5 pb-16 sm:px-8 lg:pb-24">
           <div className="mx-auto max-w-7xl">
             <div className="mb-6 max-w-3xl">
@@ -84,57 +106,49 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                 <T k="locationConnectivity" />
               </h2>
             </div>
-            <ProjectLocationMap project={project} />
-            <DistrictInsightCards />
+            <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:items-start">
+              <ProjectLocationMap project={project} />
+              <NearbyConnectivity highlights={project.locationHighlights} />
+            </div>
           </div>
         </section>
 
+        {/* 4. District Price Trend */}
         {districtPriceHistory ? (
           <section className="px-5 pb-16 sm:px-8 lg:pb-24">
             <div className="mx-auto max-w-7xl">
+              <div className="mb-6 max-w-3xl">
+                <h2 className="text-3xl font-semibold leading-tight text-[#1F2937] sm:text-4xl">
+                  <T k="districtPriceTrend" />
+                </h2>
+                <p className="mt-3 text-sm leading-6 text-[#6B7280]">
+                  <T k="districtPriceTrendContext" />
+                </p>
+              </div>
               <DistrictPriceChart history={districtPriceHistory.priceHistory} />
+              <p className="mt-4 max-w-3xl text-xs leading-5 text-[#6B7280]">
+                <T k="districtPriceTrendDisclaimer" />
+              </p>
             </div>
           </section>
         ) : null}
 
+        {/* 5. Investment Case */}
         <section className="px-5 pb-16 sm:px-8 lg:pb-24">
           <div className="mx-auto max-w-7xl">
-            <WhyThisProjectSection />
+            <InvestmentCaseSection items={project.investmentCase} />
           </div>
         </section>
 
+        {/* 6. Risks & Considerations (final substantive section) */}
         <section className="px-5 pb-16 sm:px-8 lg:pb-24">
           <div className="mx-auto max-w-7xl">
-            <div className="grid gap-5 lg:grid-cols-[0.82fr_1.18fr]">
-              <ForeignBuyerNotes />
-              <CompactRisks />
-            </div>
-          </div>
-        </section>
-
-        <section className="px-5 pb-16 sm:px-8 lg:pb-20">
-          <div className="mx-auto max-w-7xl">
-            <AdvisoryCta project={project} />
+            <RisksConsiderationsSection items={project.riskConsiderations} />
           </div>
         </section>
       </main>
       <Footer />
     </>
-  );
-}
-
-function InfoCard({
-  title,
-  children,
-}: {
-  title: React.ReactNode;
-  children: React.ReactNode;
-}) {
-  return (
-    <article className="rounded-sm border border-[#ECE7DA] bg-white p-6 shadow-sm">
-      <h2 className="text-xl font-semibold text-[#1F2937]">{title}</h2>
-      <div className="mt-5">{children}</div>
-    </article>
   );
 }
 
@@ -153,33 +167,26 @@ function SectionIntro({
   );
 }
 
-function WhyThisProjectSection() {
-  const cards = [
-    {
-      title: "riversidePositioning",
-      copy: "riversidePositioningCopy",
-    },
-    {
-      title: "regionalExpatDemand",
-      copy: "regionalExpatDemandCopy",
-    },
-    {
-      title: "longTermDistrictTransformation",
-      copy: "longTermDistrictTransformationCopy",
-    },
-  ] satisfies { title: TranslationKey; copy: TranslationKey }[];
-
+function InvestmentCaseSection({ items }: { items: ProjectInvestmentCaseItem[] }) {
   return (
     <section>
-      <SectionIntro eyebrow={<T k="investmentThesis" />} title={<T k="whyThisProject" />} />
-      <div className="grid gap-4 md:grid-cols-3">
-        {cards.map((card) => (
-          <article className="border-t border-[#ECE7DA] pt-5" key={card.title}>
-            <h3 className="text-xl font-semibold text-[#1F2937]">
-              <T k={card.title} />
+      <SectionIntro
+        eyebrow={<T k="investmentCaseEyebrow" />}
+        title={<T k="whyConsiderThisResidence" />}
+      />
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {items.map((item) => (
+          <article className="border-t border-[#E7C66B]/70 pt-5" key={item.title}>
+            {item.icon ? (
+              <span className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#FFF8E8] text-[#A9851D] ring-1 ring-[#F5C84C]/35">
+                <DetailIcon name={item.icon} />
+              </span>
+            ) : null}
+            <h3 className="text-xl font-semibold leading-snug text-[#1F2937]">
+              <LocalizedField en={item.title} zh={item.titleZh} />
             </h3>
             <p className="mt-3 text-sm leading-6 text-[#6B7280]">
-              <T k={card.copy} />
+              <LocalizedField en={item.description} zh={item.descriptionZh} />
             </p>
           </article>
         ))}
@@ -188,115 +195,59 @@ function WhyThisProjectSection() {
   );
 }
 
-function DistrictInsightCards() {
-  const cards = [
-    {
-      title: "cbdSpilloverDemand",
-      copy: "cbdSpilloverDemandCopy",
-    },
-    {
-      title: "infrastructureLedGrowth",
-      copy: "infrastructureLedGrowthCopy",
-    },
-    {
-      title: "limitedPremiumRiversideSupply",
-      copy: "limitedPremiumRiversideSupplyShortCopy",
-    },
-  ] satisfies { title: TranslationKey; copy: TranslationKey }[];
-
+function RisksConsiderationsSection({ items }: { items: ProjectRiskConsideration[] }) {
   return (
-    <div className="mt-8 grid gap-4 md:grid-cols-3">
-      {cards.map((card) => (
-        <article className="rounded-sm border border-[#ECE7DA] bg-white/70 p-5" key={card.title}>
-          <h3 className="text-lg font-semibold text-[#1F2937]">
-            <T k={card.title} />
-          </h3>
-          <p className="mt-3 text-sm leading-6 text-[#6B7280]">
-            <T k={card.copy} />
-          </p>
-        </article>
-      ))}
-    </div>
+    <section className="rounded-sm border border-[#ECE7DA] bg-[#FBF8F0] p-6 shadow-sm sm:p-8">
+      <SectionIntro
+        eyebrow={<T k="dueDiligenceEyebrow" />}
+        title={<T k="risksAndConsiderations" />}
+      />
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {items.map((item) => (
+          <article
+            className="rounded-sm border border-[#ECE7DA] bg-white/70 p-5"
+            key={item.title}
+          >
+            <span className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#FFF8E8] text-[#A9851D] ring-1 ring-[#F5C84C]/35">
+              <DetailIcon name={item.icon ?? "default"} />
+            </span>
+            <h3 className="text-lg font-semibold leading-snug text-[#1F2937]">
+              <LocalizedField en={item.title} zh={item.titleZh} />
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-[#6B7280]">
+              <LocalizedField en={item.description} zh={item.descriptionZh} />
+            </p>
+          </article>
+        ))}
+      </div>
+      <p className="mt-6 border-t border-[#ECE7DA] pt-5 text-xs leading-5 text-[#6B7280]">
+        <T k="risksGuidanceNote" />
+      </p>
+    </section>
   );
 }
 
-function AdvisoryCta({ project }: { project: Project }) {
-  return (
-    <div className="rounded-sm border border-[#ECE7DA] bg-white px-6 py-8 text-center shadow-sm sm:px-10">
-      <p className="mx-auto max-w-2xl text-2xl font-semibold leading-tight text-[#1F2937]">
-        <T k="needHelpComparing" />
-      </p>
-      <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#6B7280]">
-        <T k="advisorReservationSupportNote" />
-      </p>
-      <Link
-        className="mt-6 inline-flex min-h-12 items-center justify-center rounded-sm bg-[#F5C84C] px-6 text-sm font-semibold text-[#1F2937] transition hover:bg-[#E7B93D]"
-        href={`/enquiry?project=${project.slug}`}
-      >
-        <T k="bookInvestorConsultation" />
-      </Link>
-    </div>
-  );
-}
-
-function ForeignBuyerNotes() {
-  const notes = [
-    "foreignQuotaAllocationNote",
-    "unitLevelLegalReviewNote",
-    "compliantBankingChannelsNote",
-    "remoteRentalManagementNote",
-  ] satisfies TranslationKey[];
+function NearbyConnectivity({ highlights }: { highlights: string[] }) {
+  if (highlights.length === 0) {
+    return null;
+  }
 
   return (
-    <InfoCard title={<T k="foreignBuyerNotes" />}>
-      <ul className="grid gap-3 text-sm leading-7 text-[#6B7280]">
-        {notes.map((note) => (
-          <li className="flex gap-3" key={note}>
+    <aside className="rounded-sm border border-[#ECE7DA] bg-white p-6 shadow-sm">
+      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6B7280]">
+        <T k="locationNearby" />
+      </p>
+      <ul className="mt-4 grid gap-3 text-sm leading-6 text-[#4B5563]">
+        {highlights.map((highlight) => (
+          <li className="flex gap-3" key={highlight}>
             <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#E7B93D]" />
             <span>
-              <T k={note} />
+              <TD value={highlight} />
             </span>
           </li>
         ))}
       </ul>
-    </InfoCard>
-  );
-}
-
-function CompactRisks() {
-  const risks = [
-    {
-      label: "foreignQuota",
-      value: "towerDependent",
-    },
-    {
-      label: "premiumPricing",
-      value: "higherEntryPoint",
-    },
-    {
-      label: "rentalCompetition",
-      value: "increasingLuxurySupply",
-    },
-  ] satisfies { label: TranslationKey; value: TranslationKey }[];
-
-  return (
-    <section className="rounded-sm border border-[#ECE7DA] bg-white p-6 shadow-sm">
-      <h2 className="text-xl font-semibold text-[#1F2937]">
-        <T k="risksWatchpoints" />
-      </h2>
-      <div className="mt-5 divide-y divide-[#ECE7DA]">
-        {risks.map((risk) => (
-          <div className="grid gap-1 py-4 sm:grid-cols-[0.7fr_1fr] sm:items-center" key={risk.label}>
-            <p className="text-sm text-[#6B7280]">
-              <T k={risk.label} />
-            </p>
-            <p className="text-sm font-semibold text-[#1F2937]">
-              <T k={risk.value} />
-            </p>
-          </div>
-        ))}
-      </div>
-    </section>
+    </aside>
   );
 }
 
@@ -409,6 +360,42 @@ function AmenityIcon({ amenity }: { amenity: string }) {
   return <IconSparkle className="h-4 w-4" />;
 }
 
+function DetailIcon({ name }: { name: string }) {
+  switch (name) {
+    case "river":
+    case "lake":
+    case "liquidity":
+      return <IconWaves />;
+    case "infrastructure":
+    case "business":
+    case "handover":
+      return <IconBuilding />;
+    case "supply":
+    case "amenities":
+      return <IconShoppingBag />;
+    case "developer":
+    case "quota":
+      return <IconShield />;
+    case "tenant":
+    case "rental":
+    case "remote":
+    case "lifestyle":
+    case "diplomatic":
+      return <IconUsers />;
+    case "pricing":
+    case "payment":
+      return <IconTag />;
+    case "legal":
+      return <IconDoc />;
+    case "management":
+      return <IconBriefcase className="h-4 w-4" />;
+    case "location":
+      return <IconPin />;
+    default:
+      return <IconSparkle className="h-4 w-4" />;
+  }
+}
+
 function IconCar({ className = "h-4 w-4" }: { className?: string }) {
   return (
     <svg aria-hidden="true" className={className} fill="none" viewBox="0 0 24 24">
@@ -516,6 +503,64 @@ function IconTrees({ className = "h-4 w-4" }: { className?: string }) {
         strokeLinejoin="round"
         strokeWidth="1.8"
       />
+    </svg>
+  );
+}
+
+function IconUsers({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" className={className} fill="none" viewBox="0 0 24 24">
+      <path
+        d="M16 19v-1.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3V19M10 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm6.5 0a2.5 2.5 0 1 0-1.7-4.3M20 19v-1.5a3 3 0 0 0-2-2.8"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.7"
+      />
+    </svg>
+  );
+}
+
+function IconTag({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" className={className} fill="none" viewBox="0 0 24 24">
+      <path
+        d="M4 12.5V5a1 1 0 0 1 1-1h7.5a2 2 0 0 1 1.4.6l5.5 5.5a2 2 0 0 1 0 2.8l-6.6 6.6a2 2 0 0 1-2.8 0L4.6 13.9A2 2 0 0 1 4 12.5Z"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.7"
+      />
+      <circle cx="8.5" cy="8.5" fill="currentColor" r="1.1" />
+    </svg>
+  );
+}
+
+function IconDoc({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" className={className} fill="none" viewBox="0 0 24 24">
+      <path
+        d="M7 3h7l4 4v14H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm6 0v5h5M9 13h6M9 16h6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.7"
+      />
+    </svg>
+  );
+}
+
+function IconPin({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" className={className} fill="none" viewBox="0 0 24 24">
+      <path
+        d="M12 21s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10Z"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.7"
+      />
+      <circle cx="12" cy="11" r="2.2" stroke="currentColor" strokeWidth="1.7" />
     </svg>
   );
 }

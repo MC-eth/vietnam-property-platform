@@ -54,6 +54,26 @@ export const translations = {
       "Foreign buyer quota and unit availability are subject to tower-level allocation and advisor review.",
     availableResidencesForReview: "Available residences for review",
     availableUnitsShortNote: "Indicative availability. Quota and legal checks required before reservation.",
+    availableUnitsListedNote:
+      "Units listed on the platform reflect indicative availability only and may not represent the project's total remaining inventory.",
+    availableUnitsEmptyState:
+      "No units are currently listed. Contact our team for the latest availability.",
+    locationNearby: "Nearby & Connectivity",
+    districtPriceTrend: "District Price Trend",
+    districtPriceTrendContext:
+      "Historical district-level pricing with an indicative five-year scenario for wider market context.",
+    districtPriceTrendDisclaimer:
+      "District-level data is shown for market context and does not represent a guaranteed future value for this residence.",
+    forecastAssumptionsNote:
+      "Indicative five-year scenario based on the historical trend, an assumed annual price growth of {inflation} and a currency adjustment of {fx} on the HKD view. Assumptions only — not live data or a guaranteed forecast.",
+    forecastInflationLabel: "Assumed annual growth",
+    forecastFxAdjustmentLabel: "Currency adjustment (HKD view)",
+    investmentCaseEyebrow: "Investment Case",
+    whyConsiderThisResidence: "Why Consider This Residence",
+    dueDiligenceEyebrow: "Due Diligence",
+    risksAndConsiderations: "Risks & Considerations",
+    risksGuidanceNote:
+      "Information is provided for general guidance only. Buyers should obtain independent legal, tax and financial advice before proceeding.",
     unitIntroShort: "River-facing two-bedroom residence with strong long-stay rental appeal.",
     whyThisUnit: "Why this unit?",
     baths: "Baths",
@@ -669,12 +689,32 @@ export const translations = {
     investmentDiscovery: "投資探索",
     availableUnitCount: "{count, plural, one {1 個可售單位} other {{count} 個可售單位}}",
     listedUnitCount: "{count, plural, one {1 個上架單位} other {{count} 個上架單位}}",
-    availableUnits: "可售單位",
+    availableUnits: "可選單位",
     availableUnitsIntro: "以下為目前可供投資者初步參考的示意可售單位。",
     availableUnitsQuotaNote:
       "外國買家配額及單位供應須視乎個別樓座分配，並需經顧問確認。",
     availableResidencesForReview: "可供初步參考單位",
     availableUnitsShortNote: "供應只供參考；預留前須確認配額及法律文件。",
+    availableUnitsListedNote:
+      "平台上架單位只反映示意供應，未必代表項目的全部餘下存量。",
+    availableUnitsEmptyState:
+      "目前暫未有上架單位，請聯絡我們了解最新供應。",
+    locationNearby: "鄰近設施及交通",
+    districtPriceTrend: "區域價格走勢",
+    districtPriceTrendContext:
+      "歷史區域價格，並附五年指示性情景，以了解整體市場背景。",
+    districtPriceTrendDisclaimer:
+      "區域歷史數據僅供市場背景參考，並不代表此住宅項目的未來保證價值。",
+    forecastAssumptionsNote:
+      "五年指示性情景，根據歷史走勢、假設每年價格增長 {inflation} 及港元顯示的匯率調整 {fx} 計算。僅屬假設，並非實時數據或保證預測。",
+    forecastInflationLabel: "假設每年增長",
+    forecastFxAdjustmentLabel: "匯率調整（港元顯示）",
+    investmentCaseEyebrow: "投資分析",
+    whyConsiderThisResidence: "為何考慮此住宅項目",
+    dueDiligenceEyebrow: "盡職審查",
+    risksAndConsiderations: "風險及考慮因素",
+    risksGuidanceNote:
+      "資料僅供一般參考。買家在作出決定前，應自行尋求獨立法律、稅務及財務意見。",
     unitIntroShort: "河景兩房單位，具備長租吸引力。",
     whyThisUnit: "為何考慮此單位？",
     baths: "浴室",

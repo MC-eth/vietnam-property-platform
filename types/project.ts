@@ -59,6 +59,22 @@ export type ProjectDueDiligenceItem = {
   status: DueDiligenceStatus;
 };
 
+export type ProjectInvestmentCaseItem = {
+  title: string;
+  titleZh: string;
+  description: string;
+  descriptionZh: string;
+  icon?: string;
+};
+
+export type ProjectRiskConsideration = {
+  title: string;
+  titleZh: string;
+  description: string;
+  descriptionZh: string;
+  icon?: string;
+};
+
 export type Project = {
   id: string;
   slug: string;
@@ -104,7 +120,8 @@ export type Project = {
   galleryImages: string[];
   amenities: string[];
   keyRisks: string[];
-  whyInvest: string[];
+  investmentCase: ProjectInvestmentCaseItem[];
+  riskConsiderations: ProjectRiskConsideration[];
   availableUnits: ProjectUnit[];
 };
 
