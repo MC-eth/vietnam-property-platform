@@ -173,8 +173,8 @@ export const projects: Project[] = [
           "Unit-level legal and foreign quota review is recommended before reservation.",
         paymentNote:
           "Payment timing is indicative and should be reviewed with advisor support before reservation.",
-        tenantFit: "Professionals, couples and long-stay tenants",
-        tenantFitZh: "專業人士、夫婦及長租租客",
+        tenantFit: "Professionals and long-stay couples",
+        tenantFitZh: "專業人士及長租夫婦",
         investmentFit:
           "Premium river-view positioning for buyers prioritising long-term quality and rental appeal.",
         investmentFitZh: "河景優質定位，適合重視長線質素及租務吸引力的買家。",
@@ -364,8 +364,8 @@ export const projects: Project[] = [
         paymentPlan: "Indicative resale payment timeline",
         bestFor: "Lifestyle investment",
         notes: "Pricing premium should be compared with similar Thu Thiem stock.",
-        tenantFit: "Senior professionals and lifestyle tenants",
-        tenantFitZh: "高級專業人士及重視生活方式的租客",
+        tenantFit: "Senior professionals and long-stay tenants",
+        tenantFitZh: "高級專業人士及長租租客",
         investmentFit:
           "Central branded positioning for buyers prioritising prime address and build quality.",
         investmentFitZh: "核心品牌定位，適合重視優越地段及建築質素的買家。",
@@ -525,7 +525,7 @@ export const projects: Project[] = [
         paymentPlan: "Negotiated resale schedule",
         bestFor: "Family tenants",
         notes: "Best suited for school and family tenant demand.",
-        tenantFit: "Families seeking more space",
+        tenantFit: "Families seeking additional space",
         tenantFitZh: "重視較大空間的家庭租客",
         investmentFit:
           "Larger layout positioned for family and longer-stay tenant demand.",
@@ -964,8 +964,8 @@ export const projects: Project[] = [
         paymentPlan: "Indicative developer payment schedule",
         bestFor: "Lifestyle income",
         notes: "Best suited to long-hold buyers with conservative yield assumptions.",
-        tenantFit: "Executives and long-stay diplomatic tenants",
-        tenantFitZh: "行政人員及長租外交租客",
+        tenantFit: "Executives and diplomatic tenants",
+        tenantFitZh: "行政人員及外交租客",
         investmentFit:
           "Premium lakeside positioning for buyers combining lifestyle and income objectives.",
         investmentFitZh: "優質湖畔定位，適合兼顧生活方式及收入目標的買家。",
