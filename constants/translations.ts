@@ -631,12 +631,14 @@ export const translations = {
     investorJourneyDescription:
       "A guided service model for overseas buyers — from research and comparison to purchase coordination and managed ownership.",
     serviceJourney: "SERVICE JOURNEY",
-    serviceJourneyTitle: "From search to managed ownership",
+    serviceJourneyTitle: "From research to managed ownership",
+    serviceJourneyDescription:
+      "A clear four-stage process for overseas buyers who want to understand the market, compare suitable residences and proceed with professional support.",
     ourServicesTitle: "A structured path to owning Vietnam property from overseas",
     ourServicesDescription:
       "From district intelligence and residence comparison to legal coordination, handover and ongoing ownership support — each step is designed to give overseas buyers more clarity and control.",
     journeyDisclaimer:
-      "This workflow is an MVP prototype using mock content. It is intended to show informational support, advisor coordination, and local partner workflow concepts only. Buyers should seek qualified legal, tax, and financial advice before making investment decisions.",
+      "This platform is an MVP prototype using illustrative content. It is intended to show informational support, advisor coordination and local partner workflow concepts only. Buyers should seek independent legal, tax and financial advice before making investment decisions.",
     whatsappAdvisor: "Book investor consultation on WhatsApp",
     footerMockNotice: "",
     footerOverview:
@@ -926,7 +928,7 @@ export const translations = {
     bestMatchedBuyer: "最適合買家",
     projectsSince2023: "2023年後項目",
     viewDistrictInsights: "查看區域分析",
-    exploreResidences: "查看住宅項目",
+    exploreResidences: "探索住宅項目",
     keyTimeline: "重要時間線",
     futureDevelopmentAdvantages: "未來發展及區域優勢",
     selectedResidencesInThisDistrict: "此區精選住宅項目",
@@ -1294,12 +1296,14 @@ export const translations = {
     investorJourneyDescription:
       "為海外買家提供由市場研究、項目比較、購買協調至持有管理的一站式服務流程。",
     serviceJourney: "服務流程",
-    serviceJourneyTitle: "由搜尋到持有管理",
+    serviceJourneyTitle: "由研究到持有管理",
+    serviceJourneyDescription:
+      "為希望了解市場、比較合適住宅項目並在專業支援下推進的海外買家，提供清晰的四階段流程。",
     ourServicesTitle: "為海外買家而設的越南物業持有流程",
     ourServicesDescription:
       "由區域研究、住宅項目比較，到法律協調、交付及持有後支援，每一步均旨在讓海外買家更清晰、更有掌控。",
     journeyDisclaimer:
-      "此流程為使用模擬內容的 MVP 原型，僅用於展示資訊支援、顧問協調及本地合作夥伴流程概念。買家在作出投資決定前，應尋求合資格法律、稅務及財務意見。",
+      "本平台為 MVP 原型，部分內容僅作示意用途，旨在展示資訊支援、顧問協調及本地合作流程概念。買家在作出投資決定前，應自行尋求獨立法律、稅務及財務意見。",
     whatsappAdvisor: "透過 WhatsApp 預約投資諮詢",
     footerMockNotice: "",
     footerOverview:
@@ -1409,38 +1413,38 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Nearby Landmarks": "附近地標",
     "Landmarks & Connectivity": "地標及交通連接",
     "Available Residences": "可選住宅項目",
-    "A structured path to owning Vietnam property from overseas":
-      "為海外買家而設的越南物業持有流程",
-    "From district intelligence and residence comparison to legal coordination, handover and ongoing ownership support — each step is designed to give overseas buyers more clarity and control.":
-      "由區域研究、住宅項目比較，到法律協調、交付及持有後支援，每一步均旨在讓海外買家更清晰、更有掌控。",
+    "A structured service path for overseas Vietnam property buyers":
+      "為海外買家而設的越南物業服務流程",
+    "From district research and residence comparison to purchase coordination and managed ownership, our service model is designed to give overseas buyers clearer information, better structure and more control.":
+      "由區域研究、住宅比較，到購買協調及持有後管理，我們的服務模式旨在讓海外買家獲得更清晰資訊、更有系統的流程及更高掌控度。",
     "Book a Private Consultation": "預約私人諮詢",
-    "Curated residences": "精選住宅項目",
-    "District intelligence": "區域研究分析",
-    "Buyer guidance": "買家流程支援",
-    "Managed ownership": "持有後管理",
-    "A guided service model for overseas buyers — from research and comparison to purchase coordination and managed ownership.":
-      "為海外買家提供由市場研究、項目比較、購買協調至持有管理的一站式服務流程。",
+    "Curated Residences": "精選住宅項目",
+    "District Intelligence": "區域研究分析",
+    "Buyer Guidance": "買家流程支援",
+    "Managed Ownership": "持有後管理",
     "Research & Shortlist": "研究及初步篩選",
-    "Explore districts, compare residences and understand which locations, price points and buyer profiles may fit your objectives.":
-      "探索不同區域及住宅項目，了解哪些位置、價格區間及買家定位較符合你的目標。",
-    "District intelligence and residence shortlisting": "區域研究及住宅項目初步篩選",
-    "Buyer profile, budget and location fit": "買家定位、預算及位置適配",
+    "We help you understand key districts, project positioning and suitable residence options before you commit time or capital.":
+      "我們協助你了解重點區域、項目定位及合適住宅選項，讓你在投入時間或資金前先建立清晰方向。",
+    "District and residence shortlisting": "區域及住宅項目初步篩選",
+    "Budget, location and buyer-profile fit": "預算、位置及買家定位配對",
     "Compare & Assess": "比較及評估",
-    "Review available units, pricing, rental assumptions and ownership considerations with clear, structured comparison tools.":
-      "透過清晰的比較工具，審視可選單位、價格、租務假設及持有考慮因素。",
+    "Compare available units, pricing, rental assumptions and ownership considerations through structured buyer tools and advisor input.":
+      "透過結構化買家工具及顧問意見，比較可選單位、價格、租務假設及持有考慮因素。",
     "Unit comparison and rental assumptions": "單位比較及租務假設",
-    "Ownership considerations before reservation": "預留前的持有考慮因素",
+    "Ownership considerations before reservation": "認購前持有考慮因素",
     "Coordinate Purchase": "協調購買流程",
-    "We help coordinate reservation steps, foreign-buyer eligibility checks, legal review and payment milestones with the relevant local parties.":
+    "We help coordinate the reservation process, foreign-buyer eligibility checks, legal review and payment milestones with relevant local parties.":
       "我們協助與相關本地團隊協調認購流程、海外買家資格核查、法律審閱及付款里程碑。",
     "Reservation and eligibility coordination": "認購及資格核查協調",
     "Legal review and payment milestone support": "法律審閱及付款里程碑支援",
     "Manage Ownership": "持有後管理",
-    "After completion, the platform vision extends to furnishing, leasing preparation, rental updates, maintenance records and owner reporting.":
-      "交付後，平台願景將延伸至裝修配置、租務準備、租金更新、維修紀錄及業主報告。",
-    "Handover, furnishing and leasing preparation": "交付、裝修配置及租務準備",
-    "Platform vision for owner reporting and records": "業主報告及紀錄管理的平台願景",
+    "After completion, our platform vision extends to furnishing, leasing preparation, rental updates, maintenance records and owner reporting.":
+      "交付後，我們的平台願景將延伸至裝修配置、租務準備、租金更新、維修紀錄及業主報告。",
+    "Handover, furnishing and leasing preparation": "交付、配置及租務準備",
+    "Owner reporting and document records": "業主報告及文件紀錄",
     "Built on Transparency": "以透明度建立信任",
+    "Overseas buyers need more than listings. They need clear documentation, professional coordination and decision support at each step.":
+      "海外買家需要的不只是樓盤資訊，更需要清晰文件、專業協調及每一步的決策支援。",
     "Independent professional review": "獨立專業審閱",
     "Key purchase steps should be supported by qualified local professionals, including legal and document review where required.":
       "重要購買步驟應由合資格本地專業人士支援，包括所需的法律及文件審閱。",

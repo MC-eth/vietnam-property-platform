@@ -24,7 +24,7 @@ export function InvestorJourney({ variant = "preview" }: InvestorJourneyProps) {
               {t(isFull ? "serviceJourneyTitle" : "ourServicesTitle")}
             </h2>
             <p className={isFull ? "mt-4 max-w-2xl text-sm leading-7 text-[#5F6B64] sm:text-base" : "mt-4 max-w-2xl text-sm leading-7 text-[#C6D0CA] sm:text-base"}>
-              {t("ourServicesDescription")}
+              {t(isFull ? "serviceJourneyDescription" : "ourServicesDescription")}
             </p>
           </div>
 
@@ -41,12 +41,12 @@ export function InvestorJourney({ variant = "preview" }: InvestorJourneyProps) {
         <div className={isFull ? "mt-10 grid gap-5 lg:grid-cols-2" : "mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4"}>
           {investorJourneyStages.map((stage) => (
             <article
-              className={isFull ? "group rounded-sm border border-[#DFD4BF] bg-white p-7 shadow-sm transition hover:border-[#C8A968] hover:shadow-md" : "group rounded-sm border border-[#D7B46A]/24 bg-white/[0.06] p-6 transition hover:border-[#D7B46A]/60 hover:bg-white/[0.08]"}
+              className={isFull ? "group rounded-sm border border-[#E7DECC] bg-white p-6 shadow-sm transition hover:border-[#D7B46A]/70 hover:bg-[#FFFDF8]" : "group rounded-sm border border-[#D7B46A]/24 bg-white/[0.06] p-6 transition hover:border-[#D7B46A]/60 hover:bg-white/[0.08]"}
               key={stage.step}
             >
               <div className="flex items-start justify-between gap-5">
                 <div className="flex items-center gap-4">
-                  <span className={isFull ? "flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-[#FFF7D6] text-xs font-semibold text-[#1F2937] ring-1 ring-[#ECD88C]" : "flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-[#D7B46A] text-xs font-semibold text-[#092F2A]"}>
+                  <span className={isFull ? "flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FFF8E8] text-xs font-semibold text-[#8A6D12] ring-1 ring-[#E3CE96]" : "flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-[#D7B46A] text-xs font-semibold text-[#092F2A]"}>
                     {stage.icon}
                   </span>
                   <div>
@@ -61,7 +61,7 @@ export function InvestorJourney({ variant = "preview" }: InvestorJourneyProps) {
               <p className={isFull ? "mt-4 text-sm leading-6 text-[#5F6B64]" : "mt-4 text-sm leading-6 text-[#C6D0CA]"}>{td(stage.description)}</p>
 
               {isFull ? (
-                <ul className="mt-5 space-y-3 text-sm leading-6 text-[#5F6B64]">
+                <ul className="mt-4 space-y-2 text-sm leading-6 text-[#5F6B64]">
                   {stage.details.map((detail) => (
                     <li className="flex gap-3" key={detail}>
                       <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C8A968]" />
@@ -75,8 +75,8 @@ export function InvestorJourney({ variant = "preview" }: InvestorJourneyProps) {
         </div>
 
         {isFull ? (
-          <div className="mt-10 rounded-sm border border-[#DFD4BF] bg-[#FFFDF8] p-6">
-            <p className="text-sm leading-7 text-[#5F6B64]">
+          <div className="mt-8 rounded-sm border border-[#EAE3D2] bg-[#FBF7EE] px-5 py-4">
+            <p className="text-xs leading-6 text-[#5F6B64]">
               {t("journeyDisclaimer")}
             </p>
           </div>

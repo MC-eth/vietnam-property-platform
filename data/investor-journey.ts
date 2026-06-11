@@ -12,10 +12,10 @@ export const investorJourneyStages: InvestorJourneyStage[] = [
     icon: "RS",
     title: "Research & Shortlist",
     description:
-      "Explore districts, compare residences and understand which locations, price points and buyer profiles may fit your objectives.",
+      "We help you understand key districts, project positioning and suitable residence options before you commit time or capital.",
     details: [
-      "District intelligence and residence shortlisting",
-      "Buyer profile, budget and location fit",
+      "District and residence shortlisting",
+      "Budget, location and buyer-profile fit",
     ],
   },
   {
@@ -23,7 +23,7 @@ export const investorJourneyStages: InvestorJourneyStage[] = [
     icon: "CA",
     title: "Compare & Assess",
     description:
-      "Review available units, pricing, rental assumptions and ownership considerations with clear, structured comparison tools.",
+      "Compare available units, pricing, rental assumptions and ownership considerations through structured buyer tools and advisor input.",
     details: [
       "Unit comparison and rental assumptions",
       "Ownership considerations before reservation",
@@ -34,7 +34,7 @@ export const investorJourneyStages: InvestorJourneyStage[] = [
     icon: "CP",
     title: "Coordinate Purchase",
     description:
-      "We help coordinate reservation steps, foreign-buyer eligibility checks, legal review and payment milestones with the relevant local parties.",
+      "We help coordinate the reservation process, foreign-buyer eligibility checks, legal review and payment milestones with relevant local parties.",
     details: [
       "Reservation and eligibility coordination",
       "Legal review and payment milestone support",
@@ -45,10 +45,10 @@ export const investorJourneyStages: InvestorJourneyStage[] = [
     icon: "MO",
     title: "Manage Ownership",
     description:
-      "After completion, the platform vision extends to furnishing, leasing preparation, rental updates, maintenance records and owner reporting.",
+      "After completion, our platform vision extends to furnishing, leasing preparation, rental updates, maintenance records and owner reporting.",
     details: [
       "Handover, furnishing and leasing preparation",
-      "Platform vision for owner reporting and records",
+      "Owner reporting and document records",
     ],
   },
 ];
