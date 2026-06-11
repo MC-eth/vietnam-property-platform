@@ -95,12 +95,12 @@ function buildMetrics(unit: ProjectUnit, units: ProjectUnit[]): Metric[] {
 // ---- bilingual phrase fragments -------------------------------------------------
 
 const STRENGTH_CLAUSE: Record<Metric["key"], Record<Lang, string>> = {
-  netYield: { en: "a stronger estimated net yield", "zh-Hant": "較高的預計淨租金回報" },
-  grossYield: { en: "a stronger estimated gross yield", "zh-Hant": "較高的預計毛租金回報" },
-  grossRent: { en: "higher estimated monthly rent", "zh-Hant": "較高的預計月租" },
-  price: { en: "a lower entry price", "zh-Hant": "較低的入場價" },
+  netYield: { en: "stronger net-yield positioning", "zh-Hant": "較強的淨租金回報定位" },
+  grossYield: { en: "stronger gross-yield positioning", "zh-Hant": "較強的毛租金回報定位" },
+  grossRent: { en: "stronger rental-income positioning", "zh-Hant": "較強的租金收入定位" },
+  price: { en: "the lower entry price", "zh-Hant": "較低的入場價" },
   pricePerSqm: { en: "more efficient pricing per sqm", "zh-Hant": "較具效率的每平方米價格" },
-  size: { en: "a larger internal area", "zh-Hant": "較大的室內面積" },
+  size: { en: "stronger space", "zh-Hant": "較大的空間" },
 };
 
 function hasPremiumView(unit: ProjectUnit) {
@@ -114,11 +114,11 @@ function isFurnished(unit: ProjectUnit) {
 
 function strengthSentence(keys: string[], lang: Lang) {
   if (lang === "zh-Hant") {
-    const joined = keys.length > 1 ? `${keys[0]}，同時具備${keys[1]}` : keys[0];
-    return `相對其他已選單位，此單位的主要優勢是${joined}。`;
+    const joined = keys.length > 1 ? `${keys[0]}及${keys[1]}` : keys[0];
+    return `與已選單位相比，此選項具備${joined}。`;
   }
-  const joined = keys.length > 1 ? `${keys[0]} with ${keys[1]}` : keys[0];
-  return `Against the selected units, its main advantage is ${joined}.`;
+  const joined = keys.length > 1 ? `${keys[0]} and ${keys[1]}` : keys[0];
+  return `Compared with the selected units, this option offers ${joined}.`;
 }
 
 function tradeoffSentence(
@@ -133,18 +133,18 @@ function tradeoffSentence(
 
   if (highPrice) {
     return lang === "zh-Hant"
-      ? "需要權衡的是較高初始資金投入，較適合重視質素、地段或景觀的買家。"
-      : "The trade-off is higher upfront capital, so it may suit buyers prioritising quality, location or view.";
+      ? "其較高入場價或較適合重視長線質素、彈性及景觀吸引力的買家。"
+      : "Its higher entry price may suit buyers prioritising long-term quality, flexibility and view appeal.";
   }
   if (lowNet) {
     return lang === "zh-Hant"
-      ? "需要權衡的是收入效率較低，較適合重視地段或生活方式多於租金回報的買家。"
-      : "The trade-off is weaker income efficiency, so it may suit buyers prioritising location or lifestyle.";
+      ? "其收入效率較低，或較適合重視地段、生活方式或單位質素多於租金回報的買家。"
+      : "Its weaker income efficiency may suit buyers prioritising location, lifestyle or unit quality over yield.";
   }
   if (smallSize) {
     return lang === "zh-Hant"
-      ? "需要權衡的是戶型較精緻，較適合重視總價控制多於空間的買家。"
-      : "The trade-off is a more compact layout, so it may suit buyers prioritising total ticket size over space.";
+      ? "其戶型較精緻，或較適合重視總價控制及簡單租務定位的買家。"
+      : "Its more compact layout may suit buyers prioritising affordability and simpler rental positioning.";
   }
 
   // No material weakness: map an investor profile to the strongest advantage family.
@@ -152,16 +152,16 @@ function tradeoffSentence(
     case "yield":
     case "income":
       return lang === "zh-Hant"
-        ? "這類定位較適合重視收入效率的投資者。"
+        ? "這類定位或較適合重視收入效率的投資者。"
         : "This profile may suit investors prioritising income efficiency.";
     case "price":
       return lang === "zh-Hant"
-        ? "這類定位較適合重視總投入控制的買家。"
-        : "This profile may suit buyers prioritising total capital outlay.";
+        ? "這類定位或較適合重視總投入控制及簡單租務定位的買家。"
+        : "It may suit buyers prioritising affordability and simpler rental positioning.";
     case "size":
       return lang === "zh-Hant"
-        ? "這類定位較適合家庭及長租租客。"
-        : "This profile may suit families and longer-stay tenants.";
+        ? "這類定位或較適合重視居住彈性、家庭租客及長租需求的買家。"
+        : "It may suit buyers prioritising living flexibility, family tenants and longer-stay demand.";
     default:
       return lang === "zh-Hant"
         ? "合適程度取決於買家的個別優先考慮。"
@@ -216,8 +216,8 @@ export function generateUnitComparisonAnalysis(
       ];
       const s2 =
         language === "zh-Hant"
-          ? "其優質景觀或適合重視生活吸引力的買家。"
-          : "Its premium view may suit buyers prioritising lifestyle appeal.";
+          ? "這或較適合重視生活吸引力及長線質素的買家。"
+          : "It may suit buyers prioritising lifestyle appeal and long-term quality.";
       return `${strengthSentence(strengthClauses, language)}${language === "zh-Hant" ? "" : " "}${s2}`;
     }
     if (isFurnished(unit) && !peers.some(isFurnished)) {
@@ -226,8 +226,8 @@ export function generateUnitComparisonAnalysis(
       ];
       const s2 =
         language === "zh-Hant"
-          ? "或適合希望盡快出租的買家。"
-          : "It may suit buyers seeking a quicker path to leasing.";
+          ? "這或較適合希望租務安排更簡單的買家。"
+          : "It may suit buyers seeking a simpler path to leasing.";
       return `${strengthSentence(strengthClauses, language)}${language === "zh-Hant" ? "" : " "}${s2}`;
     }
     // Step 5: no material distinction at all.

@@ -29,6 +29,7 @@ type CompareRow = {
 };
 
 type DifferenceBadge = {
+  rowLabel: TranslationKey;
   unitKey: string;
   label: TranslationKey;
 };
@@ -170,7 +171,7 @@ export function UnitComparePanel({ isOpen, onClose, projects }: UnitComparePanel
               <button
                 aria-expanded={showMore}
                 aria-controls="unit-comparison-details"
-                className="premium-focus-ring min-h-11 rounded-sm border border-[#D8CDAF] bg-white px-4 text-sm font-semibold text-[#1F2937] transition hover:border-[#E7B93D] hover:bg-[#FFF8E8]"
+                className="premium-focus-ring min-h-11 rounded-sm border border-[#E6DCC4] bg-[#FFFDF8] px-4 text-sm font-semibold text-[#1F2937] transition hover:border-[#D8CDAF] hover:bg-[#FFF8E8]"
                 onClick={() => setShowMore((current) => !current)}
                 type="button"
               >
@@ -261,13 +262,12 @@ function ComparisonGroup({
   const visibleRows = rows.filter(
     (row) => !row.available || row.available(items),
   );
+  const differenceBadges = getPrioritisedDifferenceBadges(visibleRows, items);
 
   return (
     <div className="overflow-x-auto rounded-sm border border-[#ECE7DA] bg-white">
       <div className="min-w-[720px]">
         {visibleRows.map((row) => {
-          const badges = getDifferenceBadges(row, items);
-
           return (
             <div
               className="grid grid-cols-[160px_repeat(3,minmax(0,1fr))] items-center gap-3 border-b border-[#ECE7DA] px-4 py-2.5 last:border-b-0"
@@ -278,7 +278,9 @@ function ComparisonGroup({
               </div>
               {items.map((item) => {
                 const unitKey = getUnitWorkspaceKey(item.project.slug, item.unit.id);
-                const badge = badges.find((candidate) => candidate.unitKey === unitKey);
+                const badge = differenceBadges.find(
+                  (candidate) => candidate.rowLabel === row.label && candidate.unitKey === unitKey,
+                );
 
                 return (
                   <div
@@ -314,9 +316,9 @@ function AiAnalysisPanel({
   const { language, t, td } = useAppPreferences();
 
   return (
-    <section className="rounded-sm border border-[#E6D8AF] bg-[#FFF8E8] px-4 py-4">
+    <section className="rounded-sm border border-[#EFE2C0] bg-[#FFFBF1] px-4 py-3.5">
       <div className="flex items-center gap-2">
-          <SparkleIcon />
+        <SparkleIcon />
         <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#8A6B16]">
           {t("aiUnitAnalysis")}
         </p>
@@ -325,13 +327,13 @@ function AiAnalysisPanel({
       <div className="mt-3 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
         {items.map(({ project, unit }) => (
           <article
-            className="rounded-sm border border-[#E6D8AF] bg-white/65 p-3"
+            className="rounded-sm border border-[#EFE2C0] bg-white/75 p-3"
             key={getUnitWorkspaceKey(project.slug, unit.id)}
           >
             <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#8A6B16]">
               {td(unit.unitName ?? unit.unitType)}
             </p>
-            <p className="mt-2 text-sm leading-6 text-[#4B5563]">
+            <p className="mt-2 text-[13px] leading-5 text-[#4B5563]">
               {generateUnitComparisonAnalysis(unit, comparedUnits, language)}
             </p>
           </article>
@@ -341,33 +343,61 @@ function AiAnalysisPanel({
   );
 }
 
+function getPrioritisedDifferenceBadges(rows: CompareRow[], items: SelectedUnit[]) {
+  return rows
+    .flatMap((row) => getDifferenceBadges(row, items))
+    .sort((a, b) => getBadgePriority(a.label) - getBadgePriority(b.label))
+    .slice(0, 3);
+}
+
+function getBadgePriority(label: TranslationKey) {
+  switch (label) {
+    case "lowestPrice":
+      return 1;
+    case "largestSize":
+      return 2;
+    case "higherNetYield":
+      return 3;
+    case "higherGrossRent":
+      return 4;
+    case "lowestPricePerSqm":
+      return 5;
+    case "premiumView":
+      return 6;
+    default:
+      return 10;
+  }
+}
+
 function getDifferenceBadges(row: CompareRow, items: SelectedUnit[]): DifferenceBadge[] {
   if (!row.metric || items.length < 2) return [];
 
   switch (row.metric) {
     case "price":
-      return getLowerValueBadge(items, ({ unit }) => unit.priceUsd, 0.03, "lowestPrice");
+      return getLowerValueBadge(row.label, items, ({ unit }) => unit.priceUsd, 0.03, "lowestPrice");
     case "pricePerSqm":
       return getLowerValueBadge(
+        row.label,
         items,
         ({ unit }) => unit.pricePerSqmUsd ?? (unit.sizeSqm > 0 ? unit.priceUsd / unit.sizeSqm : 0),
         0.03,
         "lowestPricePerSqm",
       );
     case "size":
-      return getHigherValueBadge(items, ({ unit }) => unit.sizeSqm, 0.05, "largestSize");
+      return getHigherValueBadge(row.label, items, ({ unit }) => unit.sizeSqm, 0.05, "largestSize");
     case "grossRent":
-      return getHigherValueBadge(items, ({ unit }) => unit.estimatedMonthlyRentUsd, 0.05, "higherGrossRent");
+      return getHigherValueBadge(row.label, items, ({ unit }) => unit.estimatedMonthlyRentUsd, 0.05, "higherGrossRent");
     case "netYield":
-      return getHigherPointBadge(items, ({ unit }) => estimateUnitNetYieldPercent(unit), 0.15, "higherNetYield");
+      return getHigherPointBadge(row.label, items, ({ unit }) => estimateUnitNetYieldPercent(unit), 0.15, "higherNetYield");
     case "view":
-      return getPremiumViewBadges(items);
+      return getPremiumViewBadges(row.label, items);
     default:
       return [];
   }
 }
 
 function getLowerValueBadge(
+  rowLabel: TranslationKey,
   items: SelectedUnit[],
   getValue: (item: SelectedUnit) => number,
   thresholdRatio: number,
@@ -379,10 +409,11 @@ function getLowerValueBadge(
   const best = sorted[0];
   const next = sorted[1];
   if (!best || !next || (next.value - best.value) / next.value < thresholdRatio) return [];
-  return [{ label, unitKey: getUnitWorkspaceKey(best.item.project.slug, best.item.unit.id) }];
+  return [{ label, rowLabel, unitKey: getUnitWorkspaceKey(best.item.project.slug, best.item.unit.id) }];
 }
 
 function getHigherValueBadge(
+  rowLabel: TranslationKey,
   items: SelectedUnit[],
   getValue: (item: SelectedUnit) => number,
   thresholdRatio: number,
@@ -394,10 +425,11 @@ function getHigherValueBadge(
   const best = sorted[0];
   const next = sorted[1];
   if (!best || !next || (best.value - next.value) / best.value < thresholdRatio) return [];
-  return [{ label, unitKey: getUnitWorkspaceKey(best.item.project.slug, best.item.unit.id) }];
+  return [{ label, rowLabel, unitKey: getUnitWorkspaceKey(best.item.project.slug, best.item.unit.id) }];
 }
 
 function getHigherPointBadge(
+  rowLabel: TranslationKey,
   items: SelectedUnit[],
   getValue: (item: SelectedUnit) => number,
   thresholdPoints: number,
@@ -409,17 +441,17 @@ function getHigherPointBadge(
   const best = sorted[0];
   const next = sorted[1];
   if (!best || !next || best.value - next.value < thresholdPoints) return [];
-  return [{ label, unitKey: getUnitWorkspaceKey(best.item.project.slug, best.item.unit.id) }];
+  return [{ label, rowLabel, unitKey: getUnitWorkspaceKey(best.item.project.slug, best.item.unit.id) }];
 }
 
-function getPremiumViewBadges(items: SelectedUnit[]): DifferenceBadge[] {
+function getPremiumViewBadges(rowLabel: TranslationKey, items: SelectedUnit[]): DifferenceBadge[] {
   const premiumViews = items.filter(({ unit }) => {
     const view = (unit.viewType ?? "").toLowerCase();
     return view.includes("river") || view.includes("lake");
   });
   if (premiumViews.length !== 1) return [];
   const [item] = premiumViews;
-  return [{ label: "premiumView", unitKey: getUnitWorkspaceKey(item.project.slug, item.unit.id) }];
+  return [{ label: "premiumView", rowLabel, unitKey: getUnitWorkspaceKey(item.project.slug, item.unit.id) }];
 }
 
 function EmptySlot({ label }: { label: string }) {
