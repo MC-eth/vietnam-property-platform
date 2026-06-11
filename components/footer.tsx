@@ -19,7 +19,6 @@ const footerLinks = [
     links: [
       { href: "/properties", labelKey: "hoChiMinhCity" },
       { href: "/properties", labelKey: "hanoi" },
-      { href: "/services", labelKey: "navigationServices" },
       { href: "/enquiry", labelKey: "buyerEnquiry" },
     ],
   },

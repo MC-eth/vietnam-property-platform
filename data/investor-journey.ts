@@ -9,46 +9,46 @@ export type InvestorJourneyStage = {
 export const investorJourneyStages: InvestorJourneyStage[] = [
   {
     step: "01",
-    icon: "DR",
-    title: "Discover Districts & Residences",
+    icon: "RS",
+    title: "Research & Shortlist",
     description:
-      "Explore curated residences, district insights, and investment positioning across HCMC and Hanoi.",
+      "Explore districts, compare residences and understand which locations, price points and buyer profiles may fit your objectives.",
     details: [
-      "Review district positioning before comparing residences.",
-      "Start with market context instead of browsing blind.",
+      "District intelligence and residence shortlisting",
+      "Buyer profile, budget and location fit",
     ],
   },
   {
     step: "02",
-    icon: "CU",
-    title: "Compare Units & Speak with Advisor",
+    icon: "CA",
+    title: "Compare & Assess",
     description:
-      "Shortlist suitable units, compare key figures, and submit an enquiry for advisor support.",
+      "Review available units, pricing, rental assumptions and ownership considerations with clear, structured comparison tools.",
     details: [
-      "Compare available units, pricing, and indicative rent.",
-      "Share your mandate for advisor support.",
+      "Unit comparison and rental assumptions",
+      "Ownership considerations before reservation",
     ],
   },
   {
     step: "03",
-    icon: "RP",
-    title: "Reserve with Legal & Payment Coordination",
+    icon: "CP",
+    title: "Coordinate Purchase",
     description:
-      "Coordinate local agent, legal document review, foreign buyer status, and payment milestones before reservation.",
+      "We help coordinate reservation steps, foreign-buyer eligibility checks, legal review and payment milestones with the relevant local parties.",
     details: [
-      "Check unit-level legal documents and foreign buyer status.",
-      "Understand reservation steps and payment milestones.",
+      "Reservation and eligibility coordination",
+      "Legal review and payment milestone support",
     ],
   },
   {
     step: "04",
-    icon: "HR",
-    title: "Handover & Rental Setup",
+    icon: "MO",
+    title: "Manage Ownership",
     description:
-      "Move from completion into furnishing, handover coordination, leasing preparation, and owner visibility.",
+      "After completion, the platform vision extends to furnishing, leasing preparation, rental updates, maintenance records and owner reporting.",
     details: [
-      "Coordinate handover, furnishing, and leasing preparation.",
-      "Track rent, occupancy, documents, and owner reporting after setup.",
+      "Handover, furnishing and leasing preparation",
+      "Platform vision for owner reporting and records",
     ],
   },
 ];
