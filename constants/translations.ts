@@ -1443,6 +1443,61 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Handover, furnishing and leasing preparation": "交付、配置及租務準備",
     "Owner reporting and document records": "業主報告及文件紀錄",
     "Built on Transparency": "以透明度建立信任",
+    "The Private Investor Journey": "私人投資者旅程",
+    "Acquire with intelligence.": "以智慧購置。",
+    "Own with confidence.": "安心持有。",
+    "A structured, end-to-end advisory pathway for overseas buyers — from district intelligence and unit comparison to legal coordination and managed rental ownership in Vietnam's most sought-after residential markets.":
+      "為海外買家而設的一站式顧問路徑——由區域研究、單位比較，到法律協調及於越南最受追捧住宅市場的租務託管持有。",
+    "Begin Your Journey": "開始您的旅程",
+    "Indicative Gross Yield": "參考毛租金回報率",
+    "Gateway Cities": "門戶城市",
+    "Advisor Response": "顧問回覆時間",
+    "Four Stages · The Investment Pathway": "四個階段 · 投資路徑",
+    "From first enquiry to rental income.": "由首次查詢到租金收入。",
+    "Every stage is structured around the realities of cross-border property ownership — with local legal, advisory, and management support built in from the outset.":
+      "每個階段均圍繞跨境置業的實際情況而設計，由一開始已包含本地法律、顧問及管理支援。",
+    "Begin with market intelligence, not listings. Our curated district profiles across Ho Chi Minh City and Hanoi give you the context to invest with conviction — before you compare a single unit.":
+      "從市場研究而非樓盤清單開始。我們覆蓋胡志明市及河內的精選區域分析，讓你在比較任何單位之前，已建立足夠的投資判斷基礎。",
+    "Explore Districts": "探索區域",
+    "Bilingual Advisory Support": "雙語顧問支援",
+    "Compare Units & Speak with an Advisor": "比較單位並與顧問對話",
+    "Shortlist residences side-by-side on pricing, indicative yield, and location. Submit your mandate and a dedicated bilingual advisor will guide your selection — on your schedule, in your language.":
+      "就價格、參考回報及位置並排比較心儀住宅。提交你的投資需求後，專屬雙語顧問將按你的時間及語言，協助你作出選擇。",
+    "View Residences": "瀏覽住宅項目",
+    "Before you commit, every unit undergoes independent legal document review, foreign buyer eligibility confirmation, and structured payment milestone planning — so you enter the reservation with complete clarity.":
+      "在落實之前，每個單位均會經過獨立法律文件審閱、海外買家資格確認及付款里程碑規劃，讓你以完全清晰的狀態進入認購。",
+    "Understand the Process": "了解流程",
+    "Handover & Managed Ownership": "交付及託管持有",
+    "From completion to rental income — we coordinate furnishing, leasing preparation, and tenant onboarding. Ongoing owner reporting covers rent receipts, occupancy rates, and key documents in a single dashboard view.":
+      "由交付到租金收入——我們協調傢俬配置、租務準備及租客入住安排。持續的業主報告涵蓋租金收據、出租率及重要文件，一目了然。",
+    "See Owner Reporting": "查看業主報告",
+    "Why serious investors choose this platform.": "認真的投資者為何選擇此平台。",
+    "Independent Legal Review": "獨立法律審閱",
+    "Every reservation is subject to independent document review by qualified Vietnamese counsel — not an agent's assurance. You receive a clear summary before signing anything.":
+      "每宗認購均由合資格越南律師進行獨立文件審閱——而非僅靠代理保證。你會在簽署任何文件前收到清晰摘要。",
+    "Milestone-Based Payments": "里程碑式付款安排",
+    "Funds are released only against defined contractual milestones. No lump-sum transfers, no ambiguity — capital moves in step with legally verified progress through the transaction.":
+      "資金僅按既定合約里程碑釋放。沒有一筆過轉賬、沒有模糊空間——資金隨經法律核實的交易進度逐步調動。",
+    "Full English and Traditional Chinese advisory coverage across every stage of the buying lifecycle — from initial enquiry through post-handover owner reporting. Nothing lost in translation.":
+      "由首次查詢到交付後的業主報告，全程提供英文及繁體中文顧問服務，確保溝通無誤。",
+    "Investor Voices": "投資者心聲",
+    "The legal review process gave me confidence I hadn't found with other Vietnam platforms. I knew exactly what I was signing.":
+      "法律審閱流程給了我在其他越南平台找不到的信心。我清楚知道自己簽署的是甚麼。",
+    "— Anonymous · HK-based Investor": "— 匿名 · 香港投資者",
+    "Having a bilingual advisor walk me through the payment milestones made a genuinely complex process feel straightforward.":
+      "有雙語顧問逐步講解付款里程碑，令一個本來複雜的流程變得清晰易明。",
+    "— Anonymous · Singapore-based Buyer": "— 匿名 · 新加坡買家",
+    "District intelligence was the starting point I didn't know I needed. It changed which areas I was even considering.":
+      "區域研究是我之前不知道自己需要的起點，它改變了我考慮的區域範圍。",
+    "— Anonymous · London-based Investor": "— 匿名 · 倫敦投資者",
+    "Private Consultation · No Obligation": "私人諮詢 · 無任何義務",
+    "Speak with an advisor within 24 hours.": "24 小時內與顧問對話。",
+    "A structured, private 30-minute consultation — no obligation, no sales pressure. Tailored to your investment mandate and timeline.":
+      "結構化的 30 分鐘私人諮詢——無義務、無銷售壓力，按你的投資目標及時間表度身安排。",
+    "Book a Consultation": "預約諮詢",
+    "MVP prototype. Content is illustrative only. Not financial, legal, tax or investment advice. Indicative yields and returns are not guaranteed.":
+      "本平台為 MVP 原型，內容僅作示意，並不構成財務、法律、稅務或投資建議。參考回報並非保證。",
+    "Full disclaimer": "完整免責聲明",
     "The Investor Journey": "投資者旅程",
     "Manage it.": "安心管理。",
     "A structured private-client journey for overseas buyers — from district research to managed ownership in Vietnam's gateway cities.":
