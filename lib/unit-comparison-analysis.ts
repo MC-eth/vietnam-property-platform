@@ -95,12 +95,12 @@ function buildMetrics(unit: ProjectUnit, units: ProjectUnit[]): Metric[] {
 // ---- bilingual phrase fragments -------------------------------------------------
 
 const STRENGTH_CLAUSE: Record<Metric["key"], Record<Lang, string>> = {
-  netYield: { en: "the strongest estimated net yield", "zh-Hant": "最高的預計淨租金回報" },
-  grossYield: { en: "the strongest estimated gross yield", "zh-Hant": "最高的預計毛租金回報" },
-  grossRent: { en: "the highest estimated gross rent", "zh-Hant": "最高的預計租金收入" },
-  price: { en: "the lowest entry cost", "zh-Hant": "最低的入場成本" },
-  pricePerSqm: { en: "the lowest price per sqm", "zh-Hant": "最低的每平方米價格" },
-  size: { en: "the largest internal area", "zh-Hant": "最大的室內面積" },
+  netYield: { en: "a stronger estimated net yield", "zh-Hant": "較高的預計淨租金回報" },
+  grossYield: { en: "a stronger estimated gross yield", "zh-Hant": "較高的預計毛租金回報" },
+  grossRent: { en: "higher estimated monthly rent", "zh-Hant": "較高的預計月租" },
+  price: { en: "a lower entry price", "zh-Hant": "較低的入場價" },
+  pricePerSqm: { en: "more efficient pricing per sqm", "zh-Hant": "較具效率的每平方米價格" },
+  size: { en: "a larger internal area", "zh-Hant": "較大的室內面積" },
 };
 
 function hasPremiumView(unit: ProjectUnit) {
@@ -114,11 +114,11 @@ function isFurnished(unit: ProjectUnit) {
 
 function strengthSentence(keys: string[], lang: Lang) {
   if (lang === "zh-Hant") {
-    const joined = keys.length > 1 ? `${keys[0]}，並具備${keys[1]}` : keys[0];
-    return `在已選選項中，此單位提供${joined}。`;
+    const joined = keys.length > 1 ? `${keys[0]}，同時具備${keys[1]}` : keys[0];
+    return `相對其他已選單位，此單位的主要優勢是${joined}。`;
   }
-  const joined = keys.length > 1 ? `${keys[0]} and ${keys[1]}` : keys[0];
-  return `This unit offers ${joined} among the selected options.`;
+  const joined = keys.length > 1 ? `${keys[0]} with ${keys[1]}` : keys[0];
+  return `Against the selected units, its main advantage is ${joined}.`;
 }
 
 function tradeoffSentence(
@@ -133,18 +133,18 @@ function tradeoffSentence(
 
   if (highPrice) {
     return lang === "zh-Hant"
-      ? "其較高入場價或適合重視長線質素多於最低投資門檻的買家。"
-      : "Its higher entry price may suit investors prioritising long-term quality over the lowest ticket size.";
+      ? "需要權衡的是較高初始資金投入，較適合重視質素、地段或景觀的買家。"
+      : "The trade-off is higher upfront capital, so it may suit buyers prioritising quality, location or view.";
   }
   if (lowNet) {
     return lang === "zh-Hant"
-      ? "其較低的預計淨租金回報或適合重視地段或生活方式多於收入效率的買家。"
-      : "Its lower estimated net yield may suit buyers prioritising location or lifestyle over income efficiency.";
+      ? "需要權衡的是收入效率較低，較適合重視地段或生活方式多於租金回報的買家。"
+      : "The trade-off is weaker income efficiency, so it may suit buyers prioritising location or lifestyle.";
   }
   if (smallSize) {
     return lang === "zh-Hant"
-      ? "其較精緻的戶型或適合重視較低入場成本及初期投入的買家。"
-      : "Its more compact layout may suit buyers prioritising a smaller ticket size and lower entry cost.";
+      ? "需要權衡的是戶型較精緻，較適合重視總價控制多於空間的買家。"
+      : "The trade-off is a more compact layout, so it may suit buyers prioritising total ticket size over space.";
   }
 
   // No material weakness: map an investor profile to the strongest advantage family.
@@ -152,16 +152,16 @@ function tradeoffSentence(
     case "yield":
     case "income":
       return lang === "zh-Hant"
-        ? "或適合重視收入效率的投資者。"
-        : "It may suit investors prioritising income efficiency.";
+        ? "這類定位較適合重視收入效率的投資者。"
+        : "This profile may suit investors prioritising income efficiency.";
     case "price":
       return lang === "zh-Hant"
-        ? "或適合重視入場成本及較低初期投入的買家。"
-        : "It may suit buyers prioritising entry cost and a smaller initial outlay.";
+        ? "這類定位較適合重視總投入控制的買家。"
+        : "This profile may suit buyers prioritising total capital outlay.";
     case "size":
       return lang === "zh-Hant"
-        ? "其較大戶型或適合家庭及長租租客。"
-        : "Its larger layout may suit families and longer-stay tenants.";
+        ? "這類定位較適合家庭及長租租客。"
+        : "This profile may suit families and longer-stay tenants.";
     default:
       return lang === "zh-Hant"
         ? "合適程度取決於買家的個別優先考慮。"
@@ -171,8 +171,8 @@ function tradeoffSentence(
 
 function balancedFallback(lang: Lang) {
   return lang === "zh-Hant"
-    ? "此單位在已選選項中整體定位較為均衡，合適程度取決於買家對價格、空間、景觀及收入定位的取捨。"
-    : "This unit has a broadly balanced profile among the selected options. The better fit depends on the buyer's priorities for price, space, view and income positioning.";
+    ? "此單位在已選選項中整體定位較均衡。實際合適程度取決於買家對價格、空間、景觀及收入定位的取捨。"
+    : "This unit is broadly balanced against the selected options. The better fit depends on the buyer's priorities for price, space, view and income positioning.";
 }
 
 /**
