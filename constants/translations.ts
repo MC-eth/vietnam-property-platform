@@ -627,18 +627,18 @@ export const translations = {
     stage: "Stage",
     strategy: "Strategy",
     investorJourney: "Our Services",
-    investorJourneyTitle: "From search to managed ownership",
+    investorJourneyTitle: "From first enquiry to managed ownership",
     investorJourneyDescription:
       "A guided service model for overseas buyers — from research and comparison to purchase coordination and managed ownership.",
-    serviceJourney: "SERVICE JOURNEY",
-    serviceJourneyTitle: "From research to managed ownership",
+    serviceJourney: "FOUR STAGES · THE BUYER PATHWAY",
+    serviceJourneyTitle: "From first enquiry to managed ownership",
     serviceJourneyDescription:
-      "A clear four-stage process for overseas buyers who want to understand the market, compare suitable residences and proceed with professional support.",
-    ourServicesTitle: "A structured path to owning Vietnam property from overseas",
+      "Each stage is designed around the realities of cross-border property ownership — research, comparison, local coordination and post-completion support.",
+    ourServicesTitle: "Acquire with intelligence. Own with confidence.",
     ourServicesDescription:
-      "From district intelligence and residence comparison to legal coordination, handover and ongoing ownership support — each step is designed to give overseas buyers more clarity and control.",
+      "A structured advisory pathway for overseas buyers — from district research and residence comparison to purchase coordination and managed ownership support.",
     journeyDisclaimer:
-      "This platform is an MVP prototype using illustrative content. It is intended to show informational support, advisor coordination and local partner workflow concepts only. Buyers should seek independent legal, tax and financial advice before making investment decisions.",
+      "MVP prototype. Content is illustrative only and does not constitute financial, legal, tax or investment advice. Indicative yields and returns are not guaranteed.",
     whatsappAdvisor: "Book investor consultation on WhatsApp",
     footerMockNotice: "",
     footerOverview:
@@ -1292,18 +1292,18 @@ export const translations = {
     stage: "階段",
     strategy: "策略",
     investorJourney: "我們的服務",
-    investorJourneyTitle: "由搜尋到持有管理",
+    investorJourneyTitle: "由初步查詢到持有管理",
     investorJourneyDescription:
       "為海外買家提供由市場研究、項目比較、購買協調至持有管理的一站式服務流程。",
-    serviceJourney: "服務流程",
-    serviceJourneyTitle: "由研究到持有管理",
+    serviceJourney: "四個階段 · 買家流程",
+    serviceJourneyTitle: "由初步查詢到持有管理",
     serviceJourneyDescription:
-      "為希望了解市場、比較合適住宅項目並在專業支援下推進的海外買家，提供清晰的四階段流程。",
-    ourServicesTitle: "為海外買家而設的越南物業持有流程",
+      "每個階段均圍繞跨境物業持有的實際需要而設，包括市場研究、項目比較、本地協調及交付後支援。",
+    ourServicesTitle: "以資訊作決策，以信心作持有。",
     ourServicesDescription:
-      "由區域研究、住宅項目比較，到法律協調、交付及持有後支援，每一步均旨在讓海外買家更清晰、更有掌控。",
+      "為海外買家而設的結構化顧問流程，由區域研究、住宅比較，到購買協調及持有後支援。",
     journeyDisclaimer:
-      "本平台為 MVP 原型，部分內容僅作示意用途，旨在展示資訊支援、顧問協調及本地合作流程概念。買家在作出投資決定前，應自行尋求獨立法律、稅務及財務意見。",
+      "本平台為 MVP 原型，內容僅供示意參考，並不構成財務、法律、稅務或投資建議。任何參考收益或回報均不構成保證。",
     whatsappAdvisor: "透過 WhatsApp 預約投資諮詢",
     footerMockNotice: "",
     footerOverview:
@@ -1443,110 +1443,72 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Handover, furnishing and leasing preparation": "交付、配置及租務準備",
     "Owner reporting and document records": "業主報告及文件紀錄",
     "Built on Transparency": "以透明度建立信任",
-    "The Private Investor Journey": "私人投資者旅程",
-    "Acquire with intelligence.": "以智慧購置。",
-    "Own with confidence.": "安心持有。",
-    "A structured, end-to-end advisory pathway for overseas buyers — from district intelligence and unit comparison to legal coordination and managed rental ownership in Vietnam's most sought-after residential markets.":
-      "為海外買家而設的一站式顧問路徑——由區域研究、單位比較，到法律協調及於越南最受追捧住宅市場的租務託管持有。",
-    "Begin Your Journey": "開始您的旅程",
-    "Indicative Gross Yield": "參考毛租金回報率",
-    "Gateway Cities": "門戶城市",
-    "Advisor Response": "顧問回覆時間",
-    "Four Stages · The Investment Pathway": "四個階段 · 投資路徑",
-    "From first enquiry to rental income.": "由首次查詢到租金收入。",
-    "Every stage is structured around the realities of cross-border property ownership — with local legal, advisory, and management support built in from the outset.":
-      "每個階段均圍繞跨境置業的實際情況而設計，由一開始已包含本地法律、顧問及管理支援。",
-    "Begin with market intelligence, not listings. Our curated district profiles across Ho Chi Minh City and Hanoi give you the context to invest with conviction — before you compare a single unit.":
-      "從市場研究而非樓盤清單開始。我們覆蓋胡志明市及河內的精選區域分析，讓你在比較任何單位之前，已建立足夠的投資判斷基礎。",
+    "THE PRIVATE INVESTOR JOURNEY": "海外買家服務流程",
+    "The Private Investor Journey": "海外買家服務流程",
+    "Acquire with intelligence.": "以資訊作決策。",
+    "Own with confidence.": "以信心作持有。",
+    "A structured advisory pathway for overseas buyers — from district research and residence comparison to purchase coordination and managed ownership support.":
+      "為海外買家而設的結構化顧問流程，由區域研究、住宅比較，到購買協調及持有後支援。",
+    "Property journey workspace": "物業旅程工作區",
+    Ownership: "持有管理",
+    "FOUR STAGES · THE BUYER PATHWAY": "四個階段 · 買家流程",
+    "Four Stages · The Investment Pathway": "四個階段 · 買家流程",
+    "From first enquiry to managed ownership": "由初步查詢到持有管理",
+    "Each stage is designed around the realities of cross-border property ownership — research, comparison, local coordination and post-completion support.":
+      "每個階段均圍繞跨境物業持有的實際需要而設，包括市場研究、項目比較、本地協調及交付後支援。",
+    "Start with district intelligence, project positioning and curated residence options before comparing individual units.":
+      "先了解區域分析、項目定位及精選住宅選項，再進一步比較個別單位。",
     "Explore Districts": "探索區域",
     "Bilingual Advisory Support": "雙語顧問支援",
     "Compare Units & Speak with an Advisor": "比較單位並與顧問對話",
-    "Shortlist residences side-by-side on pricing, indicative yield, and location. Submit your mandate and a dedicated bilingual advisor will guide your selection — on your schedule, in your language.":
-      "就價格、參考回報及位置並排比較心儀住宅。提交你的投資需求後，專屬雙語顧問將按你的時間及語言，協助你作出選擇。",
+    "Shortlist residences side by side across price, size, location, rental assumptions and buyer suitability, then discuss your mandate with an advisor.":
+      "從價格、面積、位置、租務假設及買家適配度比較住宅項目，並與顧問討論你的需求。",
     "View Residences": "瀏覽住宅項目",
-    "Before you commit, every unit undergoes independent legal document review, foreign buyer eligibility confirmation, and structured payment milestone planning — so you enter the reservation with complete clarity.":
-      "在落實之前，每個單位均會經過獨立法律文件審閱、海外買家資格確認及付款里程碑規劃，讓你以完全清晰的狀態進入認購。",
+    "Coordinate Reservation, Legal & Payment Steps": "協調認購、法律及付款流程",
+    "Before committing, buyers should complete unit-level checks, foreign-buyer eligibility review, legal document review and payment milestone planning.":
+      "確認認購前，買家應完成單位層面核查、海外買家資格確認、法律文件審閱及付款里程碑規劃。",
     "Understand the Process": "了解流程",
     "Handover & Managed Ownership": "交付及託管持有",
-    "From completion to rental income — we coordinate furnishing, leasing preparation, and tenant onboarding. Ongoing owner reporting covers rent receipts, occupancy rates, and key documents in a single dashboard view.":
-      "由交付到租金收入——我們協調傢俬配置、租務準備及租客入住安排。持續的業主報告涵蓋租金收據、出租率及重要文件，一目了然。",
-    "See Owner Reporting": "查看業主報告",
-    "Why serious investors choose this platform.": "認真的投資者為何選擇此平台。",
-    "Independent Legal Review": "獨立法律審閱",
-    "Every reservation is subject to independent document review by qualified Vietnamese counsel — not an agent's assurance. You receive a clear summary before signing anything.":
-      "每宗認購均由合資格越南律師進行獨立文件審閱——而非僅靠代理保證。你會在簽署任何文件前收到清晰摘要。",
-    "Milestone-Based Payments": "里程碑式付款安排",
-    "Funds are released only against defined contractual milestones. No lump-sum transfers, no ambiguity — capital moves in step with legally verified progress through the transaction.":
-      "資金僅按既定合約里程碑釋放。沒有一筆過轉賬、沒有模糊空間——資金隨經法律核實的交易進度逐步調動。",
-    "Full English and Traditional Chinese advisory coverage across every stage of the buying lifecycle — from initial enquiry through post-handover owner reporting. Nothing lost in translation.":
-      "由首次查詢到交付後的業主報告，全程提供英文及繁體中文顧問服務，確保溝通無誤。",
-    "Investor Voices": "投資者心聲",
-    "The legal review process gave me confidence I hadn't found with other Vietnam platforms. I knew exactly what I was signing.":
-      "法律審閱流程給了我在其他越南平台找不到的信心。我清楚知道自己簽署的是甚麼。",
-    "— Anonymous · HK-based Investor": "— 匿名 · 香港投資者",
-    "Having a bilingual advisor walk me through the payment milestones made a genuinely complex process feel straightforward.":
-      "有雙語顧問逐步講解付款里程碑，令一個本來複雜的流程變得清晰易明。",
-    "— Anonymous · Singapore-based Buyer": "— 匿名 · 新加坡買家",
-    "District intelligence was the starting point I didn't know I needed. It changed which areas I was even considering.":
-      "區域研究是我之前不知道自己需要的起點，它改變了我考慮的區域範圍。",
-    "— Anonymous · London-based Investor": "— 匿名 · 倫敦投資者",
+    "After completion, the platform vision extends to furnishing, leasing preparation, rental updates, maintenance records and owner reporting.":
+      "交付後，平台願景將延伸至裝修配置、租務準備、租金更新、維修紀錄及業主報告。",
+    "Owner Support": "業主支援",
+    "What We Help Coordinate": "我們協助協調的事項",
+    "A practical layer of support around research, documentation, transaction steps and post-completion ownership.":
+      "圍繞研究、文件、交易流程及交付後持有管理提供實用支援。",
+    "District and project research": "區域及項目研究",
+    "Residence and unit comparison": "住宅及單位比較",
+    "Foreign-buyer eligibility review": "海外買家資格核查",
+    "Legal and document coordination": "法律及文件協調",
+    "Payment milestone planning": "付款里程碑規劃",
+    "Handover and leasing preparation": "交付及租務準備",
+    "Why serious investors choose this platform": "為何成熟投資者選擇此平台",
+    "Why serious investors choose this platform.": "為何成熟投資者選擇此平台",
+    "Overseas buyers need more than listings. They need clear documentation, professional coordination and decision support at each step.":
+      "海外買家需要的不只是樓盤資訊，更需要清晰文件、專業協調及每一步的決策支援。",
+    "Independent Professional Review": "獨立專業審閱",
+    "Independent Legal Review": "獨立專業審閱",
+    "Key purchase steps should be supported by qualified local professionals, including legal and document review where required.":
+      "重要購買步驟應由合資格本地專業人士支援，包括所需的法律及文件審閱。",
+    "Milestone-Based Payments": "按里程碑付款",
+    "Buyers should understand reservation terms, payment stages and required documents before committing to a unit.":
+      "買家在確認單位前，應清楚了解認購條款、付款階段及所需文件。",
+    "English and Traditional Chinese support helps overseas buyers understand the process, documentation and key decisions more clearly.":
+      "英文及繁體中文支援有助海外買家更清楚理解流程、文件及關鍵決定。",
     "Private Consultation · No Obligation": "私人諮詢 · 無任何義務",
-    "Speak with an advisor within 24 hours.": "24 小時內與顧問對話。",
-    "A structured, private 30-minute consultation — no obligation, no sales pressure. Tailored to your investment mandate and timeline.":
-      "結構化的 30 分鐘私人諮詢——無義務、無銷售壓力，按你的投資目標及時間表度身安排。",
-    "Book a Consultation": "預約諮詢",
-    "MVP prototype. Content is illustrative only. Not financial, legal, tax or investment advice. Indicative yields and returns are not guaranteed.":
-      "本平台為 MVP 原型，內容僅作示意，並不構成財務、法律、稅務或投資建議。參考回報並非保證。",
+    "Speak with an advisor before you shortlist": "篩選單位前，先與顧問了解方向",
+    "Share your budget, preferred city and ownership goals. We will help you understand suitable districts, available residences and the next steps before you proceed.":
+      "分享你的預算、偏好城市及持有目標。我們會協助你了解合適區域、可選住宅項目及下一步流程。",
+    "MVP prototype. Content is illustrative only and does not constitute financial, legal, tax or investment advice. Indicative yields and returns are not guaranteed.":
+      "本平台為 MVP 原型，內容僅供示意參考，並不構成財務、法律、稅務或投資建議。任何參考收益或回報均不構成保證。",
     "Full disclaimer": "完整免責聲明",
-    "The Investor Journey": "投資者旅程",
-    "Manage it.": "安心管理。",
-    "A structured private-client journey for overseas buyers — from district research to managed ownership in Vietnam's gateway cities.":
-      "為海外買家而設的私人客戶式服務旅程——由區域研究到於越南門戶城市的持有後管理。",
-    "Begin your journey": "開始您的旅程",
     "Browse residences": "瀏覽住宅項目",
-    "Curated units": "精選單位",
-    "Indicative yield": "參考租金回報",
     "Gateway cities": "門戶城市",
-    "Advisor response": "顧問回覆時間",
-    "From first enquiry to managed ownership": "由首次查詢到持有管理",
     Discover: "探索",
     Compare: "比較",
     Reserve: "認購",
     Own: "持有",
-    "Discover & Shortlist": "探索及初步篩選",
-    "Reserve & Coordinate": "認購及協調",
-    "Handover & Ownership": "交付及持有",
-    "Understand key districts, project positioning and suitable residence options before you commit time or capital.":
-      "在投入時間或資金前，先了解重點區域、項目定位及合適住宅選項。",
-    "Compare units, pricing, rental assumptions and ownership considerations with structured buyer tools.":
-      "透過結構化買家工具，比較單位、價格、租務假設及持有考慮因素。",
-    "We help coordinate the reservation process, eligibility checks, legal review and payment milestones with local parties.":
-      "我們協助與本地團隊協調認購流程、資格核查、法律審閱及付款里程碑。",
-    "After handover, our platform vision extends to leasing preparation, rental updates and owner reporting.":
-      "交付後，我們的平台願景延伸至租務準備、租金更新及業主報告。",
-    "Why buyers trust this process": "買家為何信賴此流程",
-    "Independent legal review": "獨立法律審閱",
-    "Milestone-based payments": "里程碑式付款安排",
-    "Bilingual advisory support": "雙語顧問支援",
-    "Ready to explore Vietnam property investment?": "準備好探索越南物業投資了嗎？",
-    "A 30-minute private call. No obligation.": "30 分鐘私人通話，無任何義務。",
     "Book a consultation": "預約諮詢",
     "All rights reserved": "版權所有",
-    "Overseas buyers need more than listings. They need clear documentation, professional coordination and decision support at each step.":
-      "海外買家需要的不只是樓盤資訊，更需要清晰文件、專業協調及每一步的決策支援。",
-    "Independent professional review": "獨立專業審閱",
-    "Key purchase steps should be supported by qualified local professionals, including legal and document review where required.":
-      "重要購買步驟應由合資格本地專業人士支援，包括所需的法律及文件審閱。",
-    "Structured payment milestones": "清晰付款里程碑",
-    "Buyers should understand reservation terms, payment stages and required documents before committing to a unit.":
-      "買家在確認單位前，應清楚了解認購條款、付款階段及所需文件。",
-    "Bilingual buyer support": "雙語買家支援",
-    "English and Traditional Chinese support helps overseas buyers understand the process, documentation and key decisions more clearly.":
-      "英文及繁體中文支援有助海外買家更清楚理解流程、文件及關鍵決定。",
-    "Speak with an advisor before you shortlist": "篩選單位前，先與顧問了解方向",
-    "Share your budget, preferred city and ownership goals. We will help you understand suitable districts, available residences and the next steps before you proceed.":
-      "分享你的預算、偏好城市及持有目標。我們會協助你了解合適區域、可選住宅項目及下一步流程。",
-    "Browse Residences": "瀏覽住宅項目",
     "Indicative district assessment based on current market and planning context.":
       "根據目前市場及規劃背景作出的參考性區域評估。",
     "Planning theme": "規劃主題",

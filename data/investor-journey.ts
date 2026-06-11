@@ -9,43 +9,43 @@ export type InvestorJourneyStage = {
 export const investorJourneyStages: InvestorJourneyStage[] = [
   {
     step: "01",
-    icon: "RS",
-    title: "Research & Shortlist",
+    icon: "DR",
+    title: "Discover Districts & Residences",
     description:
-      "We help you understand key districts, project positioning and suitable residence options before you commit time or capital.",
+      "Start with district intelligence, project positioning and curated residence options before comparing individual units.",
     details: [
-      "District and residence shortlisting",
-      "Budget, location and buyer-profile fit",
+      "District and project research",
+      "Curated residence options",
     ],
   },
   {
     step: "02",
     icon: "CA",
-    title: "Compare & Assess",
+    title: "Compare Units & Speak with an Advisor",
     description:
-      "Compare available units, pricing, rental assumptions and ownership considerations through structured buyer tools and advisor input.",
+      "Shortlist residences side by side across price, size, location, rental assumptions and buyer suitability, then discuss your mandate with an advisor.",
     details: [
-      "Unit comparison and rental assumptions",
-      "Ownership considerations before reservation",
+      "Residence and unit comparison",
+      "Advisor discussion around buyer fit",
     ],
   },
   {
     step: "03",
     icon: "CP",
-    title: "Coordinate Purchase",
+    title: "Coordinate Reservation, Legal & Payment Steps",
     description:
-      "We help coordinate the reservation process, foreign-buyer eligibility checks, legal review and payment milestones with relevant local parties.",
+      "Before committing, buyers should complete unit-level checks, foreign-buyer eligibility review, legal document review and payment milestone planning.",
     details: [
-      "Reservation and eligibility coordination",
-      "Legal review and payment milestone support",
+      "Foreign-buyer eligibility review",
+      "Legal and payment milestone coordination",
     ],
   },
   {
     step: "04",
     icon: "MO",
-    title: "Manage Ownership",
+    title: "Handover & Managed Ownership",
     description:
-      "After completion, our platform vision extends to furnishing, leasing preparation, rental updates, maintenance records and owner reporting.",
+      "After completion, the platform vision extends to furnishing, leasing preparation, rental updates, maintenance records and owner reporting.",
     details: [
       "Handover, furnishing and leasing preparation",
       "Owner reporting and document records",
