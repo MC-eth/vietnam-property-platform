@@ -190,24 +190,21 @@ export default function HowItWorksPage() {
                 </BadgeLabel>
                 <h1 className={`${displaySerif.className} text-[38px] font-light leading-[1.1] text-[#F2EFE7] sm:text-[58px]`}>
                   <span className="mb-1.5 block">
-                    <TD value="Acquire with intelligence." />
+                    <TD value="Acquire with Clarity." />
                   </span>
-                  <span className="mb-7 block italic text-[#C9A96E]">
-                    <TD value="Own with confidence." />
+                  <span className="block italic text-[#C9A96E]">
+                    <TD value="Own with Confidence." />
                   </span>
                 </h1>
-                <p className="mb-9 max-w-[540px] text-[15px] font-light leading-[1.85] text-[#B7C7C1]">
-                  <TD value="A structured advisory pathway for overseas buyers — from district research and residence comparison to purchase coordination and managed ownership support." />
-                </p>
-                <div className="flex flex-col gap-3 sm:flex-row">
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <Link
-                    className="premium-focus-ring inline-flex min-h-12 items-center justify-center rounded-full bg-[#F5C84C] px-8 text-[11px] font-semibold uppercase tracking-[2px] text-[#11302A] transition hover:bg-[#E7B93D]"
+                    className="premium-focus-ring inline-flex min-h-12 items-center justify-center rounded-full bg-[#F5C84C] px-8 text-[11px] font-semibold uppercase tracking-[2px] text-[#11302A] shadow-[0_12px_30px_rgba(245,200,76,0.18)] transition hover:bg-[#E7B93D]"
                     href="/properties"
                   >
                     <TD value="Explore Residences" /> <span aria-hidden="true" className="ml-2">→</span>
                   </Link>
                   <Link
-                    className="premium-focus-ring inline-flex min-h-12 items-center justify-center rounded-full border-[1.5px] border-[#6C8A7E] px-8 text-[11px] font-semibold uppercase tracking-[2px] text-[#F2EFE7] transition hover:border-[#C9A96E] hover:text-[#C9A96E]"
+                    className="premium-focus-ring inline-flex min-h-12 items-center justify-center rounded-full border border-[#C9A96E]/65 bg-white/[0.06] px-8 text-[11px] font-semibold uppercase tracking-[2px] text-[#FFFDF8] backdrop-blur-sm transition hover:border-[#F5C84C] hover:bg-[#C9A96E]/18 hover:text-white"
                     href="/enquiry"
                   >
                     <TD value="Book a Private Consultation" />
@@ -223,20 +220,27 @@ export default function HowItWorksPage() {
                     className="h-[360px] w-full rounded-[18px] object-cover"
                     height={720}
                     priority
-                    src="/mock-images/heroes/vietnam-investment-hero.jpg"
+                    src="/images/our-services-hero.png"
                     width={960}
                   />
                   <div className="absolute inset-3 rounded-[18px] bg-gradient-to-t from-[#092F2A]/78 via-transparent to-transparent" />
-                  <div className="absolute bottom-8 left-8 right-8 rounded-2xl border border-white/12 bg-[#092F2A]/72 p-4 backdrop-blur-md">
-                    <p className="text-[10px] font-semibold uppercase tracking-[2px] text-[#C9A96E]">
-                      <TD value="Property journey workspace" />
-                    </p>
-                    <div className="mt-3 grid grid-cols-3 gap-2">
-                      {["Districts", "Residences", "Ownership"].map((item) => (
-                        <div className="rounded-xl bg-white/8 px-3 py-2 text-[11px] text-[#EAF1EE]" key={item}>
-                          <TD value={item} />
-                        </div>
-                      ))}
+                  <div
+                    aria-hidden="true"
+                    className="absolute bottom-7 right-7 w-[220px] rounded-3xl border border-white/14 bg-[#092F2A]/44 p-4 backdrop-blur-md"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="h-2 w-2 rounded-full bg-[#F5C84C]" />
+                      <span className="h-px flex-1 bg-white/22" />
+                      <span className="h-2 w-8 rounded-full bg-white/18" />
+                    </div>
+                    <div className="mt-4 grid grid-cols-3 gap-2">
+                      <span className="h-12 rounded-2xl bg-white/10" />
+                      <span className="h-12 rounded-2xl bg-[#C9A96E]/20" />
+                      <span className="h-12 rounded-2xl bg-white/10" />
+                    </div>
+                    <div className="mt-4 space-y-2">
+                      <span className="block h-1.5 w-4/5 rounded-full bg-white/18" />
+                      <span className="block h-1.5 w-1/2 rounded-full bg-[#C9A96E]/38" />
                     </div>
                   </div>
                 </div>

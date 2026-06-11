@@ -1445,6 +1445,8 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Built on Transparency": "以透明度建立信任",
     "THE PRIVATE INVESTOR JOURNEY": "海外買家服務流程",
     "The Private Investor Journey": "海外買家服務流程",
+    "Acquire with Clarity.": "以清晰資訊作決策。",
+    "Own with Confidence.": "以信心作持有。",
     "Acquire with intelligence.": "以資訊作決策。",
     "Own with confidence.": "以信心作持有。",
     "A structured advisory pathway for overseas buyers — from district research and residence comparison to purchase coordination and managed ownership support.":
