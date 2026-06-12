@@ -1444,7 +1444,7 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Owner reporting and document records": "業主報告及文件紀錄",
     "Built on Transparency": "以透明度建立信任",
     "THE PRIVATE INVESTOR JOURNEY": "海外買家服務流程",
-    "Invest with Clarity.": "清晰投資。",
+    "Invest with Clarity.": "以清晰資訊作投資。",
     "RESIDENCE INSIGHT": "住宅項目分析",
     "Ho Chi Minh City · Riverside": "胡志明市 · 河畔地段",
     "Market context": "市場背景",
