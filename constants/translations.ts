@@ -1462,32 +1462,49 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "FOUR STAGES · THE BUYER PATHWAY": "四個階段 · 買家流程",
     "Four Stages · The Investment Pathway": "四個階段 · 買家流程",
     "From first enquiry to managed ownership": "由初步查詢到持有管理",
+    "A clear four-stage process covering research, comparison, purchase coordination and post-completion support.":
+      "涵蓋市場研究、項目比較、購買協調及交付後支援的清晰四階段流程。",
     "Each stage is designed around the realities of cross-border property ownership — research, comparison, local coordination and post-completion support.":
       "每個階段均圍繞跨境物業持有的實際需要而設，包括市場研究、項目比較、本地協調及交付後支援。",
+    "Understand district positioning, project quality and suitable residence options before comparing individual units.":
+      "在比較個別單位前，先了解區域定位、項目質素及合適住宅選項。",
     "Start with district intelligence, project positioning and curated residence options before comparing individual units.":
       "先了解區域分析、項目定位及精選住宅選項，再進一步比較個別單位。",
     "Explore Districts": "探索區域",
     "Bilingual Advisory Support": "雙語顧問支援",
+    "Compare Units & Assess Fit": "比較單位及評估適配度",
     "Compare Units & Speak with an Advisor": "比較單位並與顧問對話",
+    "Compare shortlisted units across price, size, location, rental assumptions and buyer suitability, with advisor support where needed.":
+      "從價格、面積、位置、租務假設及買家適配度比較已篩選單位，並在需要時獲得顧問支援。",
     "Shortlist residences side by side across price, size, location, rental assumptions and buyer suitability, then discuss your mandate with an advisor.":
       "從價格、面積、位置、租務假設及買家適配度比較住宅項目，並與顧問討論你的需求。",
     "View Residences": "瀏覽住宅項目",
+    "Coordinate Purchase & Legal Steps": "協調購買及法律流程",
     "Coordinate Reservation, Legal & Payment Steps": "協調認購、法律及付款流程",
+    "Coordinate reservation steps, foreign-buyer eligibility checks, legal document review and payment milestones with the relevant local parties.":
+      "與相關本地團隊協調認購流程、海外買家資格核查、法律文件審閱及付款里程碑。",
     "Before committing, buyers should complete unit-level checks, foreign-buyer eligibility review, legal document review and payment milestone planning.":
       "確認認購前，買家應完成單位層面核查、海外買家資格確認、法律文件審閱及付款里程碑規劃。",
-    "Understand the Process": "了解流程",
+    "Understand the Process": "了解購買流程",
     "Handover & Managed Ownership": "交付及託管持有",
     "After completion, the platform vision extends to furnishing, leasing preparation, rental updates, maintenance records and owner reporting.":
       "交付後，平台願景將延伸至裝修配置、租務準備、租金更新、維修紀錄及業主報告。",
+    "Explore Owner Support": "了解業主支援",
     "Owner Support": "業主支援",
     "What We Help Coordinate": "我們協助協調的事項",
+    "Practical support across research, documentation, transaction steps and post-completion ownership.":
+      "涵蓋市場研究、文件、交易流程及交付後持有的實際支援。",
     "A practical layer of support around research, documentation, transaction steps and post-completion ownership.":
       "圍繞研究、文件、交易流程及交付後持有管理提供實用支援。",
+    "District & project research": "區域及項目研究",
     "District and project research": "區域及項目研究",
+    "Residence & unit comparison": "住宅及單位比較",
     "Residence and unit comparison": "住宅及單位比較",
     "Foreign-buyer eligibility review": "海外買家資格核查",
+    "Legal & document coordination": "法律及文件協調",
     "Legal and document coordination": "法律及文件協調",
     "Payment milestone planning": "付款里程碑規劃",
+    "Handover & leasing preparation": "交付及租務準備",
     "Handover and leasing preparation": "交付及租務準備",
     "Why serious investors choose this platform": "為何成熟投資者選擇此平台",
     "Why serious investors choose this platform.": "為何成熟投資者選擇此平台",

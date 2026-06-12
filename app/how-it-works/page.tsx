@@ -27,28 +27,28 @@ const progressSteps = [
   { label: "Discover", step: "01" },
   { label: "Compare", step: "02" },
   { label: "Reserve", step: "03" },
-  { label: "Own", step: "04", filled: true },
+  { label: "Own", step: "04" },
 ];
 
 const stageCards = [
   {
     step: "01",
     title: "Discover Districts & Residences",
-    body: "Start with district intelligence, project positioning and curated residence options before comparing individual units.",
+    body: "Understand district positioning, project quality and suitable residence options before comparing individual units.",
     linkLabel: "Explore Districts",
     href: "/districts",
   },
   {
     step: "02",
-    title: "Compare Units & Speak with an Advisor",
-    body: "Shortlist residences side by side across price, size, location, rental assumptions and buyer suitability, then discuss your mandate with an advisor.",
+    title: "Compare Units & Assess Fit",
+    body: "Compare shortlisted units across price, size, location, rental assumptions and buyer suitability, with advisor support where needed.",
     linkLabel: "View Residences",
     href: "/properties",
   },
   {
     step: "03",
-    title: "Coordinate Reservation, Legal & Payment Steps",
-    body: "Before committing, buyers should complete unit-level checks, foreign-buyer eligibility review, legal document review and payment milestone planning.",
+    title: "Coordinate Purchase & Legal Steps",
+    body: "Coordinate reservation steps, foreign-buyer eligibility checks, legal document review and payment milestones with the relevant local parties.",
     linkLabel: "Understand the Process",
     href: "/enquiry",
   },
@@ -56,9 +56,8 @@ const stageCards = [
     step: "04",
     title: "Handover & Managed Ownership",
     body: "After completion, the platform vision extends to furnishing, leasing preparation, rental updates, maintenance records and owner reporting.",
-    linkLabel: "Owner Support",
+    linkLabel: "Explore Owner Support",
     href: "/enquiry",
-    accent: true,
   },
 ];
 
@@ -81,13 +80,12 @@ const trustPillars = [
 ];
 
 const coordinationItems = [
-  "District and project research",
-  "Residence and unit comparison",
+  "District & project research",
+  "Residence & unit comparison",
   "Foreign-buyer eligibility review",
-  "Legal and document coordination",
+  "Legal & document coordination",
   "Payment milestone planning",
-  "Handover and leasing preparation",
-  "Owner reporting and document records",
+  "Handover & leasing preparation",
 ];
 
 function BadgeLabel({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -155,9 +153,9 @@ export default function HowItWorksPage() {
         </section>
 
         {/* Stages — editorial rows */}
-        <section className="px-6 pt-14 sm:px-10 sm:pt-20">
+        <section className="px-6 pb-12 pt-12 sm:px-10 sm:pb-14 sm:pt-16">
           <div className="mx-auto max-w-7xl">
-            <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+            <div className="grid gap-5 lg:grid-cols-[0.9fr_0.72fr] lg:items-center">
               <div>
                 <BadgeLabel className="mb-4">
                   <TD value="FOUR STAGES · THE BUYER PATHWAY" />
@@ -167,46 +165,36 @@ export default function HowItWorksPage() {
                   <TD value="From first enquiry to managed ownership" />
                 </h2>
               </div>
-              <p className="max-w-[460px] text-sm font-light leading-[1.85] text-[#4A6359] lg:justify-self-end lg:pb-2">
-                <TD value="Each stage is designed around the realities of cross-border property ownership — research, comparison, local coordination and post-completion support." />
+              <p className="max-w-[430px] text-[15.5px] font-light leading-[1.75] text-[#3D5248] lg:justify-self-start">
+                <TD value="A clear four-stage process covering research, comparison, purchase coordination and post-completion support." />
               </p>
             </div>
 
-            <div className="mx-auto mt-12 flex max-w-[560px] items-start justify-between lg:mx-0">
+            <div className="-mx-1 mt-9 flex max-w-[680px] items-start overflow-x-auto px-1 pb-2 sm:mx-0 sm:overflow-visible sm:px-0 lg:mt-10">
               {progressSteps.map((step, index) => (
-                <div className="flex flex-1 items-center last:flex-none" key={step.step}>
-                  <div className="flex flex-col items-center gap-2.5">
-                    <span
-                      className={`flex h-10 w-10 items-center justify-center rounded-full text-[11px] font-medium tracking-[1px] ${
-                        step.filled
-                          ? "border border-[#11302A] bg-[#11302A] text-[#C9A96E]"
-                          : "border border-[#B08D4F]/70 text-[#8A6D3A]"
-                      }`}
-                    >
+                <div className="flex min-w-[138px] flex-1 items-center last:flex-none sm:min-w-0" key={step.step}>
+                  <div className="flex flex-col items-center gap-3">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-full border border-[#B08D4F]/75 bg-[#FFFDF8] text-[12px] font-semibold tracking-[1px] text-[#11302A] shadow-sm transition-colors duration-200">
                       {step.step}
                     </span>
-                    <span className="text-[9px] font-medium uppercase tracking-[2px] text-[#11302A]">
+                    <span className="text-[10.5px] font-medium uppercase tracking-[1.8px] text-[#11302A]">
                       <TD value={step.label} />
                     </span>
                   </div>
                   {index < progressSteps.length - 1 ? (
-                    <div aria-hidden="true" className="mx-2 mb-[22px] hidden h-px flex-1 bg-[#D8D2C3] sm:block" />
+                    <div aria-hidden="true" className="mx-3 mb-[26px] h-px min-w-10 flex-1 bg-[#B08D4F]/45 sm:min-w-0" />
                   ) : null}
                 </div>
               ))}
             </div>
 
-            <div className="mt-12 border-t border-[#D8D2C3]">
+            <div className="mt-9 border-t border-[#D8D2C3]">
               {stageCards.map((card) => (
                 <article
-                  className="group grid gap-4 border-b border-[#D8D2C3] py-10 sm:py-12 lg:grid-cols-[120px_1.1fr_1fr] lg:gap-10"
+                  className="grid gap-4 border-b border-[#D8D2C3] py-7 sm:py-8 lg:grid-cols-[0.12fr_0.36fr_0.52fr] lg:gap-8"
                   key={card.step}
                 >
-                  <p
-                    className={`${displaySerif.className} text-[56px] font-light leading-none lg:text-[64px] ${
-                      card.accent ? "text-[#B08D4F]" : "text-[#CFC8B6]"
-                    }`}
-                  >
+                  <p className={`${displaySerif.className} text-[46px] font-light leading-none text-[#CFC8B6] lg:text-[58px]`}>
                     {card.step}
                   </p>
                   <div>
@@ -214,46 +202,48 @@ export default function HowItWorksPage() {
                       <TD value={card.title} />
                     </h3>
                     <Link
-                      className="premium-focus-ring mt-4 inline-block cursor-pointer text-[10px] font-medium uppercase tracking-[2px] text-[#B08D4F] transition-opacity duration-200 hover:opacity-80"
+                      className="premium-focus-ring group mt-4 inline-flex cursor-pointer items-center text-[13px] font-medium tracking-[0.02em] text-[#8A6D3A] underline decoration-[#B08D4F]/35 underline-offset-4 transition-colors duration-200 hover:text-[#11302A]"
                       href={card.href}
                     >
-                      <TD value={card.linkLabel} /> <span aria-hidden="true">→</span>
+                      <TD value={card.linkLabel} /> <span aria-hidden="true" className="ml-2 transition-transform duration-200 group-hover:translate-x-1">→</span>
                     </Link>
                   </div>
-                  <p className="max-w-[480px] text-[13.5px] font-light leading-[1.85] text-[#3D5248] lg:pt-2">
+                  <p className="max-w-[560px] text-[15px] font-light leading-[1.75] text-[#3D5248] lg:pt-1">
                     <TD value={card.body} />
                   </p>
                 </article>
               ))}
             </div>
 
-            <div className="mt-14 grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+            <div className="mt-10 border-b border-[#D8D2C3] pb-10">
+              <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
               <div>
                 <BadgeLabel className="mb-3">
                   <TD value="What We Help Coordinate" />
                 </BadgeLabel>
                 <GoldRule />
-                <p className="mt-4 max-w-[380px] text-sm font-light leading-[1.85] text-[#4A6359]">
-                  <TD value="A practical layer of support around research, documentation, transaction steps and post-completion ownership." />
+                <p className="mt-4 max-w-[390px] text-[15px] font-light leading-[1.75] text-[#4A6359]">
+                  <TD value="Practical support across research, documentation, transaction steps and post-completion ownership." />
                 </p>
               </div>
-              <ul className="grid gap-x-10 sm:grid-cols-2">
+              <ul className="grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
                 {coordinationItems.map((item) => (
                   <li
-                    className="flex items-center gap-3 border-b border-[#E0DACB] py-3 text-sm font-light text-[#123C35]"
+                    className="flex items-center gap-3 border-b border-[#E0DACB] py-3.5 text-[14px] font-light leading-snug text-[#123C35]"
                     key={item}
                   >
-                    <span aria-hidden="true" className="h-1 w-1 shrink-0 rounded-full bg-[#B08D4F]" />
+                    <span aria-hidden="true" className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#B08D4F]/45 bg-[#FFFDF8] text-[10px] font-semibold text-[#8A6D3A]">✓</span>
                     <TD value={item} />
                   </li>
                 ))}
               </ul>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Trust pillars */}
-        <section className="px-6 py-16 sm:px-10 sm:py-24">
+        <section className="px-6 pb-16 pt-10 sm:px-10 sm:pb-24 sm:pt-14">
           <div className="mx-auto max-w-7xl">
             <div className="max-w-2xl">
               <BadgeLabel className="mb-4">
