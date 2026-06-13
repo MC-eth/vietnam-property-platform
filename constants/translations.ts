@@ -1461,6 +1461,7 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     Ownership: "持有管理",
     "FOUR STAGES · THE BUYER PATHWAY": "四個階段 · 買家流程",
     "Four Stages · The Investment Pathway": "四個階段 · 買家流程",
+    "From Market Insight to Managed Ownership": "由市場洞察到持有管理",
     "From first enquiry to managed ownership": "由初步查詢到持有管理",
     "A clear four-stage process covering research, comparison, purchase coordination and post-completion support.":
       "涵蓋市場研究、項目比較、購買協調及交付後支援的清晰四階段流程。",

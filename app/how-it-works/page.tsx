@@ -155,24 +155,21 @@ export default function HowItWorksPage() {
         {/* Stages — editorial rows */}
         <section className="px-6 pb-12 pt-12 sm:px-10 sm:pb-14 sm:pt-16">
           <div className="mx-auto max-w-7xl">
-            <div className="grid gap-5 lg:grid-cols-[0.9fr_0.72fr] lg:items-center">
+            <div className="mx-auto max-w-5xl text-center">
               <div>
                 <BadgeLabel className="mb-4">
                   <TD value="FOUR STAGES · THE BUYER PATHWAY" />
                 </BadgeLabel>
-                <GoldRule />
-                <h2 className={`${displaySerif.className} mt-5 text-[clamp(2rem,4vw,3rem)] font-light leading-[1.1] text-[#11302A]`}>
-                  <TD value="From first enquiry to managed ownership" />
+                <GoldRule centered />
+                <h2 className={`${displaySerif.className} mx-auto mt-5 max-w-4xl text-[clamp(2rem,4vw,3rem)] font-light leading-[1.1] text-[#11302A]`}>
+                  <TD value="From Market Insight to Managed Ownership" />
                 </h2>
               </div>
-              <p className="max-w-[430px] text-[15.5px] font-light leading-[1.75] text-[#3D5248] lg:justify-self-start">
-                <TD value="A clear four-stage process covering research, comparison, purchase coordination and post-completion support." />
-              </p>
             </div>
 
-            <div className="-mx-1 mt-9 flex max-w-[680px] items-start overflow-x-auto px-1 pb-2 sm:mx-0 sm:overflow-visible sm:px-0 lg:mt-10">
+            <div className="mx-auto mt-9 flex max-w-[900px] items-start justify-center overflow-x-auto px-1 pb-2 sm:overflow-visible sm:px-0 lg:mt-10">
               {progressSteps.map((step, index) => (
-                <div className="flex min-w-[138px] flex-1 items-center last:flex-none sm:min-w-0" key={step.step}>
+                <div className="flex min-w-[138px] flex-1 items-center justify-center last:flex-none sm:min-w-0" key={step.step}>
                   <div className="flex flex-col items-center gap-3">
                     <span className="flex h-12 w-12 items-center justify-center rounded-full border border-[#B08D4F]/75 bg-[#FFFDF8] text-[12px] font-semibold tracking-[1px] text-[#11302A] shadow-sm transition-colors duration-200">
                       {step.step}
