@@ -253,7 +253,7 @@ export default function HowItWorksPage() {
         {/* Trust pillars */}
         <section className="border-t border-[#B08D4F]/20 px-6 pb-14 pt-8 sm:px-10 sm:pb-20 sm:pt-11">
           <div className="mx-auto max-w-7xl">
-            <div className="grid gap-6 lg:grid-cols-[0.58fr_0.42fr] lg:items-end">
+            <div className="max-w-2xl">
               <div className="max-w-2xl">
                 <BadgeLabel className="mb-4">
                   <TD value="Built on Transparency" />
@@ -263,9 +263,6 @@ export default function HowItWorksPage() {
                   <TD value="A Clearer Standard for Overseas Buyers" />
                 </h2>
               </div>
-              <p className="max-w-[470px] text-[15px] font-light leading-[1.75] text-[#3D5248] lg:justify-self-end lg:pb-1">
-                <TD value="Overseas buyers need more than listings. They need clear information, structured coordination and professional support at every stage." />
-              </p>
             </div>
             <div className="mt-9 grid gap-0 border-y border-[#D8D2C3] md:grid-cols-3 md:divide-x md:divide-[#D8D2C3] md:border-y-0">
               {trustPillars.map((pillar) => (
@@ -302,22 +299,22 @@ export default function HowItWorksPage() {
               </div>
               <div className="flex flex-col gap-3 lg:items-end">
                 <Link
-                  className="premium-focus-ring inline-flex min-h-12 w-full cursor-pointer items-center justify-center rounded-full bg-[#F5C84C] px-8 text-[11px] font-semibold uppercase tracking-[2px] text-[#11302A] transition-colors duration-200 hover:bg-[#E7B93D] sm:w-auto lg:w-[280px]"
+                  className="premium-focus-ring inline-flex min-h-14 w-full cursor-pointer items-center justify-center whitespace-nowrap rounded-full bg-[#F5C84C] px-7 text-center text-[10.5px] font-semibold uppercase tracking-[1.2px] text-[#11302A] transition-colors duration-200 hover:bg-[#E7B93D] sm:min-h-16 sm:w-[360px] sm:px-9 sm:text-[11px] lg:w-[380px]"
                   href="/enquiry"
                 >
                   <TD value="Book a Private Consultation" />
                 </Link>
                 <Link
-                  className="premium-focus-ring inline-flex min-h-12 w-full cursor-pointer items-center justify-center rounded-full border border-[#6C8A7E] px-8 text-[11px] font-semibold uppercase tracking-[2px] text-[#F2EFE7] transition-colors duration-200 hover:border-[#C9A96E] hover:text-[#C9A96E] sm:w-auto lg:w-[280px]"
+                  className="premium-focus-ring inline-flex min-h-14 w-full cursor-pointer items-center justify-center whitespace-nowrap rounded-full border border-[#D8D2C3]/58 px-7 text-center text-[10.5px] font-semibold uppercase tracking-[1.2px] text-[#FFFDF8] transition-colors duration-200 hover:border-[#C9A96E] hover:bg-white/[0.04] hover:text-[#F2EFE7] sm:min-h-16 sm:w-[360px] sm:px-9 sm:text-[11px] lg:w-[380px]"
                   href="/properties"
                 >
                   <TD value="Browse Residences" />
                 </Link>
               </div>
             </div>
-            <p className="mt-12 max-w-[640px] border-t border-white/10 pt-6 text-[11px] leading-[1.7] text-[#5C7A6E]">
+            <p className="mt-12 max-w-[640px] border-t border-white/12 pt-6 text-[11.5px] leading-[1.75] text-[#86A092]">
               <TD value="MVP prototype. Content is illustrative only and does not constitute financial, legal, tax or investment advice. Indicative yields and returns are not guaranteed." />{" "}
-              <Link className="premium-focus-ring cursor-pointer underline decoration-[#5C7A6E]/60 underline-offset-2 transition-opacity duration-200 hover:opacity-80" href="/legal-disclaimer">
+              <Link className="premium-focus-ring cursor-pointer font-medium text-[#C9A96E] underline decoration-[#C9A96E]/55 underline-offset-2 transition-opacity duration-200 hover:opacity-85" href="/legal-disclaimer">
                 <TD value="Full disclaimer" /> <span aria-hidden="true">→</span>
               </Link>
             </p>
