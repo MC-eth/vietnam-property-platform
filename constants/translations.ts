@@ -1520,15 +1520,26 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Platform roadmap": "平台規劃",
     "Why serious investors choose this platform": "為何成熟投資者選擇此平台",
     "Why serious investors choose this platform.": "為何成熟投資者選擇此平台",
+    "A Clearer Standard for Overseas Buyers": "為海外買家建立更清晰的服務標準",
+    "Overseas buyers need more than listings. They need clear information, structured coordination and professional support at every stage.":
+      "海外買家需要的不只是樓盤資訊，更需要清晰資料、有系統的協調及每個階段的專業支援。",
     "Overseas buyers need more than listings. They need clear documentation, professional coordination and decision support at each step.":
       "海外買家需要的不只是樓盤資訊，更需要清晰文件、專業協調及每一步的決策支援。",
     "Independent Professional Review": "獨立專業審閱",
     "Independent Legal Review": "獨立專業審閱",
+    "We help coordinate legal and document review with qualified local professionals where required.":
+      "我們在需要時協助與合資格本地專業人士協調法律及文件審閱。",
     "Key purchase steps should be supported by qualified local professionals, including legal and document review where required.":
       "重要購買步驟應由合資格本地專業人士支援，包括所需的法律及文件審閱。",
+    "Structured Payment Milestones": "清晰付款里程碑",
     "Milestone-Based Payments": "按里程碑付款",
+    "Buyers receive clearer visibility of reservation terms, payment stages and required documents before proceeding.":
+      "買家在推進交易前，可更清楚了解認購條款、付款階段及所需文件。",
     "Buyers should understand reservation terms, payment stages and required documents before committing to a unit.":
       "買家在確認單位前，應清楚了解認購條款、付款階段及所需文件。",
+    "Bilingual Buyer Support": "雙語買家支援",
+    "English and Traditional Chinese support helps buyers understand the process, documentation and key decisions more clearly.":
+      "英文及繁體中文支援有助買家更清楚理解流程、文件及關鍵決定。",
     "English and Traditional Chinese support helps overseas buyers understand the process, documentation and key decisions more clearly.":
       "英文及繁體中文支援有助海外買家更清楚理解流程、文件及關鍵決定。",
     "Private Consultation · No Obligation": "私人諮詢 · 無任何義務",

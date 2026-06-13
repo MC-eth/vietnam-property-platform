@@ -65,17 +65,17 @@ const trustPillars = [
   {
     icon: "certificate",
     title: "Independent Professional Review",
-    body: "Key purchase steps should be supported by qualified local professionals, including legal and document review where required.",
+    body: "We help coordinate legal and document review with qualified local professionals where required.",
   },
   {
     icon: "shield",
-    title: "Milestone-Based Payments",
-    body: "Buyers should understand reservation terms, payment stages and required documents before committing to a unit.",
+    title: "Structured Payment Milestones",
+    body: "Buyers receive clearer visibility of reservation terms, payment stages and required documents before proceeding.",
   },
   {
     icon: "globe",
-    title: "Bilingual Advisory Support",
-    body: "English and Traditional Chinese support helps overseas buyers understand the process, documentation and key decisions more clearly.",
+    title: "Bilingual Buyer Support",
+    body: "English and Traditional Chinese support helps buyers understand the process, documentation and key decisions more clearly.",
   },
 ];
 
@@ -251,30 +251,32 @@ export default function HowItWorksPage() {
         </section>
 
         {/* Trust pillars */}
-        <section className="border-t border-[#B08D4F]/20 px-6 pb-16 pt-8 sm:px-10 sm:pb-24 sm:pt-12">
+        <section className="border-t border-[#B08D4F]/20 px-6 pb-14 pt-8 sm:px-10 sm:pb-20 sm:pt-11">
           <div className="mx-auto max-w-7xl">
-            <div className="max-w-2xl">
-              <BadgeLabel className="mb-4">
-                <TD value="Built on Transparency" />
-              </BadgeLabel>
-              <GoldRule />
-              <h2 className={`${displaySerif.className} mt-5 text-[clamp(1.9rem,3.5vw,2.6rem)] font-light leading-[1.15] text-[#11302A]`}>
-                <TD value="Why serious investors choose this platform" />
-              </h2>
-              <p className="mt-4 max-w-xl text-sm font-light leading-[1.85] text-[#4A6359]">
-                <TD value="Overseas buyers need more than listings. They need clear documentation, professional coordination and decision support at each step." />
+            <div className="grid gap-6 lg:grid-cols-[0.58fr_0.42fr] lg:items-end">
+              <div className="max-w-2xl">
+                <BadgeLabel className="mb-4">
+                  <TD value="Built on Transparency" />
+                </BadgeLabel>
+                <GoldRule />
+                <h2 className={`${displaySerif.className} mt-5 text-[clamp(1.9rem,3.5vw,2.6rem)] font-light leading-[1.15] text-[#11302A]`}>
+                  <TD value="A Clearer Standard for Overseas Buyers" />
+                </h2>
+              </div>
+              <p className="max-w-[470px] text-[15px] font-light leading-[1.75] text-[#3D5248] lg:justify-self-end lg:pb-1">
+                <TD value="Overseas buyers need more than listings. They need clear information, structured coordination and professional support at every stage." />
               </p>
             </div>
-            <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-0 md:divide-x md:divide-[#D8D2C3]">
+            <div className="mt-9 grid gap-0 border-y border-[#D8D2C3] md:grid-cols-3 md:divide-x md:divide-[#D8D2C3] md:border-y-0">
               {trustPillars.map((pillar) => (
-                <article className="md:px-10 md:first:pl-0 md:last:pr-0" key={pillar.title}>
-                  <span className="inline-flex text-[#8A6D3A]">
+                <article className="border-b border-[#D8D2C3] py-7 last:border-b-0 md:border-b-0 md:px-9 md:py-2 md:first:pl-0 md:last:pr-0" key={pillar.title}>
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#B08D4F]/20 bg-[#F8F3EA] text-[#8A6D3A]">
                     <PillarIcon type={pillar.icon} />
                   </span>
-                  <h3 className="mb-2.5 mt-4 text-[15px] font-medium text-[#11302A]">
+                  <h3 className="mb-2 mt-4 text-[15.5px] font-medium leading-snug text-[#11302A]">
                     <TD value={pillar.title} />
                   </h3>
-                  <p className="max-w-[320px] text-[13px] font-light leading-[1.85] text-[#3D5248]">
+                  <p className="max-w-[330px] text-[13.5px] font-light leading-[1.75] text-[#3D5248]">
                     <TD value={pillar.body} />
                   </p>
                 </article>
