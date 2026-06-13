@@ -1475,6 +1475,8 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Bilingual Advisory Support": "雙語顧問支援",
     "Compare Units & Assess Fit": "比較單位及評估適配度",
     "Compare Units & Speak with an Advisor": "比較單位並與顧問對話",
+    "Compare shortlisted units across price, size, location, rental assumptions and buyer fit, with advisor support where needed.":
+      "從價格、面積、位置、租務假設及買家適配度比較已篩選單位，並在需要時獲得顧問支援。",
     "Compare shortlisted units across price, size, location, rental assumptions and buyer suitability, with advisor support where needed.":
       "從價格、面積、位置、租務假設及買家適配度比較已篩選單位，並在需要時獲得顧問支援。",
     "Shortlist residences side by side across price, size, location, rental assumptions and buyer suitability, then discuss your mandate with an advisor.":
@@ -1482,19 +1484,26 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "View Residences": "瀏覽住宅項目",
     "Coordinate Purchase & Legal Steps": "協調購買及法律流程",
     "Coordinate Reservation, Legal & Payment Steps": "協調認購、法律及付款流程",
+    "Coordinate reservation, buyer-eligibility, legal-review and payment steps with the relevant local parties.":
+      "與相關本地團隊協調認購、買家資格、法律審閱及付款流程。",
     "Coordinate reservation steps, foreign-buyer eligibility checks, legal document review and payment milestones with the relevant local parties.":
       "與相關本地團隊協調認購流程、海外買家資格核查、法律文件審閱及付款里程碑。",
     "Before committing, buyers should complete unit-level checks, foreign-buyer eligibility review, legal document review and payment milestone planning.":
       "確認認購前，買家應完成單位層面核查、海外買家資格確認、法律文件審閱及付款里程碑規劃。",
     "Understand the Process": "了解購買流程",
     "Handover & Managed Ownership": "交付及託管持有",
+    "We support handover, furnishing and leasing preparation, while the future ownership platform is designed to bring rental updates, maintenance records and owner documents into one view.":
+      "我們協助交付、裝修配置及租務準備；未來的持有管理平台則旨在集中展示租務更新、維修紀錄及業主文件。",
     "After completion, the platform vision extends to furnishing, leasing preparation, rental updates, maintenance records and owner reporting.":
       "交付後，平台願景將延伸至裝修配置、租務準備、租金更新、維修紀錄及業主報告。",
+    "Learn About Ownership Support": "了解持有支援",
     "Explore Owner Support": "了解業主支援",
     "Owner Support": "業主支援",
     "What We Help Coordinate": "我們協助協調的事項",
     "Practical support across research, documentation, transaction steps and post-completion ownership.":
       "涵蓋市場研究、文件、交易流程及交付後持有的實際支援。",
+    "Support is delivered through platform tools, advisor coordination and qualified local partners, depending on the service required.":
+      "視乎所需服務，透過平台工具、顧問協調及合資格本地合作夥伴提供支援。",
     "A practical layer of support around research, documentation, transaction steps and post-completion ownership.":
       "圍繞研究、文件、交易流程及交付後持有管理提供實用支援。",
     "District & project research": "區域及項目研究",
@@ -1507,6 +1516,8 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Payment milestone planning": "付款里程碑規劃",
     "Handover & leasing preparation": "交付及租務準備",
     "Handover and leasing preparation": "交付及租務準備",
+    "Ownership records & reporting": "持有紀錄及業主報告",
+    "Platform roadmap": "平台規劃",
     "Why serious investors choose this platform": "為何成熟投資者選擇此平台",
     "Why serious investors choose this platform.": "為何成熟投資者選擇此平台",
     "Overseas buyers need more than listings. They need clear documentation, professional coordination and decision support at each step.":
@@ -1531,6 +1542,7 @@ export const displayTranslations: Record<LanguageCode, Record<string, string>> =
     "Gateway cities": "門戶城市",
     Discover: "探索",
     Compare: "比較",
+    Purchase: "購買",
     Reserve: "認購",
     Own: "持有",
     "Book a consultation": "預約諮詢",

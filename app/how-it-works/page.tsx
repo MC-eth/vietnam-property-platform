@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 const progressSteps = [
   { label: "Discover", step: "01" },
   { label: "Compare", step: "02" },
-  { label: "Reserve", step: "03" },
+  { label: "Purchase", step: "03" },
   { label: "Own", step: "04" },
 ];
 
@@ -41,22 +41,22 @@ const stageCards = [
   {
     step: "02",
     title: "Compare Units & Assess Fit",
-    body: "Compare shortlisted units across price, size, location, rental assumptions and buyer suitability, with advisor support where needed.",
+    body: "Compare shortlisted units across price, size, location, rental assumptions and buyer fit, with advisor support where needed.",
     linkLabel: "View Residences",
     href: "/properties",
   },
   {
     step: "03",
     title: "Coordinate Purchase & Legal Steps",
-    body: "Coordinate reservation steps, foreign-buyer eligibility checks, legal document review and payment milestones with the relevant local parties.",
+    body: "Coordinate reservation, buyer-eligibility, legal-review and payment steps with the relevant local parties.",
     linkLabel: "Understand the Process",
     href: "/enquiry",
   },
   {
     step: "04",
     title: "Handover & Managed Ownership",
-    body: "After completion, the platform vision extends to furnishing, leasing preparation, rental updates, maintenance records and owner reporting.",
-    linkLabel: "Explore Owner Support",
+    body: "We support handover, furnishing and leasing preparation, while the future ownership platform is designed to bring rental updates, maintenance records and owner documents into one view.",
+    linkLabel: "Learn About Ownership Support",
     href: "/enquiry",
   },
 ];
@@ -80,12 +80,13 @@ const trustPillars = [
 ];
 
 const coordinationItems = [
-  "District & project research",
-  "Residence & unit comparison",
-  "Foreign-buyer eligibility review",
-  "Legal & document coordination",
-  "Payment milestone planning",
-  "Handover & leasing preparation",
+  { label: "District & project research" },
+  { label: "Residence & unit comparison" },
+  { label: "Foreign-buyer eligibility review" },
+  { label: "Legal & document coordination" },
+  { label: "Payment milestone planning" },
+  { label: "Handover & leasing preparation" },
+  { label: "Ownership records & reporting", status: "Platform roadmap" },
 ];
 
 function BadgeLabel({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -167,7 +168,7 @@ export default function HowItWorksPage() {
               </div>
             </div>
 
-            <div className="mx-auto mt-9 flex max-w-[900px] items-start justify-center overflow-x-auto px-1 pb-2 sm:overflow-visible sm:px-0 lg:mt-10">
+            <div className="mx-auto mt-8 flex max-w-[900px] items-start justify-center overflow-x-auto px-1 pb-2 sm:overflow-visible sm:px-0 lg:mt-9">
               {progressSteps.map((step, index) => (
                 <div className="flex min-w-[138px] flex-1 items-center justify-center last:flex-none sm:min-w-0" key={step.step}>
                   <div className="flex flex-col items-center gap-3">
@@ -185,13 +186,13 @@ export default function HowItWorksPage() {
               ))}
             </div>
 
-            <div className="mt-9 border-t border-[#D8D2C3]">
+            <div className="mt-8 border-t border-[#D8D2C3]">
               {stageCards.map((card) => (
                 <article
-                  className="grid gap-4 border-b border-[#D8D2C3] py-7 sm:py-8 lg:grid-cols-[0.12fr_0.36fr_0.52fr] lg:gap-8"
+                  className="grid gap-3 border-b border-[#D8D2C3] py-6 sm:py-7 lg:grid-cols-[0.11fr_0.36fr_0.53fr] lg:gap-8"
                   key={card.step}
                 >
-                  <p className={`${displaySerif.className} text-[46px] font-light leading-none text-[#CFC8B6] lg:text-[58px]`}>
+                  <p className={`${displaySerif.className} text-[48px] font-light leading-none text-[#BFB59F] lg:text-[60px]`}>
                     {card.step}
                   </p>
                   <div>
@@ -199,48 +200,58 @@ export default function HowItWorksPage() {
                       <TD value={card.title} />
                     </h3>
                     <Link
-                      className="premium-focus-ring group mt-4 inline-flex cursor-pointer items-center text-[13px] font-medium tracking-[0.02em] text-[#8A6D3A] underline decoration-[#B08D4F]/35 underline-offset-4 transition-colors duration-200 hover:text-[#11302A]"
+                      className="premium-focus-ring group -ml-2 mt-4 inline-flex min-h-10 cursor-pointer items-center rounded-full px-2 text-[14px] font-medium tracking-normal text-[#7F6128] underline decoration-[#B08D4F]/42 underline-offset-4 transition-colors duration-200 hover:text-[#11302A] hover:decoration-[#11302A]/55"
                       href={card.href}
                     >
-                      <TD value={card.linkLabel} /> <span aria-hidden="true" className="ml-2 transition-transform duration-200 group-hover:translate-x-1">→</span>
+                      <TD value={card.linkLabel} /> <span aria-hidden="true" className="ml-2 transition-transform duration-200 group-hover:translate-x-1 group-focus-visible:translate-x-1">→</span>
                     </Link>
                   </div>
-                  <p className="max-w-[560px] text-[15px] font-light leading-[1.75] text-[#3D5248] lg:pt-1">
+                  <p className="max-w-[590px] text-[15.5px] font-light leading-[1.72] text-[#2F4A40] lg:pt-1">
                     <TD value={card.body} />
                   </p>
                 </article>
               ))}
             </div>
 
-            <div className="mt-10 border-b border-[#D8D2C3] pb-10">
+            <div className="mt-8 border-b border-[#D8D2C3] pb-8">
               <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
-              <div>
-                <BadgeLabel className="mb-3">
-                  <TD value="What We Help Coordinate" />
-                </BadgeLabel>
-                <GoldRule />
-                <p className="mt-4 max-w-[390px] text-[15px] font-light leading-[1.75] text-[#4A6359]">
-                  <TD value="Practical support across research, documentation, transaction steps and post-completion ownership." />
-                </p>
-              </div>
-              <ul className="grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
-                {coordinationItems.map((item) => (
-                  <li
-                    className="flex items-center gap-3 border-b border-[#E0DACB] py-3.5 text-[14px] font-light leading-snug text-[#123C35]"
-                    key={item}
-                  >
-                    <span aria-hidden="true" className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#B08D4F]/45 bg-[#FFFDF8] text-[10px] font-semibold text-[#8A6D3A]">✓</span>
-                    <TD value={item} />
-                  </li>
-                ))}
-              </ul>
+                <div>
+                  <BadgeLabel className="mb-3">
+                    <TD value="What We Help Coordinate" />
+                  </BadgeLabel>
+                  <GoldRule />
+                  <p className="mt-4 max-w-[390px] text-[15px] font-light leading-[1.75] text-[#4A6359]">
+                    <TD value="Practical support across research, documentation, transaction steps and post-completion ownership." />
+                  </p>
+                  <p className="mt-4 max-w-[430px] text-[12.5px] font-light leading-[1.7] text-[#68776F]">
+                    <TD value="Support is delivered through platform tools, advisor coordination and qualified local partners, depending on the service required." />
+                  </p>
+                </div>
+                <ul className="grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
+                  {coordinationItems.map((item) => (
+                    <li
+                      className="flex items-start gap-3 border-b border-[#E0DACB] py-3.5 text-[14px] font-light leading-snug text-[#123C35]"
+                      key={item.label}
+                    >
+                      <span aria-hidden="true" className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#B08D4F]/45 bg-[#FFFDF8] text-[10px] font-semibold text-[#8A6D3A]">✓</span>
+                      <span>
+                        <TD value={item.label} />
+                        {item.status ? (
+                          <span className="mt-1 block w-fit rounded-full border border-[#B08D4F]/35 bg-[#FFFDF8] px-2 py-0.5 text-[9px] font-medium uppercase tracking-[1.3px] text-[#8A6D3A]">
+                            <TD value={item.status} />
+                          </span>
+                        ) : null}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
         </section>
 
         {/* Trust pillars */}
-        <section className="px-6 pb-16 pt-10 sm:px-10 sm:pb-24 sm:pt-14">
+        <section className="border-t border-[#B08D4F]/20 px-6 pb-16 pt-8 sm:px-10 sm:pb-24 sm:pt-12">
           <div className="mx-auto max-w-7xl">
             <div className="max-w-2xl">
               <BadgeLabel className="mb-4">
