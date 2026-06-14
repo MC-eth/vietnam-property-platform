@@ -220,3 +220,72 @@ select {
     transition: none;
   }
 }
+
+/* Phase 2 cinematic Mapbox preview. Scoped to .hcmc-map so the control and
+   loading styling never leaks into future map instances. */
+.hcmc-map .mapboxgl-ctrl-group {
+  background: rgba(255, 253, 248, 0.92);
+  border: 1px solid #e4dcc9;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(31, 41, 55, 0.1);
+  overflow: hidden;
+}
+
+.hcmc-map .mapboxgl-ctrl-group button + button {
+  border-top: 1px solid #ede6d6;
+}
+
+.hcmc-map .mapboxgl-ctrl-group button:hover {
+  background-color: #f6efdf;
+}
+
+/* Tint the default dark control glyphs toward deep forest green. */
+.hcmc-map .mapboxgl-ctrl-group button .mapboxgl-ctrl-icon {
+  filter: invert(19%) sepia(18%) saturate(1198%) hue-rotate(115deg)
+    brightness(94%) contrast(90%);
+}
+
+.hcmc-map .mapboxgl-ctrl-attrib.mapboxgl-compact {
+  background: rgba(255, 253, 248, 0.82);
+}
+
+.hcmc-map .mapboxgl-ctrl-attrib a {
+  color: #6b7280;
+}
+
+.hcmc-map-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  overflow: hidden;
+  background: rgba(184, 146, 58, 0.12);
+}
+
+.hcmc-map-progress::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 36%;
+  background: linear-gradient(90deg, transparent, #b8923a, transparent);
+  animation: hcmc-map-progress 1.5s ease-in-out infinite;
+}
+
+@keyframes hcmc-map-progress {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(360%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hcmc-map-progress::after {
+    animation: none;
+    left: 0;
+    width: 100%;
+    opacity: 0.5;
+  }
+}

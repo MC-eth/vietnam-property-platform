@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { HcmcMapboxBase } from "@/components/map/hcmc-mapbox-base";
 
-// Internal Phase 1 Mapbox validation route — not linked from navigation.
+// Internal Mapbox preview route — not linked from navigation.
 export const metadata: Metadata = {
   title: "Map Preview (internal)",
   robots: { follow: false, index: false },
@@ -9,8 +9,13 @@ export const metadata: Metadata = {
 
 export default function MapPreviewPage() {
   return (
-    <main className="mx-auto max-w-5xl px-5 py-8">
-      <h1 className="mb-4 text-lg font-semibold text-[#1F2937]">Mapbox base — Phase 1 validation</h1>
+    <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+      <p className="mb-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#B8923A]">
+        Internal preview
+      </p>
+      <h1 className="mb-5 font-serif text-2xl font-medium text-[#123C35]">
+        Cinematic map foundation
+      </h1>
       <HcmcMapboxBase />
     </main>
   );
